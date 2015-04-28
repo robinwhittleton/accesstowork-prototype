@@ -41,12 +41,10 @@
    <div class="form-group">
 	  	 <fieldset>
 	    
-		    <legend class="form-label-bold">Workplace address</legend>
-		    
-		    <p>Workplace address additional information here.</p>
+		    <legend class="form-label-bold"></legend>
 		    
 		    <div class="form-group">
-		    	<p class="form-label">Address</p>
+		    	<p class="form-label">Work address</p>
 		      <label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
 		      <label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
 		      <label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
@@ -63,21 +61,19 @@
   	
   	<div class="form-group">
   		<fieldset>
-	    
-		    <legend class="form-label-bold main-legend">Employer contact</legend>
-		    
-		    <div class="form-group">
-		  		<label class="form-label" for="employer-name">Name</label>
+ <div class="form-group">
+		  		<label class="form-label" for="employer-name">Employer contact</label>
+				<p class="helper above">This should be someone who could help with a workplace assessment if you need one.</p>
 			    <input class="form-control" type="text" id="employer-name">
 		  	</div>
 		  	
 		  	<div class="form-group">
-		  		<label class="form-label" for="job-title">Job title</label>
+		  		<label class="form-label" for="job-title">Their job title</label>
 			    <input class="form-control" type="text" id="job-title">
 		  	</div>
 		  	
 		  	<div class="form-group">
-		  		<label class="form-label" for="telephone-number">Contact phone or mobile number</label>
+		  		<label class="form-label" for="telephone-number">Their contact number</label>
 				  <input class="form-control" id="telephone-number" type="text">
 		  	</div>
 		  	
@@ -89,7 +85,8 @@
   	<div class="form-group">
   			
 		  	<fieldset class="inline">
-			    <legend class="form-label-bold">Do we need to send invoices or written information to an address different to those above?</legend>
+			<!--
+			    <legend class="form-label-bold">Alternative postal address</legend>
 			    <div class="form-group form-group-compound">
 			      <label class="block-label" data-target="thirdparty" for="radio-indent-3partyyes">
 			        <input id="radio-indent-3partyyes" type="radio" name="radio-indent-group" value="Yes">
@@ -100,10 +97,12 @@
 			        No
 			      </label>
 			    </div>
-			    <div class="panel-indent js-hidden" id="thirdparty">
-			    	
+			
+			    <div class="panel-indent" id="thirdparty">
+			  -->  	
 			    	<div class="form-group">
-				    	<p class="form-label">Address</p>
+				    	<p class="form-label">Alternative postal address (optional)</p>
+						<p class="helper above">Enter a different address if needed for letters or invoices, eg a head office</p>
 				      <label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
 				      <label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
 				      <label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
@@ -113,8 +112,9 @@
 				  	  <label class="form-label" for="address">Postcode</label>
 				  	  <input type="text" class="form-control-1-4" id="postcode">
 				  	</div>
-			    	
+			    <!--	
 			    </div>
+				-->
 			  </fieldset>
 
   	</div>
