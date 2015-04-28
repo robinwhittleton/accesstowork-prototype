@@ -75,3 +75,77 @@ textarea {
     @include core-19;
   }
 }
+
+
+
+/* Intro page */
+
+.intro-nav {
+	padding-bottom: 1.2em;
+	border-bottom: 1px solid #bbb;
+	ol {
+		list-style: none;
+		li {
+			display: inline-block;
+			width: 48%;
+			padding: 6px 0;
+		}
+	}
+}
+
+.intro-content {
+	
+}
+
+.intro-next {
+	margin-top: 2em;
+	padding-bottom: 1.2em;
+	border-bottom: 1px solid #bbb;
+	overflow: hidden;
+	a {
+		float: right;
+		display: block;
+		width: 35%;
+		padding: 20px 60px 20px 10px;
+		font-size: 28px;
+		text-decoration: none;
+		background: transparent url('/public/img/arrow.png') no-repeat 92% 18px;
+		text-align: right;
+		&.first {
+			float: left;
+			text-align: left;
+			padding: 20px 10px 20px 60px;
+			background: transparent url('/public/img/arrow2.png') no-repeat 8% 18px;
+		}
+		span {
+			display: block;
+			font-size: 19px;
+		}
+		&:hover {
+			background-color: #eee;
+			text-decoration: underline;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		a {
+			font-size: 19px;
+			width: 28%;
+			span {
+				font-size: 16px;
+			}
+		}
+	}
+}
+
+.intro-right {
+	border-top: 10px solid #005ea5;
+	padding-top: 12px;
+}
+
+.intro-right-nav {
+	margin-top: -10px;
+	li {
+		padding: 5px 0;
+		font-size: 17px;
+	}
+}
