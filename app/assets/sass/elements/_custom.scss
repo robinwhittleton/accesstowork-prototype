@@ -167,3 +167,15 @@ textarea {
 		font-size: 17px;
 	}
 }
+
+.application-notice {
+	padding: 0 4em 0 3em;
+}
+
+.help-notice {
+	background: url(https://assets.digital.cabinet-office.gov.uk/static/icon-important-132af33c6e868e9f8702ce2f968e3a03.png) no-repeat scroll 0 0.7em;
+background-size: 34px 34px;
+	p{
+		font-weight: 600;
+	}
+}
