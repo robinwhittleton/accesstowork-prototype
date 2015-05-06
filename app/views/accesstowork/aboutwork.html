@@ -1,0 +1,165 @@
+{{<layout}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="phase-banner">
+    <p>
+      <strong class="phase-tag">ALPHA</strong>
+      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
+    </p>
+  </div>
+
+
+
+
+<div class="grid-row">
+
+
+
+
+{{>includes/leftcol}}
+
+
+<div class="column-two-thirds">
+
+ 
+
+<h1 class="form-title heading-large">
+	<span class="section-progress">Section 3 of 4</span>
+      About your job
+    </h1>
+    
+
+
+<form action="/" method="post" class="form">
+
+  	<div class="form-group">
+      <fieldset class="inline">
+        <legend class="form-label-bold">When did you start this work?</legend>
+
+        <div class="form-date">
+          <p class="form-hint">For example, 08 4 2014.</p>
+
+          <div class="form-group form-group-day">
+            <label for="dob-day">Day</label>
+            <input type="text" class="form-control" id="dob-day">
+          </div>
+          <div class="form-group form-group-month">
+            <label for="dob-month">Month</label>
+            <input type="text" class="form-control" id="dob-month">
+          </div>
+          <div class="form-group form-group-year">
+            <label for="dob-year">Year</label>
+            <input type="text" class="form-control" id="dob-year">
+          </div>
+        </div>
+
+      </fieldset>
+    </div>
+    
+    
+    <div class="form-group">
+    	<fieldset>
+		    <legend class="form-label-bold">Which days of the week do you work?</legend>
+		    <p class="helper above">Select all the days you work.</p>
+		    <div class="form-group form-group-compound">
+		      <label class="block-label" for="mon">
+		        <input id="mon" type="checkbox" value="mon">
+		        Monday
+		      </label>
+		       <label class="block-label" for="tue">
+		        <input id="tue" type="checkbox" value="tue">
+		        Tuesday
+		      </label>
+		      <label class="block-label" for="wed">
+		        <input id="wed" type="checkbox" value="wed">
+		        Wednesday
+		      </label>
+		      <label class="block-label" for="thu">
+		        <input id="thu" type="checkbox" value="thu">
+		        Thursday
+		      </label>
+		      <label class="block-label" for="fri">
+		        <input id="fri" type="checkbox" value="fri">
+		        Friday
+		      </label>
+		      <label class="block-label" for="sat">
+		        <input id="sat" type="checkbox" value="sat">
+		        Saturday
+		      </label>
+		      <label class="block-label" for="sun">
+		        <input id="sun" type="checkbox" value="sun">
+		        Sunday
+		      </label>
+		    </div>
+		  </fieldset>
+    </div>
+    
+    <div class="form-group">
+  		<label class="form-label-bold" for="job-title">How many hours per week do you work?</label>
+	    <input class="form-control-1-4" type="tel" id="job-title">
+  	</div>
+
+  	<div class="form-group">
+  	
+  		<fieldset class="inline">
+		    <legend class="form-label-bold">Do you know when this work will end?</legend>
+		    <div class="form-group form-group-compound">
+		      <label class="block-label" data-target="end-date" for="end-yes">
+		        <input id="end-yes" type="radio" name="radio-indent-group" value="Yes">
+		        Yes
+		      </label>
+		      <label class="block-label" for="end-no">
+		        <input id="end-no" type="radio" name="radio-indent-group" value="No">
+		        No
+		      </label>
+		    </div>
+		    <div class="panel-indent js-hidden" id="end-date">
+		     	<fieldset>
+			        <legend class="form-label-bold-inner">End date</legend>
+			
+			        <div class="form-date">
+			          <p class="form-hint">For example, 08 4 2014</p>
+			
+			          <div class="form-group form-group-day">
+			            <label for="dob-day">Day</label>
+			            <input type="text" class="form-control" id="dob-day">
+			          </div>
+			          <div class="form-group form-group-month">
+			            <label for="dob-month">Month</label>
+			            <input type="text" class="form-control" id="dob-month">
+			          </div>
+			          <div class="form-group form-group-year">
+			            <label for="dob-year">Year</label>
+			            <input type="text" class="form-control" id="dob-year">
+			          </div>
+			        </div>
+			
+			      </fieldset>
+		    </div>
+		  </fieldset>
+		  
+  	</div>
+
+  	    <!-- Primary buttons, secondary links -->
+    <div class="form-group">
+      <ul>
+		<li><a href="aboutdisability" class="button">Next</a></li>
+        <li><a href="javascript:history.go(-1);">Back</a></li>
+      </ul>
+    </div>
+
+</form>
+
+</div>
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
