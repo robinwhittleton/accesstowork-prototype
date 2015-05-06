@@ -29,13 +29,18 @@
  
 
 <h1 class="form-title heading-large">
-	<span class="section-progress">Section 3 of 4</span>
+	<span class="section-progress">Section 5 of 6</span>
       About your job
     </h1>
     
 
 
 <form action="/" method="post" class="form">
+
+    <div class="form-group">
+  		<label class="form-label-bold" for="work-days">What does your work involve?</label>
+	    <textarea class="form-control" id="work-days" placeholder="For example, manual labour, office based, communications."></textarea>
+  	</div>
 
   	<div class="form-group">
       <fieldset class="inline">
@@ -64,11 +69,11 @@
     
     <div class="form-group">
   		<label class="form-label-bold" for="work-days">What days do you work?</label>
-	    <textarea class="form-control" id="work-days" placeholder="E.g. five days a week, six nights over two weeks"></textarea>
+	    <textarea class="form-control" id="work-days" placeholder="For example, 5 days a week, 6 nights over 2 weeks."></textarea>
   	</div>
     
     <div class="form-group">
-  		<label class="form-label-bold" for="job-title">How many hours per week do you work?</label>
+  		<label class="form-label-bold" for="job-title">How many hours a week do you work?</label>
 	    <input class="form-control-1-4" type="tel" id="job-title">
   	</div>
 
@@ -88,10 +93,10 @@
 		    </div>
 		    <div class="panel-indent js-hidden" id="end-date">
 		     	<fieldset>
-			        <legend class="form-label-bold-inner">Please tell us your end date if you know it.</legend>
+			        <legend class="form-label-bold-inner">End date (optional)</legend>
 			
 			        <div class="form-date">
-			          <p class="form-hint">For example, 08 4 2014</p>
+			          <!-- <p class="form-hint">For example, 08 4 2014</p> -->
 			
 			          <div class="form-group form-group-day">
 			            <label for="dob-day">Day</label>
