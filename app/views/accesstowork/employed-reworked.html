@@ -1,0 +1,132 @@
+{{<layout}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="phase-banner">
+    <p>
+      <strong class="phase-tag">ALPHA</strong>
+      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
+    </p>
+  </div>
+
+
+
+
+<div class="grid-row">
+
+
+
+
+{{>includes/leftcol}}
+
+
+<div class="column-two-thirds">
+
+ 
+
+<h1 class="form-title heading-large">
+	<span class="section-progress">Section 4 of 6</span>
+    About your job
+</h1>
+    
+<form action="/" method="post" class="form">
+
+	<fieldset>
+	
+	<legend class="form-label-bold main-legend">Job details</legend>
+
+		<div class="form-group">
+		  	<label class="form-label" for="job-title">Your job title</label>
+			<input class="form-control" type="text" id="job-title">
+		</div>
+	
+		<div class="form-group">
+			<label class="form-label" for="company-name">Your employer</label>
+		    <input class="form-control" type="text" id="company-name">
+	  	</div>
+	
+		
+		<div class="form-group">
+		  	<fieldset>	
+		  		<legend class="form-label-bold space-legend main-legend">Employers address</legend>    
+			    <div class="form-group">
+					<p class="form-label">Address</p>
+					<label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
+					<label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
+					<label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
+			  	</div>		  	
+			  	<div class="form-group">
+					<label class="form-label" for="address">Postcode</label>
+					<input type="text" class="form-control-1-4" id="postcode">
+			  	</div>	  	
+		  	</fieldset> 
+		</div>
+	  	
+	
+	
+		<div class="form-group">
+			<fieldset>
+				<legend class="form-label-bold main-legend">Your Manager</legend>
+				
+				<div class="form-group">
+					<label class="form-label" for="employer-name">Their Name</label>
+					<input class="form-control" type="text" id="employer-name">
+			  	</div>
+				
+				<!--
+			  	<div class="form-group">
+			  		<label class="form-label" for="job-title">Their job title</label>
+				    <input class="form-control" type="text" id="job-title">
+			  	</div>
+				-->
+			  	
+			  	<div class="form-group">
+			  		<label class="form-label" for="telephone-number">Their contact number</label>
+					<input class="form-control" id="telephone-number" type="text">
+			  	</div>
+		  	
+			</fieldset>
+		</div>
+		
+		<!--
+		<div class="form-group">	
+			<fieldset class="inline">
+				<legend class="form-label-bold space-legend">Alternative postal address (optional)</legend>
+				<div class="form-group">
+					<p class="helper above">Enter a different address if needed for letters or invoices, eg a head office.</p>
+				    <label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
+				    <label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
+				    <label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
+			  	</div>		  	
+			  	<div class="form-group">
+				  	<label class="form-label" for="address">Postcode</label>
+				  	<input type="text" class="form-control-1-4" id="postcode">
+			  	</div>
+			</fieldset>
+		</div>	
+		-->
+	
+	</fieldset>
+
+    <!-- Primary buttons, secondary links -->
+    <div class="form-group">
+	    <ul>
+			<li><a href="aboutwork" class="button">Next</a></li>
+	        <li><a href="aboutjob">Back</a></li>
+	    </ul>
+    </div>
+
+  </form>
+  
+</div>
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
