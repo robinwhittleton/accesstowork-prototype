@@ -10,7 +10,6 @@ $(document).on("ready",function()
 				var dest = $(el).data('dest');
 				window.location.href = dest;
 			}
-			
 		});
 	});
 });
