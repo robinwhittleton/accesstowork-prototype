@@ -20,3 +20,9 @@
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you,
 // either add and import new partial files, or modify those in GOV.UK elements to fit your user needs.
+.button-get-started {
+	padding: 0.60em 1.7em 0.45em 0.67em;
+	background-image: url(/public/images/start-button-arrow.png);
+	background-position: 100% 50%;
+	background-repeat: no-repeat;
+}
