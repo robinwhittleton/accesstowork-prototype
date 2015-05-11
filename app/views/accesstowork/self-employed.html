@@ -37,50 +37,68 @@
 
 <form action="/" method="post" class="form">
 
-	<div class="form-group">
-	  	<label class="form-label-bold" for="job-title">Your job title</label>
-		<input class="form-control" type="text" id="job-title">
-	</div>
 
-	<div class="form-group">
-	    <fieldset class="inline">
-	    <legend class="form-label-bold">Is your work address different to your home address?</legend>
-	    <div class="form-group form-group-compound">
-			<label class="block-label" for="eligibility1-yes" data-target="eligibility-q1">
-				<input id="eligibility1-yes" type="radio" name="radio-indent-group" value="Yes">
-				Yes
-			</label>
-			<label class="block-label" for="eligibility1-no">
-				<input id="eligibility1-no" type="radio" name="radio-indent-group" value="No">
-				No
-			</label>
-	    </div>
-	    <div class="panel-indent js-hidden" id="eligibility-q1">
-			<div class="form-group">
-			  	 <fieldset>    
-				    <div class="form-group">
-				    	<p class="form-label">Your work address</p>
-				      <label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
-				      <label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
-				      <label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
-				  	</div>	  	
-				  	<div class="form-group">
-				  	  <label class="form-label" for="address">Postcode</label>
-				  	  <input type="text" class="form-control-1-4" id="postcode">
-				  	</div>  	
-			  	</fieldset> 
-			</div>	      
-	    </div>
-	  </fieldset>
-    </div>
+	<fieldset>
+		<legend class="hidden-legend">Job details</legend>
+
+		<div class="form-group">
+		  	<label class="form-label-bold" for="job-title">Your job title</label>
+			<input class="form-control" type="text" id="job-title">
+		</div>
+	
+		<div class="form-group">
+			 <fieldset class="inline">
+			    <legend class="form-label-bold">Is your work address different to your home address?</legend>
+			    
+			    <div class="form-group form-group-compound">
+					<label class="block-label" for="eligibility1-yes" data-target="eligibility-q1">
+						<input id="eligibility1-yes" type="radio" name="radio-indent-group" value="Yes">
+						Yes
+					</label>
+					<label class="block-label" for="eligibility1-no">
+						<input id="eligibility1-no" type="radio" name="radio-indent-group" value="No">
+						No
+					</label>
+			    </div>
+		
+			    <div class="panel-indent js-hidden" id="eligibility-q1">
+				  	 <fieldset>    
+				  	 	<legend class="form-label">Your work address</legend>
+						    <div class="form-group">
+						      <label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
+						      <label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
+						      <label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
+						  	</div>	  	
+						  	<div class="form-group">
+						  	  <label class="form-label" for="address">Postcode</label>
+						  	  <input type="text" class="form-control-1-4" id="postcode">
+						  	</div>  	
+				  	</fieldset> 	      
+			    </div>
+			    
+			 </fieldset>
+		</div>
+		 
+	</fieldset>
+	 
+	
+
 
     <!-- Primary buttons, secondary links -->
-    <div class="form-group">
-      <ul>
-		<li><a href="aboutwork" class="button">Next</a></li>
-        <li><a href="aboutjob">Back</a></li>
-      </ul>
-    </div>
+
+    
+    <fieldset class="primary-nav">
+		<legend>Navigation</legend>
+			<div class="form-group">     
+		      <ul>
+				<li><a href="aboutwork" class="button">Next</a></li>
+				<li><a href="aboutjob">Back</a></li>
+		      </ul>
+			</div>
+	</fieldset>
+    
+    
+    
 
   </form>
   
