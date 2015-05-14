@@ -216,3 +216,15 @@ background-size: 34px 34px;
 		color: #fff;
 	}
 }
+
+table {
+	th {
+		font-size: 19px;
+	}
+	td {
+		&:first-child {
+			width: 42%;
+			padding-right: 5%;
+		}
+	}
+}
