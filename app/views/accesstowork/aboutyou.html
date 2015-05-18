@@ -40,12 +40,12 @@
 
 	<fieldset>
 	
-		<legend class="hidden-legend">Your personal and contact details</legend>
+		<legend class="hidden-legend" aria-hidden="true">Your personal and contact details</legend>
 	
 		
 	    <div class="form-group">
-		    <label class="form-label-bold" for="first-name-2">Full name</label>
-		    <input class="form-control" id="first-name-2" type="text">
+		    <label class="form-label-bold" for="full-name">Full name</label>
+		    <input class="form-control" id="full-name" type="text" aria-required="true">
 	    </div>
 			  
 			  
@@ -58,15 +58,15 @@
 	
 	          <div class="form-group form-group-day">
 	            <label for="dob-day">Day</label>
-	            <input type="text" class="form-control" id="dob-day">
+	            <input type="text" class="form-control" id="dob-day" aria-required="true">
 	          </div>
 	          <div class="form-group form-group-month">
 	            <label for="dob-month">Month</label>
-	            <input type="text" class="form-control" id="dob-month">
+	            <input type="text" class="form-control" id="dob-month" aria-required="true">
 	          </div>
 	          <div class="form-group form-group-year">
 	            <label for="dob-year">Year</label>
-	            <input type="text" class="form-control" id="dob-year">
+	            <input type="text" class="form-control" id="dob-year" aria-required="true">
 	          </div>
 	        </div>
 	
@@ -80,14 +80,14 @@
 			    <!-- <p>If you have no fixed address, provide a contact address where we can write to you.</p> -->
 			    
 			    <div class="form-group">
-			      <label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
-			      <label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
-			      <label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
+			      <label class="form-label" for="address-line1"><input type="text" class="form-control" id="address-line1"></label>
+			      <label class="form-label" for="address-line2"><input type="text" class="form-control" id="address-line2"></label>
+			      <label class="form-label" for="address-line3"><input type="text" class="form-control" id="address-line3"></label>
 			    </div>
 			    
 			    <div>
-			      <label class="form-label" for="address">Postcode</label>
-			      <input type="text" class="form-control-1-4" id="postcode">
+			      <label class="form-label" for="postcode">Postcode</label>
+			      <input type="text" class="form-control-1-4" id="postcode" aria-required="true">
 			    </div>
 			        
 		    </fieldset>
@@ -97,7 +97,7 @@
 	    <div class="form-group">
 	       <label class="form-label-bold" for="telephone-number">Contact phone or mobile number</label>
 	       <p class="form-help">Alternatively, tell us here if you do not have a contact number.</p>
-	      <input class="form-control" id="telephone-number" type="text">
+	      <input class="form-control" id="telephone-number" type="text" aria-required="true">
 	      <label class="form-checkbox" for="checkbox-telephone-number">
 	        <input id="checkbox-telephone-number" type="checkbox" value="checkbox-telephone-number">
 	        I need to be contacted using a text phone
@@ -107,7 +107,7 @@
 	
 	    <div class="form-group">
 	      <label class="form-label-bold" for="email-address">Email address</label>
-	      <input class="form-control" id="email-address" type="text">
+	      <input class="form-control" id="email-address" type="text" aria-required="true">
 	      <label class="form-checkbox" for="checkbox-email-address">
 	      <input id="checkbox-email-address" type="checkbox" value="checkbox-email-address">
 	        I would prefer to be contacted by email 
@@ -121,7 +121,7 @@
     <!-- Primary buttons, secondary links -->
     
 	<fieldset class="primary-nav">
-		<legend>Navigation</legend>
+		<legend>Form Navigation</legend>
 			<div class="form-group">     
 		      <ul>
 				<li><a href="thirdparty" class="button">Next</a></li>

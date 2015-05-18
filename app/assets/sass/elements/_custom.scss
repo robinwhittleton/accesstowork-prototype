@@ -220,11 +220,22 @@ background-size: 34px 34px;
 table {
 	th {
 		font-size: 19px;
+		vertical-align: top;
 	}
 	td {
+		vertical-align: top;
 		&:first-child {
 			width: 42%;
 			padding-right: 5%;
+		}
+	}
+}
+
+.header-proposition {
+	h1 {
+		padding-top: 5px;
+		@media screen and (max-width: 640px) {
+			padding-top: 0;
 		}
 	}
 }

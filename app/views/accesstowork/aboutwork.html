@@ -38,12 +38,12 @@
 <form action="/" method="post" class="form">
 
 	<fieldset>
-		<legend class="hidden-legend">Your job and what you do</legend>
+		<legend class="hidden-legend" aria-hidden="true">Your job and what you do</legend>
 
 		    <div class="form-group">
-		  		<label class="form-label-bold" for="work-days">What does your day to day work involve?</label>
-		  		<p class="form-hint">For example, manual labour, office-based work, communications.</p>
-			    <textarea class="form-control" id="work-days"></textarea>
+		  		<label class="form-label-bold" for="work-involve" id="work-involveexample">What does your day to day work involve?</label>
+		  		<p class="form-hint" aria-labelledby="work-involveexample">For example, manual labour, office-based work, communications.</p>
+			    <textarea class="form-control" id="work-involve"></textarea>
 		  	</div>
 		
 		  	<div class="form-group">
@@ -72,8 +72,8 @@
 		    
 		    
 		    <div class="form-group">
-		  		<label class="form-label-bold" for="work-days">What days do you work?</label>
-		  		<p class="form-hint">For example, 5 days a week, 6 nights over 2 weeks.</p>
+		  		<label class="form-label-bold" for="work-days" id="work-daysexample">What days do you work?</label>
+		  		<p class="form-hint" aria-labelledby="work-daysexample">For example, 5 days a week, 6 nights over 2 weeks.</p>
 			    <textarea class="form-control" id="work-days"></textarea>
 		  	</div>
 		    
@@ -105,16 +105,16 @@
 					          <!-- <p class="form-hint">For example, 08 4 2014</p> -->
 					
 					          <div class="form-group form-group-day">
-					            <label for="dob-day">Day</label>
-					            <input type="text" class="form-control" id="dob-day">
+					            <label for="dob-day2">Day</label>
+					            <input type="text" class="form-control" id="dob-day2">
 					          </div>
 					          <div class="form-group form-group-month">
-					            <label for="dob-month">Month</label>
-					            <input type="text" class="form-control" id="dob-month">
+					            <label for="dob-month2">Month</label>
+					            <input type="text" class="form-control" id="dob-month2">
 					          </div>
 					          <div class="form-group form-group-year">
-					            <label for="dob-year">Year</label>
-					            <input type="text" class="form-control" id="dob-year">
+					            <label for="dob-year2">Year</label>
+					            <input type="text" class="form-control" id="dob-year2">
 					          </div>
 					        </div>
 					      </fieldset>

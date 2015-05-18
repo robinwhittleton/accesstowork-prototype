@@ -36,7 +36,7 @@
 <form action="/" method="post" class="form">
 
 	<fieldset>
-		<legend class="hidden-legend">Your role and who you work for</legend>
+		<legend class="hidden-legend" aria-hidden="true">Your role and who you work for</legend>
 
 	<div class="form-group">
 	  	<label class="form-label-bold" for="job-title">Your job title</label>
@@ -53,12 +53,12 @@
 	  	<fieldset>	    
 	  		<legend class="form-label-bold main">Address</legend>
 		    <div class="form-group">
-				<label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
-				<label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
-				<label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
+				<label class="form-label" for="address-line1"><input type="text" class="form-control" id="address-line1"></label>
+				<label class="form-label" for="address-line2"><input type="text" class="form-control" id="address-line2"></label>
+				<label class="form-label" for="address-line3"><input type="text" class="form-control" id="address-line3"></label>
 		  	</div>		  	
 		  	<div>
-				<label class="form-label" for="address">Postcode</label>
+				<label class="form-label" for="postcode">Postcode</label>
 				<input type="text" class="form-control-1-4" id="postcode">
 		  	</div>	  	
 	  	</fieldset> 
@@ -70,36 +70,12 @@
 		<label class="form-label-bold" for="employer-name">Your manager</label>
 		<input class="form-control" type="text" id="employer-name">
   	</div>
-	
-	<!--
-  	<div class="form-group">
-  		<label class="form-label" for="job-title">Their job title</label>
-	    <input class="form-control" type="text" id="job-title">
-  	</div>
-	-->
-  	
+
   	<div class="form-group">
   		<label class="form-label-bold" for="telephone-number">Their contact number</label>
 		  <input class="form-control" id="telephone-number" type="text">
   	</div>
-	
-	<!--
-	<div class="form-group">	
-		<fieldset class="inline">
-			<legend class="form-label-bold space-legend">Alternative postal address (optional)</legend>
-			<div class="form-group">
-				<p class="helper above">Enter a different address if needed for letters or invoices, eg a head office.</p>
-			    <label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
-			    <label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
-			    <label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
-		  	</div>		  	
-		  	<div class="form-group">
-			  	<label class="form-label" for="address">Postcode</label>
-			  	<input type="text" class="form-control-1-4" id="postcode">
-		  	</div>
-		</fieldset>
-	</div>	
-	-->
+
 
 	</fieldset>
 

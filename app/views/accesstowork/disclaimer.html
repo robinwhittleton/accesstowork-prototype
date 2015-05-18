@@ -31,14 +31,12 @@
     </h1>
     
 
-
-<form action="/" method="post" class="form">
     
      <div class="form-group">
 	 	
-	 	<p class="font-small">To get an Access to Work grant you must be:</p>
+	 	<p class="font-small" id="grant">To get an Access to Work grant you must be:</p>
 	 	   
- 	    <ul class="list-bullet">
+ 	    <ul class="list-bullet" aria-labelledby="grant">
 			<li>16 or over</li>
 			<li>have a disability that makes it difficult for you to do your current job or a job you're about to start</li>
 			<li>live and work in England, Scotland or Northern Ireland</li>
@@ -51,6 +49,10 @@
      </div>
 
 
+<form action="/" method="post" class="form">
+
+<fieldset class="primary-nav">
+	<legend>Form Navigation</legend>
 
     <!-- Primary buttons, secondary links -->
     <div class="form-group">
@@ -59,6 +61,8 @@
         <li><a href="intro4">Back</a></li>
       </ul>
     </div>
+    
+</fieldset>
 
   </form>
   
