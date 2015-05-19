@@ -6,10 +6,15 @@ module.exports = {
     });
 
     app.get('/examples/template-data', function (req, res) {
-      res.render('examples/template-data', { 'name' : 'Foo' });
+      res.render('examples/template-data', { 'name' : 'Test' });
+      
     });
+    
 
     // add your routes here
 
   }
 };
+
+
+
