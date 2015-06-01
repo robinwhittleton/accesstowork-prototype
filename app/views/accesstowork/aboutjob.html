@@ -32,32 +32,62 @@
 
 <form action="/" method="post" class="form">
 
+	<fieldset class="inline" id="havejob">
+	    <legend class="form-label-bold">Do you already have a job?</legend>
+	    <div class="form-group form-group-compound">
+	      <label class="block-label" data-target="employment-status" for="radio-indent-3partyyes">
+	        <input id="radio-indent-3partyyes" type="radio" name="radio-indent-group" value="Yes">
+	        Yes
+	      </label>
+	      <label class="block-label" data-target="csi-status" for="radio-indent-3partyno">
+	        <input id="radio-indent-3partyno" type="radio" name="radio-indent-group" value="No">
+	        No
+	      </label>
+	    </div>			    
+  	</fieldset>
 
-  	 <fieldset id="employment-status">
-	    <legend class="form-label-bold">How are you employed?</legend>
-	    
-	    <div class="form-group">
-	      <label class="block-label" for="employed">
-	        <input id="employed" type="radio" name="status" value="Employed" data-dest="employed">
-	        Employed
-	      </label>
-	      <label class="block-label" for="self-employed">
-	        <input id="self-employed" type="radio" name="status" value="Self" data-dest="self-employed">
-	        Self-employed
-	      </label>
-	      <label class="block-label" for="ltd">
-	        <input id="ltd" type="radio" name="status" value="Director of a limited company" data-dest="limited-company">
-	        Director of a limited company
-	      </label>
-	    </div>
+	<div id="employment-status" class="js-hidden panel-indent">
+		<fieldset>
+			<legend class="form-label">How are you employed?</legend>
+			<div class="form-group">
+				<label class="block-label" for="employed">
+				<input id="employed" type="radio" name="status" value="Employed" data-dest="employed">
+				Employed
+				</label>
+				<label class="block-label" for="self-employed">
+				<input id="self-employed" type="radio" name="status" value="Self" data-dest="self-employed">
+				Self-employed
+				</label>
+				<label class="block-label" for="ltd">
+				<input id="ltd" type="radio" name="status" value="Director of a limited company" data-dest="limited-company">
+				Director of a limited company
+				</label>
+			</div>
+		</fieldset>
+	</div>
 
-	  </fieldset>
+	<div id="csi-status" class="inline js-hidden panel-indent">
+		<fieldset>
+		    <legend class="form-label">Do you have an interview?</legend>
+		    <div class="form-group form-group-compound">
+		      <label class="block-label" for="radio-indent-interview-yes">
+		        <input id="radio-indent-interview-yes" type="radio" name="radio-indent-group-3" value="Yes" data-dest="aboutinterview">
+		        Yes
+		      </label>
+		      <label class="block-label" for="radio-indent-interview-no">
+		        <input id="radio-indent-interview-no" type="radio" name="radio-indent-group-3" value="No" data-dest="exitinterview">
+		        No
+		      </label>
+		    </div>			    
+	  	</fieldset>	
+  	</div>  
 
 
 
     <!-- Primary buttons, secondary links -->
 
     
+    <br />
     <fieldset class="primary-nav form-group">
 		<legend>Form Navigation</legend>    
 		      <ul>
