@@ -4,7 +4,7 @@
 
 {{$content}}
 
-<main id="content" role="main">
+<main id="content" name="during-content" role="main">
 
 <div class="phase-banner">
     <p>
@@ -30,7 +30,7 @@
 <h1 class="form-title heading-large" id="condition"><span class="section-progress">Section 4 of 4</span> During work</h1>
 
 
-<form action="/" method="post" class="form">
+<form action="review" method="post" class="form">
 
 	<fieldset>
 		<legend class="hidden-legend" aria-hidden="true">How your condition affects you during work</legend>
@@ -41,11 +41,11 @@
 			    <legend class="form-label-bold">Does your condition affect you at work?</legend>
 			    <div class="form-group form-group-compound">
 			      <label class="block-label" data-target="effects" for="radio-indent4yes">
-			        <input id="radio-indent4yes" type="radio" name="radio-indent-group2" value="Yes">
+			        <input id="radio-indent4yes" name="during-work" type="radio" value="Yes">
 			        Yes
 			      </label>
 			      <label class="block-label" for="radio-indent4no">
-			        <input id="radio-indent4no" type="radio" name="radio-indent-group2" value="No">
+			        <input id="radio-indent4no" name="during-work" type="radio" value="No">
 			        No
 			      </label>
 			    </div>
@@ -57,17 +57,17 @@
 			    	
 			    	<div class="form-group">
 				      <label class="form-label" for="effect2">How does your condition affect you at work?</label>
-				      <textarea class="form-control" id="effect2"></textarea>
+				      <textarea class="form-control" id="effect2" name="during-effect"></textarea>
 				  	</div>
 				  	
 				  	<div class="form-group">
 				      <label class="form-label" for="coping2">How do you manage these difficulties?</label>
-				      <textarea class="form-control" id="coping2"></textarea>
+				      <textarea class="form-control" id="coping2" name="during-coping"></textarea>
 				  	</div>
 			    	
 			    	<div class="form-group">
 				      <label class="form-label" for="help2">What, if anything, do you think would help you?</label>
-				      <textarea class="form-control" id="help2"></textarea>
+				      <textarea class="form-control" id="help2" name="during-help"></textarea>
 				  	</div>
 			    	
 			    </div>
@@ -83,7 +83,7 @@
     <fieldset class="primary-nav form-group">
 		<legend>Navigation</legend>     
 		      <ul>
-				<li><a href="review" class="button">Next</a></li>
+		      	<li><input type="submit" value="Next" class="button"/></li>
 				<li><a href="javascript:history.go(-1);">Back</a></li>
 		      </ul>
 	</fieldset>

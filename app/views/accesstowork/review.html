@@ -27,7 +27,7 @@
 
 <h1 class="form-title heading-large" id="review">Review your answers</h1>
 	
-	
+		
 	<table class="form-group">
 	    <thead>
 	      <tr>
@@ -37,27 +37,28 @@
 	    <tbody>
 	      <tr>
 	        <td>Full name</td>
-	        <td>John Smith</td>
+	        <td>{{you-full-name}}</td>
 	      </tr>
 	      <tr>
 	        <td>Date of birth</td>
-	        <td>12 6 1978</td>
+	        <td>{{you-dob-day}}/{{you-dob-month}}/{{you-dob-year}}</td>
 	      </tr>
 	      <tr>
 	       <td>Your address</td>
-	        <td>10 Edgemoor Drive, Crosby, Liverpool, L23 8HU</td>
+	        <td>{{you-address-line1}},<br />{{you-address-line2}},<br />{{you-address-line3}},<br />{{you-postcode}}</td>
 	      </tr>
 	      <tr>
 	        <td>Contact number</td>
-	        <td>0151 000 0000</td>
+	        <td>{{you-telephone-number}}</td>
 	      </tr>
 	      <tr>
 	        <td>Email address</td>
-	        <td>test@accesstowork.com</td>
+	        <td>{{you-email-address}} &mdash; {{you-email-address-prefer}}</td>
 	      </tr>
 	    </tbody>
 	  </table>
 	  
+	  {{}}
 	  <table class="form-group">
 	    <thead>
 	      <tr>
@@ -67,15 +68,15 @@
 	    <tbody>
 	      <tr>
 	        <td>Their name</td>
-	        <td>Billy Jackson</td>
+	        <td>{{trd-name}}</td>
 	      </tr>
 	      <tr>
 	        <td>Their phone number</td>
-	        <td>01704 000 000</td>
+	        <td>{{trd-phone}}</td>
 	      </tr>
 	      <tr>
 	       <td>How they're related to you</td>
-	       <td>Uncle</td>
+	       <td>{{trd-relationship}}</td>
 	      </tr>
 	    </tbody>
 	  </table>
@@ -90,35 +91,47 @@
 	    <tbody>
 	      <tr>
 	        <td>How are you employed?</td>
-	        <td>Self-employed</td>
+	        <td>{{emp-status}}</td>
 	      </tr>
 	      <tr>
 	        <td>Your job title</td>
-	        <td>Manager</td>
+	        <td>{{employed-job-title}}</td>
+	      </tr>
+	      <tr>
+	        <td>Your employer</td>
+	        <td>{{employed-company-name}}</td>
+	      </tr>
+	      <tr>
+	        <td>Your line manager</td>
+	        <td>{{employed-employer-name}}</td>
+	      </tr>
+	      <tr>
+	        <td>Your line manager contact</td>
+	        <td>{{employed-telephone-number}}</td>
 	      </tr>
 	      <tr>
 	       <td>Work address</td>
-	       <td>10 Edgemoor Drive, Crosby, Liverpool, L23 8HU</td>
+	       <td>{{employed-address-line1}},<br />{{employed-address-line2}},<br />{{employed-postcode}},<br /></td>
 	      </tr>
 	      <tr>
 	       <td>What does your day to day work involve?</td>
-	       <td>Office based work</td>
+	       <td>{{work-work-involve}}</td>
 	      </tr>
 	      <tr>
 	       <td>When did you start this job?</td>
-	       <td>12 08 2014</td>
+	       <td>{{work-dob-day}}/{{work-dob-month}}/{{work-dob-year}}</td>
 	      </tr>
 	      <tr>
 	       <td>What days do you work?</td>
-	       <td>Monday to Friday</td>
+	       <td>{{work-work-days}}</td>
 	      </tr>
 	      <tr>
 	       <td>How many hours a week do you work?</td>
-	       <td>37.5</td>
+	       <td>{{work-job-hours}}</td>
 	      </tr>
 	      <tr>
 	       <td>Is this a permanent job?</td>
-	       <td>Yes</td>
+	       <td>{{work-end}}</td>
 	      </tr>
 	    </tbody>
 	  </table>
@@ -132,32 +145,28 @@
 	    </thead>
 	    <tbody>
 	      <tr>
-	        <td>Name of your condition or disability</td>
-	        <td>Blind</td>
-	      </tr>
-	      <tr>
 	        <td>How does your condition affect your travel?</td>
-	        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</td>
+	        <td>{{travel-effect}}</td>
 	      </tr>
 	      <tr>
 	        <td>How do you manage these difficulties?</td>
-	        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</td>
+	        <td>{{travel-coping}}</td>
 	      </tr>
 	      <tr>
 	        <td>What, if anything, do you think would help you?</td>
-	        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</td>
+	        <td>{{travel-help}}</td>
 	      </tr>
 	      <tr>
 	        <td>How does your condition affect you at work?</td>
-	        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</td>
+	        <td>{{during-effect}}</td>
 	      </tr>
 	      <tr>
 	        <td>How do you manage these difficulties?</td>
-	        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</td>
+	        <td>{{travel-coping}}</td>
 	      </tr>
 	      <tr>
 	        <td>What, if anything, do you think would help you?</td>
-	        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</td>
+	        <td>{{travel-help}}</td>
 	      </tr>
 	    </tbody>
 	  </table>

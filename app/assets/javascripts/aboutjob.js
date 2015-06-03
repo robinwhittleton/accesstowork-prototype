@@ -19,7 +19,9 @@ $(document).on("ready",function()
 						if ($(el).is(':checked'))
 						{
 							var dest = $(el).data('dest');
-							window.location.href = dest;
+							$('form').attr('action',dest);
+							$('form').submit();
+							// window.location.href = dest;
 						}
 					});					
 				} else {
@@ -31,7 +33,9 @@ $(document).on("ready",function()
 						if ($(el).is(':checked'))
 						{
 							var dest = $(el).data('dest');
-							window.location.href = dest;
+							$('form').attr('action',dest);
+							$('form').submit();
+							// window.location.href = dest;
 						}
 					});		
 				}

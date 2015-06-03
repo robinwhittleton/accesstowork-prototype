@@ -30,7 +30,7 @@
 <h1 class="form-title heading-large" id="condition"><span class="section-progress">Section 4 of 4</span>Travelling</h1>
 
 
-<form action="/" method="post" class="form">
+<form action="aboutdisability2" method="post" class="form">
 
 	<fieldset>
 		<legend class="hidden-legend" aria-hidden="true">How your condition affects your travel</legend>
@@ -41,11 +41,11 @@
 			    <legend class="form-label-bold">Does your condition affect your travel to or from work?</legend>
 			    <div class="form-group form-group-compound">
 			      <label class="block-label" data-target="descriptions" for="radio-indent-3partyyes">
-			        <input id="radio-indent-3partyyes" type="radio" name="radio-indent-group" value="Yes">
+			        <input id="radio-indent-3partyyes" type="radio" name="travel" value="Yes">
 			        Yes
 			      </label>
 			      <label class="block-label" for="radio-indent-3partyno">
-			        <input id="radio-indent-3partyno" type="radio" name="radio-indent-group" value="No">
+			        <input id="radio-indent-3partyno" type="radio" name="travel" value="No">
 			        No
 			      </label>
 			    </div>			    
@@ -55,17 +55,17 @@
 			    	
 			    	<div class="form-group">
 				      <label class="form-label" for="effect1">How does your condition affect your travel?</label>
-				      <textarea class="form-control" id="effect1"></textarea>
+				      <textarea class="form-control" id="effect1" name="travel-effect"></textarea>
 				  	</div>
 				  	
 				  	<div class="form-group">
 				      <label class="form-label" for="coping1">How do you manage these difficulties?</label>
-				      <textarea class="form-control" id="coping1"></textarea>
+				      <textarea class="form-control" id="coping1" name="travel-coping"></textarea>
 				  	</div>
 			    	
 			    	<div class="form-group">
 				      <label class="form-label" for="help1">What, if anything, do you think would help you?</label>
-				      <textarea class="form-control" id="help1"></textarea>
+				      <textarea class="form-control" id="help1" name="travel-help"></textarea>
 				  	</div>			    	
 			    	
 			    </div>
@@ -81,7 +81,7 @@
     <fieldset class="primary-nav form-group">
 		<legend>Navigation</legend>     
 		      <ul>
-				<li><a href="aboutdisability2" class="button">Next</a></li>
+		      	<li><input type="submit" value="Next" class="button"/></li>			
 				<li><a href="javascript:history.go(-1);">Back</a></li>
 		      </ul>
 	</fieldset>

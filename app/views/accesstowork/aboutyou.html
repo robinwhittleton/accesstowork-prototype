@@ -26,23 +26,21 @@
 
 <section class="column-two-thirds" aria-labelledby="aboutyou">
 
- 
 
 <h1 class="form-title heading-large" id="aboutyou"><span class="section-progress">Section 1 of 4</span> About you</h1>
     
 
 
-<form action="/" method="post" class="form">
+<form action="thirdparty" method="post" class="form">
 
 
 	<fieldset>
 	
-		<legend class="hidden-legend" aria-hidden="true">Your details</legend>
-	
+		<legend class="hidden-legend" aria-hidden="true">Your details</legend>	
 		
 	    <div class="form-group">
 		    <label class="form-label-bold" for="full-name">Full name</label>
-		    <input class="form-control" id="full-name" type="text" aria-required="true">
+		    <input class="form-control" id="full-name" name="you-full-name" type="text" aria-required="true">
 	    </div>
 			  
 			  
@@ -55,15 +53,15 @@
 	
 	          <div class="form-group form-group-day">
 	            <label for="dob-day">Day</label>
-	            <input type="text" class="form-control" id="dob-day" aria-required="true">
+	            <input type="text" class="form-control" id="dob-day" name="you-dob-day" aria-required="true">
 	          </div>
 	          <div class="form-group form-group-month">
 	            <label for="dob-month">Month</label>
-	            <input type="text" class="form-control" id="dob-month" aria-required="true">
+	            <input type="text" class="form-control" id="dob-month" name="you-dob-month" aria-required="true">
 	          </div>
 	          <div class="form-group form-group-year">
 	            <label for="dob-year">Year</label>
-	            <input type="text" class="form-control" id="dob-year" aria-required="true">
+	            <input type="text" class="form-control" id="dob-year" name="you-dob-year" aria-required="true">
 	          </div>
 	        </div>
 	
@@ -77,14 +75,14 @@
 			    <!-- <p>If you have no fixed address, provide a contact address where we can write to you.</p> -->
 			    
 			    <div class="form-group">
-			      <label class="form-label" for="address-line1"><input type="text" class="form-control" id="address-line1"></label>
-			      <label class="form-label" for="address-line2"><input type="text" class="form-control" id="address-line2"></label>
-			      <label class="form-label" for="address-line3"><input type="text" class="form-control" id="address-line3"></label>
+			      <label class="form-label" for="address-line1"><input type="text" class="form-control" id="address-line1" name="you-address-line1"></label>
+			      <label class="form-label" for="address-line2"><input type="text" class="form-control" id="address-line2" name="you-address-line2"></label>
+			      <label class="form-label" for="address-line3"><input type="text" class="form-control" id="address-line3" name="you-address-line3"></label>
 			    </div>
 			    
 			    <div>
 			      <label class="form-label" for="postcode">Postcode</label>
-			      <input type="text" class="form-control-1-4" id="postcode" aria-required="true">
+			      <input type="text" class="form-control-1-4" id="postcode" name="you-postcode" aria-required="true">
 			    </div>
 			        
 		    </fieldset>
@@ -94,15 +92,15 @@
 	    <div class="form-group">
 	      <label class="form-label-bold" for="telephone-number">Phone number</label>
 		  <p class="form-hint">This can be a landline, mobile or text phone number.</p>
-	      <input class="form-control" id="telephone-number" type="text" aria-required="true">
+	      <input class="form-control" id="telephone-number" name="you-telephone-number" type="text" aria-required="true">
 	    </div>
 	
 	
 	    <div class="form-group">
 	      <label class="form-label-bold" for="email-address">Email address</label>
-	      <input class="form-control" id="email-address" type="text" aria-required="true">
+	      <input class="form-control" id="email-address" name="you-email-address" type="text" aria-required="true">
 	      <label class="form-checkbox" for="checkbox-email-address">
-			<input id="checkbox-email-address" type="checkbox" value="checkbox-email-address">
+			<input id="checkbox-email-address" name="you-email-address-prefer" type="checkbox" value="checkbox-email-address">
 	        Check this box if you want to be contacted by email rather than phone.
 		  </label>
 	    </div>
@@ -117,7 +115,7 @@
 	<fieldset class="primary-nav form-group">
 		<legend>Form Navigation</legend>    
 		      <ul>
-				<li><a href="thirdparty" class="button">Next</a></li>
+		      	<li><input type="submit" value="Next" class="button" /></li>
 		        <li><a href="disclaimer">Back</a></li>
 		      </ul>
 	</fieldset>
