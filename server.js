@@ -1,6 +1,10 @@
 var path = require('path'),
     express = require('express'),
+    presenters = require(__dirname + '/app/presenters.js'),
+    defaults = require(__dirname + '/app/defaults.js'),
     routes = require(__dirname + '/app/routes.js'),
+    merge = require('merge'),
+    user_data = require(__dirname + '/lib/user_data.js'),
     app = express(),
     port = (process.env.PORT || 3000),
 
@@ -39,6 +43,9 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use(express.urlencoded());
+app.use(express.cookieParser());
+app.use(user_data.form_to_cookie(presenters));
 
 // routes (found in app/routes.js)
 
@@ -50,7 +57,7 @@ app.get(/^\/([^.]+)$/, function (req, res) {
 
 	var path = (req.params[0]);
 
-	res.render(path, function(err, html) {
+  res.render(path, merge(true, defaults, req.cookies), function(err, html) {
 		if (err) {
 			console.log(err);
 			res.send(404);
@@ -59,6 +66,11 @@ app.get(/^\/([^.]+)$/, function (req, res) {
 		}
 	});
 
+});
+
+app.post(/^\/([^.]+)$/, function (req, res) {
+  var path = (req.params[0]);
+  res.redirect(path);
 });
 
 // start the app

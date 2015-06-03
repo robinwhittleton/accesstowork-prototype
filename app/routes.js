@@ -1,3 +1,5 @@
+var user_data = require('../lib/user_data.js');
+
 module.exports = {
   bind : function (app) {
 
@@ -12,6 +14,11 @@ module.exports = {
     
 
     // add your routes here
+    app.get('/reset', function(req, res) 
+    {
+		user_data.clear(req, res);
+		res.redirect('/')
+	});
 
   }
 };

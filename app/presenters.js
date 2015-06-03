@@ -1,0 +1,2 @@
+presenters = {};
+module.export = presenters;
