@@ -1,0 +1,102 @@
+{{<layout}}
+
+{{$pageTitle}}About your disability{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="phase-banner">
+    <p>
+      <strong class="phase-tag">ALPHA</strong>
+      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
+    </p>
+  </div>
+
+
+
+
+<div class="grid-row">
+
+
+
+
+{{>includes/leftcol}}
+
+
+<section class="column-two-thirds" aria-labelledby="condition">
+
+
+<h1 class="form-title heading-large" id="condition"><span class="section-progress">Section 4 of 4</span>Travelling</h1>
+
+
+<form action="aboutdisability2" method="post" class="form">
+
+	<fieldset>
+		<legend class="hidden-legend" aria-hidden="true">How your condition affects your travel</legend>
+
+	  	<div class="form-group">
+  			
+		  	<fieldset class="inline">
+			    <legend class="form-label-bold">Does your condition cause you difficulties getting to or from work?</legend>
+			    <div class="form-group form-group-compound">
+			      <label class="block-label" data-target="descriptions" for="radio-indent-3partyyes">
+			        <input id="radio-indent-3partyyes" type="radio" name="travel" value="Yes">
+			        Yes
+			      </label>
+			      <label class="block-label" for="radio-indent-3partyno">
+			        <input id="radio-indent-3partyno" type="radio" name="travel" value="No">
+			        No
+			      </label>
+			    </div>			    
+			  </fieldset>
+			  
+			  <div class="panel-indent js-hidden" id="descriptions">
+			    	
+			    	<div class="form-group">
+				      <label class="form-label" for="effect1">What difficulties do you have?</label>
+				      <textarea class="form-control" id="effect1" name="travel-effect" spellcheck="false"></textarea>
+				  	</div>
+				  	
+				  	<div class="form-group">
+				      <label class="form-label" for="coping1">How do you manage these difficulties?</label>
+				      <textarea class="form-control" id="coping1" name="travel-coping" spellcheck="false"></textarea>
+				  	</div>
+			    	
+			    	<div class="form-group">
+				      <label class="form-label" for="help1">What, if anything, do you think would help you?</label>
+				      <textarea class="form-control" id="help1" name="travel-help" spellcheck="false"></textarea>
+				  	</div>			    	
+			    	
+			    </div>
+
+		</div>		
+		
+	</fieldset>
+  	
+
+
+    <!-- Primary buttons, secondary links -->
+
+    <fieldset class="primary-nav form-group">
+		<legend>Navigation</legend>     
+		      <ul>
+		      	<li><input type="submit" value="Next" class="button"/></li>			
+				<li><a href="javascript:history.go(-1);">Back</a></li>
+		      </ul>
+	</fieldset>
+	
+
+  </form>
+  
+</section>
+
+</div>
+
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+

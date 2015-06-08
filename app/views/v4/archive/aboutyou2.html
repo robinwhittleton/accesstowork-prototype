@@ -1,0 +1,101 @@
+{{<layout}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="phase-banner">
+    <p>
+      <strong class="phase-tag">ALPHA</strong>
+      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
+    </p>
+  </div>
+
+
+
+
+<div class="grid-row">
+
+
+
+{{>includes/leftcol}}
+
+
+<div class="column-two-thirds">
+
+ 
+
+<h1 class="form-title heading-large">
+	<span class="section-progress">Section 1 of 6</span>
+      About you
+    </h1>
+    
+
+
+<form action="/" method="post" class="form">
+
+	
+    
+   <div class="form-group">
+    <fieldset>
+    
+    <legend class="form-label-bold">Your address</legend>
+    
+    <p>If you have no fixed address, provide a contact address where we can write to you.</p>
+    
+    <div class="form-group">
+    	<p class="form-label">Address</p>
+      <label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
+      <label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
+      <label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
+  	</div>
+  	
+  	<div class="form-group">
+  	  <label class="form-label" for="address">Postcode</label>
+  	  <input type="text" class="form-control-1-4" id="postcode">
+  	</div>
+  	
+  	</fieldset>  
+   </div>  
+  	
+  	<div class="form-group">
+  		 <label class="form-label-bold" for="telephone-number">Contact phone or mobile number</label>
+  		 <p>Alternatively, tell us here if you do not have a contact number.</p>
+		  <input class="form-control" id="telephone-number" type="text">
+		  <label class="form-checkbox" for="checkbox-telephone-number">
+		    <input id="checkbox-telephone-number" type="checkbox" value="checkbox-telephone-number">
+		    I need to be contacted using a text phone
+		  </label>
+  	</div>
+
+    <div class="form-group">
+      <label class="form-label-bold" for="email-address">Email address</label>
+      <input class="form-control" id="email-address" type="text">
+      <label class="form-checkbox" for="checkbox-email-address">
+      <input id="checkbox-email-address" type="checkbox" value="checkbox-email-address">
+        I would prefer to be contacted by email 
+    </div>
+  
+    <!-- Primary buttons, secondary links -->
+    <div class="form-group">
+      <ul>
+		<li><a href="thirdparty" class="button">Next</a></li>
+        <li><a href="aboutyou1">Back</a></li>
+      </ul>
+    </div>
+
+  </form>
+  
+</div>
+
+
+
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+

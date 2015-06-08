@@ -1,0 +1,94 @@
+{{<layout}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="phase-banner">
+    <p>
+      <strong class="phase-tag">ALPHA</strong>
+      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
+    </p>
+  </div>
+
+
+
+
+<div class="grid-row">
+
+
+
+{{>includes/leftcol}}
+
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+ 
+
+<h1 class="form-title heading-large" id="thirdparty"><span class="section-progress">Section 2 of 4</span> Third party</h1>
+    
+
+<form action="/" method="post" class="form">
+
+
+  	 <fieldset class="inline form-group">
+	    <legend class="form-label-bold">Do you want someone else to represent you?</legend>
+	    <p class="helper above">This means they'll get phone calls or emails about your application.</p>
+	    <div class="form-group form-group-compound">
+	      <label class="block-label" data-target="thirdpartyextra" for="radio-indent-3partyyes">
+	        <input id="radio-indent-3partyyes" type="radio" name="radio-indent-group" value="Yes">
+	        Yes
+	      </label>
+	      <label class="block-label" for="radio-indent-3partyno">
+	        <input id="radio-indent-3partyno" type="radio" name="radio-indent-group" value="No">
+	        No
+	      </label>
+	    </div>
+	    
+	    <div class="panel-indent js-hidden" id="thirdpartyextra">
+	      <div class="form-group">
+		    <label class="form-label" for="name">Their name</label>
+		    <input class="form-control" id="name" type="text">
+		  </div>
+		  <div class="form-group">
+		    <label class="form-label" for="phone">Their phone number</label>
+		    <input class="form-control" id="phone" type="text">
+		  </div>
+		  <div class="form-group">
+		    <label class="form-label" for="relationship">How they're related to you</label>
+		    <input class="form-control" id="relationship" type="text">
+		  </div>
+	    </div>
+	    
+	  </fieldset>
+
+
+
+    <!-- Primary buttons, secondary links -->
+
+    
+    <fieldset class="primary-nav form-group">
+		<legend>Form Navigation</legend>  
+	      <ul>
+			<li><a href="aboutjob" class="button">Next</a></li>
+			<li><a href="aboutyou">Back</a></li>
+	      </ul>
+	</fieldset>
+    
+
+  </form>
+  
+</section>
+
+</div>
+
+
+
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
