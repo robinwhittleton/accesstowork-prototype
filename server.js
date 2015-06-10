@@ -1,6 +1,6 @@
 var path = require('path'),
     express = require('express'),
-    browserSync = require('browser-sync'),
+    // browserSync = require('browser-sync'),
     presenters = require(__dirname + '/app/presenters.js'),
     defaults = require(__dirname + '/app/defaults.js'),
     routes = require(__dirname + '/app/routes.js'),
