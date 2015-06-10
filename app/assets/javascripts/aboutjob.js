@@ -1,3 +1,8 @@
+/*
+	Used to be puled into scripts.html but I stuck it 
+	directly in the views instead because I want to be 
+	able to change it with different versions of the prototype.
+*/
 $(document).on("ready",function()
 {
 	$('#nextbutton').on('click',function(e)

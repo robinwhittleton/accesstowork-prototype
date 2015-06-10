@@ -1,5 +1,6 @@
 var path = require('path'),
     express = require('express'),
+    browserSync = require('browser-sync'),
     presenters = require(__dirname + '/app/presenters.js'),
     defaults = require(__dirname + '/app/defaults.js'),
     routes = require(__dirname + '/app/routes.js'),
@@ -7,6 +8,7 @@ var path = require('path'),
     user_data = require(__dirname + '/lib/user_data.js'),
     app = express(),
     port = (process.env.PORT || 3000),
+
 
 // Grab environment variables specified in Procfile or as Heroku config vars
     username = process.env.USERNAME,
@@ -73,9 +75,22 @@ app.post(/^\/([^.]+)$/, function (req, res) {
   res.redirect(path);
 });
 
+
+function listening()
+{
+  browserSync({    
+    files : ["public/**/*","app/views/**/*.html"],
+    options: {
+      proxy: "localhost:"+port,
+      // port: 3002,
+    }
+  });
+}
 // start the app
 
-app.listen(port);
+app.listen(port,listening);
 console.log('');
 console.log('Listening on port ' + port);
 console.log('');
+
+
