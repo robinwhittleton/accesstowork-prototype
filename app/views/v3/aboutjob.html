@@ -80,3 +80,26 @@
 
 {{/layout}}
 
+<script type="text/javascript">
+$(document).on("ready",function()
+{
+	$('#nextbutton').on('click',function(e)
+	{
+		e.preventDefault();
+		var chk = false;
+		$('#employment-status input').each(function(i,el)
+		{
+			
+			if ($(el).is(':checked'))
+			{
+				chk = true;
+				var dest = $(el).data('dest');
+				window.location.href = dest;
+			}						
+		});
+
+		if (!chk) alert('Please choose one of the options.');
+	});
+}); 
+</script>
+
