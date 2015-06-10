@@ -76,19 +76,20 @@ app.post(/^\/([^.]+)$/, function (req, res) {
 });
 
 
-function listening()
-{
-  browserSync({    
-    files : ["public/**/*","app/views/**/*.html"],
-    options: {
-      proxy: "localhost:"+port,
-      // port: 3002,
-    }
-  });
-}
-// start the app
+// function listening()
+// {
+//   browserSync({    
+//     files : ["public/**/*","app/views/**/*.html"],
+//     options: {
+//       proxy: "localhost:"+port,
+//       // port: 3002,
+//     }
+//   });
+// }
+// // start the app
 
-app.listen(port,listening);
+// app.listen(port,listening);
+app.listen(port);
 console.log('');
 console.log('Listening on port ' + port);
 console.log('');
