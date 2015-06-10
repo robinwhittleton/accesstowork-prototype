@@ -1,0 +1,79 @@
+{{<layout}}
+
+{{$pageTitle}}About your disability{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="phase-banner">
+    <p>
+      <strong class="phase-tag">ALPHA</strong>
+      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
+    </p>
+</div>
+
+<div class="grid-row">
+
+	{{>includes/leftcol}}
+
+	<section class="column-two-thirds" aria-labelledby="condition">
+
+		<h1 class="form-title heading-large" id="condition">
+			<span class="section-progress">Section 4 of 4</span>
+			Impact
+		</h1>
+
+		<form action="aboutdisability2" method="post" class="form">
+
+			<fieldset class="push--down">
+				<h2 class="form-label-bold">How does your condition impact your working day?</h2>
+				
+				<div id="problems" class="problems">
+						<div class="prob dashed-top">
+							<h3 class="heading-small">What do you have to do and how is this harder for you?</h3>
+							<textarea class="textarea textarea--small" name="problem-1"></textarea>
+							<h3 class="heading-small">How are you dealing with this now and what might help you? (optional)</h3>
+							<textarea class="textarea textarea--small" name="problem-1"></textarea>
+						</div><!-- .prob -->
+				</div><!-- .problems -->
+
+				<p class="dashed-top pad--top">+ <a href="#" id='addanother'>Add another</a></p>			
+				
+			</fieldset>		  
+
+		    <!-- Primary buttons, secondary links -->
+
+		    <fieldset class="primary-nav form-group">
+				<legend>Navigation</legend>     
+				      <ul>
+				      	<li><input type="submit" value="Finish" class="button"/></li>			
+						<li><a href="javascript:history.go(-1);">Back</a></li>
+				      </ul>
+			</fieldset>
+			
+
+		  </form>
+	  
+	</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+	$(document).on("ready",function(e)
+	{
+		$('#addanother').on("click",function(e)
+		{
+			e.preventDefault();
+			var newt = $($('.prob')[0]).clone();
+			$('#problems').append(newt);
+		});
+	});
+</script>
+
