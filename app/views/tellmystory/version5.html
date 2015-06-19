@@ -1,0 +1,85 @@
+{{<layout}}
+
+{{$pageTitle}}About your disability{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="phase-banner">
+    <p>
+      <strong class="phase-tag">ALPHA</strong>
+      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
+    </p>
+</div>
+
+<div class="grid-row">
+
+	<section class="column" aria-labelledby="condition">
+
+		<h1 class="form-title heading-large" id="condition">
+			<span class="section-progress">Section 4 of 4</span>
+			Your job
+		</h1>
+
+		<form action="aboutdisability2" method="post" class="form">
+
+			<label class="form-label" for="health-conditions">List the tasks that your condition makes harder for your to do.</label> 
+
+			<br />
+
+			<table class="condition">
+			    <thead>
+					<tr>
+						<th scope="col">Work task</th>
+						<th class="numeric" scope="col">How is this harder?</th>
+					</tr>
+			    </thead>
+			    <tbody>
+					<tr>
+						<td><input type="text" class="form-control"></td>
+						<td class="numeric"><input type="text" class="form-control"></td>
+					</tr>
+			    </tbody>
+			</table>
+
+			
+			<p>+<a href="#">Add another</a></p>
+
+			<br /><br />
+
+		    <!-- Primary buttons, secondary links -->
+
+		    <fieldset class="primary-nav form-group">
+				<legend>Navigation</legend>     
+				      <ul>
+				      	<li><input type="submit" value="Finish" class="button"/></li>			
+						<li><a href="javascript:history.go(-1);">Back</a></li>
+				      </ul>
+			</fieldset>
+			
+
+		  </form>
+	  
+	</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+	$(document).on("ready",function(e)
+	{
+		$('#addanother').on("click",function(e)
+		{
+			e.preventDefault();
+			var newt = $($('.prob')[0]).clone();
+			$('#problems').append(newt);
+		});
+	});
+</script>
+

@@ -11,92 +11,130 @@
       <strong class="phase-tag">ALPHA</strong>
       <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
     </p>
-  </div>
-
-
-
+</div>
 
 <div class="grid-row">
 
+	{{>includes/leftcol}}
 
+	<section class="column-two-thirds" aria-labelledby="condition">
 
+		<h1 class="form-title heading-large" id="condition">
+			<span class="section-progress">Section 4 of 4</span>
+			Your working life
+		</h1>
 
-{{>includes/leftcol}}
+		<form action="review" method="post" class="form">
 
+			<fieldset class="push--down">
+				<h2 class="form-label-bold">How is your working life made harder by your condition?</h2>
+				
+				<div id="problems" class="problems">
+						
+						<fieldset class="prob">
+							
+							<!-- <h3 class="heading-small">What do you have to do and how is this harder for you?</h3> -->
+							<textarea class="textarea" name="problem" style="min-height:12em"></textarea>
+							
+							<p>&nbsp;</p>
 
-<section class="column-two-thirds" aria-labelledby="condition">
+							<h3 class="form-label-bold">Are you doing anything to get around this right now?</h3>
+							<div class="form-group form-group-compound" aria-labelledby="represent">
+								<fieldset class="inline">
+						      		<label class="block-label" data-target="coping-1" for="coping-1-yes">
+						        		<input id="coping-1-yes" type="radio" name="managing-yesno" value="Yes">
+						        		Yes
+						      		</label>
+						      		<label class="block-label" for="coping-1-no">
+						        		<input id="coping-1-no" type="radio" name="managing-yesno" value="No">
+						        		No
+						      		</label>
+						      </fieldset>
+						    </div>
 
+					    	<div class="panel-indent js-hidden" id="coping-1">			    	
+					    		<div class="form-group">
+							        <label class="form-label" for="effect1">What are you doing?</label>
+							        <textarea class="form-control" id="effect1" name="managing" spellcheck="false"></textarea>
+							  	</div>
+							</div>
 
-<h1 class="form-title heading-large" id="condition"><span class="section-progress">Section 4 of 4</span>Travelling</h1>
+							<p>&nbsp;</p>
+							<h3 class="form-label-bold">Do you know of something that might help you with this?</h3>
+							<div class="form-group form-group-compound" aria-labelledby="represent">
+								<fieldset class="inline">
+						      		<label class="block-label" data-target="help-1" for="help-1-yes">
+						        		<input id="help-1-yes" type="radio" name="help-yesno" value="Yes">
+						        		Yes
+						      		</label>
+						      		<label class="block-label" for="help-1-no">
+						        		<input id="help-1-no" type="radio" name="help-yesno" value="No">
+						        		No
+				      				</label>
+					      		</fieldset>
+					    	</div>
 
+					    	<div class="panel-indent js-hidden" id="help-1">			    	
+						    	<div class="form-group">
+								    <label class="form-label" for="effect1">What would help you?</label>
+								    <textarea class="form-control" id="effect1" name="help" spellcheck="false"></textarea>
+							  	</div>
+						  	</div>
 
-<form action="aboutdisability2" method="post" class="form">
+						</fieldset><!-- .prob -->
+				</div><!-- .problems -->
 
-	<fieldset>
-		<legend class="hidden-legend" aria-hidden="true">How your condition affects your travel</legend>
+				<!-- <br /><br />
+				<h2 class="form-label-bold">Does you condition effect you in any other way?</h2>
+				<div class="form-group form-group-compound" aria-labelledby="represent">
+					<fieldset class="inline">
+			      		<label class="block-label" data-target="coping-1" for="coping-1-yes">
+			        		<input id="coping-1-yes" type="radio" name="radio-indent-group" value="Yes">
+			        		Yes
+			      		</label>
+			      		<label class="block-label" for="coping-1-no">
+			        		<input id="coping-1-no" type="radio" name="radio-indent-group" value="No">
+			        		No
+			      		</label>
+			      </fieldset>
+				</div> -->
 
-	  	<div class="form-group">
-  			
-		  	<fieldset class="inline">
-			    <legend class="form-label-bold">Does your condition cause you difficulties getting to or from work?</legend>
-			    <div class="form-group form-group-compound">
-			      <label class="block-label" data-target="descriptions" for="radio-indent-3partyyes">
-			        <input id="radio-indent-3partyyes" type="radio" name="travel" value="Yes">
-			        Yes
-			      </label>
-			      <label class="block-label" for="radio-indent-3partyno">
-			        <input id="radio-indent-3partyno" type="radio" name="travel" value="No">
-			        No
-			      </label>
-			    </div>			    
-			  </fieldset>
-			  
-			  <div class="panel-indent js-hidden" id="descriptions">
-			    	
-			    	<div class="form-group">
-				      <label class="form-label" for="effect1">What difficulties do you have?</label>
-				      <textarea class="form-control" id="effect1" name="travel-effect" spellcheck="false"></textarea>
-				  	</div>
-				  	
-				  	<div class="form-group">
-				      <label class="form-label" for="coping1">How do you manage these difficulties?</label>
-				      <textarea class="form-control" id="coping1" name="travel-coping" spellcheck="false"></textarea>
-				  	</div>
-			    	
-			    	<div class="form-group">
-				      <label class="form-label" for="help1">What, if anything, do you think would help you?</label>
-				      <textarea class="form-control" id="help1" name="travel-help" spellcheck="false"></textarea>
-				  	</div>			    	
-			    	
-			    </div>
+			</fieldset>		  
 
-		</div>		
+		    <!-- Primary buttons, secondary links -->
+
+			<p>&nbsp;</p>
 		
-	</fieldset>
-  	
+		    <fieldset class="primary-nav form-group">
+				<legend>Navigation</legend>     
+				      <ul>
+				      	<li><input type="submit" value="Next" class="button"/></li>			
+						<li><a href="javascript:history.go(-1);">Back</a></li>
+				      </ul>
+			</fieldset>
+			
 
+		  </form>
+	  
+	</section><!-- .column-two-thirds -->
 
-    <!-- Primary buttons, secondary links -->
-
-    <fieldset class="primary-nav form-group">
-		<legend>Navigation</legend>     
-		      <ul>
-		      	<li><input type="submit" value="Next" class="button"/></li>			
-				<li><a href="javascript:history.go(-1);">Back</a></li>
-		      </ul>
-	</fieldset>
-	
-
-  </form>
-  
-</section>
-
-</div>
-
+</div><!-- .grid-row -->
 
 </main>
 
 {{/content}}
 
 {{/layout}}
+
+<script type="text/javascript">
+	$(document).on("ready",function(e)
+	{
+		$('#addanother').on("click",function(e)
+		{
+			e.preventDefault();
+			var newt = $($('.prob')[0]).clone();
+			$('#problems').append(newt);
+		});
+	});
+</script>
 
