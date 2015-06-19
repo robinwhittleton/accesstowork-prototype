@@ -1,0 +1,76 @@
+{{<layout}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="phase-banner">
+    <p>
+      <strong class="phase-tag">ALPHA</strong>
+      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
+    </p>
+  </div>
+
+
+
+
+<div class="grid-row">
+
+
+
+{{>includes/leftcol}}
+
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+ 
+
+<h1 class="form-title heading-large" id="thirdparty"><span class="section-progress">Section 2 of 4</span> </h1>
+    
+
+<form action="aboutjob" method="post" class="form">
+
+    <div class="form-group">
+      <label class="form-label-bold" for="work-involve" id="work-involveexample">What is your condition or disability?</label>         
+      <input class="form-control" id="work-involve"/>
+      <p>+ <a href="#">Add another</a></p>
+    </div>
+
+
+	  <div class="form-group">
+  		<label class="form-label-bold" for="work-involve" id="work-involveexample">What support or equipment do you need?</label>		  		
+	    <textarea class="form-control" id="work-involve"></textarea>
+  	</div>
+
+    <div class="form-group">
+      <label class="form-label-bold" for="work-involve" id="work-involveexample">What do you need this for?</label>         
+      <p class="form-hint">This must be related to your job, eg travel or communication.</p>
+      <textarea class="form-control" id="work-involve"></textarea>
+    </div>
+
+    
+    <fieldset class="primary-nav form-group">
+		<legend>Form Navigation</legend>  
+	      <ul>
+	      	<li><input type="submit" value="Next" class="button" /></li>
+			<li><a href="aboutyou">Back</a></li>
+	      </ul>
+	</fieldset>
+    
+
+  </form>
+  
+</section>
+
+</div>
+
+
+
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
