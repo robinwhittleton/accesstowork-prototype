@@ -68,6 +68,7 @@
     {
       e.preventDefault();
 
+      // go and check what they put for employment status.
       var emp_status = Cookies.get('1_emp-status');  
       switch(emp_status)
       {
@@ -76,15 +77,17 @@
         case "Director": dest = 'employed-limited'; break;
       }
 
+      // if they didn't say they had a job, what did they say 
+      // to the interview question?
       if (!dest) 
       {
         var interview = Cookies.get('1_interview');
-        if (interview == 'Yes')
-        {
-          dest = 'interview';
-        }
+        if (interview == 'Yes') dest = 'interview';
+        else dest = 'interview-exit';
       }
 
+      // if at this point we have a destination go to it otherwise 
+      // alert a quick error.
       if (dest)
       {
         form.attr('action',dest);

@@ -6,117 +6,101 @@
 
 <main id="content" role="main">
 
-<div class="phase-banner">
-    <p>
-      <strong class="phase-tag">ALPHA</strong>
-      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
-    </p>
-  </div>
-
-
-
+{{>includes/alpha}}
 
 <div class="grid-row">
 
-
-
-
 {{>includes/leftcol}}
-
 
 <section class="column-two-thirds" aria-labelledby="aboutjob">
 
-<h1 class="form-title heading-large" id="aboutjob"><span class="section-progress">Section 3 of 4</span> About your interview</h1>
+  <h1 class="form-title heading-large" id="aboutjob"><span class="section-progress">Section 3 of 4</span> About your interview</h1>
     
-<form action="declaration" method="post" class="form">
+  <form action="declaration" method="post" class="form">
 
-	<fieldset>
-		<legend class="hidden-legend" aria-hidden="true">Your role and who you work for</legend>
+    <fieldset>
 
-	<div class="form-group">
-	  	<label class="form-label-bold" for="job-title">Job title</label>
-		<input class="form-control" type="text" id="job-title" name="interview-job-title">
-	</div>
+      <!-- ROLE -->
+      <legend class="hidden-legend" aria-hidden="true">Your role and who you work for</legend>
+      <div class="form-group">
+        <label class="form-label-bold" for="job-title">Job title</label>
+        <input class="form-control" type="text" id="job-title" name="interview-job-title">
+      </div>
 
-	<div class="form-group">
-		<label class="form-label-bold" for="company-name">Employer</label>
-	    <input class="form-control" type="text" id="company-name" name="interview-company-name">
-  	</div>
+      <div class="form-group">
+        <label class="form-label-bold" for="company-name">Employer</label>
+        <input class="form-control" type="text" id="company-name" name="interview-company-name">
+      </div>
 
-	<div class="form-group">
-		<fieldset class="inline">
-		<legend class="form-label-bold">Date of interview</legend>
+      <!-- DATE -->
+      <div class="form-group">
+        <fieldset class="inline">
+        <legend class="form-label-bold">Date of interview</legend>
+        <div class="form-date">
+          <p class="form-hint">For example, 08 4 2014.</p>
+          <div class="form-group form-group-day">
+            <label for="interview-day">Day</label>
+            <input type="text" class="form-control" id="interview-day" name="interview-day">
+          </div>
+          <div class="form-group form-group-month">
+            <label for="interview-month">Month</label>
+            <input type="text" class="form-control" id="interview-month" name="interview-month">
+          </div>
+          <div class="form-group form-group-year">
+            <label for="interview-year">Year</label>
+            <input type="text" class="form-control" id="interview-year" name="interview-year">
+          </div>
+        </div>
+        </fieldset>
+      </div>
 
-		<div class="form-date">
-		  <p class="form-hint">For example, 08 4 2014.</p>
-		  <div class="form-group form-group-day">
-		    <label for="interview-day">Day</label>
-		    <input type="text" class="form-control" id="interview-day" name="interview-day">
-		  </div>
-		  <div class="form-group form-group-month">
-		    <label for="interview-month">Month</label>
-		    <input type="text" class="form-control" id="interview-month" name="interview-month">
-		  </div>
-		  <div class="form-group form-group-year">
-		    <label for="interview-year">Year</label>
-		    <input type="text" class="form-control" id="interview-year" name="interview-year">
-		  </div>
-		</div>
+      <!-- PLACE -->
+      <div class="form-group">
+        <fieldset>      
+          <legend class="form-label-bold main">Place of interview</legend>
+          <div class="form-group">
+          <label class="form-label" for="address-line1"><input type="text" class="form-control" id="interview-address-line1" name="address-line1"></label>
+          <label class="form-label" for="address-line2"><input type="text" class="form-control" id="interview-address-line2" name="address-line2"></label>
+          <label class="form-label" for="address-line3"><input type="text" class="form-control" id="interview-address-line3" name="address-line3"></label>
+          </div>        
+          <div>
+          <label class="form-label" for="postcode">Postcode</label>
+          <input type="text" class="form-control-1-4" id="postcode" name="interview-postcode">
+          </div>      
+        </fieldset> 
+      </div>
+      
+      <!-- CONTACT -->
+      <div class="form-group">
+        <label class="form-label-bold" for="employer-name">Interview contact</label>
+        <p>So that we can phone to verify that you really do have an interview at that place, and on that day</p>
+        <input class="form-control" type="text" id="employer-name" name="interview-employer-name">
+      </div>
 
-		</fieldset>
-	</div>
+      <!-- PHONE -->
+      <div class="form-group">
+        <label class="form-label-bold" for="telephone-number">Their contact number</label>
+        <input class="form-control" id="telephone-number" name="interview-telephone-number" type="text">
+      </div>
 
-  	<div class="form-group">
-	  	<fieldset>	    
-	  		<legend class="form-label-bold main">Place of interview</legend>
-		    <div class="form-group">
-				<label class="form-label" for="address-line1"><input type="text" class="form-control" id="interview-address-line1" name="address-line1"></label>
-				<label class="form-label" for="address-line2"><input type="text" class="form-control" id="interview-address-line2" name="address-line2"></label>
-				<label class="form-label" for="address-line3"><input type="text" class="form-control" id="interview-address-line3" name="address-line3"></label>
-		  	</div>		  	
-		  	<div>
-				<label class="form-label" for="postcode">Postcode</label>
-				<input type="text" class="form-control-1-4" id="postcode" name="interview-postcode">
-		  	</div>	  	
-	  	</fieldset> 
-  	</div>
-  		
-
-	<div class="form-group">
-		<label class="form-label-bold" for="employer-name">Interview contact</label>
-		<p>So that we can phone to verify that you really do have an interview at that place, and on that day</p>
-		<input class="form-control" type="text" id="employer-name" name="interview-employer-name">
-  	</div>
-
-  	<div class="form-group">
-  		<label class="form-label-bold" for="telephone-number">Their contact number</label>
-		  <input class="form-control" id="telephone-number" name="interview-telephone-number" type="text">
-  	</div>
-
-	</fieldset>
-
-    <!-- Primary buttons, secondary links -->
-    
+    </fieldset>
     
     <fieldset class="primary-nav form-group">
-		<legend>Navigation</legend>   
-		      <ul>
-		      	<li><input type="submit" value="Next" class="button"/></li>
-				<li><a href="aboutjob">Back</a></li>
-		      </ul>
-	</fieldset>
+      <legend>Navigation</legend>   
+      <ul>
+        <li><input type="submit" value="Next" class="button"/></li>
+        <li><a href="aboutjob">Back</a></li>
+      </ul>
+    </fieldset>
     
-    
-
   </form>
   
-</section>
+</section><!-- .column-two-thirds -->
 
-</div>
+</div><!-- .grid-row -->
 
 </main>
 
 {{/content}}
 
 {{/layout}}
-
