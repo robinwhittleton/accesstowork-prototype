@@ -59,7 +59,19 @@ app.get(/^\/([^.]+)$/, function (req, res) {
 
 	var path = (req.params[0]);
 
-  res.render(path, merge(true, defaults, req.cookies), function(err, html) {
+  for(var key in req.cookies)
+  {
+    var val;
+    try {
+      val = JSON.parse(req.cookies[key]);
+    } catch(e) {
+      val = req.cookies[key]
+    }    
+    req.cookies[key] = val;    
+  }
+
+  res.render(path, merge(true, defaults, req.cookies), function(err, html) 
+  {
 		if (err) {
 			console.log(err);
 			res.send(404);
