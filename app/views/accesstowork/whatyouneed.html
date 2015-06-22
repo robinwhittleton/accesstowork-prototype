@@ -63,20 +63,24 @@
   $(document).on('ready',function()
   {
     var dest = '';
+    var jobalready = Cookies.get('1_job-already'); 
 
     $(subb).on('click',function(e)
     {
       e.preventDefault();
 
-      // go and check what they put for employment status.
-      var emp_status = Cookies.get('1_emp-status');  
-      switch(emp_status)
+      if (jobalready)
       {
-        case "Employed": dest = 'employed'; break;
-        case "Self": dest = 'employed-self'; break;
-        case "Director": dest = 'employed-limited'; break;
+        // go and check what they put for employment status.
+        var emp_status = Cookies.get('1_emp-status');  
+        switch(emp_status)
+        {
+          case "Employed": dest = 'employed'; break;
+          case "Self": dest = 'employed-self'; break;
+          case "Director": dest = 'employed-limited'; break;
+        }      
       }
-
+  
       // if they didn't say they had a job, what did they say 
       // to the interview question?
       if (!dest) 
