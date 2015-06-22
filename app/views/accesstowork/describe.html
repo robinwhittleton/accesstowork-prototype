@@ -59,11 +59,16 @@
         fields = $("#fields"),
         subb = $('#submitButton');
 
-    var c = Cookies.get('conditions');
+    var c = Cookies.get('conditions'); 
     if (c) 
     {
-      var tasks = $.parseJSON(c);
-      if (typeof tasks == 'object')
+      var tasks;
+      
+      try {
+        tasks = $.parseJSON(c); 
+      } catch (e) {}
+
+      if (tasks && typeof tasks == 'object')
       {
         $.each(tasks,function(i,e)
         {
@@ -80,7 +85,7 @@
         var quer = $(html);
         var task = quer.find('.task');
         fields.append(quer);
-        task.text("\'"+tasks+"\'");
+        task.text("\'"+c+"\'");
       }
 
     /*
