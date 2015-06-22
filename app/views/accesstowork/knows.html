@@ -6,37 +6,23 @@
 
 <main id="content" role="main">
 
-<div class="phase-banner">
-    <p>
-      <strong class="phase-tag">ALPHA</strong>
-      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
-    </p>
-  </div>
-
-
-
+{{>includes/alpha}}
 
 <div class="grid-row">
 
-
-
 {{>includes/leftcol}}
-
 
 <section class="column-two-thirds" aria-labelledby="thirdparty">
  
-
-<h1 class="form-title heading-large" id="thirdparty"><span class="section-progress">Section 2 of 4</span> </h1>
+  <h1 class="form-title heading-large" id="thirdparty"><span class="section-progress">Section 2 of 4</span> </h1>
     
-
-<form action="aboutjob" method="post" class="form">
+  <form action="" method="post" class="form" id="theForm">
 
     <div class="form-group">
       <label class="form-label-bold" for="work-involve" id="work-involveexample">What is your condition or disability?</label>         
       <input class="form-control" id="work-involve"/>
       <p>+ <a href="#">Add another</a></p>
     </div>
-
 
 	  <div class="form-group">
   		<label class="form-label-bold" for="work-involve" id="work-involveexample">What support or equipment do you need?</label>		  		
@@ -49,24 +35,19 @@
       <textarea class="form-control" id="work-involve"></textarea>
     </div>
 
-    
     <fieldset class="primary-nav form-group">
-		<legend>Form Navigation</legend>  
-	      <ul>
-	      	<li><input type="submit" value="Next" class="button" /></li>
-			<li><a href="aboutyou">Back</a></li>
+		  <legend>Form Navigation</legend>  
+        <ul>
+	      	<li><input type="submit" value="Next" class="button" id="submitButton"/></li>
+          <li><a href="aboutyou">Back</a></li>
 	      </ul>
-	</fieldset>
-    
-
+    </fieldset>
+  
   </form>
   
-</section>
+</section><!-- .column-two-thirds -->
 
-</div>
-
-
-
+</div><!-- .grid-row -->
 
 </main>
 
@@ -74,3 +55,25 @@
 
 {{/layout}}
 
+<script type="text/javascript">
+  
+  var form = $("#theForm"),
+      subb = $('#submitButton');
+
+  $(document).on('ready',function()
+  {
+    $(subb).on('click',function(e)
+    {
+      e.preventDefault();
+      var emp_status = Cookies.get('1_emp-status');  
+      switch(emp_status)
+      {
+        case "Employed": dest = 'employed'; break;
+        case "Self": dest = 'employed-self'; break;
+        case "Director": dest = 'employed-limited'; break;
+      }
+      form.attr('action',dest);
+      form.submit();  
+    });
+  });
+</script>
