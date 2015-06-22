@@ -77,14 +77,15 @@
             var quer = $(html);
             var task = quer.find('.task');
             fields.append(quer);
-            task.text("\'"+e+"\'");
+            quer.find('.task').text("\'"+e+"\'");
+            quer.find('textarea').attr("name","difficulty_"+(i+1));
         });
       } else {
         var html = $("#template").clone().html(); 
-        var quer = $(html);
-        var task = quer.find('.task');
+        var quer = $(html);        
         fields.append(quer);
-        task.text("\'"+c+"\'");
+        quer.find('.task').text("\'"+c+"\'");
+        quer.find('textarea').attr("name","difficulty_1");
       }
 
     /*
