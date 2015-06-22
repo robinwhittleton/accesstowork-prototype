@@ -62,9 +62,12 @@
 
   $(document).on('ready',function()
   {
+    var dest = '';
+
     $(subb).on('click',function(e)
     {
       e.preventDefault();
+
       var emp_status = Cookies.get('1_emp-status');  
       switch(emp_status)
       {
@@ -72,8 +75,25 @@
         case "Self": dest = 'employed-self'; break;
         case "Director": dest = 'employed-limited'; break;
       }
-      form.attr('action',dest);
-      form.submit();  
+
+      if (!dest) 
+      {
+        var interview = Cookies.get('1_interview');
+        if (interview == 'Yes')
+        {
+          dest = 'interview';
+        }
+      }
+
+      if (dest)
+      {
+        form.attr('action',dest);
+        form.submit();    
+      } else {
+        alert('You need to complete the form');
+      }
+
+      
     });
   });
 </script>
