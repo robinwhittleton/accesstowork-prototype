@@ -1,0 +1,49 @@
+{{<layout}}
+
+{{$pageTitle}}About your disability{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+<div class="column-third">&nbsp;</div>
+
+<section class="column-two-thirds" aria-labelledby="condition">
+
+  <h1 class="form-title heading-large" id="condition">
+    Specific questions &#43; safety net
+  </h1>
+
+  <h2 class="heading-medium">Insight</h2>
+  <p>We've used rather open ended questions because we need to try and cover such a wide range of different scenarios. However, users find these slightly difficult to understand.</p>
+
+  <h2 class="heading-medium">Hypothesis</h2>
+  <p>By taking users through a number of guesses at what their problem might be we'd provide much more specific questions which users will find easier to understand and answer. Also by using the task & describe pattern in a similar format at the end of the process we could still allow anyone who has a more unusual problem to inform us what it is.
+
+  <p style="margin-top:3em"><a href="travel" class="button button-get-started">Start now</a></p>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+  $(document).on("ready",function(e)
+  {
+    $('#addanother').on("click",function(e)
+    {
+      e.preventDefault();
+      var newt = $($('.prob')[0]).clone();
+      $('#problems').append(newt);
+    });
+  });
+</script>

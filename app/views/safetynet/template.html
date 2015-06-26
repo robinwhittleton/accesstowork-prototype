@@ -1,0 +1,127 @@
+{{<layout}}
+
+{{$pageTitle}}About your disability{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol}}
+
+<section class="column-two-thirds" aria-labelledby="condition">
+
+  <h1 class="form-title heading-large" id="condition">
+    <span class="section-progress">Section 4 of 4</span>
+    {{$title}}{{/title}}
+  </h1>
+
+  <form action="{{$next}}{{/next}}" method="post" class="form">
+
+    <fieldset class="form-group">          
+          
+      <!-- MADE HARDER ??? -->
+      <h2 class="form-label-bold">Does your condition make it harder to {{$verb}}{{/verb}}?</h2>
+      <fieldset class="inline form-group form-group-compound">
+        <label class="block-label" data-target="harder-reveal" for="harder-yes">
+          <input id="harder-yes" type="radio" name="{{$data}}{{/data}}-harder" value="Yes">
+          Yes
+        </label>
+        <label class="block-label" for="harder-no">
+          <input id="harder-no" type="radio" name="{{$data}}{{/data}}-harder" value="No">
+          No
+        </label>
+      </fieldset>
+
+      <div class="panel-indent js-hidden" id="harder-reveal">
+
+        <!-- HOW ??? -->
+        <fieldset class="form-group">
+          <label class="form-label" for="how">How does your condition make this harder?</label>
+          <textarea class="textarea" name="{{$data}}{{/data}}-harder-how" style="min-height:12em"></textarea>
+        </fieldset>
+
+        <!-- COPING ??? -->
+        <div class="form-group">
+          <h3 class="form-label-bold" id="coping-label">Are you doing anything to get around this right now?</h3>
+          <div class="form-group-compound" aria-labelledby="coping-label">
+            <fieldset class="inline">
+              <label class="block-label" data-target="coping-reveal" for="coping-yes">
+                <input id="coping-yes" type="radio" name="{{$data}}{{/data}}-coping" value="Yes">
+                Yes
+              </label>
+              <label class="block-label" for="coping-no">
+                <input id="coping-no" type="radio" name="{{$data}}{{/data}}-coping" value="No">
+                No
+              </label>
+            </fieldset>
+          </div>
+          <!-- REVEALS -->
+          <div class="panel-indent js-hidden" id="coping-reveal">            
+                <label class="form-label" for="coping-how">What are you doing?</label>
+                <textarea class="form-control" id="coping-how" name="{{$data}}{{/data}}-coping-how" spellcheck="false"></textarea>
+          </div>
+        </div>
+        
+
+        <!-- WHAT HELP ??? -->
+        <h3 class="form-label-bold" id="help-label">Do you know of something that might help you with this?</h3>
+        <div class="form-group-compound" aria-labelledby="help-label">
+          <fieldset class="inline">
+            <label class="block-label" data-target="help-reveal" for="help-yes">
+              <input id="help-yes" type="radio" name="{{$data}}{{/data}}-help" value="Yes">
+              Yes
+            </label>
+            <label class="block-label" for="help-no">
+              <input id="help-no" type="radio" name="{{$data}}{{/data}}-help" value="No">
+              No
+            </label>
+          </fieldset>
+        </div>
+        <!-- REVEALS -->
+        <div class="panel-indent js-hidden" id="help-reveal">            
+          <div class="form-group">
+            <label class="form-label" for="help-what">What would help you?</label>
+            <textarea class="form-control" id="help-what" name="{{$data}}{{/data}}-help-what" spellcheck="false"></textarea>
+          </div>
+        </div>              
+
+      </div><!-- #harder-reveal -->
+
+    </fieldset>     
+
+    <fieldset class="primary-nav form-group">
+      <legend>Navigation</legend>     
+      <ul>
+        <li><input type="submit" value="Next" class="button"/></li>     
+        <li><a href="javascript:history.go(-1);">Back</a></li>
+      </ul>
+    </fieldset>
+  
+  </form>
+  
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+  $(document).on("ready",function(e)
+  {
+    $('#addanother').on("click",function(e)
+    {
+      e.preventDefault();
+      var newt = $($('.prob')[0]).clone();
+      $('#problems').append(newt);
+    });
+  });
+</script>
+

@@ -1,0 +1,68 @@
+{{<layout}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol}}
+
+<section class="column-two-thirds" aria-labelledby="aboutjob">
+ 
+  <h1 class="form-title heading-large" id="aboutjob"><span class="section-progress">Section 4 of 4</span> Anything else?</h1>
+    
+  <form action="describe" method="post" class="form">
+
+    <!-- LIST THE THINGS -->
+    <fieldset class="inline" id="havejob">
+      <legend class="form-label-bold" id="alreadyJob">What other things do you do at work that are made harder by your condition?</legend>
+      <p class="form-hint">Things you have to do to as part of your job.</p>
+      <div class="conditions">
+        <p class="cond"><input name="conditions" class="form-control" style="width:75%" autocomplete="off"/></p>
+      </div>
+      <p>+ <a href="#" id="add">Add another</a></p>
+    </fieldset>
+    
+    <br />
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>    
+      <ul>
+        <li><input type="submit" value="Next" class="button" id="nextbutton"/></li>
+        <li><a href="javascript:history.go(-1);">Back</a></li>
+      </ul>
+    </fieldset>
+    
+  </form>
+  
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+
+  /*
+    make the "add another" link work.
+  */
+  $(document).on("ready",function(e)
+  {
+    $('#add').on("click",function(e)
+    {
+      e.preventDefault();
+      var c = $($('.conditions .cond')[0]).clone(); // clone the first input                
+      $('.conditions').append(c); // apend it to the block.
+      $(c.find('input')).val("").focus(); // empty the vlalue.
+    });
+  });
+
+</script>

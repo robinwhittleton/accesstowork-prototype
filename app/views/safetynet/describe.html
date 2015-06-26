@@ -1,0 +1,187 @@
+{{<layout}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol}}
+
+<section class="column-two-thirds" aria-labelledby="aboutjob">  
+
+  <form action="" method="post" class="form" id="theForm">    
+  
+    <div id="fields"></div>
+
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>    
+      <ul>
+        <li><input type="submit" value="Next" class="button" id="submitButton"/></li>
+        <li><a href="javascript:history.go(-1);">Back</a></li>
+      </ul>
+    </fieldset>
+
+  </form>
+  
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/template" id="template">
+<div class="form-group">
+  <h1 class="form-title heading-large" ><span class="section-progress">Section 4 of 4</span><span class="task"></span></h1>
+  <!-- HOW ??? -->
+  <fieldset class="form-group">
+    <label class="form-label" for="how">How does your condition make this harder?</label>
+    <textarea class="textarea" name="{{$data}}{{/data}}-harder-how" style="min-height:12em"></textarea>
+  </fieldset>
+
+  <!-- COPING ??? -->
+  <div class="form-group">
+    <h3 class="form-label-bold" id="coping-label">Are you doing anything to get around this right now?</h3>
+    <div class="form-group-compound" aria-labelledby="coping-label">
+      <fieldset class="inline">
+        <label class="block-label" data-target="coping-reveal" for="coping-yes">
+          <input id="coping-yes" type="radio" name="{{$data}}{{/data}}-coping" value="Yes">
+          Yes
+        </label>
+        <label class="block-label" for="coping-no">
+          <input id="coping-no" type="radio" name="{{$data}}{{/data}}-coping" value="No">
+          No
+        </label>
+      </fieldset>
+    </div>
+    <!-- REVEALS -->
+    <div class="panel-indent js-hidden" id="coping-reveal">            
+          <label class="form-label" for="coping-how">What are you doing?</label>
+          <textarea class="form-control" id="coping-how" name="{{$data}}{{/data}}-coping-how" spellcheck="false"></textarea>
+    </div>
+  </div>
+
+
+  <!-- WHAT HELP ??? -->
+  <h3 class="form-label-bold" id="help-label">Do you know of something that might help you with this?</h3>
+  <div class="form-group-compound" aria-labelledby="help-label">
+    <fieldset class="inline">
+      <label class="block-label" data-target="help-reveal" for="help-yes">
+        <input id="help-yes" type="radio" name="{{$data}}{{/data}}-help" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="help-no">
+        <input id="help-no" type="radio" name="{{$data}}{{/data}}-help" value="No">
+        No
+      </label>
+    </fieldset>
+  </div>
+  <!-- REVEALS -->
+  <div class="panel-indent js-hidden" id="help-reveal">            
+    <div class="form-group">
+      <label class="form-label" for="help-what">What would help you?</label>
+      <textarea class="form-control" id="help-what" name="{{$data}}{{/data}}-help-what" spellcheck="false"></textarea>
+    </div>
+  </div>  
+</div>     
+</script>
+
+<script type="text/javascript">
+
+  var test;
+  var count = 1;
+  $(document).on("ready",function(e)
+  {
+
+    var form = $("#theForm"),
+        fields = $("#fields"),
+        subb = $('#submitButton');
+
+    var c = Cookies.get('conditions'); 
+    if (c) 
+    {
+      var tasks;
+      
+      try {
+        tasks = $.parseJSON(c); 
+      } catch (e) {}
+
+      // if it's an array
+      if (tasks && typeof tasks == 'object') 
+      {
+        $.each(tasks,function(i,e)
+        {
+            if (!e) return;
+
+            var html = $("#template").clone().text();
+            var quer = $(html); 
+            var task = quer.find('.task'); console.log(task);
+            fields.append(quer);
+            quer.find('.task').text("\'"+e+"\'");
+            quer.find('textarea').attr("name","difficulty");
+        });
+      
+      // if there's only one
+      } else { 
+
+        var html = $("#template").clone().html(); 
+        var quer = $(html);        
+        fields.append(quer);
+        quer.find('.task').text("\'"+c+"\'");
+        quer.find('textarea').attr("name","difficulty");
+      }
+
+    /*
+      When they click submit refer to the previous 
+      Employment answer for the next step.
+    */
+    var dest = '';
+    $(subb).on('click',function(e)
+    {
+      e.preventDefault();
+
+      // go and check what they put for employment status.
+      var emp_status = Cookies.get('emp-status'); console.log(emp_status);
+      switch(emp_status)
+      {
+        case "Employed": dest = 'employed'; break;
+        case "Self": dest = 'employed-self'; break;
+        case "Director": dest = 'employed-limited'; break;
+      }
+
+      console.log(dest);
+
+      // if they didn't say they had a job, what did they say 
+      // to the interview question?
+      if (!dest) 
+      {
+        var interview = Cookies.get('1_interview');
+        if (interview == 'Yes') dest = 'interview';
+        else dest = 'interview-exit';
+      }
+
+      // if at this point we have a destination go to it otherwise 
+      // alert a quick error.
+      if (dest)
+      {      
+        form.attr('action',dest);
+        form.submit();    
+      } else {
+        alert('You need to complete the form');
+      }
+            
+    });      
+      
+    }
+
+  });
+
+</script>
