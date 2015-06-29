@@ -1,0 +1,199 @@
+{{<layout}}
+
+{{$pageTitle}}Consent &amp; Declaration{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="phase-banner">
+    <p>
+      <strong class="phase-tag">ALPHA</strong>
+      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
+    </p>
+  </div>
+
+
+
+
+<div class="grid-row">
+
+
+{{>includes/leftcol}}
+
+
+<section class="column-two-thirds" aria-labelledby="review">
+
+
+<h1 class="form-title heading-large" id="review">Review your answers</h1>
+	
+		
+	<table class="form-group">
+	    <thead>
+	      <tr>
+	        <th colspan="2">About you</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>Full name</td>
+	        <td>{{you-full-name}}</td>
+	      </tr>
+	      <tr>
+	        <td>Date of birth</td>
+	        <td>{{you-dob-day}}/{{you-dob-month}}/{{you-dob-year}}</td>
+	      </tr>
+	      <tr>
+	       <td>Your address</td>
+	        <td>{{you-address-line1}},<br />{{you-address-line2}},<br />{{you-address-line3}},<br />{{you-postcode}}</td>
+	      </tr>
+	      <tr>
+	        <td>Contact number</td>
+	        <td>{{you-telephone-number}}</td>
+	      </tr>
+	      <tr>
+	        <td>Email address</td>
+	        <td>{{you-email-address}} &mdash; {{you-email-address-prefer}}</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	  
+	  {{#trd-name}}
+	  <table class="form-group">
+	    <thead>
+	      <tr>
+	        <th colspan="2">Third party</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>Their name</td>
+	        <td>{{trd-name}}</td>
+	      </tr>
+	      <tr>
+	        <td>Their phone number</td>
+	        <td>{{trd-phone}}</td>
+	      </tr>
+	      <tr>
+	       <td>How they're related to you</td>
+	       <td>{{trd-relationship}}</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	  {{/trd-name}}
+	  
+	  
+	  <table class="form-group">
+	    <thead>
+	      <tr>
+	        <th colspan="2">About your job</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>How are you employed?</td>
+	        <td>{{emp-status}}</td>
+	      </tr>
+	      <tr>
+	        <td>Your job title</td>
+	        <td>{{employed-job-title}}</td>
+	      </tr>
+	      <tr>
+	        <td>Your employer</td>
+	        <td>{{employed-company-name}}</td>
+	      </tr>
+	      <tr>
+	        <td>Your line manager</td>
+	        <td>{{employed-employer-name}}</td>
+	      </tr>
+	      <tr>
+	        <td>Your line manager contact</td>
+	        <td>{{employed-telephone-number}}</td>
+	      </tr>
+	      <tr>
+	       <td>Work address</td>
+	       <td>{{employed-address-line1}},<br />{{employed-address-line2}},<br />{{employed-postcode}},<br /></td>
+	      </tr>
+	      <!-- <tr>
+	       <td>What does your day to day work involve?</td>
+	       <td>{{work-work-involve}}</td>
+	      </tr> -->
+	      <tr>
+	       <td>When did you start this job?</td>
+	       <td>{{work-dob-day}}/{{work-dob-month}}/{{work-dob-year}}</td>
+	      </tr>
+	      <tr>
+	       <td>What days do you work?</td>
+	       <td>{{work-work-days}}</td>
+	      </tr>
+	      <tr>
+	       <td>How many hours a week do you work?</td>
+	       <td>{{work-job-hours}}</td>
+	      </tr>
+	      <tr>
+	       <td>Is this a permanent job?</td>
+	       <td>{{work-end}}</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	  
+	  
+	  <table class="form-group">
+	    <thead>
+	      <tr>
+	        <th colspan="2">About your condition</th>
+	      </tr>
+	    </thead>
+	    <tbody>	    
+	    <tr>
+	        <td>Conditions</td>
+	        <td>{{#conditions}}{{.}}, {{/conditions}}</td>
+	    </tr>	    
+	    {{#difficulty}}
+	    <tr>
+	        <td></td>
+	        <td>{{.}}</td>
+	    </tr>
+	    {{/difficulty}}
+		
+		<tr>
+	        <td>Conditions &amp; Disabilities</td>
+	        <td>{{conditions-and-dis}}</td>
+	    </tr>
+	    <tr>
+	        <td>Support &amp; Equipment</td>
+	        <td>{{support}}</td>
+	    </tr>
+	    <tr>
+	        <td>Reasons</td>
+	        <td>{{reasons}}</td>
+	    </tr>
+
+	    </tbody>
+	  </table>
+
+	  
+	  <form action="/" method="post" class="form">
+
+	    <!-- Primary buttons, secondary links -->
+	    
+	    <fieldset class="primary-nav form-group">
+			<legend>Navigation</legend>    
+			      <ul>
+					<li><a href="declaration" class="button">Next</a></li>
+					<li><a href="javascript:history.go(-1);">Back</a></li>
+			      </ul>
+		</fieldset>
+	
+	  </form>
+    
+
+</section>
+
+</div>
+
+</main>
+
+{{/content}}
+
+{{/layout}}

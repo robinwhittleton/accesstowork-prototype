@@ -1,0 +1,105 @@
+{{<layout}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol}}
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+ 
+  <h1 class="form-title heading-large" id="thirdparty"><span class="section-progress">Section 2 of 5</span> </h1>
+    
+  <form action="" method="post" class="form" id="theForm">
+
+    <div class="form-group">
+      <label class="form-label-bold" for="conditions-and-dis" id="">Your conditions or disabilities</label>       
+      <input class="form-control" id="conditions-and-dis" name="conditions-and-dis"/>
+      <!-- <p>+ <a href="#">Add another</a></p> -->
+    </div>
+
+	  <div class="form-group">
+  		<label class="form-label-bold" for="support" id="">What support or equipment do you need?</label>		  		
+	    <textarea class="form-control" id="support" name="support"></textarea>
+  	</div>
+
+    <div class="form-group">
+      <label class="form-label-bold" for="reasons" id="">Why do you need this?</label>         
+      <p class="form-hint">Only include things you have to do as part of your job, eg getting to work or using a computer for work.</p>
+      <textarea class="form-control" id="reasons" name="reasons"></textarea>
+    </div>
+
+    <fieldset class="primary-nav form-group">
+		  <legend>Form Navigation</legend>  
+        <ul>
+	      	<li><input type="submit" value="Next" class="button" id="submitButton"/></li>
+          <li><a href="javascript:history.go(-1);">Back</a></li>
+	      </ul>
+    </fieldset>
+  
+  </form>
+  
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+  
+  var form = $("#theForm"),
+      subb = $('#submitButton');
+
+  $(document).on('ready',function()
+  {
+    var dest = '';
+    var jobalready = Cookies.get('job-already'); 
+
+    $(subb).on('click',function(e)
+    {
+      e.preventDefault();
+
+      if (jobalready == 'Yes')
+      {
+        // go and check what they put for employment status.
+        var emp_status = Cookies.get('emp-status');  
+        switch(emp_status)
+        {
+          case "Employed": dest = 'employed'; break;
+          case "Self": dest = 'employed-self'; break;
+          case "Director": dest = 'employed-limited'; break;
+        }      
+      }
+  
+      // if they didn't say they had a job, what did they say 
+      // to the interview question?
+      if (!dest) 
+      {
+        var interview = Cookies.get('1_interview');
+        if (interview == 'Yes') dest = 'interview';
+        else dest = 'interview-exit';
+      }
+
+      // if at this point we have a destination go to it otherwise 
+      // alert a quick error.
+      if (dest)
+      {
+        form.attr('action',dest);
+        form.submit();    
+      } else {
+        alert('You need to complete the form');
+      }
+            
+    });
+  });
+</script>

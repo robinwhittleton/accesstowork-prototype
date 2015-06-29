@@ -1,0 +1,172 @@
+{{<layout}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol}}
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <h1 class="form-title heading-large" id="thirdparty"><span class="section-progress">Section 1 of 5</span> </h1>
+
+  <form action="" method="post" class="form" id="theForm">
+
+    <!-- DO YOU HAVE A JOB? -->
+    <div class="form-group">
+      <fieldset class="inline" id="havejob">
+        <legend class="form-label-bold" id="alreadyJob">Do you already have a job?</legend>
+        <div class="form-group form-group-compound" aria-labelledby="alreadyJob">
+          <label class="block-label" data-target="employment-status" for="job-already-yes">
+            <input id="job-already-yes" type="radio" name="job-already" value="Yes">
+            Yes
+          </label>
+          <label class="block-label" data-target="csi-status" for="job-already-no">
+            <input id="job-already-no" type="radio" name="job-already" value="No">
+            No
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- SELF EMPLOYED EMPLOYED DIRECTOR? -->
+      <div id="employment-status" class="js-hidden panel-indent">
+        <fieldset>
+            <legend class="form-label" id="howEmployed">Your employment status</legend>
+            <div class="form-group form-group-compound" aria-labelledby="howEmployed">
+                <label class="block-label" for="employed" data-target="what-you-need">
+                  <input id="employed" type="radio" name="emp-status" value="Employed" data-dest="employed">
+                  Employed
+                </label>
+                <label class="block-label" for="self-employed" data-target="what-you-need">
+                  <input id="self-employed" type="radio" name="emp-status" value="Self" data-dest="self-employed">
+                  Self-employed
+                </label>
+                <label class="block-label" for="ltd" data-target="what-you-need">
+                  <input id="ltd" type="radio" name="emp-status" value="Director" data-dest="limited-company">
+                  Director of a limited company
+                </label>
+            </div>
+        </fieldset>
+      </div>
+
+      <!-- INTERVIEW? -->
+      <div id="csi-status" class="js-hidden panel-indent">
+        <fieldset class="inline">
+          <legend class="form-label" id="haveInterview">Do you have a job interview?</legend>
+          <div class="form-group" aria-labelledby="haveInterview">
+            <label class="block-label" for="interview-yes">
+              <input id="interview-yes" type="radio" name="1_interview" value="Yes">
+              Yes
+            </label>
+            <label class="block-label" for="interview-no">
+              <input id="interview-no" type="radio" name="1_interview" value="No">
+              No
+            </label>
+          </div>
+        </fieldset>
+      </div>
+
+    </div><!-- .form-group -->
+
+    <!-- WHAT YOU NEED? -->
+    <fieldset class="inline form-group js-hidden" id="what-you-need">
+      <legend class="form-label-bold" id="what-you-need-label">Do you already know what help or equipment you need?</legend>
+      <div class="form-group form-group-compound" aria-labelledby="what-you-need-label">
+        <label class="block-label" for="what-you-need-yes">
+          <input id="what-you-need-yes" type="radio" name="what-you-need" value="Yes" data-dest="whatyouneed">
+          Yes
+        </label>
+        <label class="block-label" for="what-you-need-no">
+          <input id="what-you-need-no" type="radio" name="what-you-need" value="No" data-dest="explore">
+          No
+        </label>
+      </div>
+    </fieldset>
+
+
+
+    <!-- NEXT BUTTON -->
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>
+      <ul>
+        <li><input type="submit" value="Next" class="button" id="submitButton"/></li>
+        <li><a href="javascript:history.go(-1);">Back</a></li>
+      </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+
+    var form = $("#theForm"),
+        subb = $('#submitButton');
+
+    $(document).on('ready',function()
+    {
+      subb.on('click',function(e)
+      {
+        e.preventDefault();
+
+        var booljob = $('#job-already-no').prop('checked');
+        var interno = $('#interview-no').prop('checked');
+        var interys = $('#interview-yes').prop('checked');
+
+        // check whether we're in a no-job + no-interivew situation here!
+        if (booljob && interno) {
+
+          form.attr('action','interview-exit');
+          form.submit();
+
+        // check whether they've said they have an interivew.
+        } else if (interys) {
+
+            form.attr('action','interview');
+            form.submit();
+
+        } else { // otherwise check whether they know or not.
+
+          $('#what-you-need input').each(function(i,el)
+          {
+            var check = $(el).prop('checked');
+            if (check)
+            {
+              var dest = $(el).data('dest');
+              form.attr('action',dest);
+              form.submit();
+            }
+          });
+        }
+      });
+
+      $('#job-already-no').on('click',function(e)
+      {
+        e.preventDefault();
+        $('#what-you-need').hide();
+        $('#employment-status input').each(function(i,el)
+        {
+          $(el).prop('checked',false);
+        });
+        $('#employment-status label').each(function(i,el)
+        {
+          $(el).removeClass('selected');
+        });
+       });
+    });
+
+</script>
