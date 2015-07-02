@@ -20,39 +20,20 @@
 	<!-- HEADING -->
   <h1 class="form-title heading-large" id="thirdparty">
     <span class="section-progress">Section 2 of 5</span>
-    Tell us what you need please!
+    Why!?!
   </h1>
 
-  <form action="" method="post" class="form" id="theForm">
+  <form action="aboutjob" method="post" class="form" id="theForm">
 
-    <!-- YOUR CONDITION -->
+    <!-- WHY DO YOU NEED -->
     <div class="form-group">
-      <label class="form-label-bold" for="conditions-and-dis" id="">What is condition or disability</label>
-      <input class="form-control full" id="conditions-and-dis" name="conditions-and-dis"/>
+      <label class="form-label-bold" for="reasons" id="">Why do you need {{what-you-need}}?</label>
+      <textarea class="form-control" id="reasons" name="reasons"></textarea>
     </div>
-
-    <!-- WHAT SUPPORT YOU NEED? -->
-	  <div class="form-group">
-  		<label class="form-label-bold" for="support-you-want" id="">What is it that you want specifically?</label>
-      <p class="form-hint">Name the things!!!</p>
-	    <input class="form-control full" id="support-you-want" name="support-you-want"/>
-  	</div>
-
-    <!-- LIST THE THINGS -->
-    <fieldset class="inline" id="havejob">
-      <legend class="form-label-bold" id="alreadyJob">What do you have to do at work this would help you with?</legend>
-      <p class="form-hint">Things you have to do to perform your job role.</p>
-      <div class="conditions">
-        <p class="cond"><input name="conditions" class="form-control" style="width:75%" autocomplete="off"/></p>
-      </div>
-      <p><a href="#" id="add" class="button-add">&#43; Add another</a></p>
-    </fieldset>
 
     <fieldset class="primary-nav form-group">
 		  <legend>Form Navigation</legend>
-        <ul>
-	      	<li><input type="submit" value="Next" class="button" id="submitButton"/></li>
-	      </ul>
+        <ul> <li><input type="submit" value="Next" class="button" id="submitButton"/></li> </ul>
     </fieldset>
 
   </form>

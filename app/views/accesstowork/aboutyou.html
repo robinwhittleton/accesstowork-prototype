@@ -14,8 +14,12 @@
 
 <section class="column-two-thirds" aria-labelledby="aboutyou">
 
+	<!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
 	<h1 class="form-title heading-large" id="aboutyou"><span class="section-progress">Section 5 of 5</span> About you</h1>
-    
+
 	<!-- ERROR -->
 	<div class="validation-summary js-hidden" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
 		<h1>{{errors}}</h1>
@@ -32,19 +36,19 @@
 
 	<form action="declaration" method="post" class="form">
 
-		<fieldset>	
-			<legend class="hidden-legend" aria-hidden="true">Your details</legend>			
-			
+		<fieldset>
+			<legend class="hidden-legend" aria-hidden="true">Your details</legend>
+
 			<!-- NAME -->
 	    <div class="form-group">
 		    <label class="form-label-bold" for="full-name" id="full-name-label">Full name</label>
 		    <input class="form-control" id="full-name" name="you-full-name" type="text" aria-required="true">
-	    </div>			
+	    </div>
 
 	    <!-- DOB -->
 			<div class="form-group">
 	      <fieldset>
-	        <legend class="form-label-bold" id="date-of-birth-legend">Date of birth</legend>	
+	        <legend class="form-label-bold" id="date-of-birth-legend">Date of birth</legend>
 	        <div class="form-date">
 	          <p class="form-hint">For example, 08 4 2014.</p>
 	          <div class="form-group form-group-day">
@@ -62,10 +66,10 @@
 	        </div>
 	      </fieldset>
 	    </div>
-			  
+
 			<!-- ADDRESS -->
 			<div class="form-group">
-		    <fieldset>  
+		    <fieldset>
 			    <legend class="form-label-bold main" id="addressStack">Address</legend>
 			    <div class="form-group" aria-labelledby="addressStack">
 			      <label class="form-label" for="address-line1"><input type="text" class="form-control" id="address-line1" name="you-address-line1"></label>
@@ -77,15 +81,15 @@
 			      <input type="text" class="form-control-1-4" id="postcode" name="you-postcode" aria-required="true">
 			    </div>
 		    </fieldset>
-			</div>  
-	  	
-	  	<!-- PHONE -->	    
+			</div>
+
+	  	<!-- PHONE -->
 	    <div class="form-group">
 	      <label class="form-label-bold" for="telephone-number" id="phone-number-label">Phone number</label>
 		  	<p class="form-hint">This can be a landline, mobile or text phone number.</p>
 	      <input class="form-control" id="telephone-number" name="you-telephone-number" type="text" aria-required="true">
 	    </div>
-	
+
 			<!-- EMAIL -->
 	    <div class="form-group">
 	      <label class="form-label-bold" for="email-address">Email address (optional)</label>
@@ -95,19 +99,18 @@
 	        Check this box if you'd prefer emails rather than a phone call at the next stage of your application.
 		  </label>
 	    </div>
-    
-    </fieldset>   
-    
+
+    </fieldset>
+
 		<fieldset class="primary-nav form-group">
-			<legend>Form Navigation</legend>    
+			<legend>Form Navigation</legend>
       <ul>
       	<li><input type="submit" value="Next" class="button" /></li>
-        <li><a href="javascript:history.go(-1);">Back</a></li>
       </ul>
 		</fieldset>
 
   </form>
-  
+
 </section><!-- .column-two-thirds -->
 
 </div><!-- .grid-row -->

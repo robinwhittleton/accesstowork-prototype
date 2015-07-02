@@ -59,3 +59,19 @@ td.numeric {
 .full {
   width:100%;
 }
+.back-link {
+  margin:15px 0 0;
+  font-size:18px;
+}
+.form-title {
+  margin-top:15px;
+}
+.button-add {
+  @extend .button;
+  &:link,&:visited {
+    font-size:18px;
+    background-color:$link-colour;
+    padding:7px 10px 5px;
+    box-shadow: darken($link-colour,20) 0px 2px 0px 0px;
+  }
+}
