@@ -27,8 +27,7 @@
 
     <!-- LIST THE THINGS -->
     <fieldset class="inline" id="havejob">
-      <legend class="form-label-bold" id="alreadyJob">What things would {{what-you-need}} help you to do?</legend>
-      <p class="form-hint">Things you have to do to perform your job role.</p>
+      <legend class="form-label-bold" id="alreadyJob">What work tasks do you need {{what-you-need}} for?</legend>
       <div class="tasks">
         <p class="cond"><input name="tasks" class="form-control" style="width:75%" autocomplete="off"/></p>
       </div>
@@ -37,7 +36,8 @@
 
     <!-- HOW MANY HOURS -->
     <div class="form-group">
-      <label class="form-label-bold" for="full-name" id="full-name-label">How many hours <span class="plural">does this task</span> take?</label>
+      <label class="form-label-bold" for="full-name" id="full-name-label">How many hours a week <span class="plural">do you need to do this</span>?</label>
+      <p class="form-hint">For example, 2 hours a day or 16 hours a week</p>
       <input class="form-control" id="full-name" name="you-full-name" type="text" aria-required="true">
     </div>
 
@@ -77,7 +77,7 @@ $(document).on("ready",function(e)
 
     if ($('.tasks input').length > 1)
     {
-      $('.plural').text('do these tasks');
+      $('.plural').text(', in total, do you need to do these things');
     }
 
   });
