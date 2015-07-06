@@ -41,7 +41,7 @@
     <fieldset class="inline" id="havejob">
       <legend class="form-label-bold" id="alreadyJob">What work tasks would you find harder to do without this?</legend>
       <p class="form-hint">These should be things that you have to do in your job role.</p>
-      <div class="conditions">
+      <div class="tasks">
         <p class="cond"><input name="conditions" class="form-control" style="width:75%" autocomplete="off"/></p>
       </div>
       <p><a href="#" id="add" class="button-add">&#43; Add another</a></p>
@@ -110,7 +110,19 @@
       } else {
         alert('You need to complete the form');
       }
+    });
 
+    $('#add').on("click",function(e)
+    {
+      e.preventDefault();
+      var c = $($('.tasks .cond')[0]).clone(); // clone the first input ... well <p>
+      $('.tasks').append(c); // apend it to the block.
+      $(c.find('input')).val("").focus(); // empty the vlalue.
+
+      if ($('.tasks input').length > 1)
+      {
+        $('.plural').text(', in total, do you need to do these things');
+      }
     });
   });
 </script>
