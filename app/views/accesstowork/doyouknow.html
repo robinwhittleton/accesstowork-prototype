@@ -164,6 +164,7 @@
               var dest = $(el).data('dest');
               form.attr('action',dest);
               form.submit();
+              return false;
             }
           });
         }
