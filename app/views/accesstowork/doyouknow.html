@@ -189,6 +189,7 @@
       /*
         Reimplementing the stuff from the cookies
       */
+
       /*
       switch(Cookies.get('job-already'))
       {
@@ -202,6 +203,26 @@
         case 'Self': $('#self-employed').trigger('click'); break;
         case 'Director': $('#ltd').trigger('click'); break;
       }
+
+      var n = Cookies.get('what-you-need');
+
+      try {
+        var whats = $.parseJSON(n);
+      } catch (e) {
+        whats = [n];
+      }
+
+      $('input[name=what-you-need]').each(function(i,el)
+      {
+          $.each(whats,function(j)
+          {
+            var e = $(el).val();
+            if (e == whats[j]) {
+              $(el).trigger('click');
+            }
+          })
+      });
+
       */
 
     });
