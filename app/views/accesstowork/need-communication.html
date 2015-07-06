@@ -61,7 +61,7 @@
     <fieldset class="primary-nav form-group">
       <legend>Form Navigation</legend>
       <ul>
-        <li><input type="submit" value="Next" class="button" id="submitButton"/></li>
+        <li><input type="submit" value="Next" class="button" id="nextButton"/></li>
       </ul>
     </fieldset>
 
@@ -76,3 +76,27 @@
 {{/content}}
 
 {{/layout}}
+
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    var form = $('form');
+    $('#nextButton').on('click',function(e)
+    {
+      e.preventDefault();
+      // grab the form as an array.
+      var f = form.serializeArray();
+
+      // check whether more than one answer checked
+      // if only one and it's Something Else then
+      // change the destination.
+      if (f.length == 1)
+      {
+        var c = $('#what-you-need-none').prop('checked');
+        if(c) form.attr('action','whatyouneed');
+      }
+
+      form.submit();
+    });
+  });
+</script>
