@@ -23,13 +23,13 @@
     How would this help?
   </h1>
 
-  <form action="describe" method="post" class="form">
+  <form action="" method="post" class="form">
 
     <!-- LIST THE THINGS -->
     <fieldset class="inline" id="havejob">
       <legend class="form-label-bold" id="alreadyJob">What work tasks do you need {{what-you-need}} for?</legend>
       <div class="tasks">
-        <p class="cond"><input name="tasks" class="form-control" style="width:75%" autocomplete="off"/></p>
+        <p class="cond"><input name="need-tasks" class="form-control" style="width:75%" autocomplete="off"/></p>
       </div>
       <p><a href="#" id="add" class="button-add">&#43; add another</a></p>
     </fieldset>
@@ -44,7 +44,7 @@
     <fieldset class="primary-nav form-group">
       <legend>Form Navigation</legend>
       <ul>
-        <li><input type="submit" value="Next" class="button" id="nextbutton"/></li>
+        <li><input type="submit" value="Next" class="button" id="nextButton"/></li>
       </ul>
     </fieldset>
 
@@ -78,6 +78,30 @@ $(document).on("ready",function(e)
     {
       $('.plural').text(', in total, do you need to do these things');
     }
+  });
+
+  var form = $('form');
+
+  /*
+    When they click submit refer to the previous
+    Employment answer for the next step.
+  */
+  var dest = '';
+  $("#nextButton").on('click',function(e)
+  {
+    e.preventDefault();
+
+    // go and check what they put for employment status.
+    var emp_status = Cookies.get('emp-status'); console.log(emp_status);
+    switch(emp_status)
+    {
+      case "Employed": dest = 'employed'; break;
+      case "Self": dest = 'employed-self'; break;
+      case "Director": dest = 'employed-limited'; break;
+    }
+
+    form.attr('action',dest);
+    form.submit();
 
   });
 });

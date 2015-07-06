@@ -16,11 +16,11 @@
 
   <h1 class="form-title heading-large" id="aboutjob"><span class="section-progress">Section 2 of 5</span> Your difficulties</h1>
 
-  <form action="" method="post" class="form" id="theForm">    
+  <form action="" method="post" class="form" id="theForm">
     <div id="fields"></div>
 
     <fieldset class="primary-nav form-group">
-      <legend>Form Navigation</legend>    
+      <legend>Form Navigation</legend>
       <ul>
         <li><input type="submit" value="Next" class="button" id="submitButton"/></li>
         <li><a href="javascript:history.go(-1);">Back</a></li>
@@ -28,7 +28,7 @@
     </fieldset>
 
   </form>
-  
+
 </section><!-- .column-two-thirds -->
 
 </div><!-- .grid-row -->
@@ -58,13 +58,13 @@
         fields = $("#fields"),
         subb = $('#submitButton');
 
-    var c = Cookies.get('conditions'); 
-    if (c) 
+    var c = Cookies.get('explore-tasks');
+    if (c)
     {
       var tasks;
-      
+
       try {
-        tasks = $.parseJSON(c); 
+        tasks = $.parseJSON(c);
       } catch (e) {}
 
       if (tasks && typeof tasks == 'object')
@@ -73,7 +73,7 @@
         {
             if (!e) return;
 
-            var html = $("#template").clone().html(); 
+            var html = $("#template").clone().html();
             var quer = $(html);
             var task = quer.find('.task');
             fields.append(quer);
@@ -81,15 +81,15 @@
             quer.find('textarea').attr("name","difficulty");
         });
       } else {
-        var html = $("#template").clone().html(); 
-        var quer = $(html);        
+        var html = $("#template").clone().html();
+        var quer = $(html);
         fields.append(quer);
         quer.find('.task').text("\'"+c+"\'");
         quer.find('textarea').attr("name","difficulty");
       }
 
     /*
-      When they click submit refer to the previous 
+      When they click submit refer to the previous
       Employment answer for the next step.
     */
     var dest = '';
@@ -108,27 +108,27 @@
 
       console.log(dest);
 
-      // if they didn't say they had a job, what did they say 
+      // if they didn't say they had a job, what did they say
       // to the interview question?
-      if (!dest) 
+      if (!dest)
       {
         var interview = Cookies.get('1_interview');
         if (interview == 'Yes') dest = 'interview';
         else dest = 'interview-exit';
       }
 
-      // if at this point we have a destination go to it otherwise 
+      // if at this point we have a destination go to it otherwise
       // alert a quick error.
       if (dest)
-      {      
+      {
         form.attr('action',dest);
-        form.submit();    
+        form.submit();
       } else {
         alert('You need to complete the form');
       }
-            
-    });      
-      
+
+    });
+
     }
 
   });
