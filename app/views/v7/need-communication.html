@@ -1,0 +1,102 @@
+{{<layout}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol}}
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    <span class="section-progress">Section 1 of 5</span>
+    Help with communication
+  </h1>
+
+  <form action="need-tasks" method="post" class="form" id="theForm">
+
+    <div class="form-group">
+
+      <!-- WHAT DO YOU NEED -->
+      <fieldset class="form-group" id="what-you-need">
+        <legend class="form-label-bold" id="what-you-need-label">Do you need one of these?</legend>
+        <p class="form-help">Select all that apply</p>
+        <div class="form-group form-group-compound" aria-labelledby="what-you-need-label">
+          <label class="block-label" for="what-you-need-bsl">
+            <input id="what-you-need-bsl" type="checkbox" name="what-you-need" value="a BSL interpreter" />
+            BSL interpreter
+          </label>
+          <label class="block-label" for="what-you-need-lip">
+            <input id="what-you-need-lip" type="checkbox" name="what-you-need" value="a lip reader" />
+            Lip reader
+          </label>
+          <label class="block-label" for="what-you-need-notetaker">
+            <input id="what-you-need-notetaker" type="checkbox" name="what-you-need" value="a note taker" />
+            Note taker
+          </label>
+          <label class="block-label" for="what-you-need-haids">
+            <input id="what-you-need-haids" type="checkbox" name="what-you-need" value="remote captioning" />
+            Remote captioning
+          </label>
+          <label class="block-label" for="what-you-need-none">
+            <input id="what-you-need-none" type="checkbox" name="what-you-need" value="Something else" />
+            Something else
+          </label>
+        </div>
+      </fieldset>
+
+    </div><!-- .form-group -->
+
+    <!-- NEXT BUTTON -->
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>
+      <ul>
+        <li><input type="submit" value="Next" class="button" id="nextButton"/></li>
+      </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    var form = $('form');
+    $('#nextButton').on('click',function(e)
+    {
+      e.preventDefault();
+      // grab the form as an array.
+      var f = form.serializeArray();
+
+      // check whether more than one answer checked
+      // if only one and it's Something Else then
+      // change the destination.
+      if (f.length == 1)
+      {
+        var c = $('#what-you-need-none').prop('checked');
+        if(c) form.attr('action','whatyouneed');
+      }
+
+      form.submit();
+    });
+  });
+</script>

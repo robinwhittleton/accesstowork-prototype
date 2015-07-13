@@ -1,0 +1,106 @@
+{{<layout}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="phase-banner">
+    <p>
+      <strong class="phase-tag">ALPHA</strong>
+      <span>This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.</span>
+    </p>
+  </div>
+
+
+
+
+<div class="grid-row">
+
+
+
+
+{{>includes/leftcol}}
+
+
+<section class="column-two-thirds" aria-labelledby="aboutjob">
+
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+<h1 class="form-title heading-large" id="aboutjob"><span class="section-progress">Section 3 of 5</span> About your company</h1>
+
+
+<form action="aboutwork" method="post" class="form">
+
+	<fieldset>
+		<legend class="hidden-legend" aria-hidden="true">Your limited company details</legend>
+
+
+			<div class="form-group">
+		  		<label class="form-label-bold" for="company-name">Company name</label>
+		        <input class="form-control" type="text" id="company-name" name="ltd-co-company-name">
+		  	</div>
+
+		  	<div class="form-group">
+				 <fieldset class="inline">
+				    <legend class="form-label-bold">Is your company's address different to your home address?</legend>
+
+				    <div class="form-group form-group-compound">
+						<label class="block-label" for="eligibility1-yes" data-target="eligibility-q1">
+							<input id="eligibility1-yes" name="ltd-co-address" type="radio" value="Yes">
+							Yes
+						</label>
+						<label class="block-label" for="eligibility1-no">
+							<input id="eligibility1-no" name="ltd-co-address" type="radio" value="No">
+							No
+						</label>
+				    </div>
+
+				    <div class="panel-indent js-hidden" id="eligibility-q1" name="ltd-co-eligibility-q1">
+					  	 <fieldset>
+					  	 	<legend class="form-label">Company address</legend>
+						    <div class="form-group">
+						      <label class="form-label" for="address-line1"><input type="text" class="form-control" id="address-line1" name="ltd-co-address-line1"></label>
+						      <label class="form-label" for="address-line2"><input type="text" class="form-control" id="address-line2" name="ltd-co-address-line2"></label>
+						      <label class="form-label" for="address-line3"><input type="text" class="form-control" id="address-line3" name="ltd-co-address-line3"></label>
+						  	</div>
+						  	<div class="form-group">
+						  	  <label class="form-label" for="postcode">Postcode</label>
+						  	  <input type="text" class="form-control-1-4" id="postcode" name="ltd-co-postcode">
+						  	</div>
+					  	</fieldset>
+				    </div>
+				  </fieldset>
+		  	</div>
+
+
+	</fieldset>
+
+
+    <!-- Primary buttons, secondary links -->
+
+
+    <fieldset class="primary-nav form-group">
+		<legend>Form Navigation</legend>
+		      <ul>
+		      	<li><input type="submit" value="Next" class="button"/></li>
+		      </ul>
+	</fieldset>
+
+  </form>
+
+</section>
+
+</div>
+
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+

@@ -1,0 +1,128 @@
+{{<layout}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol}}
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    <span class="section-progress">Section 2 of 5</span>
+    How your condition affects your work
+  </h1>
+
+  <form action="" method="post" class="form" id="theForm">
+
+    <!-- YOUR CONDITION -->
+    <div class="form-group">
+      <label class="form-label-bold" for="conditions-and-dis" id="">What's your condition or disability?</label>
+      <input class="form-control full" id="conditions-and-dis" name="conditions-and-dis"/>
+    </div>
+
+    <!-- WHAT SUPPORT YOU NEED? -->
+	  <div class="form-group">
+  		<label class="form-label-bold" for="support-you-want" id="">What support or equipment do you need?</label>
+	    <input class="form-control full" id="support-you-want" name="support-you-want"/>
+  	</div>
+
+    <!-- LIST THE THINGS -->
+    <fieldset class="inline" id="havejob">
+      <legend class="form-label-bold" id="alreadyJob">What work tasks would you find harder to do without this?</legend>
+      <p class="form-hint">These should be things that you have to do in your job role.</p>
+      <div class="tasks">
+        <p class="cond"><input name="else-tasks" class="form-control" style="width:75%" autocomplete="off"/></p>
+      </div>
+      <p><a href="#" id="add" class="button-add">&#43; Add another</a></p>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+		  <legend>Form Navigation</legend>
+        <ul>
+	      	<li><input type="submit" value="Next" class="button" id="submitButton"/></li>
+	      </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+
+  var form = $("#theForm"),
+      subb = $('#submitButton');
+
+  $(document).on('ready',function()
+  {
+    var dest = '';
+    var jobalready = Cookies.get('job-already');
+
+    $(subb).on('click',function(e)
+    {
+      e.preventDefault();
+
+      if (jobalready == 'Yes')
+      {
+        // go and check what they put for employment status.
+        var emp_status = Cookies.get('emp-status');
+        switch(emp_status)
+        {
+          case "Employed": dest = 'employed'; break;
+          case "Self": dest = 'employed-self'; break;
+          case "Director": dest = 'employed-limited'; break;
+        }
+      }
+
+      // if they didn't say they had a job, what did they say
+      // to the interview question?
+      if (!dest)
+      {
+        var interview = Cookies.get('1_interview');
+        if (interview == 'Yes') dest = 'interview';
+        else dest = 'interview-exit';
+      }
+
+      // if at this point we have a destination go to it otherwise
+      // alert a quick error.
+      if (dest)
+      {
+        form.attr('action',dest);
+        form.submit();
+      } else {
+        alert('You need to complete the form');
+      }
+    });
+
+    $('#add').on("click",function(e)
+    {
+      e.preventDefault();
+      var c = $($('.tasks .cond')[0]).clone(); // clone the first input ... well <p>
+      $('.tasks').append(c); // apend it to the block.
+      $(c.find('input')).val("").focus(); // empty the vlalue.
+
+      if ($('.tasks input').length > 1)
+      {
+        $('.plural').text(', in total, do you need to do these things');
+      }
+    });
+  });
+</script>
