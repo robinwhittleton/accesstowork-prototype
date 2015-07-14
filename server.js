@@ -53,8 +53,6 @@ app.use(user_data.form_to_cookie(presenters));
 
 routes.bind(app);
 
-// auto render any view that exists
-
 app.all('/accesstowork/need-tasks', function (req, res, next)
 {
   // just take the first item out of the array.
@@ -88,6 +86,7 @@ app.all('/accesstowork/need-why-software', function (req, res, next)
   next();
 });
 
+// auto render any view that exists
 app.get(/^\/([^.]+)$/, function (req, res) {
 
 	var path = (req.params[0]);
