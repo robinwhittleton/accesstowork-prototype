@@ -14,100 +14,69 @@
 
 <section class="column-two-thirds" aria-labelledby="aboutyou">
 
-	<!-- BACK LINK -->
+  <!-- BACK LINK -->
   <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
 
-	<!-- HEADING -->
-	<h1 class="form-title heading-large" id="aboutyou"><span class="section-progress">Section 5 of 5</span> About you</h1>
+  <!-- HEADING -->
+  <h1 class="form-title heading-large" id="aboutyou"><span class="section-progress">Section 5 of 5</span> About you</h1>
 
-	<!-- ERROR -->
-	<div class="validation-summary js-hidden" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
-		<h1>{{errors}}</h1>
-    <h2 class="bold-medium">Check your form</h2>
-    <p>You must:</p>
-    <ul class="error-summary-list">
-    	<li><a href="#full-name-label">enter your full name</a></li>
-    	<li><a href="#date-of-birth-legend">enter your date of birth</a></li>
-    	<li><a href="#addressStack">enter your address</a></li>
-    	<li><a href="#phone-number-label">enter your phone number</a></li>
-    	<!-- <li><a href="#"></a></li> -->
-    </ul>
-	</div>
+  <form action="aboutyou2" method="post" class="form">
 
-	<form action="declaration" method="post" class="form">
+    <fieldset>
+      <legend class="hidden-legend" aria-hidden="true">Your details</legend>
 
-		<fieldset>
-			<legend class="hidden-legend" aria-hidden="true">Your details</legend>
+      <!-- NAME -->
+      <div class="form-group">
+        <label class="form-label-bold" for="full-name" id="full-name-label">Full name</label>
+        <input class="form-control" id="full-name" name="you-full-name" type="text" aria-required="true">
+      </div>
 
-			<!-- NAME -->
-	    <div class="form-group">
-		    <label class="form-label-bold" for="full-name" id="full-name-label">Full name</label>
-		    <input class="form-control" id="full-name" name="you-full-name" type="text" aria-required="true">
-	    </div>
+      <!-- DOB -->
+      <div class="form-group">
+        <fieldset>
+          <legend class="form-label-bold" id="date-of-birth-legend">Date of birth</legend>
+          <div class="form-date">
+            <p class="form-hint">For example, 08 4 2014.</p>
+            <div class="form-group form-group-day">
+              <label for="dob-day">Day</label>
+              <input type="text" class="form-control" id="dob-day" name="you-dob-day" aria-required="true">
+            </div>
+            <div class="form-group form-group-month">
+              <label for="dob-month">Month</label>
+              <input type="text" class="form-control" id="dob-month" name="you-dob-month" aria-required="true">
+            </div>
+            <div class="form-group form-group-year">
+              <label for="dob-year">Year</label>
+              <input type="text" class="form-control" id="dob-year" name="you-dob-year" aria-required="true">
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
-	    <!-- DOB -->
-			<div class="form-group">
-	      <fieldset>
-	        <legend class="form-label-bold" id="date-of-birth-legend">Date of birth</legend>
-	        <div class="form-date">
-	          <p class="form-hint">For example, 08 4 2014.</p>
-	          <div class="form-group form-group-day">
-	            <label for="dob-day">Day</label>
-	            <input type="text" class="form-control" id="dob-day" name="you-dob-day" aria-required="true">
-	          </div>
-	          <div class="form-group form-group-month">
-	            <label for="dob-month">Month</label>
-	            <input type="text" class="form-control" id="dob-month" name="you-dob-month" aria-required="true">
-	          </div>
-	          <div class="form-group form-group-year">
-	            <label for="dob-year">Year</label>
-	            <input type="text" class="form-control" id="dob-year" name="you-dob-year" aria-required="true">
-	          </div>
-	        </div>
-	      </fieldset>
-	    </div>
-
-			<!-- ADDRESS -->
-			<div class="form-group">
-		    <fieldset>
-			    <legend class="form-label-bold main" id="addressStack">Address</legend>
-			    <div class="form-group" aria-labelledby="addressStack">
-			      <label class="form-label" for="address-line1"><input type="text" class="form-control" id="address-line1" name="you-address-line1"></label>
-			      <label class="form-label" for="address-line2"><input type="text" class="form-control" id="address-line2" name="you-address-line2"></label>
-			      <label class="form-label" for="address-line3"><input type="text" class="form-control" id="address-line3" name="you-address-line3"></label>
-			    </div>
-			    <div>
-			      <label class="form-label" for="postcode">Postcode</label>
-			      <input type="text" class="form-control-1-4" id="postcode" name="you-postcode" aria-required="true">
-			    </div>
-		    </fieldset>
-			</div>
-
-	  	<!-- PHONE -->
-	    <div class="form-group">
-	      <label class="form-label-bold" for="telephone-number" id="phone-number-label">Phone number</label>
-		  	<p class="form-hint">This can be a landline, mobile or text phone number.</p>
-	      <input class="form-control" id="telephone-number" name="you-telephone-number" type="text" aria-required="true">
-	    </div>
-
-			<!-- EMAIL -->
-	    <div class="form-group">
-	      <label class="form-label-bold" for="email-address">Email address (optional)</label>
-	      <input class="form-control" id="email-address" name="you-email-address" type="text" aria-required="true">
-	      <label class="form-checkbox form-label" for="checkbox-email-address">
-			<input id="checkbox-email-address" name="you-email-address-prefer" type="checkbox" value="email_prefferred">
-	        Check this box if you'd prefer emails rather than a phone call at the next stage of your application.
-		  </label>
-	    </div>
+      <!-- ADDRESS -->
+      <div class="form-group">
+        <fieldset>
+          <legend class="form-label-bold main" id="addressStack">Address</legend>
+          <div class="form-group" aria-labelledby="addressStack">
+            <label class="form-label" for="address-line1"><input type="text" class="form-control" id="address-line1" name="you-address-line1"></label>
+            <label class="form-label" for="address-line2"><input type="text" class="form-control" id="address-line2" name="you-address-line2"></label>
+            <label class="form-label" for="address-line3"><input type="text" class="form-control" id="address-line3" name="you-address-line3"></label>
+          </div>
+          <div>
+            <label class="form-label" for="postcode">Postcode</label>
+            <input type="text" class="form-control-1-4" id="postcode" name="you-postcode" aria-required="true">
+          </div>
+        </fieldset>
+      </div>
 
     </fieldset>
 
-		<fieldset class="primary-nav form-group">
-			<legend>Form Navigation</legend>
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>
       <ul>
-      	<li><input type="submit" value="Next" class="button" /></li>
+        <li><input type="submit" value="Next" class="button" /></li>
       </ul>
-		</fieldset>
+    </fieldset>
 
   </form>
 
