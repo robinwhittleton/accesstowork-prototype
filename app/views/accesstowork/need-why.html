@@ -25,9 +25,12 @@
 
   <form action="aboutjob" method="post" class="form" id="theForm">
 
+    <h3 class="heading-medium" style="margin-bottom:0.25em">Your condition</h3>
+    <h2 class="font-large" style="margin-top:0;margin-bottom:1em;"><span style="color:#999">&ldquo;{{travel-condition}}&rdquo;</span></h2>
+
     <!-- WHY DO YOU NEED -->
     <div class="form-group">
-      <label class="form-label-bold" for="reasons" id="">Why do you need {{what-you-need}}?</label>
+      <label class="form-label-bold" for="reasons" id="">How does this cause you to need <span style="color:#666">{{what-you-need}}</span>?</label>
       <textarea class="form-control" id="reasons" name="reasons"></textarea>
     </div>
 
