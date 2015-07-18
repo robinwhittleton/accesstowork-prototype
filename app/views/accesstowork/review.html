@@ -119,10 +119,10 @@
 	       <td>How many hours a week do you work?</td>
 	       <td>{{work-job-hours}}</td>
 	      </tr>
-	      <tr>
+	      <!-- <tr>
 	       <td>Is this a permanent job?</td>
 	       <td>{{work-end}}</td>
-	      </tr>
+	      </tr> -->
 	    </tbody>
 	  </table>
 	  
@@ -134,6 +134,10 @@
 	      </tr>
 	    </thead>
 	    <tbody>	    
+	    <tr>
+	        <td>What You Need</td>
+	        <td>{{#what-you-need}}{{.}}, {{/what-you-need}}</td>
+	    </tr>	    
 	    <tr>
 	        <td>Conditions</td>
 	        <td>{{#conditions}}{{.}}, {{/conditions}}</td>
@@ -149,14 +153,14 @@
 	        <td>Conditions &amp; Disabilities</td>
 	        <td>{{conditions-and-dis}}</td>
 	    </tr>
-	    <tr>
+<!-- 	    <tr>
 	        <td>Support &amp; Equipment</td>
 	        <td>{{support}}</td>
 	    </tr>
 	    <tr>
 	        <td>Reasons</td>
 	        <td>{{reasons}}</td>
-	    </tr>
+	    </tr> -->
 
 	    </tbody>
 	  </table>
