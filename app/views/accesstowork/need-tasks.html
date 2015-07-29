@@ -38,7 +38,7 @@
 
     <!-- HOW MANY HOURS -->
     <div class="form-group">
-      <label class="form-label-bold" for="full-name" id="full-name-label">Roughly how many hours <span class="plural">do you need to do this task</span>?</label>
+      <label class="form-label-bold" for="full-name" id="full-name-label">How many hours<span class="plural"> do you have do this at work</span>?</label>
       <p class="form-hint">For example, 2 hours a day or 16 hours a month.</p>
       <input class="form-control" id="full-name" name="you-full-name" type="text" aria-required="true">
     </div>
@@ -78,7 +78,7 @@ $(document).on("ready",function(e)
 
     if ($('.tasks input').length > 1)
     {
-      $('.plural').text(', in total, do you need to do these things');
+      $('.plural').text(', in total, do you need to do these things at work');
     }
   });
 
