@@ -1,0 +1,138 @@
+// Import GOV.UK elements, this will import the frontend toolkit and some base styles.
+// Take a look at elements.scss to see which files are imported.
+@import 'elements';
+
+// Set up your main content area <main id="content">
+// This will give you a full width content block
+// See elements _layout.scss line 7.
+
+// If you need it, set up your grid layout - refer to the grid layout usage example
+// See elements _layout.scss line 28.
+
+// If you need a phase banner, put this inside the main content area
+// See elements _layout.scss line 22.
+.alpha-banner  {
+  @include phase-banner(alpha); // Change this to (beta) for a beta banner
+}
+.alpha-tag {
+  @include phase-tag(alpha); // Change this to (beta) for a beta tag
+}
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you,
+// either add and import new partial files, or modify those in GOV.UK elements to fit your user needs.
+.button-get-started {
+	padding: 0.60em 1.7em 0.45em 0.67em;
+	background-image: url(/public/images/start-button-arrow.png);
+	background-position: 100% 50%;
+	background-repeat: no-repeat;
+}
+
+.push--down {
+	margin-bottom:1em;
+}
+
+.textarea--small {
+	min-height:6em;
+}
+
+.textarea--xsmall {
+	min-height:4em;
+}
+
+.dashed-top {
+	border-top:1px dashed #ccc;
+	margin-top:1em;
+}
+.pad--top {
+	padding-top:1em;
+}
+
+.condition .form-control {
+	width:100%;
+}
+
+th.numeric,
+td.numeric {
+	padding-right:0;
+}
+
+.full {
+  width:100%;
+}
+.back-link {
+  margin:15px 0 0;
+  font-size:18px;
+}
+.form-title {
+  margin-top:15px;
+}
+.button-add {
+  @extend .button;
+  &:link,&:visited {
+    font-size:18px;
+    background-color:$link-colour;
+    padding:7px 10px 5px;
+    box-shadow: darken($link-colour,20) 0px 2px 0px 0px;
+  }
+}
+
+.back-link {
+  display:inline-block;
+  position:relative;
+  border-bottom:1px solid $link-colour;
+}
+.back-link a {
+  text-decoration:none;
+}
+.back-link a:before {
+  content:'';
+  display:inline-block;
+	width: 0;
+	height: 0;
+	border-top: 4px solid transparent;
+	border-right: 6px solid $link-colour  ;
+	border-bottom: 4px solid transparent;
+  position:relative;
+  top:-2px;
+  margin-right:0.25em;
+}
+.hypothesis {
+  vertical-align:top;
+  display:inline-block;
+  padding:0.5em;
+  box-shadow:1px 2px 7px rgba(black,0.22);
+  border:1px solid rgba(black,0.22);
+  margin-bottom:1em;
+  .coloured-box {
+    background-color:#f47738;
+    padding:1em;
+    color:white;
+  }
+  .setup {
+    margin:0;
+    opacity:0.76;
+  }
+  .hyp-text {
+    @extend .heading-medium;
+    margin:0 0 0.25em;
+  }
+}
+.index-table {
+  width:auto;
+  td:first-child {
+    width:auto;
+  }
+  td {
+    white-space:nowrap;
+  }
+}
+.font-xxsmall {
+  font-size:12px;
+}
+
+@import "elements/forms/form-custom";
+
+fieldset.inline .form-group {
+  width:auto;
+  margin-right:10px;
+}

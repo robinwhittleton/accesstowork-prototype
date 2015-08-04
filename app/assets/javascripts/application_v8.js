@@ -1,0 +1,42 @@
+$(document).ready(function() {
+
+  // Turn off jQuery animation
+  jQuery.fx.off = true;
+
+  // Use GOV.UK selection-buttons.js to set selected
+  // and focused states for block labels
+  var $blockLabels = $(".block-label input[type='radio'], .block-label input[type='checkbox']");
+  new GOVUK.SelectionButtons($blockLabels);
+
+  // Details/summary polyfill
+  // See /javascripts/vendor/details.polyfill.js
+
+  // Where .block-label uses the data-target attribute
+  // to toggle hidden content
+  // var toggleContent = new ShowHideContent();
+  // toggleContent.showHideRadioToggledContent();
+  // toggleContent.showHideCheckboxToggledContent();
+
+  $('.form-control-radio').on('click',function(e)
+  {    
+    // save the clicked label
+    var self = this;    
+
+    // grab the fieldset containing it
+    var fs = $(this).closest('fieldset');
+
+    // for each label in that fieldset
+    $(fs).find('label').each(function(i,e)
+    {
+      // find the target it's pointing to
+      var target = $(this).data('target');
+
+      // if it's the clicked label show it's target
+      if (this == self) $('#'+target).show();
+
+      // otherwise hide it's target
+      else $('#'+target).hide();
+    });
+  });
+
+});

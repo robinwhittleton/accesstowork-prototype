@@ -10,10 +10,13 @@ function ShowHideContent() {
   self.showHideRadioToggledContent = function () {
     $(".block-label input[type='radio']").each(function () {
 
+      // grab each radio button.
       var $radio = $(this);
+      // grab the name of it's group.
       var $radioGroupName = $radio.attr('name');
+      // grab the label surrounding it.
       var $radioLabel = $radio.parent('label');
-
+      // grab the target element to reveal.
       var dataTarget = $radioLabel.attr('data-target');
 
       // Add ARIA attributes
@@ -24,8 +27,8 @@ function ShowHideContent() {
         // Set aria-controls
         $radio.attr('aria-controls', dataTarget);
 
-        $radio.on('click', function () {
-
+        $radio.on('click', function() 
+        {
           // Select radio buttons in the same group
           $radio.closest('form').find(".block-label input[name=" + self.escapeElementName($radioGroupName) + "]").each(function () {
             var $this = $(this);
