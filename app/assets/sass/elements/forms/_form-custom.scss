@@ -69,7 +69,7 @@
   // Compact versions
   .form-control-checkbox.compact-control,
   .form-control-radio.compact-control{
-    line-height: 1;
+    line-height: 1.4;
     margin-top: 0;
     padding-top: 2px; // + Offset
   }
@@ -77,7 +77,7 @@
   .form-control-radio.compact-control::before{
     width: 16px;
     height: 16px;
-    margin-top: -2px; // - Offset
+    margin-top: 1px; // - Offset
   }
 
   input[type='radio']:checked + .form-control-radio.compact-control::before{
