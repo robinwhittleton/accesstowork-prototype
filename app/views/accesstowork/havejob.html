@@ -1,4 +1,4 @@
-{{<layout}}
+{{<layout_v8}}
 
 {{$pageTitle}}About you{{/pageTitle}}
 
@@ -26,36 +26,28 @@
 
       <!-- DO YOU HAVE A JOB? -->
       <fieldset class="inline" id="havejob">
-        <legend class="form-label-bold" id="alreadyJob">Do you already have a job?</legend>
-        <div class="form-group form-group-compound" aria-labelledby="alreadyJob">
-          <label class="block-label" data-target="employment-status" for="job-already-yes">
-            <input id="job-already-yes" type="radio" name="job-already" value="Yes" />
-            Yes
-          </label>
-          <label class="block-label" data-target="csi-status" for="job-already-no">
-            <input id="job-already-no" type="radio" name="job-already" value="No" />
-            No
-          </label>
+        <legend class="heading-medium" id="alreadyJob">Do you already have a job?</legend>
+        <div class="form-group">
+          <input id="job-already-yes" type="radio" name="job-already" value="Yes" />
+          <label class="form-label form-control-radio" data-target="employment-status" for="job-already-yes">Yes</label>
+        </div>
+        <div class="form-group form-group-compound">
+          <input id="job-already-no" type="radio" name="job-already" value="No" />
+          <label class="form-label form-control-radio" data-target="csi-status" for="job-already-no">No</label>
         </div>
       </fieldset>
 
       <!-- SELF EMPLOYED EMPLOYED DIRECTOR? -->
       <div id="employment-status" class="js-hidden panel-indent">
         <fieldset>
-            <legend class="form-label" id="howEmployed">Your employment status</legend>
-            <div class="form-group form-group-compound" aria-labelledby="howEmployed">
-                <label class="block-label" for="employed" data-target="what-you-need">
-                  <input id="employed" type="radio" name="emp-status" value="Employed" data-dest="employed">
-                  Employed
-                </label>
-                <label class="block-label" for="self-employed" data-target="what-you-need">
-                  <input id="self-employed" type="radio" name="emp-status" value="Self" data-dest="self-employed">
-                  Self-employed
-                </label>
-                <label class="block-label" for="ltd" data-target="what-you-need">
-                  <input id="ltd" type="radio" name="emp-status" value="Director" data-dest="limited-company">
-                  Director of a limited company
-                </label>
+            <legend class="heading-small" id="howEmployed">Your employment status</legend>
+            <div class="form-group" aria-labelledby="howEmployed">
+                <input id="employed" type="radio" name="emp-status" value="Employed" data-dest="employed">
+                <label class="form-label form-control-radio" for="employed" data-target="what-you-need"> Employed </label>
+                <input id="self-employed" type="radio" name="emp-status" value="Self" data-dest="self-employed">
+                <label class="form-label form-control-radio" for="self-employed" data-target="what-you-need"> Self-employed </label>
+                <input id="ltd" type="radio" name="emp-status" value="Director" data-dest="limited-company">
+                <label class="form-label form-control-radio" for="ltd" data-target="what-you-need"> Director of a limited company </label>
             </div>
         </fieldset>
       </div>
@@ -65,11 +57,11 @@
         <fieldset class="inline">
           <legend class="form-label" id="haveInterview">Do you need communication support to help you at a job interview?</legend>
           <div class="form-group" aria-labelledby="haveInterview">
-            <label class="block-label" for="interview-yes">
+            <label class="form-label form-control-radio" for="interview-yes">
               <input id="interview-yes" type="radio" name="1_interview" value="Yes">
               Yes
             </label>
-            <label class="block-label" for="interview-no">
+            <label class="form-label form-control-radio" for="interview-no">
               <input id="interview-no" type="radio" name="1_interview" value="No">
               No
             </label>
@@ -97,7 +89,7 @@
 
 {{/content}}
 
-{{/layout}}
+{{/layout_v8}}
 
 <script type="text/javascript">
 
