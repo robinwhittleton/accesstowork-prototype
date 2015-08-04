@@ -60,8 +60,7 @@ td.numeric {
   width:100%;
 }
 .back-link {
-  margin:15px 0 0;
-  font-size:18px;
+
 }
 .form-title {
   margin-top:15px;
@@ -77,6 +76,8 @@ td.numeric {
 }
 
 .back-link {
+  margin:15px 0 0;
+  font-size:18px;
   display:inline-block;
   position:relative;
   border-bottom:1px solid $link-colour;
