@@ -130,9 +130,16 @@ td.numeric {
   font-size:12px;
 }
 
+.form-label-bold {
+  margin-bottom:10px;
+}
+
 @import "elements/forms/form-custom";
 
 fieldset.inline .form-group {
   width:auto;
   margin-right:10px;
+}
+.form-group-compound {
+  margin-bottom:0;
 }

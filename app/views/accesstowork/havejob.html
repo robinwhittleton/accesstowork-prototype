@@ -56,15 +56,12 @@
       <div id="csi-status" class="js-hidden panel-indent">
         <fieldset class="inline">
           <legend class="form-label" id="haveInterview">Do you need communication support to help you at a job interview?</legend>
-          <div class="form-group" aria-labelledby="haveInterview">
-            <label class="form-label form-control-radio" for="interview-yes">
-              <input id="interview-yes" type="radio" name="1_interview" value="Yes">
-              Yes
-            </label>
-            <label class="form-label form-control-radio" for="interview-no">
-              <input id="interview-no" type="radio" name="1_interview" value="No">
-              No
-            </label>
+          <div class="form-group form-group-compound">
+            <input id="interview-yes" type="radio" name="1_interview" value="Yes">
+            <label class="form-label form-control-radio" for="interview-yes"> Yes </label>
+          </div><div class="form-group">
+            <input id="interview-no" type="radio" name="1_interview" value="No">
+            <label class="form-label form-control-radio" for="interview-no"> No </label>
           </div>
         </fieldset>
       </div>
@@ -149,7 +146,7 @@
       // if they change their mind about it.
       $('#job-already-no').on('click',function(e)
       {
-        $('#what-you-need').hide();
+        // $('#what-you-need').hide();
         $('#employment-status input').each(function(i,el) { $(el).prop('checked',false); });
         $('#employment-status label').each(function(i,el) { $(el).removeClass('selected'); });
       });
@@ -161,44 +158,21 @@
         $('#csi-status label').each(function(i,el) { $(el).removeClass('selected'); });
       });
 
-      /*
-        Reimplementing the stuff from the cookies
-      */
-
-      /*
-      switch(Cookies.get('job-already'))
+      $('label').each(function(i,e)
       {
-        case 'Yes': $('#job-already-yes').trigger('click'); break;
-        case 'No': $('#job-already-no').trigger('click'); break;
-      }
+          var fori = $(this).attr('for');          
+          // find the target it's pointing to
+          var target = $(this).data('target');
 
-      switch(Cookies.get('emp-status'))
-      {
-        case 'Employed': $('#employed').trigger('click'); break;
-        case 'Self': $('#self-employed').trigger('click'); break;
-        case 'Director': $('#ltd').trigger('click'); break;
-      }
-
-      var n = Cookies.get('what-you-need');
-
-      try {
-        var whats = $.parseJSON(n);
-      } catch (e) {
-        whats = [n];
-      }
-
-      $('input[name=what-you-need]').each(function(i,el)
-      {
-          $.each(whats,function(j)
+          if (target)
           {
-            var e = $(el).val();
-            if (e == whats[j]) {
-              $(el).trigger('click');
-            }
-          })
-      });
+            // if it's the clicked label show it's target
+            if ($('#'+fori).is(':checked') == true) $('#'+target).show();
 
-      */
+            // otherwise hide it's target
+            else $('#'+target).hide();  
+          }          
+      });
 
     });
 
