@@ -18,11 +18,11 @@
   <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
 
   <!-- HEADING -->
-  <h1 class="form-title heading-large" id="aboutyou"><span class="section-progress">Section 5 of 5</span> Contacting you</h1>
+  <h1 class="form-title heading-large" id="aboutyou"><span class="section-progress">Section 5 of 5</span> How can we contact you?</h1>
 
   <form action="declaration" method="post" class="form">
 
-    <fieldset>
+    <fieldset class="form-group">
       <legend class="hidden-legend" aria-hidden="true">Your phone and email</legend>
 
       <!-- PHONE -->
@@ -47,43 +47,43 @@
 
     </fieldset>
 
-    <fieldset class="inline">
-
-      <!-- SOMEONE TO REPRESENT YOU -->
-      <legend class="heading-medium" id="represent">Do you need us to contact someone else instead of you?</legend>
-      <p></p>
-      <div class="form-group">
-        <input id="3party-yes" type="radio" name="3party" value="Yes">
-        <label class="form-label form-control-radio" data-target="thirdpartyextra" for="3party-yes">
-          Yes
-        </label>
-      </div>
-      <div class="form-group">
-        <input id="3party-no" type="radio" name="3party" value="No">
-        <label class="form-label form-control-radio" for="3party-no">
-          No
-        </label>
-      </div>
-
-    </fieldset>
-
-    <fieldset>
-      <!-- THEIR DETAILS -->
-      <div class="panel-indent js-hidden" id="thirdpartyextra">          
+    <div class="form-group">
+      <fieldset class="inline">
+        <!-- SOMEONE TO REPRESENT YOU -->
+        <legend class="form-label-bold" id="represent">Do you need us to contact someone else instead of you?</legend>
+        <p>Maybe you prefer us to contact someone else who can talk to us on your behalf?</p>
         <div class="form-group">
-          <label class="form-label" for="name">Their name</label>
-          <input class="form-control" id="name" name="trd-name" type="text">
+          <input id="3party-yes" type="radio" name="3party" value="Yes">
+          <label class="form-label form-control-radio" data-target="thirdpartyextra" for="3party-yes">
+            Yes
+          </label>
         </div>
         <div class="form-group">
-          <label class="form-label" for="phone">Their phone number</label>
-          <input class="form-control" id="phone" name="trd-phone" type="text">
+          <input id="3party-no" type="radio" name="3party" value="No">
+          <label class="form-label form-control-radio" for="3party-no">
+            No
+          </label>
         </div>
-        <div class="form-group">
-          <label class="form-label" for="relationship">How they're related to you</label>
-          <input class="form-control" id="relationship" name="trd-relationship" type="text">
+      </fieldset>
+
+      <fieldset>
+        <!-- THEIR DETAILS -->
+        <div class="panel-indent js-hidden" id="thirdpartyextra">          
+          <div class="form-group">
+            <label class="form-label" for="name">Their name</label>
+            <input class="form-control" id="name" name="trd-name" type="text">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Their phone number</label>
+            <input class="form-control" id="phone" name="trd-phone" type="text">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="relationship">How they're related to you</label>
+            <input class="form-control" id="relationship" name="trd-relationship" type="text">
+          </div>
         </div>
-      </div>
-    </fieldset>     
+      </fieldset>  
+    </div>   
 
     <fieldset class="primary-nav form-group">
       <legend>Form Navigation</legend>
