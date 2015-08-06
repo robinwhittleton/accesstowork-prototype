@@ -12,13 +12,19 @@ module.exports = {
       
     });
     
-
     // add your routes here
     app.get('/reset', function(req, res) 
     {
-		user_data.clear(req, res);
-		res.redirect('/')
-	});
+  		user_data.clear(req, res);
+  		res.redirect('/')
+	  });
+
+    // add your routes here
+    app.get('/v*/*', function(req, res, next) 
+    {
+      res.prototype = req.params[0];
+      next();
+    });
 
   }
 };

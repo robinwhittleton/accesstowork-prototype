@@ -9,7 +9,6 @@ var path = require('path'),
     app = express(),
     port = (process.env.PORT || 3000),
 
-
 // Grab environment variables specified in Procfile or as Heroku config vars
     username = process.env.USERNAME,
     password = process.env.PASSWORD,
@@ -37,7 +36,6 @@ app.use('/public', express.static(__dirname + '/govuk_modules/govuk_template/ass
 app.use('/public', express.static(__dirname + '/govuk_modules/govuk_frontend_toolkit'));
 
 app.use(express.favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets', 'images','favicon.ico')));
-
 
 // send assetPath to all views
 app.use(function (req, res, next) {
@@ -101,6 +99,8 @@ app.get(/^\/([^.]+)$/, function (req, res) {
     }
     req.cookies[key] = val;
   }
+
+  defaults.prototype = res.prototype;
 
   res.render(path, merge(true, defaults, req.cookies), function(err, html)
   {
