@@ -1,0 +1,114 @@
+{{<layout}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol}}
+
+
+<section class="column-two-thirds" aria-labelledby="aboutjob">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+  <!-- HEADING -->
+  <h1 class="form-title heading-large" id="aboutjob"><span class="section-progress">Section 3 of 5</span> About your job</h1>
+
+  <form action="aboutwork" method="post" class="form">
+
+    <fieldset>
+
+      <legend class="hidden-legend" aria-hidden="true">What you do and where you work</legend>
+
+      <!-- JOB TITLE -->
+      <div class="form-group">
+          <label class="form-label-bold" for="job-title">Your job title</label>
+        <input class="form-control" type="text" id="job-title" name="self-emp-job-title">
+      </div>
+
+      <!-- ADDRESS -->
+      <div class="form-group">
+         <fieldset class="inline">
+            <legend class="form-label-bold">Is your work address different to your home address?</legend>
+            <div class="form-group form-group-compound">
+            <label class="block-label" for="eligibility1-yes" data-target="eligibility-q1">
+              <input id="eligibility1-yes" name="self-emp-address" type="radio" value="Yes">
+              Yes
+            </label>
+            <label class="block-label" for="eligibility1-no">
+              <input id="eligibility1-no" name="self-emp-address" type="radio" value="No">
+              No
+            </label>
+            </div>
+            <div class="panel-indent js-hidden" id="eligibility-q1" name="self-emp-eligibility-q1">
+               <fieldset>
+                <legend class="form-label">Your work address</legend>
+                  <div class="form-group">
+                    <label class="form-label" for="address-line1"><input type="text" class="form-control" id="address-line1" name="self-emp-address-line1"></label>
+                    <label class="form-label" for="address-line2"><input type="text" class="form-control" id="address-line2" name="self-emp-address-line2"></label>
+                    <label class="form-label" for="address-line3"><input type="text" class="form-control" id="address-line3" name="self-emp-address-line3"></label>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="postcode">Postcode</label>
+                    <input type="text" class="form-control-1-4" id="postcode" name="self-emp-postcode">
+                  </div>
+              </fieldset>
+            </div>
+         </fieldset>
+      </div>
+
+      <!-- NEA MENTOR -->
+      <div class="form-group">
+         <fieldset class="inline">
+            <legend class="form-label-bold">Do you have a New Enterprise Allowance mentor</legend>
+            <div class="form-group form-group-compound">
+            <label class="block-label" for="nea-mentor-yes" data-target="mentor-extra">
+              <input id="nea-mentor-yes" name="self-emp-address" type="radio" value="Yes">
+              Yes
+            </label>
+            <label class="block-label" for="nea-mentor-no">
+              <input id="nea-mentor-no" name="self-emp-address" type="radio" value="No">
+              No
+            </label>
+            </div>
+            <!-- THEIR DETAILS -->
+            <div class="panel-indent js-hidden" id="mentor-extra">
+              <div class="form-group">
+              <label class="form-label" for="name">Their name</label>
+              <input class="form-control" id="name" name="mentor-name" type="text">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Their phone number</label>
+              <input class="form-control" id="phone" name="mentor-phone" type="text">
+            </div>
+            </div>
+        </fieldset>
+      </div>
+
+    </fieldset>
+
+    <!-- NEXT BUTTON -->
+    <fieldset class="primary-nav form-group">
+    <legend>Form Navigation</legend>
+      <ul> <li><input type="submit" value="Next" class="button"/></li> </ul>
+    </fieldset>
+
+  </form>
+
+</section>
+
+</div>
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+

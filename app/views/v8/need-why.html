@@ -1,0 +1,85 @@
+{{<layout}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol}}
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    <span class="section-progress">Section 2 of 5</span>
+    Help with travel
+  </h1>
+
+  <form action="aboutjob" method="post" class="form" id="theForm">
+
+    <h3 class="heading-medium" style="margin-bottom:0.25em">Your condition</h3>
+    <h2 class="font-large" style="margin-top:0;margin-bottom:1em;"><span style="color:#999">&ldquo;{{travel-condition}}&rdquo;</span></h2>
+
+    <!-- WHY DO YOU NEED -->
+    <div class="form-group">
+      <label class="form-label-bold" for="reasons" id="">How does this cause you to need <span style="color:#666">{{what-you-need}}</span>?</label>
+      <textarea class="form-control" id="reasons" name="reasons"></textarea>
+    </div>
+
+    <fieldset class="primary-nav form-group">
+		  <legend>Form Navigation</legend>
+        <ul> <li><input type="submit" value="Next" class="button" id="submitButton"/></li> </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+
+  var form = $("#theForm"),
+      subb = $('#submitButton');
+
+  $(document).on('ready',function()
+  {
+    var dest = '';
+    var jobalready = Cookies.get('job-already');
+
+    $(subb).on('click',function(e)
+    {
+      e.preventDefault();
+
+      if (jobalready == 'Yes')
+      {
+        // go and check what they put for employment status.
+        var emp_status = Cookies.get('emp-status');
+        switch(emp_status)
+        {
+          case "Employed": dest = 'employed'; break;
+          case "Self": dest = 'employed-self'; break;
+          case "Director": dest = 'employed-limited'; break;
+        }
+      }
+
+      form.attr('action',dest);
+      form.submit();
+
+    });
+  });
+</script>

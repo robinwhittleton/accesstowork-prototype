@@ -1,0 +1,72 @@
+{{<layout}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol}}
+
+	<section class="column-two-thirds" aria-labelledby="aboutjob">
+
+    <!-- BACK LINK -->
+    <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+  	<!-- HEADING -->
+		<h1 class="form-title heading-large" id="aboutjob"><span class="section-progress">Section 1 of 4</span> Your conditions</h1>
+
+		<form action="tasks" method="post" class="form">
+
+			<fieldset class="inline" id="havejob">
+		    <legend class="form-label-bold" id="alreadyJob">List your disabilities or conditions</legend>
+		    <div class="conditions">
+		    	<p><input name="condition[1]" class="form-control" style="width:75%"/></p>
+		    </div>
+		    <p>+ <a href="#" id="add">Add another</a></p>
+		  </fieldset>
+
+		  <br />
+		  <fieldset class="primary-nav form-group">
+				<legend>Form Navigation</legend>
+		    <ul>
+		    	<li><input type="submit" value="Next" class="button" id="nextbutton"/></li>
+		    </ul>
+			</fieldset>
+
+		</form>
+
+	</section>
+
+</div>
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+  var count = 1;
+  $(document).on("ready",function(e)
+  {
+    $('#add').on("click",function(e)
+    {
+      e.preventDefault();
+      count++;
+      var c = $('<p><input name="" class="form-control" style="width:75%"/></p>');
+      c.find('input').attr('name','condition['+count+']');
+
+      $('.conditions').append(c);
+      c.find('input').focus();
+    });
+
+    var t = document.cookie;
+    console.log(t);
+  });
+
+</script>
