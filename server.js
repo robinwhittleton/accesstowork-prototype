@@ -1,5 +1,6 @@
 var path = require('path'),
     express = require('express'),
+    session = require('express-session'),
     // browserSync = require('browser-sync'),
     presenters = require(__dirname + '/app/presenters.js'),
     defaults = require(__dirname + '/app/defaults.js'),
@@ -45,50 +46,52 @@ app.use(function (req, res, next) {
 
 app.use(express.urlencoded());
 app.use(express.cookieParser());
+app.use(express.session({secret: '1234567890QWERTYMORGAN'}));
 app.use(user_data.form_to_cookie(presenters));
+app.use(user_data.form_to_session());
 
 // routes (found in app/routes.js)
-
 routes.bind(app);
 
-app.all('/accesstowork/need-tasks', function (req, res, next)
-{
-  // just take the first item out of the array.
-  try {
-    val = JSON.parse(req.cookies['what-you-need']);
-    req.cookies['what-you-need'] = val[0];
-  } catch(e) { }
+// app.all('/accesstowork/need-tasks', function (req, res, next)
+// {
+//   // just take the first item out of the array.
+//   try {
+//     val = JSON.parse(req.cookies['what-you-need']);
+//     req.cookies['what-you-need'] = val[0];
+//   } catch(e) { }
 
-  next();
-});
+//   next();
+// });
 
-app.all('/accesstowork/need-why', function (req, res, next)
-{
-  // just take the first item out of the array.
-  try {
-    val = JSON.parse(req.cookies['what-you-need']);
-    req.cookies['what-you-need'] = val[0];
-  } catch(e) { }
+// app.all('/accesstowork/need-why', function (req, res, next)
+// {
+//   // just take the first item out of the array.
+//   try {
+//     val = JSON.parse(req.cookies['what-you-need']);
+//     req.cookies['what-you-need'] = val[0];
+//   } catch(e) { }
 
-  next();
-});
+//   next();
+// });
 
-app.all('/accesstowork/need-why-software', function (req, res, next)
-{
-  // just take the first item out of the array.
-  try {
-    val = JSON.parse(req.cookies['what-you-need']);
-    req.cookies['what-you-need'] = val[0];
-  } catch(e) { }
+// app.all('/accesstowork/need-why-software', function (req, res, next)
+// {
+//   // just take the first item out of the array.
+//   try {
+//     val = JSON.parse(req.cookies['what-you-need']);
+//     req.cookies['what-you-need'] = val[0];
+//   } catch(e) { }
 
-  next();
-});
+//   next();
+// });
 
 // auto render any view that exists
-app.get(/^\/([^.]+)$/, function (req, res) {
-
+app.get(/^\/([^.]+)$/, function (req, res) 
+{
 	var path = (req.params[0]);
 
+  // Go through all the cookies and make sure they're JSON encoded if object or array.
   for(var key in req.cookies)
   {
     var val;
@@ -100,8 +103,10 @@ app.get(/^\/([^.]+)$/, function (req, res) {
     req.cookies[key] = val;
   }
 
+  // huh?
   defaults.prototype = res.prototype;
 
+  // 
   res.render(path, merge(true, defaults, req.cookies), function(err, html)
   {
 		if (err) {
