@@ -73,16 +73,11 @@ app.all('/accesstowork/need-why', function (req, res, next)
   next();
 });
 
-app.all('/accesstowork/need-why-software', function (req, res, next)
-{
-  // just take the first item out of the array.
-  try {
-    val = JSON.parse(req.cookies['what-you-need']);
-    req.cookies['what-you-need'] = val[0];
-  } catch(e) { }
-
-  next();
-});
+// app.get(/.*\/diff/, function(req,res)
+// {
+//   var version = "v8";
+//   res.render('diff',{partial:'index'});
+// });
 
 // auto render any view that exists
 app.get(/^\/([^.]+)$/, function (req, res) {
@@ -98,6 +93,17 @@ app.get(/^\/([^.]+)$/, function (req, res) {
       val = req.cookies[key]
     }
     req.cookies[key] = val;
+  }
+
+  /* sanitising data for the describe page */
+  if (path == 'accesstowork/describe')
+  {
+    for (var i = 0; i < req.cookies['explore-tasks'].length; i++) {
+      if (req.cookies['explore-tasks'][i] == '') {         
+        req.cookies['explore-tasks'].splice(i, 1);
+        i--;
+      }
+    }
   }
 
   defaults.prototype = res.prototype;
