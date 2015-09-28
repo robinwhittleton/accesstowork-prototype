@@ -27,24 +27,63 @@
 
       <!-- WHEN DID YOU START -->
       <div class="form-group">
-        <fieldset>
-          <legend class="heading-medium">When did you start this job?</legend>
-          <!-- <p>For example, 08 4 2014.</p> -->
-          <div class="form-date">            
-            <div class="form-group form-group-day">
-              <label for="dob-day">Day</label>
-              <input type="text" class="form-control" id="dob-day" name="work-dob-day">
+         <fieldset class="">
+            
+            <legend class="heading-medium" id="howLongEmployed">How long have you been in your current job or role?</legend>
+            <div class="form-group-compound" aria-labelledby="howLongEmployed" style="overflow:hidden">
+                <input id="mtsix" type="radio" name="emp-length" value="morethansix">
+                <label class="form-label form-control-radio" for="mtsix"> More than six weeks </label>
+                <input id="ltsix" type="radio" name="emp-length" value="lessthansix">
+                <label class="form-label form-control-radio" for="ltsix" data-target="start-date"> Less than six weeks</label>
+                <input id="ntstrt" type="radio" name="emp-length" value="notstarted">
+                <label class="form-label form-control-radio" for="ntstrt" data-target="start-date2"> I haven't started the job yet </label>
             </div>
-            <div class="form-group form-group-month">
-              <label for="dob-month">Month</label>
-              <input type="text" class="form-control" id="dob-month" name="work-dob-month">
+
+            <!-- WHEN DID YOU START -->
+            <div class="panel-indent js-hidden" id="start-date" style="margin-top:1em !important">
+              <fieldset class="form-group">
+                <legend class="heading-medium">When did you start this job?</legend>
+                <!-- <p>For example, 08 4 2014.</p> -->
+                <div class="form-date">            
+                  <div class="form-group form-group-day">
+                    <label for="dob-day">Day</label>
+                    <input type="text" class="form-control" id="dob-day" name="work-dob-day">
+                  </div>
+                  <div class="form-group form-group-month">
+                    <label for="dob-month">Month</label>
+                    <input type="text" class="form-control" id="dob-month" name="work-dob-month">
+                  </div>
+                  <div class="form-group form-group-year">
+                    <label for="dob-year">Year</label>
+                    <input type="text" class="form-control" id="dob-year" name="work-dob-year">
+                  </div>
+                </div>
+              </fieldset>
             </div>
-            <div class="form-group form-group-year">
-              <label for="dob-year">Year</label>
-              <input type="text" class="form-control" id="dob-year" name="work-dob-year">
+
+            <!-- WHEN DID YOU START -->
+            <div class="panel-indent js-hidden" id="start-date2" style="margin-top:1em !important">
+              <fieldset class="form-group">
+                <legend class="heading-medium">When will you start this job?</legend>
+                <!-- <p>For example, 08 4 2014.</p> -->
+                <div class="form-date">            
+                  <div class="form-group form-group-day">
+                    <label for="dob-day">Day</label>
+                    <input type="text" class="form-control" id="dob-day" name="work-dob-day">
+                  </div>
+                  <div class="form-group form-group-month">
+                    <label for="dob-month">Month</label>
+                    <input type="text" class="form-control" id="dob-month" name="work-dob-month">
+                  </div>
+                  <div class="form-group form-group-year">
+                    <label for="dob-year">Year</label>
+                    <input type="text" class="form-control" id="dob-year" name="work-dob-year">
+                  </div>
+                </div>
+              </fieldset>
             </div>
-          </div>
-        </fieldset>
+
+         </fieldset>
       </div>
 
       <!-- DAYS A WEEK? -->
