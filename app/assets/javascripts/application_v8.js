@@ -39,4 +39,21 @@ $(document).ready(function() {
     });
   });
 
+  $('#skiplink-container div').append('<a id="toggle-highcontrast" href="#" class="skiplink">High contrast version</a>');
+  $('#skiplink-container div').append('<a id="toggle-remove" href="#" class="skiplink">Remove high contrast</a>');
+
+  // High Contrast temp
+  $('#toggle-highcontrast').click(function()
+  {
+    $("body").addClass("highcontrast");
+    return true;
+  });
+  $('#toggle-remove').click(function()
+  {
+    $("body").removeClass("highcontrast");
+    return true;
+  });
+
 });
+
+
