@@ -228,3 +228,28 @@ td.numeric {
 .completion {
   padding:1em;
 }
+.offer-table {
+  dt {font-weight:bold;}
+  dd {margin-bottom:1em}
+  td.title {
+    font-weight:bold;
+    font-size:0.9em;
+    &.no-border {
+      border-bottom:none;
+    }
+  }
+  td.offer-num {
+    padding-top:2.2em;
+    text-align:right;
+    &:after {
+      content:'.';
+    }
+  }
+}
+.task-list {
+  list-style-type:decimal;
+  margin-left:-1em;
+  li {
+    padding-left:1em;
+  }
+}

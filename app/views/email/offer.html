@@ -1,0 +1,93 @@
+{{<layout_v8}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="grid-row">
+
+<section >
+
+    <h1 class="heading-large">Your offer</h1>
+    <p class="">REF: {{ reference }}</p>
+    <h2 class="heading-medium">You told us:</h2>    
+    <table class="offer-table"> 
+      <tr>
+        <td class="title">Your job</td>
+        <td class="condition">Technical Architect</td>
+      </tr>
+      <tr>
+        <td class="title">Your condition</td>
+        <td class="condition">Back pain &amp; anxiety caused by severe diabetes</td>
+      </tr>
+      <tr>
+        <td class="title no-border" colspan="2">This condition makes it harder for you to:</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td style="padding-top:0;">
+          <ol class="task-list">
+            <li>
+              <h3 class="heading-small" style="margin-top:0;">Make phone calls</h3>
+              <p>&ldquo;I find it hard to hold a phone and listen for an extended period of time.&rdquo;</p>
+            </li>
+            <li>
+              <h3 class="heading-small">Chair meetings</h3>
+              <p>&ldquo;I find it hard to speak in front of a large group because of my anxiety.&rdquo;</p>
+            </li>
+            <li>
+              <h3 class="heading-small">Drive the mini-bus</h3>
+              <p>&ldquo;I'm not able to control my arms enough to drive a mini-bus.&rdquo;</p>
+            </li>
+          </ol>
+        </td>        
+      </tr>
+    </table>
+
+    <h2 class="heading-medium">After careful consideration we have decided to offer you:</h2>    
+    <table class="offer-table">
+      <tr>
+        <td></td>
+        <td style="padding-top:0;">
+          <ol class="task-list">
+            <li>
+              <h3 class="heading-small" style="margin-top:0;">Make phone calls</h3>
+              <p>We will fund a BSL interpreter for 3 days a week. They will be help you make phone calls.</p>
+            </li>
+            <li>
+              <h3 class="heading-small">Chair meetings</h3>
+              <p>We will not offer any help with this aspect of your work but suggest that you talk to your line manager about not making you do this in future.</p>
+            </li>
+            <li>
+              <h3 class="heading-small">Drive the mini-bus</h3>
+              <p>We will pay for a man to come and drive the bus for you.</p>
+            </li>
+          </ol>
+        </td>        
+      </tr>
+    </table>
+
+    <form action="offer" methodS="post">
+      <h2 class="heading-medium">Do you accept this offer?</h2>      
+      <fieldset class="form-group" style="margin:1em 0 2em">
+        <input id="offer-agree" type="radio" value="agree" name="offer-agree">
+        <label class="form-label form-control-radio" for="offer-agree" data-target="submit">I agree to accept this offer</label>      
+        <input id="offer-disagree" type="radio" value="disagree" name="offer-agree">
+        <label class="form-label form-control-radio" for="offer-disagree">I don't agree and won't accept this offer</label>
+      </fieldset>
+      <fieldset class="primary-nav form-group js-hidden" id="submit">  
+        <a href="finish" class="button">Submit</a>          
+      </fieldset>
+    </form>
+
+</section>
+
+</div>
+
+</main>
+
+{{/content}}
+
+{{/layout_v8}}
