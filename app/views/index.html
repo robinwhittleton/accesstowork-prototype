@@ -26,6 +26,7 @@
 				<td><a href="/v{{ number }}/">Version {{ number }}</a></td>
 				<td><span class="font-xxsmall">{{ date }}</span></td>
 				<td> <a class="font-xxsmall" href="/v{{ number }}/diff">diffs</a> </td>
+				<td> <a class="font-xxsmall pages-link" href="#" data-num="{{ number }}">pages</a> </td>
 			</tr>
 		{{/items}}
 	</table>
@@ -40,6 +41,10 @@
 
 </main>
 
+<div class="show-pages" style="position:absolute;top:0;left:0;">
+hello
+</div>
+
 {{/content}}
 
 {{/layout}}
@@ -47,9 +52,24 @@
 <script type="text/javascript">
 	$(document).on('ready',function()
 	{
-		console.log('got here');
-		$.get('/api/accesstowork/', {}, function(data, status, xhr)
+		$('.show-pages').hide();
+		$('.pages-link').on('click',function(e)
 		{
+			e.preventDefault();
+			var num = $(this).data('num');
+			$('.show-pages').empty();
+			$('.show-pages').append('<ul/>');
+			$.get('/api/v'+num+'/', {}, function(data, status, xhr)
+			{
+				for(var i in data[0])
+				{
+					var d = data[i];
+					var link = '<li><a href="/v'+num+'">'+d+'</a></li>'
+					$('.show-pages ul').append(link);
+				}
+			});
+			// $('.show-pages').css({top:e.pageY,left:e.pageX});
 		});
+		
 	});
 </script>

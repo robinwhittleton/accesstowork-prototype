@@ -71,14 +71,20 @@
 
     <form action="offer" methodS="post">
       <h2 class="heading-medium">Do you accept this offer?</h2>      
+      <!-- DO YOU ACCEPT -->
       <fieldset class="form-group" style="margin:1em 0 2em">
         <input id="offer-agree" type="radio" value="agree" name="offer-agree">
         <label class="form-label form-control-radio" for="offer-agree" data-target="submit">I agree to accept this offer</label>      
         <input id="offer-disagree" type="radio" value="disagree" name="offer-agree">
         <label class="form-label form-control-radio" for="offer-disagree">I don't agree and won't accept this offer</label>
       </fieldset>
+      <!-- YES I DO -->
       <fieldset class="primary-nav form-group js-hidden" id="submit">  
         <a href="finish" class="button">Submit</a>          
+      </fieldset>
+      <!-- NO I DON'T -->
+      <fieldset class="primary-nav form-group js-hidden" id="submit">  
+        
       </fieldset>
     </form>
 
