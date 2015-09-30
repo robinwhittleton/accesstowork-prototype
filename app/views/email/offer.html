@@ -11,12 +11,12 @@
 <section >
 
     <h1 class="heading-large">Your offer</h1>
-    <p class="">REF: {{ reference }}</p>
+    <p class="">REF: {{ reference }}{{^ reference }}LKSDF86SDF7864SDF{{/ reference }}</p>
     <h2 class="heading-medium">You told us:</h2>    
     <table class="offer-table"> 
       <tr>
         <td class="title">Your job</td>
-        <td class="condition">Technical Architect</td>
+        <td class="condition">{{ job-title }}{{^ job-title }}Technical Architect{{/ job-title }}</td>
       </tr>
       <tr>
         <td class="title">Your condition</td>
