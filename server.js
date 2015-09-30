@@ -7,9 +7,9 @@ var path = require('path'),
     merge = require('merge'),
     user_data = require(__dirname + '/lib/user_data.js'),
     app = express(),
+    fs = require('fs'),
     port = (process.env.PORT || 3000),
-
-// Grab environment variables specified in Procfile or as Heroku config vars
+    // Grab environment variables specified in Procfile or as Heroku config vars
     username = process.env.USERNAME,
     password = process.env.PASSWORD,
     env = process.env.NODE_ENV || 'development';
@@ -50,34 +50,6 @@ app.use(user_data.form_to_cookie(presenters));
 // routes (found in app/routes.js)
 
 routes.bind(app);
-
-app.all('/accesstowork/need-tasks', function (req, res, next)
-{
-  // just take the first item out of the array.
-  try {
-    val = JSON.parse(req.cookies['what-you-need']);
-    req.cookies['what-you-need'] = val[0];
-  } catch(e) { }
-
-  next();
-});
-
-app.all('/accesstowork/need-why', function (req, res, next)
-{
-  // just take the first item out of the array.
-  try {
-    val = JSON.parse(req.cookies['what-you-need']);
-    req.cookies['what-you-need'] = val[0];
-  } catch(e) { }
-
-  next();
-});
-
-// app.get(/.*\/diff/, function(req,res)
-// {
-//   var version = "v8";
-//   res.render('diff',{partial:'index'});
-// });
 
 // auto render any view that exists
 app.get(/^\/([^.]+)$/, function (req, res) {
