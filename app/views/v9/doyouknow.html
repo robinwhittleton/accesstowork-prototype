@@ -1,0 +1,81 @@
+{{<layout_v8}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol_v9}}
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+  <!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty"><span class="section-progress">Section 1 of 5</span>Types of help</h1>
+
+  <form action="" method="post" class="form" id="theForm">
+
+    <!-- WHAT YOU NEED? -->
+    <fieldset class="form-group" id="what-you-need">
+      <legend class="heading-medium" id="what-you-need-label">What help do you need?</legend>
+      <p>Select all that apply</p>
+      <div class="form-group" aria-labelledby="what-you-need-label">
+        <input id="what-you-need-comms" type="checkbox" name="what-you-need" value="Communication" data-dest="need-communication">
+        <label class="form-label form-control-checkbox" for="what-you-need-comms"> You're deaf or have a hearing impairment and need a support worker </label>
+        <input id="what-you-need-travel" type="checkbox" name="what-you-need" value="Travelling" data-dest="need-travel">
+        <label class="form-label form-control-checkbox" for="what-you-need-travel"> You need help travelling independently </label>
+        <input id="what-you-need-know" type="checkbox" name="what-you-need" value="Don't know" data-dest="explore">
+        <label class="form-label form-control-checkbox" for="what-you-need-know"> Something else </label>
+      </div>
+    </fieldset>
+
+    <!-- NEXT BUTTON -->
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>
+      <ul>
+        <li><input type="submit" value="Next" class="button" id="submitButton"/></li>
+      </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout_v8}}
+
+<script type="text/javascript">
+  var form = $("#theForm"),
+      subb = $('#submitButton');
+
+  $(document).on('ready',function()
+  {
+    subb.on('click',function(e)
+    {
+      e.preventDefault();
+      $('#what-you-need input').each(function(i,el)
+      {
+        if ($(el).prop('checked'))
+        {
+          var dest = $(el).data('dest');
+          form.attr('action',dest);
+          form.submit();
+          return false;
+        }
+      });
+
+    });
+  });
+</script>

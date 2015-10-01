@@ -1,0 +1,79 @@
+{{<layout_v8}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol_v9}}
+
+<section class="column-two-thirds" aria-labelledby="aboutjob">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="aboutjob">
+    <span class="section-progress">Section 2 of 5</span>
+    How your condition affects your work
+  </h1>
+
+  <form action="describe" method="post" class="form">
+
+    <!-- YOUR CONDITION -->
+    <div class="form-group">
+      <label class="form-label-bold" for="conditions-and-dis" id="">What's your condition or disability?</label>
+      <input class="form-control full" id="conditions-and-dis" name="conditions-and-dis"/>
+    </div>
+
+    <!-- LIST THE THINGS -->
+    <fieldset class="inline" id="havejob">
+      <legend class="form-label-bold" id="alreadyJob">What work tasks are harder for you because of your condition?</legend>
+      <p class="form-hint">This includes getting to or from work, or anything you have to do as part of your job role.</p>
+      <div class="conditions">
+        <p class="cond"><input name="explore-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
+        <p class="cond"><input name="explore-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
+        <p class="cond"><input name="explore-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
+      </div>
+      <p><a href="#" id="add" class="button-add">&#43; add another task</a></p>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>
+      <ul> <li><input type="submit" value="Next" class="button" id="nextbutton"/></li> </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout_v8}}
+
+<script type="text/javascript">
+
+  /*
+    make the "add another" link work.
+  */
+  $(document).on("ready",function(e)
+  {
+    $('#add').on("click",function(e)
+    {
+      e.preventDefault();
+      var c = $($('.conditions .cond')[0]).clone(); // clone the first input
+      $('.conditions').append(c); // apend it to the block.
+      $(c.find('input')).val("").focus(); // empty the vlalue.
+    });
+  });
+
+</script>

@@ -1,0 +1,55 @@
+{{<layout_v8}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol_v9}}
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    <span class="section-progress">Section 2 of 5</span>
+    Communication support at interview
+  </h1>
+
+  <form action="interview" method="post" class="form" id="theForm">
+
+    <!-- YOUR CONDITION -->
+    <div class="form-group">
+      <label class="form-label-bold" for="conditions-and-dis" id="">What's your condition or disability?</label>
+      <input class="form-control full" id="conditions-and-dis" name="int-conditions-and-dis"/>
+    </div>
+
+    <!-- WHY DO YOU NEED -->
+    <div class="form-group">
+      <label class="form-label-bold" for="reasons" id="">How does your condition make it harder for you to communicate</label>
+      <textarea class="form-control" id="reasons" name="int-reasons"></textarea>
+    </div>
+
+    <fieldset class="primary-nav form-group">
+		  <legend>Form Navigation</legend>
+        <ul> <li><input type="submit" value="Next" class="button" id="nextButton"/></li> </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout_v8}}

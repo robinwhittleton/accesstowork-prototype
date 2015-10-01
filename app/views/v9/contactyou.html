@@ -1,0 +1,105 @@
+{{<layout_v8}}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol_v9}}
+
+<section class="column-two-thirds" aria-labelledby="aboutyou">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+  <!-- HEADING -->
+  <h1 class="form-title heading-large" id="aboutyou"><span class="section-progress">Section 5 of 5</span> Contact details</h1>
+
+  <form action="declaration" method="post" class="form">
+
+    <fieldset class="form-group">
+      <legend class="hidden-legend" aria-hidden="true">Your phone and email</legend>
+
+      <!-- PHONE -->
+      <div class="form-group">
+        <label class="form-label-bold" for="telephone-number" id="phone-number-label">Phone number</label>
+        <p class="form-hint">Enter a landline, mobile or textphone number.</p>
+        <input class="form-control" id="telephone-number" name="you-telephone-number" type="text" aria-required="true">
+      </div>
+
+      <!-- EMAIL -->
+      <div class="form-group">
+        <label class="form-label-bold" for="email-address">Email address</label>
+        <input class="form-control" id="email-address" name="you-email-address" type="text" aria-required="true">      
+      </div>
+
+      <div class="form-group">
+        <input id="checkbox-email-address" name="you-email-address-prefer" type="checkbox" value="email_prefferred">
+        <label class="form-label form-control-checkbox compact-control" for="checkbox-email-address">
+          Check this box if you'd prefer to be contacted by email rather than by phone.
+        </label>
+      </div>
+
+    </fieldset>
+
+    <div class="form-group">
+      <fieldset class="inline">
+        <!-- SOMEONE TO REPRESENT YOU -->
+        <legend class="form-label-bold" id="represent">Are you filling this in for someone else?</legend>
+        <!-- <p>Would you like us to contact you in the future instead of the person you're applying for?</p> -->
+        <div class="form-group">
+          <input id="3party-yes" type="radio" name="3party" value="Yes">
+          <label class="form-label form-control-radio" data-target="thirdpartyextra" for="3party-yes">
+            Yes
+          </label>
+        </div>
+        <div class="form-group">
+          <input id="3party-no" type="radio" name="3party" value="No">
+          <label class="form-label form-control-radio" for="3party-no">
+            No
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <!-- THEIR DETAILS -->
+        <div class="panel-indent js-hidden" id="thirdpartyextra">          
+          <div class="form-group">
+            <label class="form-label" for="name">Your name</label>
+            <input class="form-control" id="name" name="trd-name" type="text">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Your phone number</label>
+            <input class="form-control" id="phone" name="trd-phone" type="text">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="relationship">What's your relationship with the person you're filling this in for?</label>
+            <input class="form-control" id="relationship" name="trd-relationship" type="text">
+          </div>
+        </div>
+      </fieldset>  
+    </div>   
+
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>
+      <ul>
+        <li><input type="submit" value="Next" class="button" /></li>
+      </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout_v8}}
