@@ -1,9 +1,7 @@
 var user_data = require('../lib/user_data.js');
 
 module.exports = {
-  bind : function (app) {
-
-    var fs = require("fs");
+  bind : function (app) {    
 
     // special route for the index.
     app.get('/', function (req, res) {      
@@ -19,8 +17,19 @@ module.exports = {
         ]});
     });
 
+    var fs = require("fs");
+
     app.get(/\/api\/(.*)\//, function (req, res) {      
       var tom = fs.readdirSync(__dirname + '/views/'+req.params[0]);
+      for (var i=0; i<tom.length; i++)
+      {
+        var diff = tom[i].substr(0,4);
+        if (diff == 'diff') 
+        {
+          var test = tom.splice(i,1);
+          i--;
+        }
+      }
       res.json(tom);
     });    
 

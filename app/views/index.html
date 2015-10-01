@@ -16,17 +16,19 @@
 
 	<table class="list-bullet index-table">
 		<tr>
-			<td colspan="4">
-				<a href="/accesstowork/">Access to Work prototype</a> 
-				<span class="font-xxsmall">(latest version)</span> 
+			<td colspan="3">
+				<a href="/accesstowork/">Current version</a> 
+			</td>
+			<td>
+				<a class="font-xxsmall pages-link" href="#" data-num="accesstowork">pages</a>
 			</td>
 		</tr>
 		{{#items}}
 			<tr>
 				<td><a href="/v{{ number }}/">Version {{ number }}</a></td>
 				<td><span class="font-xxsmall">{{ date }}</span></td>
-				<td> <a class="font-xxsmall" href="/v{{ number }}/diff">diffs</a> </td>
-				<td> <a class="font-xxsmall pages-link" href="#" data-num="{{ number }}">pages</a> </td>
+				<td><a class="font-xxsmall" href="/v{{ number }}/diff">diffs</a></td>
+				<td><a class="font-xxsmall pages-link" href="#" data-num="v{{ number }}">pages</a></td>
 			</tr>
 		{{/items}}
 	</table>
@@ -41,7 +43,7 @@
 
 </main>
 
-<div class="show-pages" style="position:absolute;top:0;left:0;">
+<div class="show-pages">
 hello
 </div>
 
@@ -52,23 +54,39 @@ hello
 <script type="text/javascript">
 	$(document).on('ready',function()
 	{
-		$('.show-pages').hide();
-		$('.pages-link').on('click',function(e)
+		var show = $('.show-pages');
+
+		show.hide();
+
+		show.on('mouseleave',function()
 		{
-			e.preventDefault();
+			console.log('out');
+			show.hide();
+		});
+
+		$('.pages-link').on('mouseover',function(e)
+		{
+			if (e.currentTarget != e.target) return;
+
 			var num = $(this).data('num');
-			$('.show-pages').empty();
-			$('.show-pages').append('<ul/>');
-			$.get('/api/v'+num+'/', {}, function(data, status, xhr)
+
+			show.empty().append('<ul/>');
+			$(this).append(show);
+
+			$.get('/api/'+num+'/', {}, function(data, status, xhr)
 			{
 				for(var i in data[0])
 				{
 					var d = data[i];
-					var link = '<li><a href="/v'+num+'">'+d+'</a></li>'
-					$('.show-pages ul').append(link);
+					if (d)
+					{
+						var link = '<li><a href="/'+num+'/'+d.substring(0,d.length-5 )+'">'+d+'</a></li>'					
+						$('.show-pages ul').append(link);						
+					}					
 				}
+				show.css({top:-show.outerHeight()/2,left:"150%"});
+				show.show();
 			});
-			// $('.show-pages').css({top:e.pageY,left:e.pageX});
 		});
 		
 	});

@@ -130,3 +130,36 @@ td.numeric {
 .font-xxsmall {
   font-size:12px;
 }
+/* -----------------------------------
+    Home page 
+   ----------------------------------- */
+
+.pages-link {
+  position:relative;
+  &:hover {
+    .show-pages {
+      display:block;
+      z-index:999;
+    }
+  }
+}
+.show-pages {  
+  position:absolute;
+  top:0;left:0;
+  background:rgba(white,0.95);
+  border-radius:0.5em;
+  padding:1em;
+  box-shadow:1px 5px 10px rgba(black,0.2);
+  // &:after {
+  //   $size:20px
+  //   content:' ';
+  //   display:block;
+  //   position:absolute;
+  //   top:50%;left:-($size)px;
+  //   margin-top:-40px;
+  //   width:0;height:0;
+  //   border-top: 50px solid transparent;
+  //   border-right: 100px solid red;
+  //   border-bottom: 50px solid transparent;
+  // }
+}
