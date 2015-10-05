@@ -1,37 +1,36 @@
 var user_data = require('../lib/user_data.js');
+var versions = require("../lib/versions.js");
 
 module.exports = {
   bind : function (app) {    
 
+    app.get('/accesstowork/', function (req, res) {      
+      res.redirect('application/');
+    });
+
     // special route for the index.
     app.get('/', function (req, res) {      
-      res.render('index', {items:[
-        {number:'9', date:'(pre 30th September)'},
-        {number:'8', date:'(pre 21st July)'},
-        {number:'7', date:'(pre 7th July)'},
-        {number:'6', date:'(pre 23rd June)'},
-        {number:'5', date:'(pre 11th June)'},
-        {number:'4', date:'(pre 4th June)'},
-        {number:'3', date:'(pre 28th May)'},
-        {number:'2', date:'(pre 18th May)'},
-        {number:'1', date:'(pre 30th April)'},
-        ]});
+      res.render('index', versions);
     });
 
     var fs = require("fs");
 
-    app.get(/\/api\/(.*)\//, function (req, res) {      
-      var tom = fs.readdirSync(__dirname + '/views/'+req.params[0]);
-      for (var i=0; i<tom.length; i++)
+    app.get(/\/api\/(.*)\//, function (req, res) 
+    {      
+      var filenames = fs.readdirSync(__dirname + '/views/'+req.params[0]);      
+      for (var i=0; i<filenames.length; i++)
       {
-        var diff = tom[i].substr(0,4);
-        if (diff == 'diff') 
+        if (fs.lstatSync(filenames[i]).isFile())
         {
-          var test = tom.splice(i,1);
-          i--;
-        }
+          var diff = filenames[i].substr(0,4);
+          if (diff == 'diff') 
+          {
+            var test = filenames.splice(i,1);
+            i--;
+          }  
+        }        
       }
-      res.json(tom);
+      res.json(filenames);
     });    
 
     app.get('/examples/template-data', function (req, res) {
