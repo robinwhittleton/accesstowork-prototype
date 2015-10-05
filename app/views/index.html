@@ -8,34 +8,53 @@
 
 <main id="content" role="main">
 
-	<h1 class="heading-xlarge">Access to Work</h1>
+	<h2 class="heading-xlarge">Prototypes</h2>
 
-	<p>{{errors}}</p>	
-
-	<h2 class="heading-large">Prototype Versions</h2>
-
+	<h3 class="heading-medium">Apply for an Access To Work grant.</h3>
 	<table class="list-bullet index-table">
 		<tr>
 			<td colspan="3">
 				<a href="/application/">Current version</a> 
 			</td>
 			<td>
-				<a class="font-xxsmall pages-link" href="#" data-num="accesstowork">pages</a>
+				<a class="font-xxsmall pages-link" href="#" data-num="">pages</a>
 			</td>
 		</tr>
-		{{#items}}
+		{{#application}}
 			<tr>
 				<td><a href="/application/v{{ number }}/">Version {{ number }}</a></td>
-				<td><span class="font-xxsmall">{{ date }}</span></td>
+				<td> <span class="font-xxsmall">{{ date }}</span></td>
 				<td><a class="font-xxsmall" href="/application/v{{ number }}/diff">changes</a></td>
 				<td><a class="font-xxsmall pages-link" href="#" data-num="v{{ number }}">pages</a></td>
 			</tr>
-		{{/items}}
+		{{/application}}
 	</table>
 
+	<h3 class="heading-medium">Know the status of your application.</h3>
+	<table class="list-bullet index-table">
+		<tr>
+			<td colspan="3">
+				<a href="/offer/">Current version</a> 
+			</td>
+			<td>
+				<a class="font-xxsmall pages-link" href="#" data-num="">pages</a>
+			</td>
+		</tr>
+	</table>
+
+	<h3 class="heading-medium">Accept your offer.</h3>
+	<table class="list-bullet index-table">
+		<tr>
+			<td colspan="3">
+				<a href="/appstatus/">Current version</a> 
+			</td>
+			<td>
+				<a class="font-xxsmall pages-link" href="#" data-num="">pages</a>
+			</td>
+		</tr>
+	</table>
 
 	<h2 class="heading-large">Tests &amp; Design ideas</h2>
-
 	<ul class="list-bullet">
 		<li> <a href="/tellmystory/">Tell my Story</a> </li>
 		<li> <a href="/safetynet/">Safety net</a> </li>
@@ -75,16 +94,17 @@ hello
 
 			$.get('/api/application/'+num+'/', {}, function(data, status, xhr)
 			{
-				for(var i in data[0])
+				for(var i in data)
 				{
 					var d = data[i];
+					console.log(d);
 					if (d)
 					{
-						var link = '<li><a href="/'+num+'/'+d.substring(0,d.length-5 )+'">'+d+'</a></li>'					
+						var link = '<li><a href="/application/'+num+'/'+d.substring(0,d.length-5 )+'">'+d+'</a></li>'					
 						$('.show-pages ul').append(link);						
 					}					
 				}
-				show.css({top:-show.outerHeight()/2,left:"150%"});
+				show.css({top:"-200px",left:"150%"});
 				show.show();
 			});
 		});

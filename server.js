@@ -75,9 +75,7 @@ app.get(/^\/([^.]+)$/, function (req, res) {
     }
   }
 
-  defaults.prototype = res.prototype;
-
-  res.render(path, merge(true, defaults, req.cookies), function(err, html)
+  res.render(path, merge(true, req.cookies), function(err, html)
   {
 		if (err) {
 			console.log(err);
