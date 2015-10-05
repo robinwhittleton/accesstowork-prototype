@@ -20,15 +20,22 @@ module.exports = {
       var filenames = fs.readdirSync(__dirname + '/views/'+req.params[0]);      
       for (var i=0; i<filenames.length; i++)
       {
-        if (fs.lstatSync(filenames[i]).isFile())
+        var isfile = fs.lstatSync(__dirname + '/views/'+req.params[0]+'/'+filenames[i]).isFile();
+        if (isfile)
         {
+          /*
+            
+          */
           var diff = filenames[i].substr(0,4);
           if (diff == 'diff') 
           {
-            var test = filenames.splice(i,1);
+            filenames.splice(i,1);
             i--;
           }  
-        }        
+        } else {
+          filenames.splice(i,1);
+          i--;
+        }       
       }
       res.json(filenames);
     });    
