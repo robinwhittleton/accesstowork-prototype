@@ -1,0 +1,37 @@
+{{<layout}}
+
+{{$pageTitle}}Diffing versions{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div clas"grid-row">
+
+{{>v8/diffs}}
+
+</div>
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+  var version = "v8";
+  var data = {
+    aboutwork:"Removed the 'permanent job' question as it turns out it wasn't really needed.",
+    aboutyou:"Moved the contact details off this page (one-thing-per-page styleee!).",
+    doyouknow:"Split this from the previous page (one-thing-per-page styleee!).",
+    "employed-limited":"Added the NEA Mentor question",
+    explore:"Added three blank boxes to try and give users some indication that they can include multiple tasks.",
+    index:"Content changes.",
+    "need-communication":"Small content changes.",
+    "need-tasks":"Changed to 3 task boxes (as with 'explore.html'), and tinkered with the time ranges in the hours question",
+    "need-travel":"Added some questions about the user's condition and requirements.",
+    "need-why":"Content change.",
+    "whatyouneed":"Again with the three boxes (as with 'expore.html') and a bit of wording at the top.",
+  }
+</script>
+<script type="text/javascript" src="/public/javascripts/diff.js"> </script>
