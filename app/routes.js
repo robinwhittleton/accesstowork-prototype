@@ -6,6 +6,7 @@ module.exports = {
     // special route for the index.
     app.get('/', function (req, res) {      
       res.render('index', {items:[
+        {number:'9', date:'(pre 30th September)'},
         {number:'8', date:'(pre 21st July)'},
         {number:'7', date:'(pre 7th July)'},
         {number:'6', date:'(pre 23rd June)'},

@@ -150,16 +150,15 @@ td.numeric {
   border-radius:0.5em;
   padding:1em;
   box-shadow:1px 5px 10px rgba(black,0.2);
-  // &:after {
-  //   $size:20px
-  //   content:' ';
-  //   display:block;
-  //   position:absolute;
-  //   top:50%;left:-($size)px;
-  //   margin-top:-40px;
-  //   width:0;height:0;
-  //   border-top: 50px solid transparent;
-  //   border-right: 100px solid red;
-  //   border-bottom: 50px solid transparent;
-  // }
+  &:after {
+    $size:20px;
+    content:' ';
+    display:block;
+    position:absolute;
+    top:62%;left:-50px;
+    margin-top:-40px;
+    width:100px;height:40px;
+    background-color:rgba(white,0.01);
+    z-index:-1;
+  }
 }
