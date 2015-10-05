@@ -60,7 +60,8 @@ td.numeric {
   width:100%;
 }
 .back-link {
-
+  margin:15px 0 0;
+  font-size:18px;
 }
 .form-title {
   margin-top:15px;
@@ -76,8 +77,6 @@ td.numeric {
 }
 
 .back-link {
-  margin:15px 0 0;
-  font-size:18px;
   display:inline-block;
   position:relative;
   border-bottom:1px solid $link-colour;
@@ -130,9 +129,6 @@ td.numeric {
 .font-xxsmall {
   font-size:12px;
 }
-/* -----------------------------------
-    Home page 
-   ----------------------------------- */
 
 .pages-link {
   position:relative;
@@ -155,10 +151,21 @@ td.numeric {
     content:' ';
     display:block;
     position:absolute;
-    top:62%;left:-50px;
+    top:240px;left:-50px;
     margin-top:-40px;
-    width:100px;height:40px;
-    background-color:rgba(white,0.01);
+    width:100px;height:20px;
+    background-color:rgba(red,0.5);
     z-index:-1;
   }
+}
+.phase-banner .phase-tag {
+  background-color:$beta-colour;
+}
+.proposition-phase-tag {
+  text-transform:uppercase;
+  background-color:$beta-colour;
+  padding: 2px 5px 0;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  position:relative; top:-2px; left:10px;
 }

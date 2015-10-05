@@ -1,0 +1,57 @@
+/* ==========================================================================
+   High contrast test
+   ========================================================================== */
+
+.highcontrast {
+  background-color: #000;
+  color: #fff;
+}
+.highcontrast .error-summary-list li a:focus, .highcontrast .top-nav a:focus, .highcontrast .primary-nav a:focus {
+  color: #000;
+}
+.highcontrast a, .highcontrast details summary {
+  color: yellow;
+}
+.highcontrast .form-label-bold, .highcontrast .form-label, .highcontrast legend, .highcontrast .form-hint, .highcontrast .section-progress, .highcontrast .phase-banner span {
+  color: #fff;
+}
+.highcontrast .error-summary .error-summary-list a, .highcontrast .error-message {
+  color: pink;
+}
+.highcontrast .error-summary, .highcontrast .error, .highcontrast .error .form-control {
+  border-color: #d53880;
+}
+.highcontrast .block-label {
+  color: #000; font-weight: 600;
+}
+.toggle-highcontrast {
+  cursor: pointer;
+}
+.toggle-remove {
+  display: none;
+}
+.highcontrast .toggle-remove {
+  display: block;
+  cursor: pointer;
+  color: yellow;
+}
+.highcontrast .toggle-highcontrast {
+  display: none;
+}
+
+.highcontrast #footer, .highcontrast #footer .footer-wrapper {
+  background: #000;
+}
+
+.highcontrast #footer a {
+  color: yellow;
+}
+
+.highcontrast #footer p {
+  color: #fff;
+}
+
+.highcontrast .form-control-checkbox:hover, .highcontrast .form-control-radio:hover {
+  color:black;
+  background-color:yellow;
+}
