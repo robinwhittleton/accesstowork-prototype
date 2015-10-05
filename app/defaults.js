@@ -1,2 +1,0 @@
-defaults = {};
-module.export = defaults;

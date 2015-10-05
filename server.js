@@ -1,8 +1,5 @@
 var path = require('path'),
     express = require('express'),
-    // browserSync = require('browser-sync'),
-    presenters = require(__dirname + '/app/presenters.js'),
-    defaults = require(__dirname + '/app/defaults.js'),
     routes = require(__dirname + '/app/routes.js'),
     merge = require('merge'),
     user_data = require(__dirname + '/lib/user_data.js'),
@@ -45,7 +42,7 @@ app.use(function (req, res, next) {
 
 app.use(express.urlencoded());
 app.use(express.cookieParser());
-app.use(user_data.form_to_cookie(presenters));
+app.use(user_data.form_to_cookie());
 
 // routes (found in app/routes.js)
 

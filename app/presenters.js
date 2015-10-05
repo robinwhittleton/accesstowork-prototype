@@ -1,2 +1,0 @@
-presenters = {};
-module.export = presenters;
