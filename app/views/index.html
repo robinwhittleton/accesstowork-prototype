@@ -25,9 +25,9 @@
 		</tr>
 		{{#items}}
 			<tr>
-				<td><a href="/v{{ number }}/">Version {{ number }}</a></td>
+				<td><a href="/application/v{{ number }}/">Version {{ number }}</a></td>
 				<td><span class="font-xxsmall">{{ date }}</span></td>
-				<td><a class="font-xxsmall" href="/v{{ number }}/diff">changes</a></td>
+				<td><a class="font-xxsmall" href="/application/v{{ number }}/diff">changes</a></td>
 				<td><a class="font-xxsmall pages-link" href="#" data-num="v{{ number }}">pages</a></td>
 			</tr>
 		{{/items}}
@@ -73,7 +73,7 @@ hello
 			show.empty().append('<ul/>');
 			$(this).append(show);
 
-			$.get('/api/'+num+'/', {}, function(data, status, xhr)
+			$.get('/api/application/'+num+'/', {}, function(data, status, xhr)
 			{
 				for(var i in data[0])
 				{
