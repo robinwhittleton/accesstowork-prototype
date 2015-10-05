@@ -39,13 +39,7 @@ module.exports = {
       }
       res.json(filenames);
     });    
-
-    app.get('/examples/template-data', function (req, res) {
-      res.render('examples/template-data', { 'name' : 'Test' });
-      
-    });
     
-    // add your routes here
     app.get('/reset', function(req, res) 
     {
       user_data.clear(req, res);
@@ -59,7 +53,7 @@ module.exports = {
       next();
     });
 
-    app.all('/accesstowork/need-tasks', function(req, res, next)
+    app.all('/application/need-tasks', function(req, res, next)
     {
       // just take the first item out of the array.
       try {
@@ -70,7 +64,7 @@ module.exports = {
       next();
     });
 
-    app.all('/accesstowork/need-why', function(req, res, next)
+    app.all('/application/need-why', function(req, res, next)
     {
       // just take the first item out of the array.
       try {
