@@ -5,7 +5,7 @@ $(document).on("ready",function(e)
 
   $('.diffs').hide();
 
-  $('.column-two-thirds').prepend('<div class="diffs"> <h2 class="heading-large">'+version+' changes</h2> <p>This page will show you the changes between this and the previous version of the prototype.<p> <p class="font-xsmall">Use the links on the side to view the details. <strong>Changed</strong> files are listed first, followed by <strong>New</strong> files, and <strong>Deleted</strong> files. The <strong>Ignore</strong> files are ones with small cosmetic changes which aren\'t really pertinent to the iteration of the prototype</p> <h2 class="heading-medium">Summary</h2> <dl id="summary"></dl> </div>');
+  $('.column-two-thirds').prepend('<div class="diffs"> <h2 class="heading-large">'+version+' changes</h2> <p>The changes between this and the previous version of the prototype.<p> <p class="font-xsmall">Use the links on the side to view the details. <strong style="font-weight:bold">Changed</strong> files are listed first, followed by <strong style="font-weight:bold">New</strong> files, and <strong style="font-weight:bold">Deleted</strong> files. The <strong style="font-weight:bold">Ignore</strong> files are ones with small cosmetic changes which aren\'t really pertinent to the iteration of the prototype</p> <h2 class="heading-medium">Summary</h2> <dl id="summary"></dl> </div>');
   for(var a in data)
   {
     $('#summary').append('<dt class="heading-small">'+a+'.html</dt>');
