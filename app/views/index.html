@@ -10,6 +10,7 @@
 
 	<h2 class="heading-xlarge">Prototypes</h2>
 
+	<!-- ----------------------- APPLICATION ----------------------- -->
 	<h3 class="heading-medium">Apply for an Access To Work grant</h3>
 	<table class="list-bullet index-table">
 		<tr>
@@ -17,52 +18,43 @@
 				<a href="/application/">Current version</a> 
 			</td>
 			<td>
-				<a class="font-xxsmall pages-link" href="#" data-num="">pages</a>
+				<a class="font-xxsmall pages-link" href="#" data-num="application">pages</a>
 			</td>
 		</tr>
 		{{#application}}
 			<tr>
 				<td><a href="/application/v{{ number }}/">Version {{ number }}</a></td>
-				<td> <span class="font-xxsmall">{{ date }}</span></td>
+				<td>&nbsp;<span class="font-xxsmall">{{ date }}</span></td>
 				<td><a class="font-xxsmall" href="/application/v{{ number }}/diff">changes</a></td>
-				<td><a class="font-xxsmall pages-link" href="#" data-num="v{{ number }}">pages</a></td>
+				<td><a class="font-xxsmall pages-link" href="#" data-num="application/v{{ number }}">pages</a></td>
 			</tr>
 		{{/application}}
 	</table>
 
+	<!-- ----------------------- STATUS ----------------------- -->
 	<h3 class="heading-medium">Application status</h3>
 	<table class="list-bullet index-table">
 		<tr>
-			<td colspan="3">
-				<a href="/appstatus/">Current version</a> 
-			</td>
-			<td>
-				<a class="font-xxsmall pages-link" href="#" data-num="offer">pages</a>
-			</td>
+			<td colspan="3"> <a href="/appstatus/">Current version</a> </td>
+			<td>&nbsp;<a class="font-xxsmall pages-link" href="#" data-num="appstatus">pages</a> </td>
 		</tr>
 	</table>
 
+	<!-- ----------------------- OFFER ----------------------- -->
 	<h3 class="heading-medium">Accept your offer</h3>
 	<table class="list-bullet index-table">
 		<tr>
-			<td colspan="3">
-				<a href="/offer/">Current version</a> 
-			</td>
-			<td>
-				<a class="font-xxsmall pages-link" href="#" data-num="appstatus">pages</a>
-			</td>
+			<td colspan="3"> <a href="/offer/">Current version</a> </td>
+			<td>&nbsp;<a class="font-xxsmall pages-link" href="#" data-num="offer">pages</a> </td>
 		</tr>
 	</table>
 
+	<!-- ----------------------- STATFF UI ----------------------- -->
 	<h3 class="heading-medium">Staff access UI</h3>
 	<table class="list-bullet index-table">
 		<tr>
-			<td colspan="3">
-				<a href="/staffui/">Current version</a> 
-			</td>
-			<td>
-				<a class="font-xxsmall pages-link" href="#" data-num="appstatus">pages</a>
-			</td>
+			<td colspan="3"> <a href="/staffui/">Current version</a> </td>
+			<td>&nbsp;<a class="font-xxsmall pages-link" href="#" data-num="statffui">pages</a> </td>
 		</tr>
 	</table>
 
@@ -75,49 +67,12 @@
 </main>
 
 <div class="show-pages">
-hello
+	<div class="tag"></div>
+	<ul class="pages"></ul>
 </div>
 
 {{/content}}
 
 {{/layout}}
 
-<script type="text/javascript">
-	$(document).on('ready',function()
-	{
-		var show = $('.show-pages');
-		show.hide();
-
-		show.on('mouseleave',function()
-		{
-			show.hide();
-		});
-
-		$('.pages-link').on('mouseover',function(e)
-		{
-			if (e.currentTarget != e.target) return;
-
-			var num = $(this).data('num');
-
-			show.empty().append('<ul/>');
-			$(this).append(show);
-
-			$.get('/api/application/'+num+'/', {}, function(data, status, xhr)
-			{
-				for(var i in data)
-				{
-					var d = data[i];
-					console.log(d);
-					if (d)
-					{
-						var link = '<li><a href="/application/'+num+'/'+d.substring(0,d.length-5 )+'">'+d+'</a></li>'					
-						$('.show-pages ul').append(link);						
-					}					
-				}
-				show.css({top:"-200px",left:"150%"});
-				show.show();
-			});
-		});
-		
-	});
-</script>
+<script type="text/javascript" src="/public/javascripts/homepage.js"></script>

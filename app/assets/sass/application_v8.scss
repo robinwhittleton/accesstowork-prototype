@@ -14,9 +14,6 @@
 /*  --------------
     Misc
     -------------- */
-.completion {
-  padding:1em;
-}
 .offer-table {
   dt {font-weight:bold;}
   dd {margin-bottom:1em}
@@ -41,4 +38,16 @@
   li {
     padding-left:1em;
   }
+}
+
+.completion {
+  padding:1em;
+}
+
+.ui-notes {
+  display:block;
+  clear:both;
+  background-color:$grey-3;
+  font-size:12px;
+  padding:1em;
 }

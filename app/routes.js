@@ -17,7 +17,8 @@ module.exports = {
 
     app.get(/\/api\/(.*)\//, function (req, res) 
     {      
-      var filenames = fs.readdirSync(__dirname + '/views/'+req.params[0]);      
+      var dir = __dirname + '/views/'+req.params[0]; console.log(dir);
+      var filenames = fs.readdirSync(dir);      
       for (var i=0; i<filenames.length; i++)
       {
         var isfile = fs.lstatSync(__dirname + '/views/'+req.params[0]+'/'+filenames[i]).isFile();
