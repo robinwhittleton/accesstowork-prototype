@@ -42,5 +42,14 @@
 {{/layout_v8}}
 
 <script type="text/javascript">
-	con
+	$(document).on('ready',function()
+	{
+	  $("#nextButton").on('click',function(e)
+	  {
+	    e.preventDefault();
+	    var c = Math.ceil(Math.random() * $('.ui-notes ol').children().length);
+	    var d = $('.ui-notes ol li:nth-child('+c+') a').attr('href');
+	    window.location.href = d;
+	  });
+	});
 </script>
