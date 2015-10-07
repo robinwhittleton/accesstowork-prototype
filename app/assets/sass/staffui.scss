@@ -8,7 +8,7 @@
   max-width:none;
 }
 #global-header #logo img {
-  width:138.00px;
+  width:185.00px;
   height:31px;
 }
 #global-header-bar {
@@ -42,7 +42,7 @@
   display:table-cell;
   border-right:1px solid $grey-2;
   width:240px;
-  background-color:$grey-4;
+  background-color:$grey-2;
 }
 .staff-main {
   display:table-cell;
@@ -51,9 +51,8 @@
 
 /* STAFF ACCESS NAV */
 .staff-nav-links {
-  padding-top:30px;    
+  // padding-top:30px;    
   background-color:$grey-4;
-  padding:10px 0;
   a {
     display:block;
     padding:15px 10px 10px 30px;
@@ -61,7 +60,7 @@
     &.selected {
       color:white;
       background-color:$turquoise;
-      pointer-events: none;
+      // pointer-events: none;
     }
     &:hover {
       color:white;
@@ -82,7 +81,7 @@
 
 /* STAFF ACESSS - MAIN */
 .details {
-  dt,dd {padding:10px 10px 5px 0;}
+  dt,dd {padding:10px 10px 7px 0;}
   dt {
     float:left;
     clear:left;
