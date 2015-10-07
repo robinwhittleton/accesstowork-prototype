@@ -13,7 +13,6 @@ $(document).on('ready',function()
     if (e.currentTarget != e.target) return;
 
     var num = $(this).data('num');
-    if (num) num = num+'/';
 
     show.find('.pages').empty();
     $(this).append(show);

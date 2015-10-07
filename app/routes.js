@@ -1,5 +1,6 @@
 var user_data = require('../lib/user_data.js');
 var versions = require("../lib/versions.js");
+var fs = require("fs");
 
 module.exports = {
   bind : function (app) {    
@@ -12,8 +13,6 @@ module.exports = {
     app.get('/', function (req, res) {      
       res.render('index', versions);
     });
-
-    var fs = require("fs");
 
     app.get(/\/api\/(.*)\//, function (req, res) 
     {      
