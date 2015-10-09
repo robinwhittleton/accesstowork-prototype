@@ -1,5 +1,6 @@
 var path = require('path'),
     express = require('express'),
+    browserSync = require('browser-sync'),
     routes = require(__dirname + '/app/routes.js'),
     merge = require('merge'),
     user_data = require(__dirname + '/lib/user_data.js'),
@@ -105,8 +106,21 @@ app.post(/^\/([^.]+)$/, function (req, res) {
 // }
 // // start the app
 
-// app.listen(port,listening);
-app.listen(port);
+if (env === 'production') {
+  app.listen(port);
+} else {
+  app.listen(port,function()
+  {
+    browserSync({
+      proxy:'localhost:'+port,
+      files:['public/**/*.{js,css}','app/views/**/*.html']
+    });
+  });
+}
+
+
+
+
 console.log('');
 console.log('Listening on port ' + port);
 console.log('');

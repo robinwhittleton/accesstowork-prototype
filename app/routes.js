@@ -7,7 +7,6 @@ module.exports = {
 
     app.get(/.*/, function(req,res,next)
     {
-      console.log('got here');
       req.data = {};
       next();
     });
