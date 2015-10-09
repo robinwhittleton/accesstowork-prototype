@@ -75,7 +75,7 @@ app.get(/^\/([^.]+)$/, function (req, res) {
     }
   }
 
-  res.render(path, merge(true, req.cookies), function(err, html)
+  res.render(path, merge(true, req.cookies, req.data), function(err, html)
   {
 		if (err) {
 			console.log(err);

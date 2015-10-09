@@ -24,7 +24,7 @@ $(document).on('ready',function()
         var d = data[i];
         if (d)
         {           
-          var link = '<li><a href="/'+num+d.substring(0,d.length-5 )+'">'+d+'</a></li>'         
+          var link = '<li><a href="/'+num+'/'+d.substring(0,d.length-5 )+'">'+d+'</a></li>'         
           $('.show-pages ul').append(link);           
         }         
       }

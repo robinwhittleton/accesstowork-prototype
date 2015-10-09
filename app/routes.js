@@ -5,6 +5,13 @@ var fs = require("fs");
 module.exports = {
   bind : function (app) {    
 
+    app.get(/.*/, function(req,res,next)
+    {
+      console.log('got here');
+      req.data = {};
+      next();
+    });
+
     app.get('/accesstowork/', function (req, res) {      
       res.redirect('application/');
     });
@@ -72,6 +79,12 @@ module.exports = {
         req.cookies['what-you-need'] = val[0];
       } catch(e) { }
 
+      next();
+    });
+
+    app.get('/staffui/all-applications', function(req,res,next)
+    {
+      req.data.customers = require("../lib/customers.js");      
       next();
     });
   }

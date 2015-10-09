@@ -109,3 +109,14 @@
   border-radius:5px;
   margin-left:5px;
 }
+td.adviser {
+  display:table-cell;
+}
+td.choice {
+  display:none;
+}
+.app-list {
+  td {
+    height:38px;
+  }
+}
