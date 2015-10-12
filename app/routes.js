@@ -8,7 +8,6 @@ module.exports = {
     app.get(/.*/, function(req,res,next)
     {
       // clean up the cookies data!
-      console.log('got here');
       for(var key in req.cookies)
       {
         var val;
@@ -110,6 +109,22 @@ module.exports = {
           i--;
         }
       }
+      next();
+    });
+
+    app.get(/\/offer\/offer*/, function(req,res,next)
+    {
+      req.data.offers = [];
+      if (req.cookies['explore-tasks'])
+      for (var i = 0; i < req.cookies['explore-tasks'].length; i++) 
+      {
+        var task = req.cookies['explore-tasks'][i];
+        var how = req.cookies['explore-hows'][i];
+        if (req.cookies['explore-offers']) var off = req.cookies['explore-offers'][i];
+        // add them in if the task wasn't blank.
+        if (task != '') req.data.offers[i] = {task:task,how:how,off:off};        
+      };      
+      console.log(req.data.offer);
       next();
     });
   }
