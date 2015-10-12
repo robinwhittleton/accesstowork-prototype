@@ -5,20 +5,22 @@
 	<link href="/public/stylesheets/govuk-template.css?0.12.0" media="screen" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="/public/stylesheets/email.css">
 </head>
-<body>
+
+<body class="email-page">
 
 <div class="email">
+	<h1 class="heading-medium" style="border-bottom:1px solid black">Email</h1>	
 	<p class="email-meta email-to"><span class="meta-label">To:</span> {{ you-email-address }}{{^ you-email-address }}yourname@gmail.com{{/ you-email-address }}</p>
 	<p class="email-meta email-from"><span class="meta-label">From:</span> accesstowork@dwp.gsi.gok.uk</p>
 	<div class="email-body">
-		<p>Dear Mrs Smith</p>
-		<p>You've been awarded an Access to Work grant to pay for taxis to and from your place of work 3 times a week.</p>
-		<p>If you agree you can <a href="/offer/referencenumber">accept this offer online</a>. </p>
+		<p><img src="/public/images/DWP-logo.png" width="120" /></p>
+		<p>Dear {{ you-full-name }}{{^ you-full-name }}Mrs Smith{{/ you-full-name }}</p>
+		<p>You've been awarded an Access to Work grant. You can <a href="/offer/referencenumber">view the details online</a>.</p>
+		<p> You can then choose to accept the offer or request an reconsideration.</p>
 		<!-- <p>http://atw.dwp.gov.uk/offdec/as64sdh3776sj39263j2837sd8263</a></p> -->
-		<p>If this doesn't meet your needs or you'd like to discuss your offer further, then telephone 0800 000 0800.</p>
-
+		<p>If this isn't possible or you would like to talk to someone about your application please telephone 0800 000 0800.</p>
 		<p>Yours sincerely</p>
-		<p>Linda Anderson<br /><small>(Access To Work advisor, Halifax)</small></p>
+		<p>Linda Anderson<br /><small>(Access To Work advisor, Halifax)</small></p>		
 	</div>	
 </div>
 
