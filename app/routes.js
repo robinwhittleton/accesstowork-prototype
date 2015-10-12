@@ -7,7 +7,21 @@ module.exports = {
 
     app.get(/.*/, function(req,res,next)
     {
+      // clean up the cookies data!
+      console.log('got here');
+      for(var key in req.cookies)
+      {
+        var val;
+        try {
+          val = JSON.parse(req.cookies[key]);
+        } catch(e) {
+          val = req.cookies[key]
+        }
+        req.cookies[key] = val;
+      }
+
       req.data = {};
+
       next();
     });
 
@@ -84,6 +98,18 @@ module.exports = {
     app.get('/staffui/all-applications', function(req,res,next)
     {
       req.data.customers = require("../lib/customers.js");      
+      next();
+    });
+
+    /* sanitising data for the describe page */
+    app.get('/application/describe', function(req,res,next)
+    {
+      for (var i = 0; i < req.cookies['explore-tasks'].length; i++) {
+        if (req.cookies['explore-tasks'][i] == '') {         
+          req.cookies['explore-tasks'].splice(i, 1);
+          i--;
+        }
+      }
       next();
     });
   }

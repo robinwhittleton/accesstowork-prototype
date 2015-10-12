@@ -46,36 +46,12 @@ app.use(express.cookieParser());
 app.use(user_data.form_to_cookie());
 
 // routes (found in app/routes.js)
-
 routes.bind(app);
 
 // auto render any view that exists
-app.get(/^\/([^.]+)$/, function (req, res) {
-
+app.get(/^\/([^.]+)$/, function (req, res) 
+{
 	var path = (req.params[0]);
-
-  for(var key in req.cookies)
-  {
-    var val;
-    try {
-      val = JSON.parse(req.cookies[key]);
-    } catch(e) {
-      val = req.cookies[key]
-    }
-    req.cookies[key] = val;
-  }
-
-  /* sanitising data for the describe page */
-  if (path == 'accesstowork/describe')
-  {
-    for (var i = 0; i < req.cookies['explore-tasks'].length; i++) {
-      if (req.cookies['explore-tasks'][i] == '') {         
-        req.cookies['explore-tasks'].splice(i, 1);
-        i--;
-      }
-    }
-  }
-
   res.render(path, merge(true, req.cookies, req.data), function(err, html)
   {
 		if (err) {
@@ -93,19 +69,6 @@ app.post(/^\/([^.]+)$/, function (req, res) {
   res.redirect(path);
 });
 
-
-// function listening()
-// {
-//   browserSync({
-//     files : ["public/**/*","app/views/**/*.html"],
-//     options: {
-//       proxy: "localhost:"+port,
-//       // port: 3002,
-//     }
-//   });
-// }
-// // start the app
-
 if (env === 'production') {
   app.listen(port);
 } else {
@@ -113,16 +76,13 @@ if (env === 'production') {
   {
     browserSync({
       proxy:'localhost:'+port,
-      files:['public/**/*.{js,css}','app/views/**/*.html']
+      files:['public/**/*.{js,css}','app/views/**/*.html'],
+      ghostmode:{clicks:true, forms: true, scroll:true},
+      open:false,
     });
   });
 }
 
-
-
-
 console.log('');
 console.log('Listening on port ' + port);
 console.log('');
-
-
