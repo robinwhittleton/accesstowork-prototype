@@ -29,18 +29,12 @@
         <td></td>
         <td style="padding-top:0;">
           <ol class="task-list">
+          {{# offers }}
             <li>
-              <h3 class="heading-small" style="margin-top:0;">Make phone calls</h3>
-              <p>&ldquo;I find it hard to hold a phone and listen for an extended period of time.&rdquo;</p>
+              <h3 class="heading-small" style="margin-top:0;">{{task}}</h3>
+              <p>&ldquo;{{how}}&rdquo;</p>
             </li>
-            <li>
-              <h3 class="heading-small">Sit at my deak</h3>
-              <p>&ldquo;I experience pain and discomfort when I do this for longer than 30 minutes..&rdquo;</p>
-            </li>
-            <li>
-              <h3 class="heading-small">Communicating with my line manager and colleagues</h3>
-              <p>&ldquo;My anxiety causes stress in these situations.&rdquo;</p>
-            </li>
+          {{/ offers }}
           </ol>
         </td>        
       </tr>
@@ -52,18 +46,12 @@
         <td></td>
         <td style="padding-top:0;">
           <ol class="task-list">
+          {{# offers }}
             <li>
-              <h3 style="margin-top:0;">Make phone calls</h3>
-              <p class="font-large">Funding for a communication support worker.</p>
+              <h3 style="margin-top:0;">{{task}}</h3>
+              <p class="font-large">{{off}}</p>
             </li>
-            <li>
-              <h3>Sit at my deak</h3>
-              <p class="font-large">Funding towards a suitably adapted chair.</p>
-            </li>
-            <li>
-              <h3>Communicating with my line manager and colleagues</h3>
-              <p class="font-large">Funding towards the cost of a disability awareness sessions.</p>
-            </li>
+          {{/ offers }}
           </ol>
         </td>        
       </tr>

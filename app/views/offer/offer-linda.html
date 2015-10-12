@@ -1,0 +1,56 @@
+{{<layout_v8}}
+
+{{$pageTitle}}Linda Interface{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+<div class="grid-row">
+
+<section class="column">
+
+    <h1 class="heading-large">The Linda Interface</h1>
+
+    <form action="offer-linda" method="post">
+      {{# offers }}
+        <h3 class="heading-small" style="margin-top:0;">{{task}}</h3>
+        <p>&ldquo;{{how}}&rdquo;</p>
+        <p><textarea name="explore-offers">{{off}}</textarea></p>
+      {{/ offers }}    
+      <div class="form-group">
+        {{#personalise}}
+          <input type="checkbox" checked="checked" name="personalise" id="personal-yesno">
+          <label class="form-label form-control-checkbox" for="personal-yesno"> Should we personalise?</label>
+        {{/personalise}}        
+        {{^personalise}}
+          <input type="checkbox" name="personalise" id="personal-yesno">
+          <label class="form-label form-control-checkbox" for="personal-yesno"> Should we personalise?</label>
+        {{/personalise}}                
+      </div>
+      <input type="submit" class="button" value="save"/>
+    </form>
+
+</section>
+
+</div>
+
+</main>
+
+{{/content}}
+
+{{/layout_v8}}
+
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    $('label').on('click',function(e)
+    {
+      // var f = $(this).attr('for');
+      // var n = $('#'+f).prop("checked");
+      // $('#'+f).prop("checked",!n);
+      var r = $('#personal-yesno').prop('checked',false);
+      console.log(r);
+    });
+  });
+</script>
