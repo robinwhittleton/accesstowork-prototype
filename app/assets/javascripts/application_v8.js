@@ -39,6 +39,12 @@ $(document).ready(function() {
     });
   });
 
+  $('.form-control-checkbox').on('click',function(e)
+  { 
+    var target = $(this).data('target');   
+    $('#'+target).toggle();
+  });  
+
   $('#skiplink-container div').append('<a id="toggle-highcontrast" href="#" class="skiplink">High contrast version</a>');
   $('#skiplink-container div').append('<a id="toggle-remove" href="#" class="skiplink">Remove high contrast</a>');
 

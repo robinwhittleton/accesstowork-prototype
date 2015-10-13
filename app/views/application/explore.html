@@ -37,9 +37,9 @@
       <!-- <p class="form-hint">You will be able to describe each in more detail on the following page.</p> -->
       <p class="form-hint">Things you have difficulty doing but have to do in your job, eg sitting at a desk, using certain equipment, or communicating at meetings.</p>
       <div class="conditions">
-        <p class="cond"><input name="explore-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
-        <p class="cond"><input name="explore-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
-        <p class="cond"><input name="explore-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
+        <p class="cond"><input id="explore-task0" name="explore-tasks[]" class="form-control" style="width:50%" autocomplete="off"/></p>
+        <p class="cond"><input id="explore-task1" name="explore-tasks[]" class="form-control" style="width:50%" autocomplete="off"/></p>
+        <p class="cond"><input id="explore-task2" name="explore-tasks[]" class="form-control" style="width:50%" autocomplete="off"/></p>
       </div>
       <p><a href="#" id="add" class="button-add">&#43; add another task</a></p>
     </fieldset>
@@ -71,8 +71,10 @@
     $('#add').on("click",function(e)
     {
       e.preventDefault();
-      var c = $($('.conditions .cond')[0]).clone(); // clone the first input
-      $('.conditions').append(c); // apend it to the block.
+      var c = $('.conditions').children().length;
+      var d = $($('.conditions .cond')[0]).clone(); // clone the first input
+      d.find('input').attr('id','explore-task'+c);
+      $('.conditions').append(d); // apend it to the block.
       $(c.find('input')).val("").focus(); // empty the vlalue.
     });
   });
