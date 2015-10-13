@@ -41,8 +41,8 @@
           <div class="form-group" aria-labelledby="howEmployed">
 
               <!-- EMAIL -->
-              <input id="contact-email" type="checkbox" name="you-contact-pref" value="email">
-              <label class="form-label form-control-checkbox" for="contact-email" data-target="email-ask">Email</label>
+              <input id="you-email" type="checkbox" name="you-contact-pref" value="email">
+              <label for="you-email" class="form-label form-control-checkbox" data-target="email-ask">Email</label>
               <fieldset class="mid-form js-hidden" id="email-ask">
                 <div class="form-group panel-indent">
                   <label class="form-label-bold" for="email-address">Email address</label>
@@ -51,8 +51,8 @@
               </fieldset>
 
               <!-- PHONE -->
-              <input id="phone" type="checkbox" name="you-contact-pref" value="phone">
-              <label class="form-label form-control-checkbox" for="phone" data-target="phone-ask"> Phone call </label>
+              <input id="you-phone" type="checkbox" name="you-contact-pref" value="phone">
+              <label for="you-phone" class="form-label form-control-checkbox" data-target="phone-ask"> Phone call </label>
               <fieldset class="mid-form js-hidden" id="phone-ask">
                 <div class="form-group panel-indent mid-form">
                   <label class="form-label-bold" for="telephone-number">Phone number</label>
@@ -62,8 +62,8 @@
               </fieldset>
 
               <!-- TEXT MESSAGAE -->
-              <input id="text" type="checkbox" name="you-contact-pref" value="text">
-              <label class="form-label form-control-checkbox" for="text" data-target="text-ask"> Text message </label>              
+              <input id="you-text" type="checkbox" name="you-contact-pref" value="text">
+              <label for="you-text" class="form-label form-control-checkbox" data-target="text-ask"> Text message </label>              
               <fieldset class="mid-form js-hidden" id="text-ask">
                 <div class="form-group panel-indent mid-form">
                   <label class="form-label-bold" for="telephone-number">Phone number</label>
@@ -72,13 +72,13 @@
                 </div>
               </fieldset>
 
-              <input id="post" type="checkbox" name="you-contact-pref" value="post">
-              <label class="form-label form-control-checkbox" for="post" data-target=""> Letter </label>                            
+              <input id="you-post" type="checkbox" name="you-contact-pref" value="post">
+              <label for="you-post" class="form-label form-control-checkbox" data-target=""> Letter </label>                            
           </div>
       </fieldset>
     </div>
 
-    <!-- CONTACT YOU HOW? -->
+    <!-- CONTACT THEM HOW? -->
     <div class="form-group panel-indent js-hidden" id="third-reveal">
       <fieldset>
           <legend class="heading-medium">How would they like us to contact them?</legend>
@@ -86,9 +86,9 @@
           <div class="form-group" aria-labelledby="howEmployed">
 
               <!-- EMAIL -->
-              <input id="contact-email" type="checkbox" name="you-contact-pref" value="email">
-              <label class="form-label form-control-checkbox" for="contact-email" data-target="email-ask">Email</label>
-              <fieldset class="mid-form js-hidden" id="email-ask">
+              <input id="them-email" type="checkbox" name="them-contact-pref" value="email">
+              <label for="them-email" class="form-label form-control-checkbox" data-target="them-email-ask">Email</label>
+              <fieldset class="mid-form js-hidden" id="them-email-ask">
                 <div class="form-group panel-indent">
                   <label class="form-label-bold" for="email-address">Email address</label>
                   <input class="form-control" id="email-address" name="you-email-address" type="text" aria-required="true">      
@@ -96,9 +96,9 @@
               </fieldset>
 
               <!-- PHONE -->
-              <input id="phone" type="checkbox" name="you-contact-pref" value="phone">
-              <label class="form-label form-control-checkbox" for="phone" data-target="phone-ask"> Phone call </label>
-              <fieldset class="mid-form js-hidden" id="phone-ask">
+              <input id="them-phone" type="checkbox" name="them-contact-pref" value="phone">
+              <label for="them-phone" class="form-label form-control-checkbox" data-target="them-phone-ask"> Phone call </label>
+              <fieldset class="mid-form js-hidden" id="them-phone-ask">
                 <div class="form-group panel-indent mid-form">
                   <label class="form-label-bold" for="telephone-number">Phone number</label>
                   <!-- <p class="form-hint">Enter a landline, mobile or textphone number.</p> -->
@@ -107,9 +107,9 @@
               </fieldset>
 
               <!-- TEXT MESSAGAE -->
-              <input id="text" type="checkbox" name="you-contact-pref" value="text">
-              <label class="form-label form-control-checkbox" for="text" data-target="text-ask"> Text message </label>              
-              <fieldset class="mid-form js-hidden" id="text-ask">
+              <input id="them-text" type="checkbox" name="them-contact-pref" value="text">
+              <label for="them-text" class="form-label form-control-checkbox" data-target="them-text-ask"> Text message </label>              
+              <fieldset class="mid-form js-hidden" id="them-text-ask">
                 <div class="form-group panel-indent mid-form">
                   <label class="form-label-bold" for="telephone-number">Phone number</label>
                   <!-- <p class="form-hint">Enter a landline, mobile or textphone number.</p> -->
@@ -117,26 +117,17 @@
                 </div>
               </fieldset>
 
-              <input id="post" type="checkbox" name="you-contact-pref" value="post">
-              <label class="form-label form-control-checkbox" for="post" data-target=""> Letter </label>              
+              <input id="them-post" type="checkbox" name="them-contact-pref" value="post">
+              <label for="them-post" class="form-label form-control-checkbox" data-target=""> Letter </label>              
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="relationship">What's your relationship with the person you're filling this in for?</label>
+            <label class="form-label" for="relationship">What's your relationship with this person?</label>
             <input class="form-control" id="relationship" name="trd-relationship" type="text">
             </div>
           </div>
       </fieldset>
     </div>
-
-    <!-- <fieldset class="form-group">
-      <div class="form-group">
-        <input id="checkbox-email-address" name="you-email-address-prefer" type="checkbox" value="email_prefferred">
-        <label class="form-label form-control-checkbox compact-control" for="checkbox-email-address">
-          Check this box if you'd prefer to be contacted by email rather than by phone.
-        </label>
-      </div>
-    </fieldset> -->  
 
     <fieldset class="primary-nav form-group" style="margin-top:30px;">
       <legend>Form Navigation</legend>
