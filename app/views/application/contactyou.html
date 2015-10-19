@@ -18,7 +18,10 @@
   <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
 
   <!-- HEADING -->
-  <h1 class="form-title heading-large" id="aboutyou"><span class="section-progress">Section 5 of 5</span>Getting in touch</h1>
+  <h1 class="form-title heading-large" id="aboutyou">
+    <span class="section-progress">Section 5 of 5</span>
+    Getting in touch
+  </h1>
 
   <form action="declaration" method="post" class="form">
 
@@ -44,8 +47,8 @@
               <input id="you-email" type="checkbox" name="you-contact-pref" value="email">
               <label for="you-email" class="form-label form-control-checkbox" data-target="email-ask">Email</label>
               <fieldset class="mid-form js-hidden" id="email-ask">
-                <div class="form-group panel-indent">
-                  <label class="form-label-bold" for="email-address">Email address</label>
+                <div class="form-group panel-indent mid-form">
+                  <label class="form-label" for="email-address">Email address</label>
                   <input class="form-control" id="email-address" name="you-email-address" type="text" aria-required="true">      
                 </div>
               </fieldset>
@@ -55,7 +58,7 @@
               <label for="you-phone" class="form-label form-control-checkbox" data-target="phone-ask"> Phone call </label>
               <fieldset class="mid-form js-hidden" id="phone-ask">
                 <div class="form-group panel-indent mid-form">
-                  <label class="form-label-bold" for="telephone-number">Phone number</label>
+                  <label class="form-label" for="telephone-number">Phone number</label>
                   <!-- <p class="form-hint">Enter a landline, mobile or textphone number.</p> -->
                   <input class="form-control" name="you-telephone-number" type="text" aria-required="true">
                 </div>
@@ -66,7 +69,7 @@
               <label for="you-text" class="form-label form-control-checkbox" data-target="text-ask"> Text message </label>              
               <fieldset class="mid-form js-hidden" id="text-ask">
                 <div class="form-group panel-indent mid-form">
-                  <label class="form-label-bold" for="telephone-number">Phone number</label>
+                  <label class="form-label" for="telephone-number">Phone number</label>
                   <!-- <p class="form-hint">Enter a landline, mobile or textphone number.</p> -->
                   <input class="form-control" name="you-telephone-number" type="text" aria-required="true">
                 </div>
@@ -81,16 +84,24 @@
     <!-- CONTACT THEM HOW? -->
     <div class="form-group panel-indent js-hidden" id="third-reveal">
       <fieldset>
-          <legend class="heading-medium">How would they like us to contact them?</legend>
+          <!-- THEIR NAME -->
+          <div class="form-group" style="margin-bottom:30px;">
+              <label class="form-label-bold" for="employer-name">Their name</label>
+              <input class="form-control" type="text" id="employer-name" name="employed-employer-name">
+          </div>
+      </fieldset>
+
+      <fieldset>
+          <legend class="heading-medium" style="margin-bottom:0;">How can we contact them?</legend>
           <p>Select as many as you like:</p>
-          <div class="form-group" aria-labelledby="howEmployed">
+          <div class="form-group" aria-labelledby="howEmployed">              
 
               <!-- EMAIL -->
               <input id="them-email" type="checkbox" name="them-contact-pref" value="email">
               <label for="them-email" class="form-label form-control-checkbox" data-target="them-email-ask">Email</label>
               <fieldset class="mid-form js-hidden" id="them-email-ask">
                 <div class="form-group panel-indent">
-                  <label class="form-label-bold" for="email-address">Email address</label>
+                  <label class="form-label" for="email-address">Email address</label>
                   <input class="form-control" id="email-address" name="you-email-address" type="text" aria-required="true">      
                 </div>
               </fieldset>
@@ -100,7 +111,7 @@
               <label for="them-phone" class="form-label form-control-checkbox" data-target="them-phone-ask"> Phone call </label>
               <fieldset class="mid-form js-hidden" id="them-phone-ask">
                 <div class="form-group panel-indent mid-form">
-                  <label class="form-label-bold" for="telephone-number">Phone number</label>
+                  <label class="form-label" for="telephone-number">Phone number</label>
                   <!-- <p class="form-hint">Enter a landline, mobile or textphone number.</p> -->
                   <input class="form-control" name="you-telephone-number" type="text" aria-required="true">
                 </div>
@@ -111,7 +122,7 @@
               <label for="them-text" class="form-label form-control-checkbox" data-target="them-text-ask"> Text message </label>              
               <fieldset class="mid-form js-hidden" id="them-text-ask">
                 <div class="form-group panel-indent mid-form">
-                  <label class="form-label-bold" for="telephone-number">Phone number</label>
+                  <label class="form-label" for="telephone-number">Phone number</label>
                   <!-- <p class="form-hint">Enter a landline, mobile or textphone number.</p> -->
                   <input class="form-control" name="you-telephone-number" type="text" aria-required="true">
                 </div>
