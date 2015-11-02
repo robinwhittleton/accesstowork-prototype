@@ -1,0 +1,31 @@
+#!/bin/bash
+
+webkit2png -F http://localhost:3000/application/aboutjob -o aboutjob
+webkit2png -F http://localhost:3000/application/aboutyou -o aboutyou
+webkit2png -F http://localhost:3000/application/contactyou -o contactyou --js='$("#screenshotclick").click();'
+webkit2png -F http://localhost:3000/application/declaration -o declaration
+webkit2png -F http://localhost:3000/application/describe -o describe
+webkit2png -F http://localhost:3000/application/doyouknow -o doyouknow
+webkit2png -F http://localhost:3000/application/employed-limited -o employed-limited
+webkit2png -F http://localhost:3000/application/employed-self -o employed-self
+webkit2png -F http://localhost:3000/application/employed -o employed
+webkit2png -F http://localhost:3000/application/explore -o explore
+webkit2png -F http://localhost:3000/application/finish -o finish
+webkit2png -F http://localhost:3000/application/havejob -o havejob --js='$("#screenshotclick").click();'
+# webkit2png -F http://localhost:3000/application/index -o index
+webkit2png -F http://localhost:3000/application/interview-exit -o interview-exit
+webkit2png -F http://localhost:3000/application/interview-why -o interview-why
+webkit2png -F http://localhost:3000/application/interview -o interview
+# webkit2png -F http://localhost:3000/application/intro2 -o intro2
+# webkit2png -F http://localhost:3000/application/intro3 -o intro3
+# webkit2png -F http://localhost:3000/application/intro4 -o intro4
+webkit2png -F http://localhost:3000/application/line-manager -o line-manager
+webkit2png -F http://localhost:3000/application/need-communication -o need-communication
+webkit2png -F http://localhost:3000/application/need-tasks -o need-tasks
+webkit2png -F http://localhost:3000/application/need-travel -o need-travel
+webkit2png -F http://localhost:3000/application/need-why -o need-why
+# webkit2png -F http://localhost:3000/application/review -o review
+webkit2png -F http://localhost:3000/application/start -o start
+webkit2png -F http://localhost:3000/application/whatyouneed -o whatyouneed
+
+# mogrify -crop 1600x2250+0+0 *.png

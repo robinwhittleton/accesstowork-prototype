@@ -7,3 +7,4 @@ node_modules/*
 *.sublime-*
 makediffs
 v10
+app/views/application/shots/*.png

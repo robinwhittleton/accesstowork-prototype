@@ -27,5 +27,8 @@
     "minimist": "0.0.8",
     "node-sass": "2.1.1",
     "readdir": "0.0.6"
+  },
+  "devDependencies": {
+    "pdfkit": "^0.7.1"
   }
 }
