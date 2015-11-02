@@ -26,21 +26,21 @@
   <form action="declaration" method="post" class="form">
 
     <!-- CONTACT WHO? -->
-    <h2 class="heading-medium">Who should we contact?</h2>
+    <h2 class="heading-medium">Do you want to be contacted directly about your application?</h2>
     <div class="form-group">
       <fieldset>        
         <input id="contact-me" type="radio" name="contact-pref" value="contact-me">
-        <label for="contact-me" class="form-label form-control-radio" data-target="me-reveal" id="screenshotclick">Contact you directly</label>
+        <label for="contact-me" class="form-label form-control-radio" data-target="me-reveal" id="screenshotclick">Yes, you'll give your own contact details</label>
         <input id="contact-someone" type="radio" name="contact-pref" value="contact-someone">
-        <label for="contact-someone" class="form-label form-control-radio" data-target="third-reveal">Contact someone else who can speak for you</label>
+        <label for="contact-someone" class="form-label form-control-radio" data-target="third-reveal">No, you want someone you trust to represent you</label>
       </fieldset>
     </div>
 
     <!-- CONTACT YOU HOW? -->
     <div class="form-group panel-indent js-hidden" id="me-reveal">
       <fieldset>
-          <legend class="heading-medium">How would you like us to contact you?</legend>
-          <p>Select as many as you like:</p>
+          <legend class="heading-medium">How do you want to be contacted?</legend>
+          <p>Select as many as you like.</p>
           <div class="form-group" aria-labelledby="howEmployed">
 
               <!-- EMAIL -->
@@ -92,8 +92,8 @@
       </fieldset>
 
       <fieldset>
-          <legend class="heading-medium" style="margin-bottom:0;">How can we contact them?</legend>
-          <p>Select as many as you like:</p>
+          <legend class="heading-medium" style="margin-bottom:0;">How can they be contacted?</legend>
+          <p>Select as many as you like.</p>
           <div class="form-group" aria-labelledby="howEmployed">              
 
               <!-- EMAIL -->
