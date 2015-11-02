@@ -103,12 +103,18 @@ module.exports = {
     /* sanitising data for the describe page */
     app.get('/application/describe', function(req,res,next)
     {
-      for (var i = 0; i < req.cookies['explore-tasks'].length; i++) {
-        if (req.cookies['explore-tasks'][i] == '') {         
-          req.cookies['explore-tasks'].splice(i, 1);
-          i--;
-        }
+      if (req.cookies['explore-tasks'])
+      {
+        for (var i = 0; i < req.cookies['explore-tasks'].length; i++) {
+          if (req.cookies['explore-tasks'][i] == '') {         
+            req.cookies['explore-tasks'].splice(i, 1);
+            i--;
+          }
+        }  
+      } else {
+        req.cookies['explore-tasks'] = ['Phone calls','Meetings']
       }
+      
       next();
     });
 
