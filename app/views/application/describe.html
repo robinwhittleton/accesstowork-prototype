@@ -18,9 +18,12 @@
   <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
 
 	<!-- HEADING -->
-  <h1 class="form-title heading-large" id="aboutjob"><span class="section-progress">Section 2 of 5</span> Your difficulties</h1>
+  <h1 class="form-title heading-large" id="aboutjob">
+    <span class="section-progress">Section 2 of 5</span> 
+    Your difficulties
+  </h1>
 
-  <form action="" method="post" class="form" id="theForm">
+  <form action="havejob" method="post" class="form" id="theForm">
     <div id="fields">
       {{#explore-tasks}}
         <fieldset class="inline">
@@ -50,97 +53,6 @@
 {{/content}}
 
 {{/layout_v8}}
-
-<script type="text/template" id="template">
-
-</script>
-
-<script type="text/javascript">
-
-  var count = 1;
-  $(document).on("ready",function(e)
-  {
-
-    var form = $("#theForm"),
-        fields = $("#fields"),
-        subb = $('#submitButton');
-
-    // var c = Cookies.get('explore-tasks');
-    // if (c)
-    // {
-    //   var tasks;
-
-    //   try {
-    //     tasks = $.parseJSON(c);
-    //   } catch (e) {}
-
-    //   if (tasks && typeof tasks == 'object')
-    //   {
-    //     $.each(tasks,function(i,e)
-    //     {
-    //         if (!e) return;
-
-    //         var html = $("#template").clone().html();
-    //         var quer = $(html);
-    //         var task = quer.find('.task');
-    //         fields.append(quer);
-    //         quer.find('.task').text("\'"+e+"\'");
-    //         quer.find('textarea').attr("name","difficulty");
-    //     });
-    //   } else {
-    //     var html = $("#template").clone().html();
-    //     var quer = $(html);
-    //     fields.append(quer);
-    //     quer.find('.task').text("\'"+c+"\'");
-    //     quer.find('textarea').attr("name","difficulty");
-    //   }
-
-    /*
-      When they click submit refer to the previous
-      Employment answer for the next step.
-    */
-    var dest = '';
-    $(subb).on('click',function(e)
-    {
-      e.preventDefault();
-
-      // go and check what they put for employment status.
-      var emp_status = Cookies.get('emp-status'); console.log(emp_status);
-      switch(emp_status)
-      {
-        case "Employed": dest = 'employed'; break;
-        case "Self": dest = 'employed-self'; break;
-        case "Director": dest = 'employed-limited'; break;
-      }
-
-      console.log(dest);
-
-      // if they didn't say they had a job, what did they say
-      // to the interview question?
-      if (!dest)
-      {
-        var interview = Cookies.get('1_interview');
-        if (interview == 'Yes') dest = 'interview';
-        else dest = 'interview-exit';
-      }
-
-      // if at this point we have a destination go to it otherwise
-      // alert a quick error.
-      if (dest)
-      {
-        form.attr('action',dest);
-        form.submit();
-      } else {
-        alert('You need to complete the form');
-      }
-
-    });
-
-    // }
-
-  });
-
-</script>
 
 <style type="text/css">
   .task {color:#6F777B;}
