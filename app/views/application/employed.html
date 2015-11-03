@@ -22,7 +22,7 @@
 
 <form action="aboutjob" method="post" class="form">
 
-    <fieldset>
+    <fieldset class="form-group">
 
         <legend class="hidden-legend" aria-hidden="true">Your role and who you work for</legend>
 
@@ -39,18 +39,27 @@
         </div>
 
         <!-- ADDRESS -->
-        <div class="form-group">
-          <fieldset>
-            <legend class="form-label-bold main">Your employer address</legend>
+        <div class="form-group address-updated">
+          <fieldset>  
+            <legend class="form-label-bold main">Address</legend>
+            <div class="form-group two-tier">
+              <label class="form-label" for="address1">Building or Street</label>
+              <input type="text" id="address1" name="address1" value="" class="form-control">                  
+              <label class="form-label hidden" for="address2" style="position:absolute;left:-999px">Building or Street line 2</label>
+              <input type="text" id="address2" name="address2" value="" class="form-control second-level" style="margin-top:8px">
+            </div>
             <div class="form-group">
-              <label class="form-label" for="address-line1"><input type="text" class="form-control" id="address-line1" name="employed-address-line1"></label>
-              <label class="form-label" for="address-line2"><input type="text" class="form-control" id="address-line2" name="employed-address-line2"></label>
-              <label class="form-label" for="address-line3"><input type="text" class="form-control" id="address-line3" name="employed-address-line3"></label>
-            </div>
+              <label class="form-label" for="address3">Town or City</label>
+              <input type="text" id="address3" name="address3" value="" class="form-control">
+            </div>      
+            <div class="form-group">
+              <label class="form-label" for="address4">County</label>
+              <input type="text" id="address4" name="address4" value="" class="form-control">
+            </div>          
             <div>
-              <label class="form-label" for="postcode">Postcode</label>
-              <input type="text" class="form-control form-control-1-4" id="postcode" name="employed-postcode">
-            </div>
+              <label class="form-label" for="postCode">Postcode</label>
+              <input type="text" id="postCode" name="postCode" value="" class="form-control">
+            </div>                  
           </fieldset>
         </div>
 
