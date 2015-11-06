@@ -1,0 +1,104 @@
+{{<layout}}
+
+{{$pageTitle}}Disclaimer{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+  {{>includes/alpha}}
+
+  <div class="grid-row">
+
+    <section class="column-two-thirds" aria-labelledby="aboutjob">
+
+      <h1 class="form-title heading-large" id="aboutjob">
+        <span class="section-progress">Section 2 of 4</span> 
+        About your job
+      </h1>
+
+      <form action="aboutjob2" method="post" class="form">
+
+       <div id="employment-status">
+        <fieldset>
+         <legend class="form-label" id="howEmployed">How are you employed?</legend>
+         <div class="form-group form-group-compound" aria-labelledby="howEmployed">
+          <label class="block-label" for="employed">
+            <input id="employed" type="radio" name="emp-status" value="Employed" data-dest="employed">
+            Employed
+          </label>
+          <label class="block-label" for="self-employed">
+            <input id="self-employed" type="radio" name="emp-status" value="Self" data-dest="self-employed">
+            Self-employed
+          </label>
+          <label class="block-label" for="ltd">
+            <input id="ltd" type="radio" name="emp-status" value="Director of a limited company" data-dest="limited-company">
+            Director of a limited company
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div id="csi-status" class="js-hidden panel-indent">
+      <fieldset class="inline">
+        <legend class="form-label" id="haveInterview">Do you have an interview?</legend>
+        <div class="form-group" aria-labelledby="haveInterview">
+          <label class="block-label" for="radio-indent-interview-yes">
+            <input id="radio-indent-interview-yes" type="radio" name="interview" value="Yes" data-dest="aboutinterview">
+            Yes
+          </label>
+          <label class="block-label" for="radio-indent-interview-no">
+            <input id="radio-indent-interview-no" type="radio" name="interview" value="No" data-dest="index">
+            No
+          </label>
+        </div>			    
+      </fieldset>	
+    </div>  
+
+
+
+    <!-- Primary buttons, secondary links -->
+
+    
+    <br />
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>    
+      <ul>
+       <li><input type="submit" value="Next" class="button" id="submitButton"/></li>
+     </ul>
+   </fieldset>
+
+
+
+ </form>
+
+</section>
+
+</div>
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+   var form = $('form');
+
+   $("#submitButton").on('click',function(e)
+   {
+    e.preventDefault();
+    $('#employment-status input').each(function(i,e)
+    {
+    	if ($(e).prop('checked'))
+    	{
+    		var dest = $(e).data('dest');
+    		form.attr('action',dest);
+    		form.submit();
+    	}
+    });
+  });
+ });
+</script>

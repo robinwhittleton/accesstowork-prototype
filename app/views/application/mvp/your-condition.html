@@ -1,0 +1,88 @@
+{{<layout}}
+
+{{$pageTitle}}About your condition{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+  {{>includes/alpha}}
+
+  <div class="grid-row">
+
+    <section class="column-two-thirds" aria-labelledby="disclaimer">
+
+      <!-- HEADING -->
+      <h1 class="form-title heading-large" id="disclaimer">
+        <span class="section-progress">Section 1 of 4</span>
+        About your condition
+      </h1>
+
+      <form action="" method="post" class="form">
+
+        <fieldset>
+         <legend class="hidden-legend" aria-hidden="true">Help Needed</legend>	
+         <div class="form-group">
+           <label class="form-label-bold" for="description"> What are your conditions or disabilities? </label>
+           <input type="text" id="description" name="description" value="" class="form-control" spellcheck="false">
+         </div>
+         <div class="form-group">
+          <fieldset>
+           <legend class="form-label-bold">What kind of help do you need?</legend>
+           <p class="form-hint">Select all that apply</p>
+           <div class="form-group form-group-compound" id="help-choices">
+            <label for="hasEffectTravel" class="block-label">
+              <input type="checkbox" id="hasEffectTravel" name="hasEffectTravel" data-dest="help-travel" value="true"> 
+              Help getting to and from work
+            </label>						
+            <label for="hasEffectWork" class="block-label">
+              <input type="checkbox" id="hasEffectWork" name="hasEffectWork" data-dest="help-inwork" value="true">
+              Help during work 
+            </label>					  
+          </div>					
+        </fieldset>					
+      </div>			
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+     <legend>Navigation</legend>     
+     <ul>
+      <li><input type="submit" value="Next" class="button" id="submitButton"/></li>			
+    </ul>
+  </fieldset>
+
+</form>
+
+</section>
+
+</div>
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+	var form = $('form');
+
+	$(document).on('ready',function()
+	{
+   $('#submitButton').on('click',function(e)
+   {
+     e.preventDefault();
+     var dest = 'nothing';
+
+     if ($('#hasEffectWork').prop('checked')) dest = $('#hasEffectWork').data('dest');
+     if ($('#hasEffectTravel').prop('checked')) dest = $('#hasEffectTravel').data('dest');
+
+     if (dest !== 'nothing')
+     {
+       form.attr('action',dest);
+       form.submit();
+     } else {
+       alert('Please pick one!');
+     }
+   });
+ });
+</script>
