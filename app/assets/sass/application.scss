@@ -155,3 +155,10 @@ td.numeric {
   font-size: 16px;
   position:relative; top:-2px; left:10px;
 }
+
+.js {
+  display:none;
+}
+.js-enabled .js {
+  display:inline-block;
+}
