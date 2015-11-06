@@ -53,13 +53,10 @@
           </label>
         </div>			    
       </fieldset>	
-    </div>  
-
-
+    </div>
 
     <!-- Primary buttons, secondary links -->
 
-    
     <br />
     <fieldset class="primary-nav form-group">
       <legend>Form Navigation</legend>    
@@ -67,8 +64,6 @@
        <li><input type="submit" value="Next" class="button" id="submitButton"/></li>
      </ul>
    </fieldset>
-
-
 
  </form>
 
@@ -85,20 +80,24 @@
 <script type="text/javascript">
   $(document).on('ready',function()
   {
-   var form = $('form');
+    var form = $('form');
 
-   $("#submitButton").on('click',function(e)
-   {
-    e.preventDefault();
-    $('#employment-status input').each(function(i,e)
+    $("#submitButton").on('click',function(e)
     {
-    	if ($(e).prop('checked'))
-    	{
-    		var dest = $(e).data('dest');
-    		form.attr('action',dest);
-    		form.submit();
-    	}
+      e.preventDefault();
+      var checked = false;
+      $('#employment-status input').each(function(i,e)
+      {
+        if ($(e).prop('checked'))
+        {
+          var dest = $(e).data('dest');
+          form.attr('action',dest);
+          form.submit();
+          checked = true;
+          return false;
+        }
+      });
+      if (!checked) alert('Please select one.');
     });
   });
- });
 </script>
