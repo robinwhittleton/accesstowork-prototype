@@ -78,11 +78,11 @@
       e.preventDefault();
       var c = $('.conditions').children().length;
       var d = $($('.conditions .cond')[0]).clone(); // clone the first input
-      d.find('input').attr('id','explore-task'+c);
+      d.find('input').attr('id','explore-task'+c).val('');
       d.find('label').attr('for','explore-task'+c);
       d.find('label').text('Extra task' );
       $('.conditions').append(d); // apend it to the block.
-      $(c.find('input')).val("").focus(); // empty the vlalue.
+      d.find('input').focus(); // focus the new input box.
     });
   });
 
