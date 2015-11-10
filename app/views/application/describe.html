@@ -27,9 +27,9 @@
     <div id="fields">
       {{#explore-tasks}}
         <fieldset class="inline">
-          <h2 class="font-large task">&ldquo;{{.}}&rdquo;</h2>
+          <h2 class="font-medium task">&ldquo;{{.}}&rdquo;</h2>
           <p>How does your condition make this harder for you?</p>
-          <textarea name="explore-hows"></textarea>
+          <textarea name="explore-hows" style="min-height:100px;padding:5px" spellcheck="false"></textarea>
         </fieldset>
         <br />
       {{/explore-tasks}}
@@ -57,5 +57,5 @@
 {{/ application/layout }}
 
 <style type="text/css">
-  .task {color:#6F777B;}
+  .task {color:#28a197;font-weight:700;}
 </style>

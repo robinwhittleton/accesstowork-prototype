@@ -6,61 +6,54 @@
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+  {{>includes/alpha}}
 
-<div class="grid-row">
+  <div class="grid-row">
 
-<section class="column-two-thirds" aria-labelledby="declaration">
+    <section class="column-two-thirds" aria-labelledby="declaration">
 
-  <!-- BACK LINK -->
-  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+      <!-- BACK LINK -->
+      <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
 
-  <!-- HEADING -->
-  <h1 class="form-title heading-large" id="declaration">Declaration</h1>
-
-
-<form action="/" method="post" class="form">
-
-  <fieldset>
-    <legend class="form-label-bold dec-legend" id="app">By sending this application you agree that:</legend>
-
-    <div class="form-group">
-      <ul class="list-bullet" aria-labelledby="app">
-        <li>the information in this application is correct as far as you know</li>
-        <li>you'll report any changes to your condition or circumstances, eg if your place of work or job changes</li>
-      </ul>
-
-      <div class="application-notice help-notice">
-        <p>It might be a criminal offence if you knowingly give false information or don't report anything that would affect your grant, eg if your condition improves or you change where you work.</p>
-      </div>
-          <!-- <p><button id="TryJs" type="submit" name="action" value="next" class="button" onmousedown="trackEvent(&quot;/error&quot;,&quot;Chose try again&quot;);" onkeydown="trackEvent(&quot;/error&quot;,&quot;Chose try again&quot;);" onclick="history.back()" aria-label="Try again claim button" style="display:none;">I agree - send my application</button> -->
-     </div>
+      <!-- HEADING -->
+      <h1 class="form-title heading-large" id="declaration">Declaration</h1>
 
 
-      <div class="form-group" style="margin:1em 0 2em">
-        <input id="dec-agree" type="checkbox" value="agree">
-        <label class="form-label form-control-checkbox" for="dec-agree">I agree - send my application</label>
-      </div>
+      <form action="/" method="post" class="form">
 
-  </fieldset>
+        <fieldset>
+          <legend class="form-label-bold dec-legend" id="app">By sending this application you agree that:</legend>
+
+          <div class="form-group">
+            <ul class="list-bullet" aria-labelledby="app">
+              <li>the information in this application is correct as far as you know</li>
+              <li>you'll report any changes to your condition or circumstances, eg if your place of work or job changes</li>
+            </ul>
+
+            <div class="application-notice help-notice">
+              <p>It might be a criminal offence if you knowingly give false information or don't report anything that would affect your grant, eg if your condition improves or you change where you work.</p>
+            </div>
+          </div>
+
+        </fieldset>
 
 
-    <!-- Primary buttons, secondary links -->
+        <!-- Primary buttons, secondary links -->
 
-    <fieldset class="primary-nav form-group">
-    <legend>Form Navigation</legend>
+        <fieldset class="primary-nav form-group">
+          <legend>Form Navigation</legend>
           <ul>
-        <li><a href="finish" class="button">Submit</a></li>
+            <li><a href="finish" class="button">I agree - send my application</a></li>
           </ul>
-  </fieldset>
+        </fieldset>
 
-  </form>
+      </form>
 
-</section>
+    </section>
 
-{{> application/rightcol }}
+    {{> application/rightcol }}
 
-</div>
+  </div>
 
 </main>
 
