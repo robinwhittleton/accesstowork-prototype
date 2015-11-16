@@ -133,5 +133,18 @@ module.exports = {
       console.log(req.data.offer);
       next();
     });
+
+    app.get('/application/explore', function(req,res,next)
+    { 
+      res.cookie('taskcount',0);     
+      next();
+    });
+    app.get('/application/explore-another', function(req,res,next)
+    { 
+      req.cookies['taskcount']++;     
+      res.cookie('taskcount',req.cookies['taskcount']); 
+      // req.data.taskcount = req.cookies['taskcount'];
+      next();
+    });
   }
 };

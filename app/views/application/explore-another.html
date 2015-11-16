@@ -1,0 +1,103 @@
+{{< application/layout }}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol_v9}}
+
+<section class="column-two-thirds" aria-labelledby="aboutjob">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="aboutjob">
+    <span class="section-progress">Section 2 of 5</span>
+    How your condition affects your job?
+  </h1>
+
+  <form action="explore-another" method="post" class="form">
+
+    <fieldset class="inline" id="havejob">
+      <legend class="heading-medium" id="alreadyJob">Is there anything else you have to do at work that your condition makes difficult for you?</legend>
+      <div class="form-group">
+        <input id="mention-another-yes" type="radio" name="mention-another" value="Yes" />
+        <label class="form-label form-control-radio" data-target="add-another" for="mention-another-yes">Yes</label>
+      </div>
+      <div class="form-group form-group-compound">
+        <input id="mention-another-no" type="radio" name="mention-another" value="No" />
+        <label class="form-label form-control-radio" for="mention-another-no">No</label>
+      </div>
+    </fieldset>
+
+    <div class="js-hidden panel-indent" id="add-another">
+
+      <!-- MOST IMPORTANT PART -->
+      <fieldset>
+        <div class="form-group">      
+          <label for="task{{taskcount}}" class="form-label-bold">What is this?</label>
+          <input id="task{{taskcount}}" name="explore-tasks[{{taskcount}}]" class="form-control form-control-full" style="width:50%" autocomplete="off" spellcheck="false"/>
+        </div>
+        <div class="form-group">
+          <label for="describe{{taskcount}}" class="form-label-bold">Describe how your condition makes this harder?</label>
+          <p class="form-hint">You only need to describe things you haven’t already mentioned.</p>
+          <textarea id="describe{{taskcount}}" name="describe-tasks[{{taskcount}}]" class="form-control" style="min-height:100px;padding:5px" spellcheck="false"></textarea>
+        </div>
+      </fieldset>      
+
+    </div>
+
+    <fieldset class="primary-nav form-group" style="margin-top:1em">
+      <legend>Form Navigation</legend>
+      <ul> <li><input type="submit" value="Next" class="button" id="nextButton"/></li> </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+{{> application/rightcol }}
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/ application/layout }}
+
+<script type="text/javascript">
+$(document).on('ready',function()
+{
+  var form = $("form");
+
+  $("#nextButton").on('click',function(e)
+  {
+    e.preventDefault();
+    var checked = false;
+    $('input[name="mention-another"]').each(function(i,e)
+    {
+      var el = $(e);
+      if (el.prop('checked'))
+      {
+        if (el.val() == 'Yes')
+        {
+          form.attr('action','explore-another');
+        } else {
+          form.attr('action','havejob');
+        }
+        checked = true;
+        form.submit();          
+      }      
+    });
+    if (!checked) alert('You must choose Yes or No');
+  });
+});
+</script>
