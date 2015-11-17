@@ -23,7 +23,7 @@
     How would this help?
   </h1>
 
-  <form action="" method="post" class="form">
+  <form action="havejob" method="post" class="form">
 
     <!-- HOW MANY HOURS -->
     <div class="form-group">
@@ -97,31 +97,6 @@ $(document).on("ready",function(e)
     {
       $('.plural').text(', in total, do you need to do these things at work');
     }
-  });
-
-  var form = $('form');
-
-  /*
-    When they click submit refer to the previous
-    Employment answer for the next step.
-  */
-  var dest = '';
-  $("#nextButton").on('click',function(e)
-  {
-    e.preventDefault();
-
-    // go and check what they put for employment status.
-    var emp_status = Cookies.get('emp-status'); console.log(emp_status);
-    switch(emp_status)
-    {
-      case "Employed": dest = 'employed'; break;
-      case "Self": dest = 'employed-self'; break;
-      case "Director": dest = 'employed-limited'; break;
-    }
-
-    form.attr('action',dest);
-    form.submit();
-
   });
 });
 
