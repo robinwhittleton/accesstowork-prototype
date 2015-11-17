@@ -28,28 +28,28 @@
     <div class="form-group">
 
       <!-- WHAT DO YOU NEED -->
-      <fieldset class="form-group" id="what-you-need">
-        <legend class="form-label-bold" id="what-you-need-label">What help do you need?</legend>
+      <fieldset class="form-group" id="travel-need">
+        <legend class="form-label-bold" id="travel-need-label">What help do you need?</legend>
         <p>Select all that apply</p>
-        <div class="form-group form-group-compound" aria-labelledby="what-you-need-label">
-          <input id="what-you-need-bsl" type="checkbox" name="what-you-need" value="someone to take you to and from work" />
-          <label class="form-label form-control-checkbox" for="what-you-need-bsl">
+        <div class="form-group form-group-compound" aria-labelledby="travel-need-label">
+          <input id="travel-need-bsl" type="checkbox" name="travel-need" value="someone to take you to and from work" />
+          <label class="form-label form-control-checkbox" for="travel-need-bsl">
             Someone to drive you to and from work
           </label>
-          <input id="what-you-need-lip" type="checkbox" name="what-you-need" value="someone to travel with you" />
-          <label class="form-label form-control-checkbox" for="what-you-need-lip">
+          <input id="travel-need-lip" type="checkbox" name="travel-need" value="someone to travel with you" />
+          <label class="form-label form-control-checkbox" for="travel-need-lip">
             Someone to travel with you
           </label>
-          <input id="what-you-need-notetaker" type="checkbox" name="what-you-need" value="help using public transport" />
-          <label class="form-label form-control-checkbox" for="what-you-need-notetaker">
+          <input id="travel-need-notetaker" type="checkbox" name="travel-need" value="help using public transport" />
+          <label class="form-label form-control-checkbox" for="travel-need-notetaker">
             Help using public transport
           </label>
-          <input id="what-you-need-haids" type="checkbox" name="what-you-need" value="someone to drive your car" />
-          <label class="form-label form-control-checkbox" for="what-you-need-haids">
+          <input id="travel-need-haids" type="checkbox" name="travel-need" value="someone to drive your car" />
+          <label class="form-label form-control-checkbox" for="travel-need-haids">
             Someone to drive your car
           </label>
-          <!-- <input id="what-you-need-none" type="checkbox" name="what-you-need" value="something else" />
-          <label class="form-label form-control-checkbox" for="what-you-need-none">
+          <!-- <input id="travel-need-none" type="checkbox" name="travel-need" value="something else" />
+          <label class="form-label form-control-checkbox" for="travel-need-none">
             Something else
           </label> -->
         </div>
@@ -94,7 +94,7 @@
       // change the destination.
       if (f.length == 1)
       {
-        var c = $('#what-you-need-none').prop('checked');
+        var c = $('#travel-need-none').prop('checked');
         if(c) form.attr('action','whatyouneed');
       }
 

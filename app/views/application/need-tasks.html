@@ -27,7 +27,7 @@
 
     <!-- HOW MANY HOURS -->
     <div class="form-group">
-      <label class="form-label-bold" for="full-name" id="full-name-label">How many hours do you need {{what-you-need}} for?</label>
+      <label class="form-label-bold" for="full-name" id="full-name-label">How many hours do you need {{deaf-need}} for?</label>
       <p>For example, 2 hours a day or 16 hours a month.</p>
       <!-- HOW MANY HOURS -->
       <fieldset class="inline">
@@ -80,12 +80,28 @@
 {{/ application/layout }}
 
 <script type="text/javascript">
-
-/*
-  make the "add another" link work.
-*/
 $(document).on("ready",function(e)
 {
+  var form = $('form');
+
+  $('#nextButton').on('click',function(e)
+  {
+    e.preventDefault();
+    var wyn = JSON.parse(Cookies.get('what-you-need'));  
+
+    console.log(wyn);
+
+    var dest = 'havejob';
+    if ($.inArray('Travelling',wyn) > -1) dest = 'need-travel';
+    else if ($.inArray('Don\'t know',wyn) > -1) dest = 'explore';
+    
+    form.attr('action',dest);
+    form.submit();
+
+  });
+  /*
+    make the "add another" link work.
+  */
   $('#add').on("click",function(e)
   {
     e.preventDefault();

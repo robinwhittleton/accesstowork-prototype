@@ -72,7 +72,7 @@ module.exports = {
       next();
     });
 
-    app.all('/application/need-tasks', function(req, res, next)
+    app.all('/application/v[789]/need-tasks', function(req, res, next)
     {
       // just take the first item out of the array.
       try {
@@ -83,7 +83,7 @@ module.exports = {
       next();
     });
 
-    app.all('/application/need-why', function(req, res, next)
+    app.all('/application/v[789]/need-why', function(req, res, next)
     {
       // just take the first item out of the array.
       try {

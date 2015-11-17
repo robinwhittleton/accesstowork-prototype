@@ -30,7 +30,7 @@
 
     <!-- WHY DO YOU NEED -->
     <div class="form-group">
-      <label class="form-label-bold" for="reasons" id="">Why does this mean you need <span style="color:#005ea5">{{what-you-need}}</span>?</label>
+      <label class="form-label-bold" for="reasons" id="">Why does this mean you need <span style="color:#005ea5">{{travel-need}}</span>?</label>
       <textarea class="form-control" id="reasons" name="reasons"></textarea>
     </div>
 
@@ -52,3 +52,28 @@
 {{/content}}
 
 {{/ application/layout }}
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    var form = $('form');
+    
+    $('#submitButton').on('click',function(e)
+    {
+      e.preventDefault();
+      var wyn = JSON.parse(Cookies.get('what-you-need'));
+      console.log(wyn);
+      
+      var dest = 'havejob';
+      if ($.inArray('Don\'t know',wyn) > -1) dest = 'explore';
+      console.log(dest);
+
+      form.attr('action',dest);
+      form.submit();
+
+      // console.log(wyn);
+      // console.log($.inArray('Communication',wyn));
+      // console.log($.inArray('Travelling',wyn));
+      // console.log($.inArray('Don\'t know',wyn));
+    });
+  });
+</script>

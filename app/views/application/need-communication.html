@@ -26,18 +26,18 @@
   <form action="need-tasks" method="post" class="form" id="theForm">
 
       <!-- WHAT DO YOU NEED -->
-      <fieldset class="form-group" id="what-you-need">
-        <legend class="heading-medium" id="what-you-need-label">Do you need one of these?</legend>
+      <fieldset class="form-group" id="deaf-need">
+        <legend class="heading-medium" id="deaf-need-label">Do you need one of these?</legend>
         <p>Select all that apply</p>
-        <div class="form-group form-group-compound" aria-labelledby="what-you-need-label">
-          <input id="what-you-need-bsl" type="checkbox" name="what-you-need" value="a BSL interpreter" />
-          <label class="form-label form-control-checkbox" for="what-you-need-bsl"> BSL interpreter </label>
-          <input id="what-you-need-lip" type="checkbox" name="what-you-need" value="a lip speaker" />
-          <label class="form-label form-control-checkbox" for="what-you-need-lip"> Lip speaker </label>
-          <input id="what-you-need-notetaker" type="checkbox" name="what-you-need" value="a note taker" />
-          <label class="form-label form-control-checkbox" for="what-you-need-notetaker"> Note taker </label>
-          <input id="what-you-need-none" type="checkbox" name="what-you-need" value="Something else" />
-          <label class="form-label form-control-checkbox" for="what-you-need-none"> Something else </label>
+        <div class="form-group form-group-compound" aria-labelledby="deaf-need-label">
+          <input id="deaf-need-bsl" type="checkbox" name="deaf-need" value="a BSL interpreter" />
+          <label class="form-label form-control-checkbox" for="deaf-need-bsl"> BSL interpreter </label>
+          <input id="deaf-need-lip" type="checkbox" name="deaf-need" value="a lip speaker" />
+          <label class="form-label form-control-checkbox" for="deaf-need-lip"> Lip speaker </label>
+          <input id="deaf-need-notetaker" type="checkbox" name="deaf-need" value="a note taker" />
+          <label class="form-label form-control-checkbox" for="deaf-need-notetaker"> Note taker </label>
+          <!-- <input id="deaf-need-none" type="checkbox" name="deaf-need" value="Something else" />
+          <label class="form-label form-control-checkbox" for="deaf-need-none"> Something else </label> -->
         </div>
       </fieldset>
 
@@ -78,7 +78,7 @@
       // change the destination.
       if (f.length == 1)
       {
-        var c = $('#what-you-need-none').prop('checked');
+        var c = $('#deaf-need-none').prop('checked');
         if(c) form.attr('action','whatyouneed');
       }
 
