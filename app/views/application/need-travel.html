@@ -78,27 +78,3 @@
 {{/content}}
 
 {{/ application/layout }}
-
-<script type="text/javascript">
-  $(document).on('ready',function()
-  {
-    var form = $('form');
-    $('#nextButton').on('click',function(e)
-    {
-      e.preventDefault();
-      // grab the form as an array.
-      var f = form.serializeArray();
-
-      // check whether more than one answer checked
-      // if only one and it's Something Else then
-      // change the destination.
-      if (f.length == 1)
-      {
-        var c = $('#travel-need-none').prop('checked');
-        if(c) form.attr('action','whatyouneed');
-      }
-
-      form.submit();
-    });
-  });
-</script>
