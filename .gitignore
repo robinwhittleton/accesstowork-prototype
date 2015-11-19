@@ -6,5 +6,4 @@ govuk_modules
 node_modules/*
 *.sublime-*
 makediffs
-v10
 *shots*

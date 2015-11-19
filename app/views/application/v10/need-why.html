@@ -1,0 +1,79 @@
+{{< application/layout }}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol_v9}}
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    <span class="section-progress">Section 2 of 5</span>
+    Help with travel
+  </h1>
+
+  <form action="havejob" method="post" class="form" id="theForm">
+
+    <h3 class="heading-medium" style="margin-bottom:0.25em">Your condition</h3>
+    <h2 class="font-large" style="margin-top:0;margin-bottom:1em;"><span style="color:#005ea5">&ldquo;{{my-condition}}&rdquo;</span></h2>
+
+    <!-- WHY DO YOU NEED -->
+    <div class="form-group">
+      <label class="form-label-bold" for="reasons" id="">Why does this mean you need <span style="color:#005ea5">{{travel-need}}</span>?</label>
+      <textarea class="form-control" id="reasons" name="reasons"></textarea>
+    </div>
+
+    <fieldset class="primary-nav form-group">
+		  <legend>Form Navigation</legend>
+        <ul> <li><input type="submit" value="Next" class="button" id="submitButton"/></li> </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+{{> application/rightcol }}
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/ application/layout }}
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    var form = $('form');
+    
+    $('#submitButton').on('click',function(e)
+    {
+      e.preventDefault();
+      var wyn = JSON.parse(Cookies.get('what-you-need'));
+      console.log(wyn);
+      
+      var dest = 'havejob';
+      if ($.inArray('Don\'t know',wyn) > -1) dest = 'explore';
+      console.log(dest);
+
+      form.attr('action',dest);
+      form.submit();
+
+      // console.log(wyn);
+      // console.log($.inArray('Communication',wyn));
+      // console.log($.inArray('Travelling',wyn));
+      // console.log($.inArray('Don\'t know',wyn));
+    });
+  });
+</script>
