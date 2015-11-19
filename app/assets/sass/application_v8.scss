@@ -65,3 +65,13 @@
 .help-margin {
   margin-top:40px
 }
+
+/* Typeahead */
+.tt-menu {
+  width:100%;
+}
+.tt-suggestion {
+  @extend .form-control;
+  width:100%;
+  border-top:none;
+}
