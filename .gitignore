@@ -6,4 +6,4 @@ govuk_modules
 node_modules/*
 *.sublime-*
 makediffs
-*shots*
+*.pdf

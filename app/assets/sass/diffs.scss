@@ -90,3 +90,20 @@ pre {
 	width:100%;
 	overflow:auto;
 }
+
+.screen {
+	display:inline-block;
+	border:5px solid white;
+	padding:5px;
+	text-align:center;
+	text-decoration:none;
+	vertical-align:top;
+	&:hover {
+		border:5px solid #f47738;
+	}
+	img {
+		border:1px solid #ccc;
+	}
+}
+
+@import 'lightbox';
