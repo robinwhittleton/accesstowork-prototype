@@ -65,7 +65,7 @@
 
 <script type="text/javascript">
   $(document).on('ready',function()
-  {
+  {    
     var form = $('form');
     $('#nextButton').on('click',function(e)
     {
@@ -81,7 +81,8 @@
         var c = $('#deaf-need-none').prop('checked');
         if(c) form.attr('action','whatyouneed');
       }
-
+      
+      Cookies.set('needs_count',0);
       form.submit();
     });
   });

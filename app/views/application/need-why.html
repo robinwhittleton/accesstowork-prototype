@@ -14,6 +14,13 @@
 
 <section class="column-two-thirds" aria-labelledby="thirdparty">
 
+  <script type="text/javascript">
+    var the_needs = [];
+    {{#travel-need}}
+      the_needs.push('{{.}}');
+    {{/travel-need}}
+  </script>
+
   <!-- BACK LINK -->
   <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
 
@@ -25,12 +32,31 @@
 
   <form action="havejob" method="post" class="form" id="theForm">
 
-    <h3 class="heading-medium" style="margin-bottom:0.25em">Your condition</h3>
-    <h2 class="font-large" style="margin-top:0;margin-bottom:1em;"><span style="color:#005ea5">&ldquo;{{my-condition}}&rdquo;</span></h2>
+    <!-- HOW MANY HOURS -->
+    <div class="form-group">
+      <label class="form-label-bold" for="full-name" id="full-name-label">How often will you need need <span id="needs" style="color:#005ea5"></span>?</label>
+      <p>For example, 2 times a week or 5 times a month.</p>
+      <!-- HOW MANY HOURS -->
+      <fieldset class="inline">
+        <div class="form-group">
+          <label class="form-label horizontal-right-label" for="currency-pound">
+            <input type="text" class="form-control form-control-4-chars" id="currency-pound">times
+          </label>
+        </div>
+        <div class="form-group">
+          <label class="form-label visuallyhidden"></label>
+          <select class="form-select">
+            <option>a week</option>
+            <option>a month</option>
+            <!-- <option>a year</option> -->
+          </select>
+        </div>
+      </fieldset>
+    </div>
 
     <!-- WHY DO YOU NEED -->
     <div class="form-group">
-      <label class="form-label-bold" for="reasons" id="">Why does this mean you need <span style="color:#005ea5">{{travel-need}}</span>?</label>
+      <label class="form-label-bold" for="reasons" id="">How do you currently make these journeys?</label>
       <textarea class="form-control" id="reasons" name="reasons"></textarea>
     </div>
 
@@ -55,20 +81,39 @@
 <script type="text/javascript">
   $(document).on('ready',function()
   {
+    // grab the count from the cookie (if it exists).
+    var t = Cookies.get('needs_travel_count');
+    if (!t) t = 0;
+    // just put the first one on the page.
+    var needs_travel_count = t;  
+    $('#needs').text(the_needs[needs_travel_count]);
+
+
     var form = $('form');
     
     $('#submitButton').on('click',function(e)
     {
       e.preventDefault();
       var wyn = JSON.parse(Cookies.get('what-you-need'));
-      console.log(wyn);
       
-      var dest = 'havejob';
-      if ($.inArray('Don\'t know',wyn) > -1) dest = 'explore';
-      console.log(dest);
+      needs_travel_count++; 
+      Cookies.set('needs_travel_count',needs_travel_count);
+      if (needs_travel_count < the_needs.length)
+      {
+        $('#needs').text(the_needs[needs_travel_count]);
+        $(window).scrollTop(0);
+        $("html").hide();
+        setTimeout(function(){$("html").show();},50);
+    
+      } else {
+    
+        var dest = 'havejob';
+        if ($.inArray('Don\'t know',wyn) > -1) dest = 'explore';
+        console.log(dest);
 
-      form.attr('action',dest);
-      form.submit();
+        form.attr('action',dest);
+        form.submit();
+      }
 
       // console.log(wyn);
       // console.log($.inArray('Communication',wyn));

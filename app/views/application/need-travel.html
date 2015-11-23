@@ -29,12 +29,12 @@
 
       <!-- WHAT DO YOU NEED -->
       <fieldset class="form-group" id="travel-need">
-        <legend class="form-label-bold" id="travel-need-label">What help do you need?</legend>
+        <legend class="form-label-bold" id="travel-need-label">Which of these would fit your needs best?</legend>
         <p>Select all that apply</p>
         <div class="form-group form-group-compound" aria-labelledby="travel-need-label">
           <input id="travel-need-bsl" type="checkbox" name="travel-need" value="someone to take you to and from work" />
           <label class="form-label form-control-checkbox" for="travel-need-bsl">
-            Someone to drive you to and from work
+            Someone to take you to and from work
           </label>
           <input id="travel-need-lip" type="checkbox" name="travel-need" value="someone to travel with you" />
           <label class="form-label form-control-checkbox" for="travel-need-lip">
@@ -46,7 +46,7 @@
           </label>
           <input id="travel-need-haids" type="checkbox" name="travel-need" value="someone to drive your car" />
           <label class="form-label form-control-checkbox" for="travel-need-haids">
-            Someone to drive your car
+            Someone to drive your car for you
           </label>
           <!-- <input id="travel-need-none" type="checkbox" name="travel-need" value="something else" />
           <label class="form-label form-control-checkbox" for="travel-need-none">
@@ -78,3 +78,12 @@
 {{/content}}
 
 {{/ application/layout }}
+
+<script type="text/javascript">
+  $('#nextButton').on('click',function(e)
+  {
+    e.preventDefault();
+    Cookies.set('needs_travel_count',0);
+    $('form').submit();
+  });
+</script>
