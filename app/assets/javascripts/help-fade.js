@@ -6,7 +6,7 @@ $('#help').hide();
 
 $(document).idleTimer( {
     timeout:20000,
-    events:'keydown',
+    events:'keydown focus select change',
 });
 $( document ).on( "idle.idleTimer", function(event, elem, obj){
     // function you want to fire when the user goes idle
