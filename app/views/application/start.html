@@ -86,16 +86,19 @@
     {
       e.preventDefault();
       var val = $('#conditions').val();
-      var substrRegex = new RegExp('^'+val, 'i');
-      var match = false;
-      $.each(deaf_conditions, function(i, str) {
-        if (substrRegex.test(str)) 
-        {
-          return match = true;
-        }
-      });
-      // if it's one of those redirect them.
-      if (match) $("form").attr('action','hearing');        
+      if (val)
+      {
+        var substrRegex = new RegExp('^'+val, 'i');
+        var match = false;
+        $.each(deaf_conditions, function(i, str) {
+          if (substrRegex.test(str)) 
+          {
+            console.log(substrRegex);
+            return match = true;
+          }
+        });        
+        if (match) $("form").attr('action','hearing');
+      }      
       $("form").submit();
     });
   });

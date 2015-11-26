@@ -10,9 +10,15 @@ module.exports = {
       console.log(req.cookies);
     });
 
+    /*
+      Cleaning up the cookies data.
+      - - - - - - - - - - - - - - - 
+      Not sure this is needed anymore as I'm parsing JSON in 
+      the pages instead. Probably needs to be left for previous 
+      prototype versions.
+    */
     app.get(/.*/, function(req,res,next)
     {
-      // clean up the cookies data!
       for(var key in req.cookies)
       {
         var val;
@@ -23,21 +29,27 @@ module.exports = {
         }
         req.cookies[key] = val;
       }
-
       req.data = {};
-
       next();
     });
 
+    /*
+      redirect from the old prototype folder into the new.
+    */
     app.get('/accesstowork/', function (req, res) {      
       res.redirect('application/');
     });
 
-    // special route for the index.
+    /*
+      Special route for the index page.
+    */    
     app.get('/', function (req, res) {      
       res.render('index', versions);
     });
 
+    /*
+      API route for reading filename for the index page to call via AJAX.
+    */
     app.get(/\/api\/(.*)\//, function (req, res) 
     {      
       var dir = __dirname + '/views/'+req.params[0]; console.log(dir);
@@ -64,10 +76,19 @@ module.exports = {
       res.json(filenames);
     });    
     
+    /*
+      Removing all the cookies.
+    */
     app.get('/reset', function(req, res) 
     {
       user_data.clear(req, res);
       res.redirect('/')
+    });
+    app.get('/application/start', function(req, res, next) 
+    {
+      console.log('appstart reset');
+      user_data.clear(req, res);
+      next();
     });
 
     

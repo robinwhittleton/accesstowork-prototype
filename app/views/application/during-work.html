@@ -28,12 +28,12 @@
     <!-- Do you need - Yes No -->
     <fieldset class="inline" id="havejob">
       <div class="form-group">
-        <input id="job-already-yes" type="radio" name="job-already" value="Yes" />
-        <label class="form-label form-control-radio" data-target="work-taks" for="job-already-yes">Yes</label>
+        <input id="during-work-yes" type="radio" name="during-work" value="Yes" />
+        <label class="form-label form-control-radio" data-target="work-taks" for="during-work-yes">Yes</label>
       </div>
       <div class="form-group form-group-compound">
-        <input id="job-already-no" type="radio" name="job-already" value="No" />
-        <label class="form-label form-control-radio" data-target="" for="job-already-no">No</label>
+        <input id="during-work-no" type="radio" name="during-work" value="No" />
+        <label class="form-label form-control-radio" data-target="" for="during-work-no">No</label>
       </div>
     </fieldset>
 
@@ -70,3 +70,28 @@
 {{/content}}
 
 {{/ application/layout }}
+
+<script type="text/javascript">
+  $('#nextButton').on('click',function(e)
+  {
+    e.preventDefault();
+
+    var picked = false;
+    $('input[name="during-work"]').each(function(i,el)
+    {
+      if( $(el).prop('checked') ) // if Yes or No has been ticked.
+      {   
+        picked = true;     
+        if ( $(el).val() == 'No' ) // if it's No.
+        {
+          $('form').attr('action','job-status');  
+        }               
+      }
+    });
+
+    Cookies.set('travel_count',0);
+
+    if (picked) $('form').submit();
+    else alert('Please pick one.');
+  });
+</script>
