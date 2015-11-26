@@ -18,7 +18,7 @@
 	<!-- HEADING -->
   <h1 class="form-title heading-large" id="thirdparty">
     <span class="section-progress">Section 1 of 5</span>
-    What's your condition or disability?
+    What are your conditions or disabilities?
   </h1>
 
   <form action="doyouknow" method="post" class="form" id="theForm">
@@ -26,7 +26,7 @@
     <!-- YOUR CONDITION -->
     <div class="form-group" style="margin-bottom:45px">
       <!-- <label class="form-label-bold" for="conditions-and-dis" id="">What's your condition or disability?</label> -->
-      <input name="my-condition" id="conditions-and-dis" class="form-control full"/>
+      <input name="my-condition" id="conditions" class="form-control full"/>
     </div>
 
     <fieldset class="primary-nav form-group">
@@ -52,33 +52,52 @@
 
 <script type="text/javascript">
 
-  // var substringMatcher = function(strs) 
-  // {
-  //   return function findMatches(q, cb) 
-  //   {
-  //     var matches = [];
-  //     var substrRegex = new RegExp(q, 'i');
-  //     $.each(strs, function(i, str) {
-  //       if (substrRegex.test(str)) {
-  //         matches.push(str);
-  //       }
-  //     });
-  //     cb(matches);
-  //   };
-  // };
+  var substringMatcher = function(strs) 
+  {
+    return function findMatches(q, cb) 
+    {
+      var matches = [];
+      var substrRegex = new RegExp(q, 'i');
+      $.each(strs, function(i, str) {
+        if (substrRegex.test(str)) {
+          matches.push(str);
+        }
+      });
+      cb(matches);
+    };
+  };
 
-  // var conditions = [
-  // "Deaf","Hearing Impairment",'Fibromyalgia'
-  // ];
+  var deaf_conditions = [
+  "Deaf","Hearing Impairment",'Fibromyalgia','Death','Deal or No Deal','Deadpool'
+  ];
 
-  // $(document).on('ready',function()
-  // {
-  //   $('#conditions-and-dis').typeahead(
-  //     { "hint":true, "highlight":true, "minLength":1 },
-  //     { 
-  //       name:'conditions',
-  //       source: substringMatcher(conditions)
-  //     }
-  //   );
-  // });
+  $(document).on('ready',function()
+  {
+    // $('#conditions-and-dis').typeahead(
+    //   { "hint":true, "highlight":true, "minLength":1 },
+    //   { 
+    //     name:'conditions',
+    //     source: substringMatcher(conditions)
+    //   }
+    // );
+
+    $('#submitButton').on('click',function(e)
+    {
+      e.preventDefault();
+      var val = $('#conditions').val();
+      var substrRegex = new RegExp('^'+val, 'i');
+      var match = false;
+      $.each(deaf_conditions, function(i, str) {
+        if (substrRegex.test(str)) 
+        {
+          return match = true;
+        }
+      });
+      if (match)
+      {
+        $("form").attr('action','hearing');
+        $("form").submit();
+      }
+    });
+  });
 </script>

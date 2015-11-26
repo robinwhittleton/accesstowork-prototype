@@ -18,14 +18,26 @@
   <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
 
 	<!-- HEADING -->
-  <h1 class="form-title heading-large" id="thirdparty">
+  <h1 class="form-title heading-large">
     <span class="section-progress">Section 1 of 5</span>
-    Help with travel
+    Do you need help travelling independently?
   </h1>
 
-  <form action="need-why" method="post" class="form" id="theForm">
+  <form action="travel-why" method="post" class="form" id="theForm">
 
-    <div class="form-group">
+    <!-- DO YOU HAVE A JOB? -->
+    <fieldset class="inline" id="havejob">
+      <div class="form-group">
+        <input id="job-already-yes" type="radio" name="job-already" value="Yes" />
+        <label class="form-label form-control-radio" data-target="travel-options" for="job-already-yes">Yes</label>
+      </div>
+      <div class="form-group form-group-compound">
+        <input id="job-already-no" type="radio" name="job-already" value="No" />
+        <label class="form-label form-control-radio" data-target="" for="job-already-no">No</label>
+      </div>
+    </fieldset>
+
+    <div class="form-group js-hidden panel-indent" id="travel-options" style="margin-bottom:30px !important;">
 
       <!-- WHAT DO YOU NEED -->
       <fieldset class="form-group" id="travel-need">
@@ -53,9 +65,9 @@
             Something else
           </label> -->
         </div>
-      </fieldset>
+      </fieldset>      
 
-    </div><!-- .form-group -->
+    </div><!-- .form-group -->    
 
     <!-- NEXT BUTTON -->
     <fieldset class="primary-nav form-group">

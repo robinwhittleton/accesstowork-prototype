@@ -30,7 +30,7 @@
     Help with travel
   </h1>
 
-  <form action="havejob" method="post" class="form" id="theForm">
+  <form action="during-work" method="post" class="form" id="theForm">
 
     <!-- HOW MANY HOURS -->
     <div class="form-group">
@@ -94,7 +94,6 @@
     $('#submitButton').on('click',function(e)
     {
       e.preventDefault();
-      var wyn = JSON.parse(Cookies.get('what-you-need'));
       
       needs_travel_count++; 
       Cookies.set('needs_travel_count',needs_travel_count);
@@ -107,18 +106,8 @@
     
       } else {
     
-        var dest = 'havejob';
-        if ($.inArray('Don\'t know',wyn) > -1) dest = 'explore';
-        console.log(dest);
-
-        form.attr('action',dest);
         form.submit();
       }
-
-      // console.log(wyn);
-      // console.log($.inArray('Communication',wyn));
-      // console.log($.inArray('Travelling',wyn));
-      // console.log($.inArray('Don\'t know',wyn));
     });
   });
 </script>

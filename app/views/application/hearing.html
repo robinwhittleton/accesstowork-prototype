@@ -23,7 +23,7 @@
     Type of support worker
   </h1>
 
-  <form action="need-tasks" method="post" class="form" id="theForm">
+  <form action="hearing-tasks" method="post" class="form" id="theForm">
 
       <!-- WHAT DO YOU NEED -->
       <fieldset class="form-group" id="deaf-need">
@@ -72,17 +72,8 @@
       e.preventDefault();
       // grab the form as an array.
       var f = form.serializeArray();
-
-      // check whether more than one answer checked
-      // if only one and it's Something Else then
-      // change the destination.
-      if (f.length == 1)
-      {
-        var c = $('#deaf-need-none').prop('checked');
-        if(c) form.attr('action','whatyouneed');
-      }
-      
-      Cookies.set('needs_count',0);
+      // reset the count so the next page works.
+      Cookies.set('hearing_count',0);
       form.submit();
     });
   });

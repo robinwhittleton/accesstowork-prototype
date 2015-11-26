@@ -27,15 +27,12 @@
 
     <!-- WHAT YOU NEED? -->
     <fieldset class="form-group" id="what-you-need">
-      <!-- <legend class="heading-medium" id="what-you-need-label">What help do you need?</legend> -->
       <p>Select all that apply</p>
-      <div class="form-group" aria-labelledby="what-you-need-label">
+      <div class="form-group" aria-labelledby="what-you-need-label">              
         <input name="what-you-need" value="Communication"id="what-you-need-comms" type="checkbox" data-dest="need-communication">
-        <label class="form-label form-control-checkbox" for="what-you-need-comms"> Support for a hearing impairment</label>
+        <label id="deaf-questions" class="form-label form-control-checkbox" for="what-you-need-comms" style="display:none"> Support for a hearing impairment</label>
         <input name="what-you-need" value="Travelling"id="what-you-need-travel" type="checkbox" data-dest="need-travel">
         <label class="form-label form-control-checkbox" for="what-you-need-travel"> Help travelling independently </label>
-        <!-- <input name="what-you-need" value="Travelling"id="what-you-need-equip" type="checkbox" data-dest="need-equip">
-        <label class="form-label form-control-checkbox" for="what-you-need-equip"> Special equipment or furniture </label> -->
         <input name="what-you-need" value="Don't know"id="what-you-need-know" type="checkbox" data-dest="explore">
         <label class="form-label form-control-checkbox" for="what-you-need-know"> Help during work </label>
       </div>
@@ -67,6 +64,14 @@
 
   $(document).on('ready',function()
   {
+    var cond = JSON.parse(Cookies.get('my-condition'));
+    console.log(cond);
+    if (cond.match(/deaf/ig)) 
+    {
+      console.log('match');
+      $("#deaf-questions").show();
+    }
+
     var form = $("#theForm"),
         subb = $('#submitButton');
 

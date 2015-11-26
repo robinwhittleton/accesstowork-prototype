@@ -15,9 +15,9 @@
 <section class="column-two-thirds" aria-labelledby="aboutjob">
 
   <script type="text/javascript">
-  var the_needs = [];
+  var hearing_needs = [];
   {{#deaf-need}}
-    the_needs.push('{{.}}');
+    hearing_needs.push('{{.}}');
   {{/deaf-need}}
   </script>
 
@@ -30,7 +30,7 @@
     How would this help?
   </h1>
 
-  <form action="havejob" method="post" class="form">
+  <form action="travel" method="post" class="form">
 
     <!-- HOW MANY HOURS -->
     <div class="form-group">
@@ -90,11 +90,11 @@
 $(document).on("ready",function(e)
 {
   // grab the count from the cookie (if it exists).
-  var t = Cookies.get('needs_count');
+  var t = Cookies.get('hearing_count');
   if (!t) t = 0;
   // just put the first one on the page.
-  var needs_count = t;  
-  $('#needs').text(the_needs[needs_count]);
+  var hearing_count = t;  
+  $('#needs').text(hearing_needs[hearing_count]);
 
   var form = $('form');
 
@@ -104,32 +104,22 @@ $(document).on("ready",function(e)
     /*
       First see if all the tasks questions have been asked.
     */
-    needs_count++; 
-    Cookies.set('needs_count',needs_count);
-    if (needs_count < the_needs.length)
+    hearing_count++; 
+    Cookies.set('hearing_count',hearing_count);
+    if (hearing_count < hearing_needs.length)
     {
-      $('#needs').text(the_needs[needs_count]);
+      $('#needs').text(hearing_needs[hearing_count]);
       $(window).scrollTop(0);
       $("html").hide();
       setTimeout(function(){$("html").show();},50);
     } else {
-      /*
-        Then send them on their way.
-      */
-      var wyn = JSON.parse(Cookies.get('what-you-need'));  
-
-      var dest = 'havejob';
-      if ($.inArray('Travelling',wyn) > -1) dest = 'need-travel';
-      else if ($.inArray('Don\'t know',wyn) > -1) dest = 'explore';
-
-      form.attr('action',dest);
       form.submit();
     }    
   });
 
   // This has to happen after the on.click handler has 
   // been defined above otherwise the form will just be submitted.
-  if (needs_count >= the_needs.length) $('#nextButton').trigger('click');
+  if (hearing_count >= hearing_needs.length) $('#nextButton').trigger('click');
 
   /*
     make the "add another" link work.
