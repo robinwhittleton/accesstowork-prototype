@@ -1,0 +1,72 @@
+{{< application/layout }}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol_v9}}
+
+<section class="column-two-thirds" aria-labelledby="aboutjob">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="aboutjob">
+    <span class="section-progress">Section 2 of 5</span>
+    Do you need help during work?
+  </h1>
+
+  <form action="during-work-again" method="post" class="form">
+
+    <!-- Do you need - Yes No -->
+    <fieldset class="inline" id="havejob">
+      <div class="form-group">
+        <input id="job-already-yes" type="radio" name="job-already" value="Yes" />
+        <label class="form-label form-control-radio" data-target="work-taks" for="job-already-yes">Yes</label>
+      </div>
+      <div class="form-group form-group-compound">
+        <input id="job-already-no" type="radio" name="job-already" value="No" />
+        <label class="form-label form-control-radio" data-target="" for="job-already-no">No</label>
+      </div>
+    </fieldset>
+
+    <div id="work-taks" class="js-hidden panel-indent" style="margin-bottom:30px !important;">
+
+      <fieldset>
+        <div class="form-group">      
+          <label for="task{{taskcount}}" class="form-label-bold">What is the most important part of your job that is made more difficult by your condition?</label>
+          <input id="task{{taskcount}}" name="explore-tasks[{{taskcount}}]" class="form-control form-control-full" style="width:50%" autocomplete="off" spellcheck="false"/>
+        </div>
+        <div class="form-group">
+          <label for="describe{{taskcount}}" class="form-label-bold">Describe how your condition makes this harder?</label>
+          <textarea id="describe{{taskcount}}" name="describe-tasks[{{taskcount}}]" class="form-control" style="min-height:100px;padding:5px" spellcheck="false"></textarea>
+        </div>
+      </fieldset>   
+
+    </div>
+
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>
+      <ul> <li><input type="submit" value="Next" class="button" id="nextButton"/></li> </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+{{> application/rightcol }}
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/ application/layout }}

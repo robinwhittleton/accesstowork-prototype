@@ -21,7 +21,7 @@
     What are your conditions or disabilities?
   </h1>
 
-  <form action="doyouknow" method="post" class="form" id="theForm">
+  <form action="travel" method="post" class="form" id="theForm">
 
     <!-- YOUR CONDITION -->
     <div class="form-group" style="margin-bottom:45px">
@@ -52,23 +52,24 @@
 
 <script type="text/javascript">
 
-  var substringMatcher = function(strs) 
-  {
-    return function findMatches(q, cb) 
-    {
-      var matches = [];
-      var substrRegex = new RegExp(q, 'i');
-      $.each(strs, function(i, str) {
-        if (substrRegex.test(str)) {
-          matches.push(str);
-        }
-      });
-      cb(matches);
-    };
-  };
+  // var substringMatcher = function(strs) 
+  // {
+  //   return function findMatches(q, cb) 
+  //   {
+  //     var matches = [];
+  //     var substrRegex = new RegExp(q, 'i');
+  //     $.each(strs, function(i, str) {
+  //       if (substrRegex.test(str)) {
+  //         matches.push(str);
+  //       }
+  //     });
+  //     cb(matches);
+  //   };
+  // };
 
   var deaf_conditions = [
-  "Deaf","Hearing Impairment",'Fibromyalgia','Death','Deal or No Deal','Deadpool'
+    "Deaf",
+    "Hear",
   ];
 
   $(document).on('ready',function()
@@ -93,11 +94,9 @@
           return match = true;
         }
       });
-      if (match)
-      {
-        $("form").attr('action','hearing');
-        $("form").submit();
-      }
+      // if it's one of those redirect them.
+      if (match) $("form").attr('action','hearing');        
+      $("form").submit();
     });
   });
 </script>

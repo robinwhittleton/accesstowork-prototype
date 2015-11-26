@@ -20,7 +20,7 @@
 	<!-- HEADING -->
   <h1 class="form-title heading-large" id="aboutjob">
     <span class="section-progress">Section 2 of 5</span>
-    How your condition affects your job?
+    Anything else?
   </h1>
 
   <form action="explore-another" method="post" class="form">
@@ -39,7 +39,7 @@
 
     <div class="js-hidden panel-indent" id="add-another">
 
-      <!-- MOST IMPORTANT PART -->
+      <!-- What is it? -->
       <fieldset>
         <div class="form-group">      
           <label for="task{{taskcount}}" class="form-label-bold">What is this?</label>
@@ -89,9 +89,9 @@ $(document).on('ready',function()
       {
         if (el.val() == 'Yes')
         {
-          form.attr('action','explore-another');
+          form.attr('action','during-work-again');
         } else {
-          form.attr('action','havejob');
+          form.attr('action','job-status');
         }
         checked = true;
         form.submit();          
