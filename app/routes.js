@@ -5,6 +5,11 @@ var fs = require("fs");
 module.exports = {
   bind : function (app) {    
 
+    app.get(/dump/,function(req,res,next)
+    {
+      console.log(req.cookies);
+    });
+
     app.get(/.*/, function(req,res,next)
     {
       // clean up the cookies data!

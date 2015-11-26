@@ -60,6 +60,13 @@ $(document).ready(function() {
     return true;
   });
 
+  $('input, textarea').attr({
+    "autocomplete":"off",
+    "autocorrect":"off", 
+    "autocapitalize":"off", 
+    "spellcheck":"false"
+  });
+
 });
 
 

@@ -61,7 +61,6 @@ app.get(/^\/([^.]+)$/, function (req, res)
 			res.end(html);
 		}
 	});
-
 });
 
 app.post(/^\/([^.]+)$/, function (req, res) {
