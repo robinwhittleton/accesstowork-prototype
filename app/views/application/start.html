@@ -17,7 +17,7 @@
 
 	<!-- HEADING -->
   <h1 class="form-title heading-large" id="thirdparty">
-    <span class="section-progress">Section 1 of 5</span>
+    <span class="section-progress">Section 1 of 7</span>
     What are your conditions or disabilities?
   </h1>
 
@@ -96,8 +96,14 @@
             console.log(substrRegex);
             return match = true;
           }
-        });        
-        if (match) $("form").attr('action','hearing');
+        });           
+        if (match) 
+        {
+          Cookies.set('sections',6);
+          $("form").attr('action','hearing');
+        } else {
+          Cookies.set('sections',5);
+        }
       }      
       $("form").submit();
     });
