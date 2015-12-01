@@ -70,11 +70,29 @@
     $('#nextButton').on('click',function(e)
     {
       e.preventDefault();
+
+      /*
+        Check they've picked something.
+      */
+      var picked = false;
+      $('input[name="deaf-need"]').each(function(i,el)
+      {
+        if ($(el).prop('checked')) picked = true;
+      });
+
+      /*
+        Alert them if not or let them through.
+      */
+      if (!picked) alert('Please pick one!')
+      else {
+        Cookies.set('hearing_count',0);
+        form.submit();  
+      }
+
       // grab the form as an array.
-      var f = form.serializeArray();
+      // var f = form.serializeArray();
       // reset the count so the next page works.
-      Cookies.set('hearing_count',0);
-      form.submit();
+      
     });
   });
 </script>
