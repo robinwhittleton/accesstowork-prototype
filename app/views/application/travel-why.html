@@ -19,6 +19,7 @@
     {{#travel-need}}
       the_needs.push('{{.}}');
     {{/travel-need}}
+    if (the_needs[0] == '') the_needs[0] = '{{ travel-need }}';      
   </script>
 
   <!-- BACK LINK -->
