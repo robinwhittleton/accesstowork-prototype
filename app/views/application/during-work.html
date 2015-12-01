@@ -84,7 +84,15 @@
         picked = true;     
         if ( $(el).val() == 'No' ) // if it's No.
         {
-          $('form').attr('action','job-status');  
+          var travel = JSON.parse(Cookies.get('help-travelling'));
+          if (travel == "No")
+          {
+            $('form').attr('action','sorry');            
+          } else {
+            $('form').attr('action','job-status');              
+          }
+          
+          
         }               
       }
     });
