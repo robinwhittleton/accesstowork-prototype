@@ -1,0 +1,93 @@
+{{<layout}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+<section class="column-two-thirds" aria-labelledby="aboutjob">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+  <!-- HEADING -->
+  <h1 class="form-title heading-large" id="aboutjob">
+    <span class="section-progress">Section 2 of 5</span> 
+    Where &amp; when is your interview?
+  </h1>
+
+  <form action="interview-contact" method="post" class="form">
+
+    <fieldset>
+
+      <!-- DATE -->
+      <div class="form-group">
+        <fieldset class="inline">
+        <legend class="form-label-bold">Date of interview</legend>
+        <div class="form-date">
+          <div class="form-group form-group-day">
+            <label for="interview-day">Day</label>
+            <input type="text" class="form-control" id="interview-day" name="interview-day">
+          </div>
+          <div class="form-group form-group-month">
+            <label for="interview-month">Month</label>
+            <input type="text" class="form-control" id="interview-month" name="interview-month">
+          </div>
+          <div class="form-group form-group-year">
+            <label for="interview-year">Year</label>
+            <input type="text" class="form-control" id="interview-year" name="interview-year">
+          </div>
+        </div>
+        </fieldset>
+      </div>
+
+      <!-- ADDRESS -->
+      <div class="form-group address-updated">
+        <fieldset>  
+          <legend class="form-label-bold main">Place of interview</legend>
+          <div class="form-group two-tier">
+            <label class="form-label" for="address1">Building or Street</label>
+            <input type="text" id="address1" name="address1" value="" class="form-control">                  
+            <label class="form-label hidden" for="address2" style="position:absolute;left:-999px">Building or Street line 2</label>
+            <input type="text" id="address2" name="address2" value="" class="form-control second-level" style="margin-top:8px">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="address3">Town or City</label>
+            <input type="text" id="address3" name="address3" value="" class="form-control">
+          </div>      
+          <div class="form-group">
+            <label class="form-label" for="address4">County</label>
+            <input type="text" id="address4" name="address4" value="" class="form-control">
+          </div>          
+          <div>
+            <label class="form-label" for="postCode">Postcode</label>
+            <input type="text" id="postCode" name="postCode" value="" class="form-control">
+          </div>                  
+        </fieldset>
+      </div>
+
+    </fieldset>
+
+    <fieldset class="primary-nav form-group" style="margin-top:30px">
+      <legend>Navigation</legend>
+      <ul>
+        <li><input type="submit" value="Continue" class="button"/></li>
+      </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}

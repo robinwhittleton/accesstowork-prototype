@@ -1,0 +1,58 @@
+{{<layout}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+<section class="column-two-thirds" aria-labelledby="aboutjob">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+  <!-- HEADING -->
+  <h1 class="form-title heading-large" id="aboutjob">
+    <span class="section-progress">Section 1 of 5</span> 
+    About your interview
+  </h1>
+
+  <form action="interview-place" method="post" class="form">
+
+    <fieldset>
+
+      <!-- ROLE -->
+      <legend class="hidden-legend" aria-hidden="true">Your interview and job role</legend>
+      <div class="form-group">
+        <label class="form-label-bold" for="job-title">Job title</label>
+        <input class="form-control" type="text" id="job-title" name="interview-job-title">
+      </div>
+      <div class="form-group">
+        <label class="form-label-bold" for="company-name">Employer</label>
+        <input class="form-control" type="text" id="company-name" name="interview-company-name">
+      </div>
+
+    </fieldset>
+
+    <fieldset class="primary-nav form-group" style="margin-top:30px">
+      <legend>Navigation</legend>
+      <ul>
+        <li><input type="submit" value="Continue" class="button"/></li>
+      </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/layout}}
