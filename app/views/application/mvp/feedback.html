@@ -1,0 +1,91 @@
+{{<layout}}
+
+{{$pageTitle}}About your job{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+
+    {{>application/mvp/leftcol}}
+
+    <section class="column-two-thirds" aria-labelledby="aboutjob">
+
+      <h1 class="form-title heading-large" id="aboutjob">
+        <span class="section-progress">&nbsp;</span> 
+        Give feedback
+      </h1>
+
+      <form action="aboutjob2" method="post" class="form">
+
+        <fieldset class="form-group">
+          <legend class="form-label-bold" >Overall, how did you feel about the service you recieved today?</legend>
+          <div class="form-group form-group-compound">
+            <label class="block-label" for="satisfied">
+              <input id="satisfied" type="radio" name="satisfaction" value="Satisfied">
+              Satisfied
+            </label>
+            <label class="block-label" for="neither">
+              <input id="neither" type="radio" name="satisfaction" value="Neither">
+              Neither satisfied or dissatisfied
+            </label>
+            <label class="block-label" for="dissatisfied">
+              <input id="dissatisfied" type="radio" name="satisfaction" value="Dissatisfied">
+              Dissatisfied
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <legend class="form-label-bold" >How could we improve this service?</legend>
+          <div class="form-group">
+            <textarea class="form-control" name="improvements"></textarea>
+            <p>(Limit is 1200 characters)</p>
+            <p>Please don't include any personal or financial information. For example, your national insurance number or credit card details.</p>
+          </div>  
+        </fieldset>
+
+        <fieldset class="primary-nav form-group">
+          <legend>Form Navigation</legend>    
+          <ul>
+            <li><input type="submit" value="Send feedback" class="button" id="submitButton"/></li>
+          </ul>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </div>
+
+</main>
+
+{{/content}}
+
+{{/layout}}
+
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    var form = $('form');
+
+    $("#submitButton").on('click',function(e)
+    {
+      e.preventDefault();
+      var checked = false;
+      $('#employment-status input').each(function(i,e)
+      {
+        if ($(e).prop('checked'))
+        {
+          var dest = $(e).data('dest');
+          form.attr('action',dest);
+          form.submit();
+          checked = true;
+          return false;
+        }
+      });
+      if (!checked) alert('Please select one.');
+    });
+  });
+</script>
