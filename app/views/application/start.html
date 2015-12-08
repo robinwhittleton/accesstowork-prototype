@@ -52,21 +52,6 @@
 
 <script type="text/javascript">
 
-  // var substringMatcher = function(strs) 
-  // {
-  //   return function findMatches(q, cb) 
-  //   {
-  //     var matches = [];
-  //     var substrRegex = new RegExp(q, 'i');
-  //     $.each(strs, function(i, str) {
-  //       if (substrRegex.test(str)) {
-  //         matches.push(str);
-  //       }
-  //     });
-  //     cb(matches);
-  //   };
-  // };
-
   var deaf_conditions = [
     "Deaf",
     "Hear",
@@ -74,14 +59,6 @@
 
   $(document).on('ready',function()
   {
-    // $('#conditions-and-dis').typeahead(
-    //   { "hint":true, "highlight":true, "minLength":1 },
-    //   { 
-    //     name:'conditions',
-    //     source: substringMatcher(conditions)
-    //   }
-    // );
-
     $('#submitButton').on('click',function(e)
     {
       e.preventDefault();
