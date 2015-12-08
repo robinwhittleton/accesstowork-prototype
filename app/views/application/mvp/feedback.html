@@ -17,7 +17,7 @@
         Give feedback
       </h1>
 
-      <form action="aboutjob2" method="post" class="form">
+      <form action="/application/mvp/" method="post" class="form">
 
         <fieldset class="form-group">
           <legend class="form-label-bold" >Overall, how did you feel about the service you recieved today?</legend>
@@ -64,28 +64,3 @@
 {{/content}}
 
 {{/layout}}
-
-<script type="text/javascript">
-  $(document).on('ready',function()
-  {
-    var form = $('form');
-
-    $("#submitButton").on('click',function(e)
-    {
-      e.preventDefault();
-      var checked = false;
-      $('#employment-status input').each(function(i,e)
-      {
-        if ($(e).prop('checked'))
-        {
-          var dest = $(e).data('dest');
-          form.attr('action',dest);
-          form.submit();
-          checked = true;
-          return false;
-        }
-      });
-      if (!checked) alert('Please select one.');
-    });
-  });
-</script>
