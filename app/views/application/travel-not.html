@@ -1,0 +1,95 @@
+{{< application/layout }}
+
+{{$pageTitle}}About you{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+  {{>includes/leftcol_v9}}
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" style="margin-bottom:30px;">
+    <span class="section-progress">Section 3 of 7</span>
+    Are any of these available but impossible for you to use because of your condition?
+  </h1>
+
+  <form action="travel-why-not" method="post" class="form" id="theForm">
+
+    <div class="form-group" id="travel-options" style="margin-bottom:30px !important;">
+
+      <!-- WHAT DO YOU NEED -->
+      <fieldset class="form-group">      
+        
+        <input id="travel-not-bus" type="checkbox" name="travel-not" value="bus or tram" />
+        <label class="form-label form-control-checkbox" for="travel-not-bus">Bus or Tram</label>
+        
+        <input id="travel-not-train" type="checkbox" name="travel-not" value="train" />
+        <label class="form-label form-control-checkbox" for="travel-not-train">Train</label>
+        
+        <input id="travel-not-walk" type="checkbox" name="travel-not" value="walking" />
+        <label class="form-label form-control-checkbox" for="travel-not-walk">Walking</label>
+        
+        <input id="travel-not-car" type="checkbox" name="travel-not" value="car or getting a lift" />
+        <label class="form-label form-control-checkbox" for="travel-not-car">Car or get a lift</label>
+
+      </fieldset>      
+
+    </div><!-- .form-group -->    
+
+    <!-- NEXT BUTTON -->
+    <fieldset class="primary-nav form-group" style="margin-top:30px">
+      <legend>Form Navigation</legend>
+      <ul>
+        <li><input type="submit" value="Next" class="button" id="nextButton"/></li>
+      </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+{{> application/rightcol }}
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/ application/layout }}
+
+<script type="text/javascript">
+$(document).on('ready',function()
+{
+  var options = $.parseJSON(Cookies.get('travel-now'));
+  
+  if (typeof options == 'string') options = [options];
+
+  $('input[name="travel-not"]').each(function(i,el)
+  {
+      var val = $(el).val();
+      if ($.inArray(val, options) >= 0)
+      {
+        var id = $(el).attr('id');
+        $('label[for="'+id+'"]').hide();
+      }      
+  });
+
+  $('#nextButton').on('click',function(e)
+  {
+    e.preventDefault();
+    Cookies.set('travel_count',0);
+    $('form').submit();
+  });
+});
+</script>

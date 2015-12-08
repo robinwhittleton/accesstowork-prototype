@@ -16,10 +16,10 @@
 
   <script type="text/javascript">
     var the_needs = [];
-    {{#travel-now}}
+    {{#travel-not}}
       the_needs.push('{{.}}');
-    {{/travel-now}}
-    if (the_needs[0] == '') the_needs[0] = '{{ travel-now }}';      
+    {{/travel-not}}
+    if (the_needs[0] == '') the_needs[0] = '{{ travel-not }}';      
   </script>
 
   <!-- BACK LINK -->
@@ -31,7 +31,7 @@
     {{$pageTitle}}{{/pageTitle}} 
   </h1>
 
-  <form action="travel-why" method="post" class="form" id="theForm">
+  <form action="travel-why-not" method="post" class="form" id="theForm">
 
     <!-- HOW MANY HOURS -->
     <div class="form-group">
@@ -39,37 +39,10 @@
       <!-- WHY DO YOU NEED -->
       <div class="form-group">
         <label class="form-label-bold" for="reasons" id="">
-          How is travelling by <span class="need" style="color:#005ea5"></span> harder for you because of your condition?
+          How would travelling by <span class="need" style="color:#005ea5"></span> be harder for you because of your condition?
         </label>
         <textarea class="form-control" id="reasons" name="reasons"></textarea>
       </div>
-
-      <!-- HOW MANY HOURS -->
-      <fieldset class="inline">
-        
-        <label class="form-label-bold" for="full-name" id="full-name-label">
-          How often do you travel by <span class="need" style="color:#005ea5"></span>?
-        </label>
-      
-        <p>For example, 2 journeys a week or 5 journeys a month.</p>
-
-        <div class="form-group">
-          <label class="form-label horizontal-right-label" for="currency-pound">
-            <input type="text" class="form-control form-control-4-chars" id="currency-pound">times
-          </label>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">
-            <select class="form-select">
-              <option>a week</option>
-              <option>a month</option>
-              <!-- <option>a year</option> -->
-            </select>
-          </label>
-        </div>
-
-      </fieldset>
 
     </div>
 
@@ -115,7 +88,7 @@
     
       } else {
     
-        form.attr('action','travel-not');
+        form.attr('action','during-work');
         form.submit();
       }
     });

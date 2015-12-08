@@ -45,16 +45,33 @@
         <legend class="heading-medium">Which of these do you use to get to work right now?</legend>
         
         <input id="travel-now-bus" type="checkbox" name="travel-now" value="bus or tram" />
-        <label class="form-label form-control-checkbox" for="travel-now-bus">Bus or Tram</label>
+        <label class="form-label form-control-checkbox" for="travel-now-bus" data-target="bus-why">Bus or Tram</label>
+        <fieldset id="bus-why" class="panel-indent js-hidden" style="margin-bottom:15px !important;">
+          <label>How is travelling by <span class="answer">bus</span> harder for you because of your condition?</label>
+          <textarea class="form-control" id="bus-why-text" name="travel-now-bus-why"></textarea>
+        </fieldset>
         
         <input id="travel-now-train" type="checkbox" name="travel-now" value="train" />
-        <label class="form-label form-control-checkbox" for="travel-now-train">Train</label>
+        <label class="form-label form-control-checkbox" for="travel-now-train" data-target="train-why">Train</label>
+        <fieldset id="train-why" class="panel-indent js-hidden" style="margin-bottom:15px !important;">
+          <label>How is travelling by <span class="answer">train</span> harder for you because of your condition?</label>
+          <textarea class="form-control" id="train-why-text" name="travel-now-train-why"></textarea>
+        </fieldset>
         
         <input id="travel-now-walk" type="checkbox" name="travel-now" value="walking" />
-        <label class="form-label form-control-checkbox" for="travel-now-walk">Walking</label>
+        <label class="form-label form-control-checkbox" for="travel-now-walk" data-target="walking-why">Walking</label>
+        <fieldset id="walking-why" class="panel-indent js-hidden" style="margin-bottom:15px !important;">
+          <label>How is <span class="answer">walking</span> harder for you because of your condition?</label>
+          <textarea class="form-control" id="walking-why-text" name="travel-now-walking-why"></textarea>
+        </fieldset>
         
         <input id="travel-now-car" type="checkbox" name="travel-now" value="car or getting a lift" />
-        <label class="form-label form-control-checkbox" for="travel-now-car">Car or get a lift</label>
+        <label class="form-label form-control-checkbox" for="travel-now-car" data-target="car-why">Car or get a lift</label>
+        <fieldset id="car-why" class="panel-indent js-hidden" style="margin-bottom:15px !important;">
+          <label>How is travelling by <span class="answer">car or getting a lift</span> harder for you because of your condition?</label>
+          <textarea class="form-control" id="car-why-text" name="travel-now-car-why"></textarea>
+        </fieldset>
+
       </fieldset>      
 
     </div><!-- .form-group -->    
