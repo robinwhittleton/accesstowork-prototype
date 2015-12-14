@@ -72,12 +72,16 @@
 <script type="text/javascript">
 $(document).on('ready',function()
 {
+  // grab the options from the cookie.
   var options = $.parseJSON(Cookies.get('travel-now'));
   
+  // make sure it's always an array.
   if (typeof options == 'string') options = [options];
 
+  // go through the travel inputs
   $('input[name="travel-not"]').each(function(i,el)
   {
+      // check whether the value of the input is already in the options array.
       var val = $(el).val();
       if ($.inArray(val, options) >= 0)
       {

@@ -99,7 +99,9 @@
     if (!t) t = 0;
     // just put the first one on the page.
     var travel_count = t;  
-    $('.need').text(the_needs[travel_count]);
+    var the_text = the_needs[travel_count];
+    if (the_text == 'something else') the_text = JSON.parse(Cookies.get('travel-now-se-ask'));
+    $('.need').text(the_text);
 
     var form = $('form');
     
