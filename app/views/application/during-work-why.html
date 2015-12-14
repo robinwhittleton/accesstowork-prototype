@@ -19,7 +19,7 @@
 
   <!-- HEADING -->
   <h1 class="form-title heading-large">
-    <span class="section-progress">Section 3 of 7</span>
+    <span class="section-progress">Section 4 of 7</span>
     {{$pageTitle}}{{/pageTitle}} 
   </h1>
 
@@ -84,9 +84,14 @@
 <script type="text/javascript">
   $(document).on('ready',function()
   {
+
+
     // grab the count from the cookie (if it exists).
-    var t = Cookies.get('during_count');
+    // var t = Cookies.get('during_count');
+    var t = window.location.hash.substring(1);
     if (!t) t = 0;
+
+    console.log(t);
 
     // just put the first one on the page.
     var during_count = t;  
@@ -105,6 +110,7 @@
       if (during_count < the_needs.length)
       {
         Cookies.set('during_count',during_count);
+        form.attr('action','during-work-why#'+during_count);
         form.submit();
     
       } else {

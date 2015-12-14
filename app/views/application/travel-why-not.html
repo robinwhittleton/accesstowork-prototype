@@ -68,7 +68,8 @@
   $(document).on('ready',function()
   {
     // grab the count from the cookie (if it exists).
-    var t = Cookies.get('travel_count');
+    // var t = Cookies.get('travel_count');
+    var t = window.location.hash.substring(1);
     if (!t) t = 0;
     // just put the first one on the page.
     var travel_count = t;  
@@ -84,6 +85,7 @@
       if (travel_count < the_needs.length)
       {
         Cookies.set('travel_count',travel_count);
+        form.attr('action','travel-why-not#'+travel_count);
         form.submit();
     
       } else {
