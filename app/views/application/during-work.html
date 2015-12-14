@@ -23,7 +23,7 @@
     Does your condition cause you difficulties during work?
   </h1>
 
-  <form action="during-work-again" method="post" class="form">
+  <form action="job-status" method="post" class="form">
 
     <!-- Do you need - Yes No -->
     <fieldset class="inline" id="havejob">
@@ -39,16 +39,47 @@
 
     <div id="work-taks" class="js-hidden panel-indent" style="margin-bottom:30px !important;">
 
-      <fieldset>
-        <div class="form-group">      
-          <label for="task{{taskcount}}" class="form-label-bold">What's the most important part of your job that your condition makes difficult?</label>
-          <input id="task{{taskcount}}" name="explore-tasks[{{taskcount}}]" class="form-control form-control-full" style="width:50%" autocomplete="off" spellcheck="false"/>
+      <!-- WHAT DO YOU NEED -->
+      <fieldset class="form-group">
+        
+        <legend class="heading-medium" style="margin-bottom:5px">Which of these do find more diffcult to do in work?</legend>
+        <p class="form-hint">Tick any that apply</p>
+        
+        <input id="work-now-phone" type="checkbox" name="work-now" value="taking phone calls" />
+        <label class="form-label form-control-checkbox" for="work-now-phone">Taking phone calls</label>
+        
+        <input id="work-now-computer" type="checkbox" name="work-now" value="using a computer" />
+        <label class="form-label form-control-checkbox" for="work-now-computer">Using a computer</label>
+        
+        <input id="work-now-meetings" type="checkbox" name="work-now" value="having meetings" />
+        <label class="form-label form-control-checkbox" for="work-now-meetings">Meetings with colleagues</label>
+
+      </fieldset>
+
+      <!-- LIST THE THINGS -->
+      <fieldset class="form-group">
+        <legend class="form-label-bold" id="alreadyJob">Are there any other work tasks that are harder for you because of your condition?</legend>
+        <!-- <p class="form-hint">This includes getting to or from work, or anything you have to do as part of your job role.</p> -->
+        <fieldset class="inline">
+          <div class="form-group" style="margin-bottom:10px">
+            <input id="work-more-yes" type="radio" name="work-more" value="Yes" />
+            <label class="form-label form-control-radio" data-target="work-tasks" for="work-more-yes">Yes</label>
+          </div>
+          <div class="form-group form-group-compound">
+            <input id="work-more-no" type="radio" name="work-more" value="No" />
+            <label class="form-label form-control-radio" data-target="" for="work-more-no">No</label>
+          </div>
+        </fieldset>
+        <div class="form-group js-hidden panel-indent" id="work-tasks">
+          <p class="form-hint">Add as many as you like</p>
+          <div class="conditions" style="margin-bottom:15px">
+            <p class="cond"><input name="user-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
+            <p class="cond"><input name="user-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
+            <p class="cond"><input name="user-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
+          </div>
+          <p><a href="#" id="add" class="button-add">&#43; add another task</a></p>
         </div>
-        <div class="form-group">
-          <label for="describe{{taskcount}}" class="form-label-bold">Describe how your condition makes this harder?</label>
-          <textarea id="describe{{taskcount}}" name="describe-tasks[{{taskcount}}]" class="form-control" style="min-height:100px;padding:5px" spellcheck="false"></textarea>
-        </div>
-      </fieldset>   
+      </fieldset>
 
     </div>
 
@@ -72,34 +103,53 @@
 {{/ application/layout }}
 
 <script type="text/javascript">
+$(document).on('ready',function()
+{
+  $('#add').on("click",function(e)
+  {
+    e.preventDefault();
+    var c = $($('.conditions .cond')[0]).clone(); // clone the first input
+    $('.conditions').append(c); // apend it to the block.
+    $(c.find('input')).val("").focus(); // empty the vlalue.
+  });
+
   $('#nextButton').on('click',function(e)
   {
     e.preventDefault();
 
-    var picked = false;
-    $('input[name="during-work"]').each(function(i,el)
+    var data = [];
+    $('input[name="work-now"]').each(function(i,el)
     {
-      if( $(el).prop('checked') ) // if Yes or No has been ticked.
-      {   
-        picked = true;     
-        if ( $(el).val() == 'No' ) // if it's No.
-        {
-          var travel = JSON.parse(Cookies.get('help-travelling'));
-          if (travel == "No")
-          {
-            $('form').attr('action','sorry');            
-          } else {
-            $('form').attr('action','job-status');              
-          }
-          
-          
-        }               
+      if ($(el).prop('checked'))
+      {
+        data.push($(el).val()); 
       }
     });
 
-    Cookies.set('travel_count',0);
+    $('input[name="user-tasks"]').each(function(i,el)
+    {
+      if ($(el).val() !== '')
+      {
+        data.push($(el).val().toLowerCase()); 
+      }
+    });
 
-    if (picked) $('form').submit();
-    else alert('Please pick one.');
-  });
+    // if Yes isn't picked at the top.
+    if (!$('#during-work-yes').prop('checked'))
+    {
+      $("form").submit();
+    } else {
+      if (!data.length) alert('Please pick or enter at least one task.');
+      else {
+        $.post("/application/during-work",
+          {
+            "during-work":data,
+          },function(data) {
+            Cookies.set('during_count',0);
+            window.location.href = '/application/during-work-why';
+          });  
+      }
+    }
+  });  
+});
 </script>

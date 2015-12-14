@@ -1,0 +1,117 @@
+{{< application/layout }}
+
+{{$pageTitle}}During work{{/pageTitle}}
+
+{{$content}}
+
+<main id="content" role="main">
+
+{{>includes/alpha}}
+
+<div class="grid-row">
+
+{{>includes/leftcol_v9}}
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+  <!-- HEADING -->
+  <h1 class="form-title heading-large">
+    <span class="section-progress">Section 3 of 7</span>
+    {{$pageTitle}}{{/pageTitle}} 
+  </h1>
+
+  <form action="during-work-why" method="post" class="form" id="theForm">
+
+    <!-- HOW MANY HOURS -->
+    <div class="form-group">
+
+      <!-- WHY DO YOU NEED -->
+      <div class="form-group">
+        <label class="form-label-bold" for="reasons" id="">
+          How is <span class="need" style="color:#005ea5"></span> harder for you because of your condition?
+        </label>
+        <textarea class="form-control" id="reasons" name="reasons"></textarea>
+      </div>
+
+      <!-- HOW MANY HOURS -->
+      <fieldset class="inline">
+        
+        <label class="form-label-bold" for="full-name" id="full-name-label">
+          Do you know of something that could help you with <span class="need" style="color:#005ea5"></span>?
+        </label>
+      
+        <!-- Do you need - Yes No -->
+        <fieldset class="inline" id="havejob">
+          <div class="form-group" style="margin-bottom:15px;">
+            <input id="help-yes" type="radio" name="help" value="Yes" />
+            <label class="form-label form-control-radio" data-target="what-help" for="help-yes">Yes</label>
+          </div>
+          <div class="form-group form-group-compound">
+            <input id="help-no" type="radio" name="help" value="No" />
+            <label class="form-label form-control-radio" data-target="" for="help-no">No</label>
+          </div>
+        </fieldset>
+        <fieldset class="js-hidden panel-indent" id="what-help">
+          <label class="form-label" for="what-is-it">What is it?</label>
+          <textarea id="what-is-it" class="form-control" style="min-height:4em"></textarea>
+        </fieldset>
+
+      </fieldset>
+
+    </div>
+
+    <fieldset class="primary-nav form-group">
+      <legend>Form Navigation</legend>
+        <ul> <li><input type="submit" value="Next" class="button" id="submitButton"/></li> </ul>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+{{> application/rightcol }}
+
+</div><!-- .grid-row -->
+
+</main>
+
+{{/content}}
+
+{{/ application/layout }}
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    // grab the count from the cookie (if it exists).
+    var t = Cookies.get('during_count');
+    if (!t) t = 0;
+
+    // just put the first one on the page.
+    var during_count = t;  
+    var the_needs = JSON.parse(Cookies.get('during-work'));
+    var the_text = the_needs[during_count];
+
+    $('.need').text(the_text);
+
+    var form = $('form');
+    
+    $('#submitButton').on('click',function(e)
+    {
+      e.preventDefault();
+      
+      during_count++;       
+      if (during_count < the_needs.length)
+      {
+        Cookies.set('during_count',during_count);
+        form.submit();
+    
+      } else {
+    
+        form.attr('action','job-status');
+        form.submit();
+      }
+    });
+  });
+</script>
