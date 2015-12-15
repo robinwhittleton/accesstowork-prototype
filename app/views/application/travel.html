@@ -1,6 +1,6 @@
 {{< application/layout }}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{{$pageTitle}}Travelling to or from work{{/pageTitle}}
 
 {{$content}}
 
@@ -44,15 +44,18 @@
         
         <legend class="heading-medium">Which of these do you use to get to or from work?</legend>
         
+        <input id="travel-now-walk" type="checkbox" name="travel-now" value="walking" />
+        <label class="form-label form-control-checkbox" for="travel-now-walk">Walking</label>
+
+        <input id="travel-now-bike" type="checkbox" name="travel-now" value="riding a bicycle" />
+        <label class="form-label form-control-checkbox" for="travel-now-bike">Bicycle</label>
+
         <input id="travel-now-bus" type="checkbox" name="travel-now" value="bus or tram" />
         <label class="form-label form-control-checkbox" for="travel-now-bus">Bus or tram</label>
         
         <input id="travel-now-train" type="checkbox" name="travel-now" value="train" />
         <label class="form-label form-control-checkbox" for="travel-now-train">Train</label>
-        
-        <input id="travel-now-walk" type="checkbox" name="travel-now" value="walking" />
-        <label class="form-label form-control-checkbox" for="travel-now-walk">Walking</label>
-        
+              
         <input id="travel-now-car" type="checkbox" name="travel-now" value="car or getting a lift" />
         <label class="form-label form-control-checkbox" for="travel-now-car">Car or get a lift</label>
 
