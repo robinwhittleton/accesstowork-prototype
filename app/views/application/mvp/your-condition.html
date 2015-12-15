@@ -76,15 +76,17 @@
      var dest = 'nothing';
 
      if ($('#hasEffectWork').prop('checked')) dest = $('#hasEffectWork').data('dest');
-     if ($('#hasEffectTravel').prop('checked')) dest = $('#hasEffectTravel').data('dest');
+     if ($('#hasEffectTravel').prop('checked')) dest = $('#hasEffectTravel').data('dest');     
 
      if (dest !== 'nothing')
      {
-       form.attr('action',dest);
-       form.submit();
-     } else {
-       alert('Please pick one!');
-     }
-   });
+        Cookies.remove('hasEffectWork');
+        Cookies.remove('hasEffectTravel');
+        form.attr('action',dest);
+        form.submit();
+      } else {
+        alert('Please pick one!');
+      }
+    });
  });
 </script>
