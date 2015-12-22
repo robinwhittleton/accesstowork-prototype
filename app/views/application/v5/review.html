@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
-{{$pageTitle}}Consent &amp; Declaration{{/pageTitle}}
+{% block pageTitle %}Consent &amp; Declaration{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -19,7 +19,7 @@
 <div class="grid-row">
 
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 
 <section class="column-two-thirds" aria-labelledby="review">
@@ -184,7 +184,5 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
 

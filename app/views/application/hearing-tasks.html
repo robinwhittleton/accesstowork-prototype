@@ -1,16 +1,16 @@
 {% extends " application/layout .html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol_v9}}
+{% include "includes/leftcol_v9.html" %}
 
 <section class="column-two-thirds" aria-labelledby="aboutjob">
 
@@ -18,7 +18,7 @@
   var hearing_needs = [];
   {{#deaf-need}}
     hearing_needs.push('{{.}}');    
-  {{/deaf-need}}
+  {% endblock %}
   if (hearing_needs[0] == '') hearing_needs[0] = '{{ deaf-need }}';      
   </script>
 
@@ -77,15 +77,13 @@
 
 </section><!-- .column-two-thirds -->
 
-{{> application/rightcol }}
+{% include " application/rightcol .html" %}
 
 </div><!-- .grid-row -->
 
 </main>
 
-{{/content}}
-
-{{/ application/layout }}
+{% endblock %}
 
 <script type="text/javascript">
 $(document).on("ready",function(e)

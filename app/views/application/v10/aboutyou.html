@@ -1,16 +1,16 @@
 {% extends " application/layout .html" %}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{% block pageTitle %}About you{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol_v9}}
+{% include "includes/leftcol_v9.html" %}
 
 <section class="column-two-thirds" aria-labelledby="aboutyou">
 
@@ -92,12 +92,10 @@
 
 </section><!-- .column-two-thirds -->
 
-{{> application/rightcol }}
+{% include " application/rightcol .html" %}
 
 </div><!-- .grid-row -->
 
 </main>
 
-{{/content}}
-
-{{/ application/layout }}
+{% endblock %}

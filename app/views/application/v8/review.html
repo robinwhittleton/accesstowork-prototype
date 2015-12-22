@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 
-{{$pageTitle}}Consent &amp; Declaration{{/pageTitle}}
+{% block pageTitle %}Consent &amp; Declaration{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 <section class="column-two-thirds" aria-labelledby="review">
 
@@ -69,7 +69,7 @@
 	      </tr>
 	    </tbody>
 	  </table>
-	  {{/trd-name}}
+	  {% endblock %}
 	  
 	  
 	  <table class="form-group">
@@ -136,18 +136,18 @@
 	    <tbody>	    
 	    <tr>
 	        <td>What You Need</td>
-	        <td>{{#what-you-need}}{{.}}, {{/what-you-need}}</td>
+	        <td>{{#what-you-need}}{{.}}, {% endblock %}</td>
 	    </tr>	    
 	    <tr>
 	        <td>Conditions</td>
-	        <td>{{#conditions}}{{.}}, {{/conditions}}</td>
+	        <td>{{#conditions}}{{.}}, {% endblock %}</td>
 	    </tr>	    
 	    {{#difficulty}}
 	    <tr>
 	        <td></td>
 	        <td>{{.}}</td>
 	    </tr>
-	    {{/difficulty}}
+	    {% endblock %}
 		
 		<tr>
 	        <td>Conditions &amp; Disabilities</td>
@@ -187,6 +187,4 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}

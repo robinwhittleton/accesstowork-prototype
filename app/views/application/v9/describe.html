@@ -1,16 +1,16 @@
 {% extends "layout_v8.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol_v9}}
+{% include "includes/leftcol_v9.html" %}
 
 <section class="column-two-thirds" aria-labelledby="aboutjob">
 
@@ -29,7 +29,7 @@
           <textarea></textarea>
         </fieldset>
         <br />
-      {{/explore-tasks}}
+      {% endblock %}
     </div>
 
     <fieldset class="primary-nav form-group">
@@ -47,9 +47,7 @@
 
 </main>
 
-{{/content}}
-
-{{/layout_v8}}
+{% endblock %}
 
 <script type="text/template" id="template">
 

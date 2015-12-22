@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{% block pageTitle %}About you{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -21,7 +21,7 @@
 
 
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 
 <div class="column-two-thirds">
@@ -140,7 +140,5 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
 

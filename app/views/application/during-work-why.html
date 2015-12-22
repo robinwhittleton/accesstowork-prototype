@@ -1,16 +1,16 @@
 {% extends " application/layout .html" %}
 
-{{$pageTitle}}During work{{/pageTitle}}
+{% block pageTitle %}During work{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol_v9}}
+{% include "includes/leftcol_v9.html" %}
 
 <section class="column-two-thirds" aria-labelledby="thirdparty">
 
@@ -20,7 +20,7 @@
   <!-- HEADING -->
   <h1 class="form-title heading-large">
     <span class="section-progress">Section 4 of 7</span>
-    {{$pageTitle}}{{/pageTitle}} 
+    {% block pageTitle %}{% endblock %} 
   </h1>
 
   <form action="during-work-why" method="post" class="form" id="theForm">
@@ -72,15 +72,13 @@
 
 </section><!-- .column-two-thirds -->
 
-{{> application/rightcol }}
+{% include " application/rightcol .html" %}
 
 </div><!-- .grid-row -->
 
 </main>
 
-{{/content}}
-
-{{/ application/layout }}
+{% endblock %}
 <script type="text/javascript">
   $(document).on('ready',function()
   {
