@@ -83,6 +83,7 @@
 
 {% endblock %}
 
+{% block page_script %}
 <script type="text/javascript">
 $(document).on("ready",function()
 {
@@ -92,7 +93,6 @@ $(document).on("ready",function()
 		var chk = false;
 		$('#employment-status input').each(function(i,el)
 		{
-			
 			if ($(el).is(':checked'))
 			{
 				chk = true;
@@ -105,3 +105,4 @@ $(document).on("ready",function()
 	});
 }); 
 </script>
+{% endblock %}
