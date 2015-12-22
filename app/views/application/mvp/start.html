@@ -1,14 +1,14 @@
-{% extends "layout_v8.html" %}
+{% extends "layout.html" %}
 
-{{$pageTitle}}Disclaimer{{/pageTitle}}
+{% block pageTitle %}Disclaimer{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
 <div class="grid-row">
 
-{{>application/mvp/leftcol}}
+{% include "application/mvp/leftcol.html" %}
 
 <section class="column-two-thirds" aria-labelledby="disclaimer">
 
@@ -73,7 +73,5 @@
 
 </main>
 
-{{/content}}
-
-{{/layout_v8}}
+{% endblock %}
 

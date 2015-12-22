@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 
-{{$pageTitle}}Third party{{/pageTitle}}
+{% block pageTitle %}Third party{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
 	<div class="grid-row">
 
-	{{>application/mvp/leftcol}}
+	{% include "application/mvp/leftcol.html" %}
 
 		<section class="column-two-thirds" aria-labelledby="thirdparty">
 
@@ -24,11 +24,11 @@
 					<p class="helper above">This means they'll get phone calls about your application.</p>
 					<div class="form-group form-group-compound" aria-labelledby="represent">
 						<label class="block-label" data-target="thirdpartyextra" for="radio-indent-3partyyes">
-							<input id="radio-indent-3partyyes" type="radio" name="radio-indent-group" value="Yes">
+							<input style="display:inline" id="radio-indent-3partyyes" type="radio" name="radio-indent-group" value="Yes">
 							Yes
 						</label>
 						<label class="block-label" for="radio-indent-3partyno">
-							<input id="radio-indent-3partyno" type="radio" name="radio-indent-group" value="No">
+							<input style="display:inline" id="radio-indent-3partyno" type="radio" name="radio-indent-group" value="No">
 							No
 						</label>
 					</div>
@@ -67,7 +67,5 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
 

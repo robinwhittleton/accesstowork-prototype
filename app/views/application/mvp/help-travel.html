@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 
-{{$pageTitle}}About your condition{{/pageTitle}}
+{% block pageTitle %}About your condition{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
 <div class="grid-row">
 
-{{>application/mvp/leftcol}}
+{% include "application/mvp/leftcol.html" %}
 
 	<section class="column-two-thirds" aria-labelledby="condition">
 
@@ -112,9 +112,7 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
 
 <script type="text/javascript">
 	$(document).on('ready',function()

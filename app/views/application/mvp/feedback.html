@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
   <div class="grid-row">
 
-    {{>application/mvp/leftcol}}
+    {% include "application/mvp/leftcol.html" %}
 
     <section class="column-two-thirds" aria-labelledby="aboutjob">
 
@@ -61,6 +61,4 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
