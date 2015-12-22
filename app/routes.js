@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var user_data = require('../lib/user_data.js');
-var versions = require("../lib/versions.js");
-var fs = require("fs");
-var merge = require('merge');
+var express     = require('express'),
+    fs          = require("fs"),
+    router      = express.Router(),
+    versions    = require(__dirname + '/lib/versions.js'),
+    user_data   = require('../lib/user_data.js');
 
 router.get(/dump/,function(req,res,next)
 {
@@ -34,7 +33,7 @@ router.get(/.*/, function(req,res,next)
 });
 
 /*
-  redirect from the old prototype folder into the new.
+  Redirect from the old prototype folder into the new.
 */
 router.get('/accesstowork/', function (req, res) {      
   res.redirect('application/');
@@ -172,43 +171,6 @@ router.get('/application/explore-another', function(req,res,next)
   res.cookie('taskcount',req.cookies['taskcount']); 
   // req.data.taskcount = req.cookies['taskcount'];
   next();
-});
-
-router.get(/^\/([^.]+)$/, function (req, res) {
-
-  var path = (req.params[0]);
-
-  // remove the trailing slash because it seems nunjucks doesn't expect it.
-  if (path.substr(-1) === '/') path = path.substr(0, path.length - 1);
-
-  // try and render the path – it gets '.html' added 
-  // to it and searches in your "app/views/" folder.
-  res.render(path, merge(true, req.cookies, req.data), function(err, html)
-  {
-    // if it errors try seeing whether it's a folder 
-    // name and look for an index.html file inside it.
-    if (err) 
-    {
-      res.render(path + "/index", function(err2, html) 
-      {
-        if (err2) {
-          // no, nothing exists anywhere for this route. 404!
-          res.status(404).send('<b>'+path+' - not found</b><br />'+err+'<br />'+err2);
-        } else {
-          // it was a folder name.
-          res.end(html);
-        }
-      });
-    } else {
-      // it was an html file.
-      res.end(html);
-    }
-  });
-});
-
-router.post(/^\/([^.]+)$/, function (req, res) {
-  var path = (req.params[0]);
-  res.redirect('/'+path);
 });
 
 module.exports = router;
