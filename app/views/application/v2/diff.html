@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}Diffing versions{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+<div clas"grid-row">
+
+{% include "application/v2/diffs.html" %}
+
+</div>
+
+</main>
+
+{% endblock %}
+
+<script type="text/javascript" src="/public/javascripts/diff.js"> </script>

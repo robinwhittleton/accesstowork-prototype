@@ -67,14 +67,17 @@
       </div>
     </div>
 
-    <div id="global-cookie-message">
-      
-        {% block cookie_message %}{% endblock %}
-      
+    <div id="global-cookie-message" style="height:0;padding:0">
+      <div class="outer-block">
+        <div class="inner-block">
+          
+            {% block cookie_message%}{% endblock %}
+          
+        </div>
+      </div>
     </div>
     <!--end global-cookie-message-->
 
-    
     <header role="banner" id="global-header" class="{% block header_class %}{% endblock %}">
       <div class="header-wrapper">
         <div class="header-global">
@@ -125,8 +128,7 @@
     <!--end footer-->
 
     <div id="global-app-error" class="app-error hidden"></div>
-
-    <script src="{{ asset_path }}javascripts/govuk-template.js?0.16.0" type="text/javascript"></script>
+    fish
 
     {% block body_end %}{% endblock %}
     {% block page_script %}{% endblock %}
