@@ -7,12 +7,16 @@
     "node": "4.x"
   },
   "dependencies": {
-    "browser-sync": "^2.9.10",
+    "basic-auth-connect": "1.0.0",
+    "body-parser": "^1.14.1",
+    "browser-sync": "^2.10.0",
     "consolidate": "0.x",
-    "express": "3.4.7",
+    "cookie-parser": "^1.4.0",
+    "express": "4.13.3",
+    "express-nunjucks": "^0.9.3",
     "express-writer": "0.0.4",
-    "govuk_frontend_toolkit": "~3.1.0",
-    "govuk_template_mustache": "~0.12.0",
+    "govuk_frontend_toolkit": "^4.2.1",
+    "govuk_template_mustache": "^0.16.0",
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",
     "grunt-concurrent": "0.4.3",
@@ -21,11 +25,10 @@
     "grunt-contrib-watch": "0.5.3",
     "grunt-nodemon": "0.4.0",
     "grunt-sass": "^1.1.0",
-    "grunt-text-replace": "0.3.12",
     "hogan.js": "3.0.2",
     "merge": "^1.2.0",
     "minimist": "0.0.8",
-    "node-sass": "3.3.3",
-    "readdir": "0.0.6"
+    "readdir": "0.0.6",
+    "serve-favicon": "2.3.0"
   }
 }

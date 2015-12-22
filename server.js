@@ -1,12 +1,16 @@
 var path = require('path'),
     express = require('express'),
     browserSync = require('browser-sync'),
+    nunjucks = require('express-nunjucks'),    
+    cookieParser = require('cookie-parser'),
     routes = require(__dirname + '/app/routes.js'),
-    merge = require('merge'),
-    user_data = require(__dirname + '/lib/user_data.js'),
+    favicon = require('serve-favicon'),
     app = express(),
-    fs = require('fs'),
+    basicAuth = require('basic-auth-connect'),
+    bodyParser = require('body-parser'),
     port = (process.env.PORT || 3000),
+    user_data = require(__dirname + '/lib/user_data.js'),
+    
     // Grab environment variables specified in Procfile or as Heroku config vars
     username = process.env.USERNAME,
     password = process.env.PASSWORD,
@@ -23,51 +27,45 @@ var path = require('path'),
 // }
 
 // Application settings
-app.engine('html', require(__dirname + '/lib/template-engine.js').__express);
 app.set('view engine', 'html');
-app.set('vendorViews', __dirname + '/govuk_modules/govuk_template/views/layouts');
-app.set('views', __dirname + '/app/views');
+app.set('views', [__dirname + '/app/views/', __dirname + '/lib/']);
+
+nunjucks.setup({
+    autoescape: true,
+    watch: true
+}, app);
 
 // Middleware to serve static assets
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/public', express.static(__dirname + '/govuk_modules/govuk_template/assets'));
 app.use('/public', express.static(__dirname + '/govuk_modules/govuk_frontend_toolkit'));
+app.use('/public/images/icons', express.static(__dirname + '/govuk_modules/govuk_frontend_toolkit/images'));
+// Elements refers to icon folder instead of images folder
 
-app.use(express.favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets', 'images','favicon.ico')));
+app.use(favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets', 'images','favicon.ico')));
+
+// Support for parsing data in POSTs
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(cookieParser());
+app.use(user_data.form_to_cookie());
 
 // send assetPath to all views
 app.use(function (req, res, next) {
-  res.locals({'assetPath': '/public/'});
+  res.locals.asset_path="/public/";
   next();
 });
 
-app.use(express.urlencoded());
-app.use(express.cookieParser());
-app.use(user_data.form_to_cookie());
-
 // routes (found in app/routes.js)
-routes.bind(app);
+if (typeof(routes) != "function"){
+  console.log(routes.bind);
+  console.log("Warning: the use of bind in routes is deprecated - please check the prototype kit documentation for writing routes.")
+  routes.bind(app);
+} else {
+  app.use("/", routes);
+}
 
-// auto render any view that exists
-app.get(/^\/([^.]+)$/, function (req, res) 
-{
-	var path = (req.params[0]);
-  res.render(path, merge(true, req.cookies, req.data), function(err, html)
-  {
-		if (err) {
-			console.log(err);
-			res.send(404);
-		} else {
-			res.end(html);
-		}
-	});
-});
-
-app.post(/^\/([^.]+)$/, function (req, res) {
-  var path = (req.params[0]);
-  res.redirect(path);
-});
-
+// start the app
 if (env === 'production') {
   app.listen(port);
 } else {
@@ -75,6 +73,8 @@ if (env === 'production') {
   {
     browserSync({
       proxy:'localhost:'+port,
+      port:port+1,
+      ui:false,
       files:['public/**/*.{js,css}','app/views/**/*.html'],
       ghostmode:{clicks:true, forms: true, scroll:true},
       open:false,
