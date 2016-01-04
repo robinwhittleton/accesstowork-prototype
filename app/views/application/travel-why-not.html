@@ -16,10 +16,10 @@
 
   <script type="text/javascript">
     var the_needs = [];
-    {{#travel-not}}
-      the_needs.push('{{.}}');
-    {% endblock %}
-    if (the_needs[0] == '') the_needs[0] = '{{ travel-not }}';      
+    {% for item in travel_not %}
+      the_needs.push('{{ item }}');
+    {% endfor %}
+    if (the_needs[0] == '') the_needs[0] = '{{ travel_not }}';      
   </script>
 
   <!-- BACK LINK -->

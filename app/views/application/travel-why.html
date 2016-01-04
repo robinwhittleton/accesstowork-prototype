@@ -14,10 +14,10 @@
 
   <script type="text/javascript">
     var the_needs = [];
-    {{#travel-now}}
-      the_needs.push('{{.}}');
-    {% endblock %}
-    if (the_needs[0] == '') the_needs[0] = '{{ travel-now }}';      
+    {% for item in travel_now %}
+      the_needs.push('{{ item }}');
+    {% endfor %}
+    if (the_needs[0] == '') the_needs[0] = '{{ travel_now }}';      
   </script>
 
   <!-- BACK LINK -->

@@ -16,10 +16,10 @@
 
   <script type="text/javascript">
   var hearing_needs = [];
-  {{#deaf-need}}
-    hearing_needs.push('{{.}}');    
-  {% endblock %}
-  if (hearing_needs[0] == '') hearing_needs[0] = '{{ deaf-need }}';      
+  {& for item in deaf_need %}
+    hearing_needs.push('{{ item }}');    
+  {% endfor %}
+  if (hearing_needs[0] == '') hearing_needs[0] = '{{ deaf_need }}';      
   </script>
 
   <!-- BACK LINK -->

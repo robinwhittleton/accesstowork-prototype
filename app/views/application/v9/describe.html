@@ -22,14 +22,14 @@
 
   <form action="" method="post" class="form" id="theForm">
     <div id="fields">
-      {{#explore-tasks}}
+      {% for item in explore_tasks %}
         <fieldset class="inline">
-          <h2 class="font-large task">&ldquo;{{.}}&rdquo;</h2>
+          <h2 class="font-large task">&ldquo;{{ item }}&rdquo;</h2>
           <p>How does your condition make this harder for you?</p>
           <textarea></textarea>
         </fieldset>
         <br />
-      {% endblock %}
+      {% endfor %}
     </div>
 
     <fieldset class="primary-nav form-group">
