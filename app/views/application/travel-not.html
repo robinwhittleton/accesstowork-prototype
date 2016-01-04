@@ -69,7 +69,7 @@
 $(document).on('ready',function()
 {
   // grab the options from the cookie.
-  var options = $.parseJSON(Cookies.get('travel-now'));
+  var options = $.parseJSON(Cookies.get('travel_now'));
   
   // make sure it's always an array.
   if (typeof options == 'string') options = [options];

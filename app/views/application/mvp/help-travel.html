@@ -122,7 +122,7 @@
 	  $('#submitButton').on('click',function(e)
 	  {
 	    e.preventDefault();
-	    var travel = Cookies.get('hasEffectWork');
+	    var travel = JSON.parse(Cookies.get('hasEffectWork'));
 	    if (typeof travel !== 'undefined')
 	    {
 	    	form.attr('action','help-inwork');        

@@ -62,7 +62,7 @@
   $(document).on('ready',function()
   {
     var dest = '';
-    var jobalready = Cookies.get('job-already'); 
+    var jobalready = JSON.parse(Cookies.get('job_already')); 
 
     $(subb).on('click',function(e)
     {
@@ -71,7 +71,7 @@
       if (jobalready == 'Yes')
       {
         // go and check what they put for employment status.
-        var emp_status = Cookies.get('emp-status');  
+        var emp_status = JSON.parse(Cookies.get('emp_status'));  
         switch(emp_status)
         {
           case "Employed": dest = 'employed'; break;
@@ -84,7 +84,7 @@
       // to the interview question?
       if (!dest) 
       {
-        var interview = Cookies.get('1_interview');
+        var interview = JSON.parse(Cookies.get('1_interview'));
         if (interview == 'Yes') dest = 'interview';
         else dest = 'interview-exit';
       }

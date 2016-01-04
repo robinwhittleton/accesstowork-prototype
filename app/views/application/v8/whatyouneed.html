@@ -75,7 +75,7 @@
   $(document).on('ready',function()
   {
     var dest = '';
-    var jobalready = JSON.parse(Cookies.get('job-already'));
+    var jobalready = JSON.parse(Cookies.get('job_already'));
 
     $(subb).on('click',function(e)
     {
@@ -84,7 +84,7 @@
       if (jobalready == 'Yes')
       {
         // go and check what they put for employment status.
-        var emp_status = JSON.parse(Cookies.get('emp-status'));
+        var emp_status = JSON.parse(Cookies.get('emp_status'));
         switch(emp_status)
         {
           case "Employed": dest = 'employed'; break;

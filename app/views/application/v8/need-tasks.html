@@ -93,7 +93,7 @@ $(document).on("ready",function(e)
     e.preventDefault();
 
     // go and check what they put for employment status.
-    var emp_status = JSON.parse(Cookies.get('emp-status')); console.log(emp_status);
+    var emp_status = JSON.parse(Cookies.get('emp_status')); console.log(emp_status);
     switch(emp_status)
     {
       case "Employed": dest = 'employed'; break;

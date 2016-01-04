@@ -81,7 +81,7 @@ router.get(/\/api\/(.*)\//, function (req, res)
 router.get('/reset', function(req, res) 
 {
   user_data.clear(req, res);
-  res.redirect('/')
+  res.redirect('/');
 });
 router.get('/application/start', function(req, res, next) 
 {

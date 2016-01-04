@@ -89,7 +89,7 @@
 $(document).on("ready",function(e)
 {
   // grab the count from the cookie (if it exists).
-  var t = Cookies.get('hearing_count');
+  var t = JSON.parse(Cookies.get('hearing_count'));
   if (!t) t = 0;
   // just put the first one on the page.
   var hearing_count = t;  
