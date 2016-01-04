@@ -10,13 +10,13 @@
 
 <div class="grid-row">
 
-{% include "includes/leftcol_v9.html" %}
+
 
 <section class="column-two-thirds" aria-labelledby="aboutjob">
 
   <script type="text/javascript">
     var hearing_needs = [];
-    {& for item in deaf_need %}
+    {% for item in deaf_need %}
       hearing_needs.push('{{ item }}');    
     {% endfor %}
     if (hearing_needs[0] == '') hearing_needs[0] = '{{ deaf_need }}';      
