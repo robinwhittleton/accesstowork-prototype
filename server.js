@@ -11,6 +11,7 @@ var path          = require('path'),
     
     // routing and extras
     routes        = require(__dirname + '/lib/default-routes.js'),
+    app_routes    = require(__dirname + '/app/routes.js'),
     user_data     = require(__dirname + '/lib/user_data.js'),
 
     // Grab environment variables specified in Procfile or as Heroku config vars
@@ -74,12 +75,14 @@ app.use(function (req, res, next) {
 /*
   Routes (found in app/routes.js).
 */
-if (typeof(routes) != "function"){
+if (typeof(routes) != "function") {
   console.log(routes.bind);
   console.log("Warning: the use of bind in routes is deprecated - please check the prototype kit documentation for writing routes.")
   routes.bind(app);
 } else {
+  console.log('Using routes');
   app.use("/", routes);
+  app.use("/", app_routes);
 }
 
 

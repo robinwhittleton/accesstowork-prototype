@@ -1,8 +1,8 @@
 var express     = require('express'),
     fs          = require("fs"),
     router      = express.Router(),
-    versions    = require(__dirname + '/lib/versions.js'),
-    user_data   = require('../lib/user_data.js');
+    versions    = require(__dirname + '/../lib/versions.js'),
+    user_data   = require(__dirname + '/../lib/user_data.js');
 
 router.get(/dump/,function(req,res,next)
 {
