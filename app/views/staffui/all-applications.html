@@ -1,10 +1,10 @@
-{{< staffui/layout }}
+{% extends "staffui/layout.html" %}
 
-{{$pageTitle}}
+{% block pageTitle %}
 	Access To Work - Prototype
-{{/pageTitle}}
+{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -48,7 +48,7 @@
 						</select>
 					</td>
 				</tr>
-			{{/ customers }}			
+			{% endblock %}			
 	  	</tbody>
 		</table>
 	
@@ -56,10 +56,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/ staffui/layout }}
-
+{% block page_script %}
 <script type="text/javascript">
 	$(document).on('ready',function()
 	{
@@ -84,3 +83,4 @@
 
 	});
 </script>
+{% endblock %}

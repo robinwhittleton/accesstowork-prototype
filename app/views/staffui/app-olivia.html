@@ -1,10 +1,10 @@
-{{< staffui/layout }}
+{% extends "staffui/layout.html" %}
 
-{{$pageTitle}}
+{% block pageTitle %}
 	Access To Work - Prototype
-{{/pageTitle}}
+{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -55,6 +55,4 @@
 
 </main>
 
-{{/content}}
-
-{{/ staffui/layout }}
+{% endblock %}

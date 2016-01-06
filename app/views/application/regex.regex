@@ -11,6 +11,7 @@ s/\{\{<(.*)\}\}/{% extends "\1.html" %}/g
 
 
 sed -i '' 's/{{<\(.*\)}}/{% extends "\1.html" %}/g' index.html 
+sed -i '' 's/{{<[ ]*\([a-zA-Z/]*\)[ ]*}}/{% extends "\1.html" %}/g' index.html
 
 sed -i '' 's/{{$\(.*\)}}/{% block \1 %}/g' index.html
 
