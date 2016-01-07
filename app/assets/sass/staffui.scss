@@ -21,6 +21,7 @@
 #content {
   max-width:none;
   padding:0;
+  margin:0;
 }
 
 /* INCLUDING THE PROTOTYPE TAG THING IN THE BANNER */
@@ -107,7 +108,6 @@
   display:inline-block;
   position:relative; top:-2px;  
   padding:2px 7px;
-  background-color:$pink;
   color:white;
   border-radius:5px;
   margin-left:5px;
@@ -118,8 +118,55 @@ td.adviser {
 td.choice {
   display:none;
 }
-.app-list {
-  td {
-    height:38px;
+th.last,
+td.last {
+  text-align:right;
+}
+// .app-list {
+//   td {
+//     height:38px;
+//   }
+// }
+.screens {
+  li {
+    box-sizing:border-box;
+    display:inline-block;
+    margin:0;padding:0;
+    padding-right:30px;
+    width:20%;    
+    div {
+      height:220px;
+      background-size:100% auto;
+      background-repeat:no-repeat;
+      background-color:#dee0e2;
+      border:1px solid #ccc;
+    }
   }
+}
+
+/*
+  Stats bits
+*/
+.stats {
+  margin-bottom:30px;
+  li {
+    box-sizing:border-box;
+    display:inline-block;    
+    margin-right:30px;
+  }
+}
+.stat-label {
+  margin:0;
+}
+.stat-num {
+  margin:0;
+}
+.tag {
+  &.just_in {background-color:$discovery-colour}
+  &.allocated {background-color:$alpha-colour}
+  &.gathering {background-color:$beta-colour}
+  &.needs_review {background-color:$discovery-colour}
+  &.waiting {background-color:$error-colour}
+  &.offer_sent {background-color:$live-colour}
+  &.support_agreed {background-color:$live-colour}
 }

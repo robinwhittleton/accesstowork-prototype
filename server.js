@@ -42,7 +42,12 @@ nunjucks.setup({
     autoescape: true,
     watch: true,
     noCache: true,
-}, app);
+}, app, function(env)
+{
+  env.addFilter('slugify', function(str) {
+      return str.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()’]/g,"").replace(/ +/g,'_').toLowerCase();
+  });
+});
 
 
 /*
@@ -82,9 +87,9 @@ if (typeof(routes) != "function") {
   routes.bind(app);
 } else {
   console.log('Using routes');
-  app.use(app_routes);  // these have to come first.
+  app.use(app_routes);    // these have to come first.
   app.use(staff_routes);  // these have to come first.
-  app.use(routes);      // these come last because they mop up!
+  app.use(routes);        // these come last because they mop up!
 }
 
 
