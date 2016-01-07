@@ -8,3 +8,7 @@ node_modules/*
 makediffs
 *.pdf
 v11*
+*node_modules*
+**shots/*.js
+**shots/*.json
+**shots/*.md

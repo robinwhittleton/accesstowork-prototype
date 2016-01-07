@@ -119,12 +119,6 @@ router.all('/application/v[789]/need-why', function(req, res, next)
   next();
 });
 
-router.get('/staffui/all-applications', function(req,res,next)
-{
-  req.data.customers = require("../lib/customers.js");      
-  next();
-});
-
 /* sanitising data for the describe page */
 router.get('/application/describe', function(req,res,next)
 {

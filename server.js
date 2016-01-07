@@ -12,6 +12,7 @@ var path          = require('path'),
     // routing and extras
     routes        = require(__dirname + '/lib/default-routes.js'),
     app_routes    = require(__dirname + '/app/routes.js'),
+    staff_routes  = require(__dirname + '/app/views/staffui/routes.js'),
     user_data     = require(__dirname + '/lib/user_data.js'),
 
     // Grab environment variables specified in Procfile or as Heroku config vars
@@ -82,6 +83,7 @@ if (typeof(routes) != "function") {
 } else {
   console.log('Using routes');
   app.use(app_routes);  // these have to come first.
+  app.use(staff_routes);  // these have to come first.
   app.use(routes);      // these come last because they mop up!
 }
 
