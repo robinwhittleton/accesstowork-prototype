@@ -112,11 +112,17 @@
   border-radius:5px;
   margin-left:5px;
 }
+table td:first-child {
+  width:auto;
+}
 td.adviser {
   display:table-cell;
 }
 td.choice {
   display:none;
+}
+table th {
+  color:$text-colour;
 }
 th.last,
 td.last {
@@ -149,11 +155,17 @@ td.last {
 */
 .stats {
   margin-bottom:30px;
+  border-bottom:1px solid $grey-2;
+  display:table;
+  width:100%;
   li {
     box-sizing:border-box;
-    display:inline-block;    
-    margin-right:30px;
+    display:table-cell;    
+    width:19%;
+    margin:0;padding:0;
+    padding-right:10px;
   }
+
 }
 .stat-label {
   margin:0;
@@ -165,8 +177,20 @@ td.last {
   &.just_in {background-color:$discovery-colour}
   &.allocated {background-color:$alpha-colour}
   &.gathering {background-color:$beta-colour}
-  &.needs_review {background-color:$discovery-colour}
-  &.waiting {background-color:$error-colour}
+  &.needs_review {background-color:$turquoise}  
   &.offer_sent {background-color:$live-colour}
   &.support_agreed {background-color:$live-colour}
+  
+  &.employer {background-color:$alpha-colour}
+  &.extra_info {background-color:$discovery-colour}
+  &.quotes {background-color:$alpha-colour}
+  &.assessment {background-color:$beta-colour}
+
+  &.waiting_assessment,
+  &.waiting_employer,
+  &.waiting_extra_info,
+  &.waiting_med_ev,
+  &.waiting_offer_sent,
+  &.waiting_quotes,
+    {background-color:$error-colour}
 }
