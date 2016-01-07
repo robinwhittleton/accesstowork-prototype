@@ -1,0 +1,30 @@
+{% extends "staffui/layout.html" %}
+
+{% block pageTitle %}
+	Access To Work - Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<div class="staff-container">
+
+	<section class="staff-nav"></section>
+
+	<section aria-labelledby="staffui" class="staff-main">
+		
+			<h1 class="heading-large">Pages</h1>
+			<ol class="screens">
+				<li><a href="login">
+          login <div style="background-image:url(/public/images/shots/atwsa/login-full.png)"></div>
+        </a></li>
+        <li><a href="all">
+          all customers <div style="background-image:url(/public/images/shots/atwsa/all-customers-full.png)"></div>
+        </a></li>
+			</ol>
+
+	</section>
+</div>
+</main>
+
+{% endblock %}
