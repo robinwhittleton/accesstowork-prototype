@@ -79,7 +79,7 @@ app.use(function (req, res, next) {
 
 
 /*
-  Routes (found in app/routes.js).
+  Routers
 */
 if (typeof(routes) != "function") {
   console.log(routes.bind);

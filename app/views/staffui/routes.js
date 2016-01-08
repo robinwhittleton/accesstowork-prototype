@@ -31,7 +31,6 @@ router.get('/staffui/adviser/:id?', function(req,res,next)
   {
     return el.adviser.id == id;
   });
-  console.log(data);
   req.data.customers = data;
   req.url = '/staffui/adviser/';
   next();
