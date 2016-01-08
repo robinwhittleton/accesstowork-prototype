@@ -1,8 +1,8 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{% block pageTitle %}About you{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -21,7 +21,7 @@
 
 
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 
 <section class="column-two-thirds" aria-labelledby="aboutyou">
@@ -32,7 +32,7 @@
 
 <div class="validation-summary js-hidden" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
 
-	<h1>{{errors}}</h1>
+	<h1>{{ errors }}</h1>
 
     <h2 class="bold-medium">What what what???</h2>
 
@@ -147,7 +147,5 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
 

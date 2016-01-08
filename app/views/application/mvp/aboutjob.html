@@ -1,14 +1,14 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
   <div class="grid-row">
 
-    {{>application/mvp/leftcol}}
+    {% include "application/mvp/leftcol.html" %}
 
     <section class="column-two-thirds" aria-labelledby="aboutjob">
 
@@ -24,15 +24,15 @@
          <legend class="form-label" id="howEmployed">How are you employed?</legend>
          <div class="form-group form-group-compound" aria-labelledby="howEmployed">
           <label class="block-label" for="employed">
-            <input id="employed" type="radio" name="emp-status" value="Employed" data-dest="employed">
+            <input style="display:inline" id="employed" type="radio" name="emp-status" value="Employed" data-dest="employed">
             Employed
           </label>
           <label class="block-label" for="self-employed">
-            <input id="self-employed" type="radio" name="emp-status" value="Self" data-dest="self-employed">
+            <input style="display:inline" id="self-employed" type="radio" name="emp-status" value="Self" data-dest="self-employed">
             Self-employed
           </label>
           <label class="block-label" for="ltd">
-            <input id="ltd" type="radio" name="emp-status" value="Director of a limited company" data-dest="limited-company">
+            <input style="display:inline" id="ltd" type="radio" name="emp-status" value="Director of a limited company" data-dest="limited-company">
             Director of a limited company
           </label>
         </div>
@@ -73,10 +73,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout}}
-
+{% block page_script %}
 <script type="text/javascript">
   $(document).on('ready',function()
   {
@@ -101,3 +100,4 @@
     });
   });
 </script>
+{% endblock %}

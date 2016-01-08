@@ -1,16 +1,16 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{% block pageTitle %}About you{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 <section class="column-two-thirds" aria-labelledby="thirdparty">
 
@@ -26,11 +26,11 @@
   <form action="aboutjob" method="post" class="form" id="theForm">
 
     <h3 class="heading-medium" style="margin-bottom:0.25em">Your condition</h3>
-    <h2 class="font-large" style="margin-top:0;margin-bottom:1em;"><span style="color:#999">&ldquo;{{travel-condition}}&rdquo;</span></h2>
+    <h2 class="font-large" style="margin-top:0;margin-bottom:1em;"><span style="color:#999">&ldquo;{{ travel_condition }}&rdquo;</span></h2>
 
     <!-- WHY DO YOU NEED -->
     <div class="form-group">
-      <label class="form-label-bold" for="reasons" id="">How does this cause you to need <span style="color:#666">{{what-you-need}}</span>?</label>
+      <label class="form-label-bold" for="reasons" id="">How does this cause you to need <span style="color:#666">{{ what_you_need }}</span>?</label>
       <textarea class="form-control" id="reasons" name="reasons"></textarea>
     </div>
 
@@ -47,10 +47,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout}}
-
+{% block page_script %}
 <script type="text/javascript">
 
   var form = $("#theForm"),
@@ -59,7 +58,7 @@
   $(document).on('ready',function()
   {
     var dest = '';
-    var jobalready = Cookies.get('job-already');
+    var jobalready = JSON.parse(Cookies.get('job_already'));
 
     $(subb).on('click',function(e)
     {
@@ -68,7 +67,7 @@
       if (jobalready == 'Yes')
       {
         // go and check what they put for employment status.
-        var emp_status = Cookies.get('emp-status');
+        var emp_status = JSON.parse(Cookies.get('emp_status'));
         switch(emp_status)
         {
           case "Employed": dest = 'employed'; break;
@@ -83,3 +82,4 @@
     });
   });
 </script>
+{% endblock %}

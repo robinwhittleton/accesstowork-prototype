@@ -1,16 +1,16 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{% block pageTitle %}About you{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 <section class="column-two-thirds" aria-labelledby="aboutyou">
 
@@ -59,6 +59,4 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}

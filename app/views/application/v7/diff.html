@@ -1,23 +1,22 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}Diffing versions{{/pageTitle}}
+{% block pageTitle %}Diffing versions{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
 <div clas"grid-row">
 
-{{>application/v7/diffs}}
+{% include "application/v7/diffs.html" %}
 
 </div>
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout}}
-
+{% block page_script %}
 <script type="text/javascript">
   var version = "v7";
   var data = {
@@ -26,3 +25,4 @@
   }
 </script>
 <script type="text/javascript" src="/public/javascripts/diff.js"> </script>
+{% endblock %}

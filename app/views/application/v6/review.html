@@ -1,8 +1,8 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}Consent &amp; Declaration{{/pageTitle}}
+{% block pageTitle %}Consent &amp; Declaration{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -19,7 +19,7 @@
 <div class="grid-row">
 
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 
 <section class="column-two-thirds" aria-labelledby="review">
@@ -80,7 +80,7 @@
 	      </tr>
 	    </tbody>
 	  </table>
-	  {{/trd-name}}
+	  {% endblock %}
 	  
 	  
 	  <table class="form-group">
@@ -147,14 +147,14 @@
 	    <tbody>	    
 	    <tr>
 	        <td>Conditions</td>
-	        <td>{{#conditions}}{{.}}, {{/conditions}}</td>
+	        <td>{{#conditions}}{{.}}, {% endblock %}</td>
 	    </tr>	    
 	    {{#difficulty}}
 	    <tr>
 	        <td></td>
 	        <td>{{.}}</td>
 	    </tr>
-	    {{/difficulty}}
+	    {% endblock %}
 		
 		<tr>
 	        <td>Conditions &amp; Disabilities</td>
@@ -194,6 +194,4 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}

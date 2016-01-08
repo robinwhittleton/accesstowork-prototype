@@ -1,16 +1,16 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 <section class="column-two-thirds" aria-labelledby="aboutjob">
 
@@ -27,7 +27,7 @@
 
     <!-- LIST THE THINGS -->
     <fieldset class="inline" id="havejob">
-      <legend class="form-label-bold" id="alreadyJob">What work tasks do you need {{what-you-need}} for?</legend>
+      <legend class="form-label-bold" id="alreadyJob">What work tasks do you need {{ what_you_need }} for?</legend>
       <div class="tasks">
         <p class="cond"><input name="need-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
         <p class="cond"><input name="need-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
@@ -58,10 +58,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout}}
-
+{% block page_script %}
 <script type="text/javascript">
 
 /*
@@ -94,7 +93,7 @@ $(document).on("ready",function(e)
     e.preventDefault();
 
     // go and check what they put for employment status.
-    var emp_status = Cookies.get('emp-status'); console.log(emp_status);
+    var emp_status = JSON.parse(Cookies.get('emp_status')); console.log(emp_status);
     switch(emp_status)
     {
       case "Employed": dest = 'employed'; break;
@@ -109,3 +108,4 @@ $(document).on("ready",function(e)
 });
 
 </script>
+{% endblock %}

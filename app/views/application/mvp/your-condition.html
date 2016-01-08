@@ -1,14 +1,14 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your condition{{/pageTitle}}
+{% block pageTitle %}About your condition{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
   <div class="grid-row">
 
-    {{>application/mvp/leftcol}}
+    {% include "application/mvp/leftcol.html" %}
 
     <section class="column-two-thirds" aria-labelledby="disclaimer">
 
@@ -55,16 +55,13 @@
 
 </section>
 
-{{> application/mvp/rightcol }}
-
 </div>
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout}}
-
+{% block page_script %}
 <script type="text/javascript">
 	var form = $('form');
 
@@ -90,3 +87,4 @@
     });
  });
 </script>
+{% endblock %}

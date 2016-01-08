@@ -1,8 +1,8 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -21,7 +21,7 @@
 
 
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 
 <div class="column-two-thirds">
@@ -81,10 +81,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout}}
-
+{% block page_script %}
 <script type="text/javascript">
 $(document).on("ready",function()
 {
@@ -94,7 +93,6 @@ $(document).on("ready",function()
 		var chk = false;
 		$('#employment-status input').each(function(i,el)
 		{
-			
 			if ($(el).is(':checked'))
 			{
 				chk = true;
@@ -107,3 +105,4 @@ $(document).on("ready",function()
 	});
 }); 
 </script>
+{% endblock %}

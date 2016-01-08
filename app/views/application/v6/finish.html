@@ -1,8 +1,8 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}Application complete{{/pageTitle}}
+{% block pageTitle %}Application complete{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -19,7 +19,7 @@
 <div class="grid-row">
 
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 
 <section class="column-two-thirds" aria-labelledby="complete">
@@ -59,7 +59,5 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
 

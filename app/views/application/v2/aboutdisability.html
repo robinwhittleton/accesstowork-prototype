@@ -1,8 +1,8 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your disability{{/pageTitle}}
+{% block pageTitle %}About your disability{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -21,7 +21,7 @@
 
 
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 
 <div class="column-two-thirds">
@@ -144,7 +144,5 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
 

@@ -1,16 +1,14 @@
-{{< application/layout }}
+{% extends "application/layout.html" %}
 
-{{$pageTitle}}Travelling to or from work{{/pageTitle}}
+{% block pageTitle %}Travelling to or from work{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
-
-  {{>includes/leftcol_v9}}
 
 <section class="column-two-thirds" aria-labelledby="thirdparty">
 
@@ -84,16 +82,15 @@
 
 </section><!-- .column-two-thirds -->
 
-{{> application/rightcol }}
+{% include "application/rightcol.html" %}
 
 </div><!-- .grid-row -->
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/ application/layout }}
-
+{% block page_script %}
 <script type="text/javascript">
   $('#nextButton').on('click',function(e)
   {
@@ -126,3 +123,4 @@
     else alert('Please pick one.');
   });
 </script>
+{% endblock %}

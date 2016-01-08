@@ -1,16 +1,16 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{% block pageTitle %}About you{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 <section class="column-two-thirds" aria-labelledby="thirdparty">
 
@@ -124,10 +124,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout}}
-
+{% block page_script %}
 <script type="text/javascript">
 
     var form = $("#theForm"),
@@ -186,45 +185,7 @@
         $('#csi-status label').each(function(i,el) { $(el).removeClass('selected'); });
       });
 
-      /*
-        Reimplementing the stuff from the cookies
-      */
-
-      /*
-      switch(Cookies.get('job-already'))
-      {
-        case 'Yes': $('#job-already-yes').trigger('click'); break;
-        case 'No': $('#job-already-no').trigger('click'); break;
-      }
-
-      switch(Cookies.get('emp-status'))
-      {
-        case 'Employed': $('#employed').trigger('click'); break;
-        case 'Self': $('#self-employed').trigger('click'); break;
-        case 'Director': $('#ltd').trigger('click'); break;
-      }
-
-      var n = Cookies.get('what-you-need');
-
-      try {
-        var whats = $.parseJSON(n);
-      } catch (e) {
-        whats = [n];
-      }
-
-      $('input[name=what-you-need]').each(function(i,el)
-      {
-          $.each(whats,function(j)
-          {
-            var e = $(el).val();
-            if (e == whats[j]) {
-              $(el).trigger('click');
-            }
-          })
-      });
-
-      */
-
     });
 
 </script>
+{% endblock %}

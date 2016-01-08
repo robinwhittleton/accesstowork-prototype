@@ -15,9 +15,13 @@
   display:none;
   max-width:none;
 }
+#global-header #logo img {
+  visibility:visible;
+}
 #content {
   max-width:none;
   padding:0;
+  margin:0;
 }
 
 /* INCLUDING THE PROTOTYPE TAG THING IN THE BANNER */
@@ -104,10 +108,12 @@
   display:inline-block;
   position:relative; top:-2px;  
   padding:2px 7px;
-  background-color:$pink;
   color:white;
   border-radius:5px;
   margin-left:5px;
+}
+table td:first-child {
+  width:auto;
 }
 td.adviser {
   display:table-cell;
@@ -115,8 +121,76 @@ td.adviser {
 td.choice {
   display:none;
 }
-.app-list {
-  td {
-    height:38px;
+table th {
+  color:$text-colour;
+}
+th.last,
+td.last {
+  text-align:right;
+}
+// .app-list {
+//   td {
+//     height:38px;
+//   }
+// }
+.screens {
+  li {
+    box-sizing:border-box;
+    display:inline-block;
+    margin:0;padding:0;
+    padding-right:30px;
+    width:20%;    
+    div {
+      height:220px;
+      background-size:100% auto;
+      background-repeat:no-repeat;
+      background-color:#dee0e2;
+      border:1px solid #ccc;
+    }
   }
+}
+
+/*
+  Stats bits
+*/
+.stats {
+  margin-bottom:30px;
+  border-bottom:1px solid $grey-2;
+  display:table;
+  width:100%;
+  li {
+    box-sizing:border-box;
+    display:table-cell;    
+    width:19%;
+    margin:0;padding:0;
+    padding-right:10px;
+  }
+
+}
+.stat-label {
+  margin:0;
+}
+.stat-num {
+  margin:0;
+}
+.tag {
+  &.just_in {background-color:$discovery-colour}
+  &.allocated {background-color:$alpha-colour}
+  &.gathering {background-color:$beta-colour}
+  &.needs_review {background-color:$turquoise}  
+  &.offer_sent {background-color:$live-colour}
+  &.support_agreed {background-color:$live-colour}
+  
+  &.employer {background-color:$alpha-colour}
+  &.extra_info {background-color:$discovery-colour}
+  &.quotes {background-color:$alpha-colour}
+  &.assessment {background-color:$beta-colour}
+
+  &.waiting_assessment,
+  &.waiting_employer,
+  &.waiting_extra_info,
+  &.waiting_med_ev,
+  &.waiting_offer_sent,
+  &.waiting_quotes,
+    {background-color:$error-colour}
 }

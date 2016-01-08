@@ -1,16 +1,16 @@
-{{<layout_v8}}
+{% extends "layout_v8.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol_v9}}
+
 
 <section class="column-two-thirds" aria-labelledby="aboutjob">
 
@@ -116,10 +116,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout_v8}}
-
+{% block page_script %}
 <script type="text/javascript">
   $(document).on("ready",function(e)
   {
@@ -129,7 +128,7 @@
       e.preventDefault();
 
       // go and check what they put for employment status.
-      var emp_status = JSON.parse(Cookies.get('emp-status')); console.log(emp_status);
+      var emp_status = JSON.parse(Cookies.get('emp_status')); console.log(emp_status);
       switch(emp_status)
       {
         case "Employed": dest = 'line-manager'; break;
@@ -150,3 +149,4 @@
     });
   });
 </script>
+{% endblock %}

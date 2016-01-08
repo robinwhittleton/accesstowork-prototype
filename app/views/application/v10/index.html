@@ -1,18 +1,18 @@
-{{< application/layout }}
+{% extends "application/layout.html" %}
 
-{{$pageTitle}}Can you get an Access to Work grant?{{/pageTitle}}
+{% block pageTitle %}Can you get an Access to Work grant?{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
 <section class="column-two-thirds">
 
-  <h1 class="form-title heading-xlarge"> Access to Work </h1>
+  <h1 class="form-title heading-xlarge">Apply for an Access to Work grant</h1>
     
   <!-- INTRO NAVIGAITON -->
   <nav class="intro-nav">
@@ -86,7 +86,5 @@
 
 </main>
 
-{{/content}}
-
-{{/ application/layout }}
+{% endblock %}
 

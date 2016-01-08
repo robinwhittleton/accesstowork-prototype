@@ -1,0 +1,48 @@
+{% extends "staffui/layout.html" %}
+
+{% block pageTitle %}
+	Access To Work - Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<div class="staff-container">
+
+	<section class="staff-nav"></section>
+
+	<section aria-labelledby="staffui" class="staff-main">
+		
+			<h1 class="heading-large">Welcome</h1>
+
+			<h2 class="heading-medium">Sign in</h2>
+			<form action="all-applications" method="post">
+			<fieldset>
+      	
+	      <!-- USERNAME -->
+	      <div class="form-group">
+	        <label class="form-label" for="username" id="username-label">Username</label>
+	        <input class="form-control" id="username" name="username" type="text" aria-required="true" />
+	      </div>
+
+	      <!-- PASSWORD -->
+	      <div class="form-group">
+	        <label class="form-label" for="password" id="password-label">Password</label>
+	        <input class="form-control" id="password" name="password" type="password" aria-required="true" />
+	      </div>	      
+
+    	</fieldset>
+
+    	<fieldset class="form-group" style="margin-top:30px;">
+	      <ul>
+	        <li><input type="submit" value="Continue" class="button"></li>
+	      </ul>
+	    </fieldset>
+				
+			</form>
+
+	</section>
+</div>
+</main>
+
+{% endblock %}

@@ -1,12 +1,12 @@
-{{< application/layout }}
+{% extends "application/layout.html" %}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{% block pageTitle %}About you{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
@@ -40,12 +40,10 @@
 
 </section><!-- .column-two-thirds -->
 
-{{> application/rightcol }}
+{% include "application/rightcol.html" %}
 
 </div><!-- .grid-row -->
 
 </main>
 
-{{/content}}
-
-{{/ application/layout }}
+{% endblock %}

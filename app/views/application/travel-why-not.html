@@ -1,25 +1,23 @@
-{{< application/layout }}
+{% extends "application/layout.html" %}
 
-{{$pageTitle}}Travelling now{{/pageTitle}}
+{% block pageTitle %}Travelling now{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
-
-{{>includes/leftcol_v9}}
 
 <section class="column-two-thirds" aria-labelledby="thirdparty">
 
   <script type="text/javascript">
     var the_needs = [];
-    {{#travel-not}}
-      the_needs.push('{{.}}');
-    {{/travel-not}}
-    if (the_needs[0] == '') the_needs[0] = '{{ travel-not }}';      
+    {% for item in travel_not %}
+      the_needs.push('{{ item }}');
+    {% endfor %}
+    if (the_needs[0] == '') the_needs[0] = '{{ travel_not }}';      
   </script>
 
   <!-- BACK LINK -->
@@ -28,7 +26,7 @@
 	<!-- HEADING -->
   <h1 class="form-title heading-large">
     <span class="section-progress">Section 3 of 7</span>
-    {{$pageTitle}}{{/pageTitle}} 
+    {% block pageTitle %}{% endblock %} 
   </h1>
 
   <form action="travel-why-not" method="post" class="form" id="theForm">
@@ -55,20 +53,19 @@
 
 </section><!-- .column-two-thirds -->
 
-{{> application/rightcol }}
+{% include "application/rightcol.html" %}
 
 </div><!-- .grid-row -->
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/ application/layout }}
+{% block page_script %}
 <script type="text/javascript">
   $(document).on('ready',function()
   {
     // grab the count from the cookie (if it exists).
-    // var t = Cookies.get('travel_count');
     var t = window.location.hash.substring(1);
     if (!t) t = 0;
     // just put the first one on the page.
@@ -96,3 +93,4 @@
     });
   });
 </script>
+{% endblock %}

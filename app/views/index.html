@@ -1,10 +1,10 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}
+{% block pageTitle %}
 	Access To Work - Prototype
-{{/pageTitle}}
+{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -25,14 +25,14 @@
 				<a class="font-xxsmall pages-link" href="#" data-num="application">pages</a>
 			</td>
 		</tr>
-		{{#application}}
+		{% for item in application %}
 			<tr>
-				<td><a href="/application/v{{ number }}/">Version {{ number }}</a></td>
-				<td>&nbsp;<span class="font-xxsmall">{{ date }}</span></td>
-				<td><a class="font-xxsmall" href="/application/v{{ number }}/diff">changes</a></td>
-				<td><a class="font-xxsmall pages-link" href="#" data-num="application/v{{ number }}">pages</a></td>
+				<td><a href="/application/v{{ item.number }}/">Version {{ item.number }}</a></td>
+				<td>&nbsp;<span class="font-xxsmall">{{ item.date }}</span></td>
+				<td><a class="font-xxsmall" href="/application/v{{ item.number }}/diff">changes</a></td>
+				<td><a class="font-xxsmall pages-link" href="#" data-num="application/v{{ item.number }}">pages</a></td>
 			</tr>
-		{{/application}}
+		{% endfor %}
 	</table>
 
 	<!-- ----------------------- CSI --------------------------- -->
@@ -84,8 +84,8 @@
 	<ul class="pages"></ul>
 </div>
 
-{{/content}}
+{% endblock %}
 
-{{/layout}}
-
+{% block page_script %}
 <script type="text/javascript" src="/public/javascripts/homepage.js"></script>
+{% endblock %}

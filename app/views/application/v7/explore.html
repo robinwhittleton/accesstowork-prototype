@@ -1,16 +1,16 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 <section class="column-two-thirds" aria-labelledby="aboutjob">
 
@@ -54,10 +54,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout}}
-
+{% block page_script %}
 <script type="text/javascript">
 
   /*
@@ -75,3 +74,4 @@
   });
 
 </script>
+{% endblock %}

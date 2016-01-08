@@ -1,16 +1,16 @@
-{{<layout_v8}}
+{% extends "layout_v8.html" %}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{% block pageTitle %}About you{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol_v9}}
+
 
 <section class="column-two-thirds" aria-labelledby="thirdparty">
 
@@ -52,10 +52,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout_v8}}
-
+{% block page_script %}
 <script type="text/javascript">
   var form = $("#theForm"),
       subb = $('#submitButton');
@@ -79,3 +78,4 @@
     });
   });
 </script>
+{% endblock %}

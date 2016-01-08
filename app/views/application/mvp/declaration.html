@@ -1,14 +1,14 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}Declaration{{/pageTitle}}
+{% block pageTitle %}Declaration{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
   <div class="grid-row">
 
-    {{>application/mvp/leftcol}}
+    {% include "application/mvp/leftcol.html" %}
 
     <section class="column-two-thirds" aria-labelledby="declaration">
 
@@ -56,7 +56,5 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
 

@@ -1,25 +1,25 @@
-{{< application/layout }}
+{% extends "application/layout.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol_v9}}
+
 
 <section class="column-two-thirds" aria-labelledby="aboutjob">
 
   <script type="text/javascript">
-  var hearing_needs = [];
-  {{#deaf-need}}
-    hearing_needs.push('{{.}}');    
-  {{/deaf-need}}
-  if (hearing_needs[0] == '') hearing_needs[0] = '{{ deaf-need }}';      
+    var hearing_needs = [];
+    {% for item in deaf_need %}
+      hearing_needs.push('{{ item }}');    
+    {% endfor %}
+    if (hearing_needs[0] == '') hearing_needs[0] = '{{ deaf_need }}';      
   </script>
 
   <!-- BACK LINK -->
@@ -77,21 +77,20 @@
 
 </section><!-- .column-two-thirds -->
 
-{{> application/rightcol }}
+{% include "application/rightcol.html" %}
 
 </div><!-- .grid-row -->
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/ application/layout }}
-
+{% block page_script %}
 <script type="text/javascript">
 $(document).on("ready",function(e)
 {
   // grab the count from the cookie (if it exists).
-  var t = Cookies.get('hearing_count');
+  var t = JSON.parse(Cookies.get('hearing_count'));
   if (!t) t = 0;
   // just put the first one on the page.
   var hearing_count = t;  
@@ -140,3 +139,4 @@ $(document).on("ready",function(e)
 });
 
 </script>
+{% endblock %}

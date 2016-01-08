@@ -1,12 +1,12 @@
-{{< application/layout }}
+{% extends "application/layout.html" %}
 
-{{$pageTitle}}Can you get an Access to Work grant?{{/pageTitle}}
+{% block pageTitle %}Can you get an Access to Work grant?{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-  {{>includes/alpha}}
+  {% include "includes/alpha.html" %}
 
   <div class="grid-row">
 
@@ -70,13 +70,11 @@
 
     </section>
 
-    {{>includes/elsewhere}}
+    {% include "includes/elsewhere.html" %}
 
   </div>
 
 </main>
 
-{{/content}}
-
-{{/ application/layout }}
+{% endblock %}
 

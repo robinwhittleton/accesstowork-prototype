@@ -1,57 +1,33 @@
-{{< staffui/layout }}
+{% extends "staffui/layout.html" %}
 
-{{$pageTitle}}
+{% block pageTitle %}
 	Access To Work - Prototype
-{{/pageTitle}}
+{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 <div class="staff-container">
 
-	<section class="staff-nav">
-		<div>
-			<ol class="staff-nav-links">
-				<li><a href="all-applications">All applications</a></li>
-				<li><a href="your-applications">Your applications</a></li>
-			</ol>
-		</div>
-	</section>
+	<section class="staff-nav"></section>
 
 	<section aria-labelledby="staffui" class="staff-main">
 		
-			<h1 class="heading-large">Welcome</h1>
-
-			<h2 class="heading-medium">Sign in</h2>
-			<form action="all-applications" method="post">
-			<fieldset>
-      	
-	      <!-- USERNAME -->
-	      <div class="form-group">
-	        <label class="form-label" for="username" id="username-label">Username</label>
-	        <input class="form-control" id="username" name="username" type="text" aria-required="true" />
-	      </div>
-
-	      <!-- PASSWORD -->
-	      <div class="form-group">
-	        <label class="form-label" for="password" id="password-label">Password</label>
-	        <input class="form-control" id="password" name="password" type="text" aria-required="true" />
-	      </div>	      
-
-    	</fieldset>
-
-    	<fieldset class="form-group">
-	      <ul>
-	        <li><input type="submit" value="Next" class="button"></li>
-	      </ul>
-	    </fieldset>
-				
-			</form>
+			<h1 class="heading-large">Pages</h1>
+			<ol class="screens">
+				<li><a href="login">
+          login <div style="background-image:url(/public/images/shots/atwsa/login-full.png)"></div>
+        </a></li>
+        <li><a href="all">
+          all customers <div style="background-image:url(/public/images/shots/atwsa/all-full.png)"></div>
+        </a></li>
+        <li><a href="adviser">
+          all customers <div style="background-image:url(/public/images/shots/atwsa/adviser-full.png)"></div>
+        </a></li>
+			</ol>
 
 	</section>
 </div>
 </main>
 
-{{/content}}
-
-{{/ staffui/layout }}
+{% endblock %}

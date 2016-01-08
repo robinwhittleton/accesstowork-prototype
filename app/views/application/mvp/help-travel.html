@@ -1,14 +1,14 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your condition{{/pageTitle}}
+{% block pageTitle %}About your condition{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
 <div class="grid-row">
 
-{{>application/mvp/leftcol}}
+{% include "application/mvp/leftcol.html" %}
 
 	<section class="column-two-thirds" aria-labelledby="condition">
 
@@ -112,9 +112,7 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
 
 <script type="text/javascript">
 	$(document).on('ready',function()
@@ -124,7 +122,7 @@
 	  $('#submitButton').on('click',function(e)
 	  {
 	    e.preventDefault();
-	    var travel = Cookies.get('hasEffectWork');
+	    var travel = JSON.parse(Cookies.get('hasEffectWork'));
 	    if (typeof travel !== 'undefined')
 	    {
 	    	form.attr('action','help-inwork');        

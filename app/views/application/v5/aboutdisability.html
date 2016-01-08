@@ -1,8 +1,8 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your disability{{/pageTitle}}
+{% block pageTitle %}About your disability{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -15,7 +15,7 @@
 
 <div class="grid-row">
 
-	{{>includes/leftcol}}
+	{% include "includes/leftcol.html" %}
 
 	<section class="column-two-thirds" aria-labelledby="condition">
 
@@ -122,10 +122,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout}}
-
+{% block page_script %}
 <script type="text/javascript">
 	$(document).on("ready",function(e)
 	{
@@ -137,4 +136,4 @@
 		});
 	});
 </script>
-
+{% endblock %}

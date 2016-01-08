@@ -1,16 +1,16 @@
-{{<layout_v8}}
+{% extends "layout_v8.html" %}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{% block pageTitle %}About you{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
-{{>includes/leftcol_v9}}
+
 
 <section class="column-two-thirds" aria-labelledby="thirdparty">
 
@@ -64,10 +64,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout_v8}}
-
+{% block page_script %}
 <script type="text/javascript">
 
   var form = $("#theForm"),
@@ -76,7 +75,7 @@
   $(document).on('ready',function()
   {
     var dest = '';
-    var jobalready = Cookies.get('job-already');
+    var jobalready = JSON.parse(Cookies.get('job_already'));
 
     $(subb).on('click',function(e)
     {
@@ -85,7 +84,7 @@
       if (jobalready == 'Yes')
       {
         // go and check what they put for employment status.
-        var emp_status = Cookies.get('emp-status');
+        var emp_status = JSON.parse(Cookies.get('emp_status'));
         switch(emp_status)
         {
           case "Employed": dest = 'employed'; break;
@@ -128,3 +127,4 @@
     });
   });
 </script>
+{% endblock %}

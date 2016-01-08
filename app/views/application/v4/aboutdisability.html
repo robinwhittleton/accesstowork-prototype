@@ -1,8 +1,8 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your disability{{/pageTitle}}
+{% block pageTitle %}About your disability{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -21,7 +21,7 @@
 
 
 
-{{>includes/leftcol}}
+{% include "includes/leftcol.html" %}
 
 
 <section class="column-two-thirds" aria-labelledby="condition">
@@ -96,7 +96,5 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}
 
