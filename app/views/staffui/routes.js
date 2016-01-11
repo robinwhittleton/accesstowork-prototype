@@ -25,7 +25,7 @@ router.get('/staffui/adviser/:id?', function(req,res,next)
 {
   var id = req.params.id;
   if (typeof id == "undefined") id = 0;
-  
+
   json = JSON.parse(fs.readFileSync(__dirname + "/claimants.json").toString());
   var data = _.filter(json, function(el)
   {
@@ -43,13 +43,16 @@ router.get('/staffui/claimant/:id?/:page?/', function(req,res,next)
 
   var page = req.params.page;
   if (typeof page == "undefined") page = 'timeline';
-  
+
   json = JSON.parse(fs.readFileSync(__dirname + "/claimants.json").toString());
-  var data = _.filter(json, function(el)
-  {
+  var data = _.filter(json, function(el) {
     return el.id == id;
   });
+
+  timeline = JSON.parse(fs.readFileSync(__dirname + "/timeline.json").toString());
+
   req.data.claimant = data[0];
+  req.data.timeline = timeline;
   req.data.thispage = page;
   req.url = '/staffui/claimant_'+page;
   next();

@@ -2,6 +2,26 @@
 
 {% block c_content %}
 
-<h2 class="heading-medium">blah</h2>
+<div class="timeline">
 
+  {% for i in range (0,20) %}
+  {% set item = timeline[i] %}
+
+  <div class="media">
+    <div class="img">
+      <img src="/public/images/staff/{{ item.icon }}" alt="me" width="50px"/>
+    </div>
+    <div class="bd">
+      <p style="float:right"><span class="tag {{ item.status | slugify }}">{{ item.status }}</span></p>
+      <h3 class="heading-medium">{{ item.heading }}</h3>
+      <p>{{ item.body }}</p>
+      <p class="font-xsmall">
+        <a href="">{{ item.adviser.name }} {{ item.adviser.surname }}</a> • {{ item.fromNow }}</p>
+    </div>
+  </div>
+
+  {% endfor %}
+
+
+</div>
 {% endblock %}

@@ -20,18 +20,18 @@
 	</section>
 
 	<section aria-labelledby="staffui" class="staff-main">
-				
+
 		<h1 class="form-title heading-large" id="staffui">All claimants</h1>
 
-		<ol class="stats">			
-			{% for key in ['just in','allocated','gathering','support agreed','needs review'] %}				
+		<ol class="stats">
+			{% for key in ['just in','allocated','gathering','support agreed','needs review'] %}
 				<li>
 					<p class="stat-label">{{ key }}</p><h2 class="stat-num heading-xlarge">{{ counts[key] }}</h2>
 				</li>
-			{% endfor %}			
+			{% endfor %}
 		</ol>
 
-		<table>			
+		<table>
 			<thead>
 				<tr>
 					<th>claimant</th>
@@ -41,7 +41,8 @@
 				</tr>
 			</thead>
 			<tbody class="app-list">
-			{% for item in claimants %}
+			{% for i in range (0,100) %}
+			{% set item = claimants[i] %}
 				<tr>
 					<td><a href="/staffui/claimant/{{ item.id }}/">{{ item.name }} {{ item.surname }}</a></td>
 					<td>
@@ -54,10 +55,10 @@
 					</td>
 					<td class="last">{{ item.fromNow }}</td>
 				</tr>
-			{% endfor %}			
+			{% endfor %}
 	  	</tbody>
 		</table>
-	
+
 	</section>
 
 </main>
