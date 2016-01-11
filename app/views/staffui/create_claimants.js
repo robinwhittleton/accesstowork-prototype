@@ -6,8 +6,8 @@ var fs      = require('fs'),
 var advisers = JSON.parse(fs.readFileSync(__dirname + "/advisers.json").toString());
 // load the raw claimant data (from uinames.com)
 var people = JSON.parse(fs.readFileSync(__dirname + "/raw-claimants.json").toString());
-var stati = ['just in','allocated','gathering','waiting','support agreed','needs review'];
-var waiting = ['med ev','quotes','employer','extra info','assessment','offer sent'];  
+var stati = JSON.parse(fs.readFileSync(__dirname + "/stati.json").toString());;
+var waiting = ['med ev','quotes','employer','extra info','assessment','offer sent'];
 var person = _.sample(people), output = '';
 
 _.each(people,function(el,i,array)
@@ -25,9 +25,9 @@ _.each(people,function(el,i,array)
   el.adviser = (status != 'just in') ? _.sample(advisers) : 'none';
   // when was the status last changed.
   var r = Math.ceil(Math.random()*100)
-  el.timet = now.subtract(r,'day').format("x"); 
-  el.lastUpdated = now.subtract(r,'day').format("dddd, MMMM Do YYYY, h:mm:ss a"); 
-  el.fromNow = now.subtract(r,'day').fromNow(); 
-});  
+  el.timet = now.subtract(r,'day').format("x");
+  el.lastUpdated = now.subtract(r,'day').format("dddd, MMMM Do YYYY, h:mm:ss a");
+  el.fromNow = now.subtract(r,'day').fromNow();
+});
 
 fs.writeFileSync(__dirname + "/claimants.json", JSON.stringify(people));
