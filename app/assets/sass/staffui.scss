@@ -194,3 +194,121 @@ td.last {
   &.waiting_quotes,
     {background-color:$error-colour}
 }
+
+/* Tabs */
+.nav {
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: 15px;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $grey-3;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: $grey-1;
+      pointer-events:none;
+      text-decoration: none;      
+    }
+  }
+}
+
+// Tabs
+// -------------------------
+
+// Give the tabs something to sit on
+$tab-border: $grey-2;
+
+.nav-tabs {
+  border-bottom: 1px solid $tab-border;
+  > li {
+    float: left;
+    // Make the list-items overlay the bottom border
+    // margin-bottom: -1px;
+
+    // Actual tabs (as links)
+    > a {
+      margin-right: 2px;
+      line-height: 1em;
+      border: 1px solid transparent;
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $text-colour;
+        background-color: white;
+        border: none;
+        border-bottom: 5px solid $turquoise;
+        pointer-events:none;
+        text-decoration:none;
+      }
+    }
+  }
+    // pulling this in mainly for less shorthand
+  &.nav-justified {
+    @extends .nav-justified;
+    @extends .nav-tabs-justified;
+  }
+}
+
+.nav-justified {
+  width: 100%;
+
+  > li {
+    float: none;
+    > a {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  }
+
+  > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+  }
+
+  @media (min-width: 640) {
+    > li {
+      display: table-cell;
+      width: 1%;
+      > a {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Move borders to anchors instead of bottom of list
+//
+// Mixin for adding on top the shared `.nav-justified` styles for our tabs
+.nav-tabs-justified {
+  border-bottom: 0;
+
+  > li > a {
+    // Override margin from .nav-tabs
+    margin-right: 0;
+    // border-radius: 5px;
+  }
+}
+
+/* ====== media ====== */
+.media {margin:10px;}
+.media, .bd {overflow:hidden; _overflow:visible; zoom:1;}
+.media .img {float:left; margin-right: 10px;}
+.media .img img{display:block;}
+.media .imgExt{float:right; margin-left: 10px;}

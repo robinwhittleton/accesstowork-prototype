@@ -14,17 +14,17 @@
 		<div class="staff-nav-links">
 			<ol>
 				<li><a href="/staffui/all">All claimants</a></li>
-				<li><a href="/staffui/all/0" class="selected">Your applications</a></li>
+				<li><a href="/staffui/all/0" class="selected">Your claimants</a></li>
 			</ol>
 		</div>
 	</section>
 
 	<section class="staff-main">				
 	
-		<h1 class="heading-large">{{ customers[0].adviser.name }} {{ customers[0].adviser.surname }}</h1>
+		<h1 class="heading-large">{{ claimants[0].adviser.name }} {{ claimants[0].adviser.surname }}</h1>
 
 		<ol class="stats">						
-			<li> <p class="stat-label">Open cases</p><h2 class="stat-num heading-xlarge">{{ customers | length }}</h2> </li>
+			<li> <p class="stat-label">Open cases</p><h2 class="stat-num heading-xlarge">{{ claimants | length }}</h2> </li>
 			<li> <p class="stat-label">Last login</p><h2 class="stat-num heading-xlarge">14.07.2015</h2> </li>
 		</ol>
 
@@ -38,9 +38,9 @@
 				</tr>
 			</thead>
 			<tbody class="app-list">
-			{% for item in customers %}
+			{% for item in claimants %}
 				<tr>
-					<td>{{ item.name }} {{ item.surname }}</td>
+					<td><a href="/staffui/claimant/{{ item.id }}">{{ item.name }} {{ item.surname }}</a></td>
 					<td>
 						<span class="tag {{ item.status | slugify }}">{{ item.status }}</span>
 					</td>

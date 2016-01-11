@@ -1,0 +1,39 @@
+{% extends "staffui/layout.html" %}
+
+{% block pageTitle %}
+	Access To Work - Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+<div class="staff-container">
+
+	<section class="staff-nav">
+		<div class="staff-nav-links">
+			<ol>
+				<li><a href="/staffui/all">All claimants</a></li>
+				<li><a href="/staffui/adviser">Your claimants</a></li>				
+			</ol>
+		</div>
+	</section>
+
+	<section class="staff-main">				
+	
+		<h1 class="heading-large">{{ claimant.name }} {{ claimant.surname }}</h1>
+
+		<ul class="nav nav-tabs clearfix">
+		  <li class="{{ thispage | check("timeline","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/timeline">Timeline</a></li>
+		  <li class="{{ thispage | check("personal","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/personal">Personal</a></li>
+		  <li class="{{ thispage | check("jobs","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/jobs">Jobs</a></li>
+		  <li class="{{ thispage | check("elements","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/elements">Elements</a></li>
+		</ul>
+
+		{% block c_content %}{% endblock %}
+
+	</section>
+
+</main>
+
+{% endblock %}

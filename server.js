@@ -47,6 +47,9 @@ nunjucks.setup({
   env.addFilter('slugify', function(str) {
       return str.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()’]/g,"").replace(/ +/g,'_').toLowerCase();
   });
+  env.addFilter('check', function(str,checkee,output) {
+      return str == checkee ? output : '';
+  });
 });
 
 
