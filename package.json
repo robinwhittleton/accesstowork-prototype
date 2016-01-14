@@ -12,6 +12,7 @@
     "browser-sync": "^2.10.0",
     "consolidate": "0.x",
     "cookie-parser": "^1.4.0",
+    "csv": "^0.4.6",
     "express": "4.13.3",
     "express-nunjucks": "^0.9.3",
     "express-writer": "0.0.4",
