@@ -10,3 +10,4 @@ makediffs
 v11*
 *node_modules*
 **/shots/*.*
+*.csv
