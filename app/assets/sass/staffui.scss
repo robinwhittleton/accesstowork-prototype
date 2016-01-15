@@ -1,56 +1,14 @@
 @import 'elements';
+@import 'elements/icons';
 @import "clearfix";
 
-/*
-  REMAKING SOME OF THE GDS STYLES
-*/
-#global-header .header-wrapper {
-  max-width:none;
-}
-#global-header #logo img {
-  width:185.00px;
-  height:31px;
-}
-#global-header-bar {
-  display:none;
-  max-width:none;
-}
-#global-header #logo img {
-  visibility:visible;
-}
-#content {
-  max-width:none;
-  padding:0;
-  margin:0;
-}
+@import "staff/gds_overrides";
+@import "staff/layout";
+@import "staff/indexes";
 
-/* INCLUDING THE PROTOTYPE TAG THING IN THE BANNER */
-.phase-banner .phase-tag {
-  background-color:$beta-colour;
-}
-.proposition-phase-tag {
-  text-transform:uppercase;
-  background-color:$beta-colour;
-  padding: 2px 5px 0;
-  font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  position:relative; top:-2px; left:10px;
-}
 
-/* STAFF ACCESS LAYOUT */
-.staff-container {
-  display:table;
-  width:100%;
-}
-.staff-nav {
-  display:table-cell;
-  border-right:1px solid $grey-2;
-  width:240px;
-  background-color:$grey-4;
-}
-.staff-main {
-  display:table-cell;
-  padding:0 30px 90px;
+.eligability {
+  th,td {text-align:center}
 }
 
 /* STAFF ACCESS NAV */
@@ -129,27 +87,8 @@ th.last,
 td.last {
   text-align:right;
 }
-// .app-list {
-//   td {
-//     height:38px;
-//   }
-// }
-.screens {
-  li {
-    box-sizing:border-box;
-    display:inline-block;
-    margin:0;padding:0;
-    padding-right:30px;
-    width:20%;
-    div {
-      height:220px;
-      background-size:100% auto;
-      background-repeat:no-repeat;
-      background-color:#dee0e2;
-      border:1px solid #ccc;
-    }
-  }
-}
+
+
 
 /*
   Stats bits

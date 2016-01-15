@@ -1,0 +1,15 @@
+/* STAFF ACCESS LAYOUT */
+.staff-container {
+  display:table;
+  width:100%;
+}
+.staff-nav {
+  display:table-cell;
+  border-right:1px solid $grey-2;
+  width:240px;
+  background-color:$grey-4;
+}
+.staff-main {
+  display:table-cell;
+  padding:0 30px 90px;
+}
