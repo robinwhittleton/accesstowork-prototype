@@ -51,9 +51,12 @@ router.get('/staffui/claimant/:id?/:page?/', function(req,res,next)
 
   timeline = JSON.parse(fs.readFileSync(__dirname + "/timeline.json").toString());
 
+  var claims = JSON.parse(fs.readFileSync(__dirname + "/claims.json").toString());
+
   req.data.claimant = data[0];
   req.data.timeline = timeline;
   req.data.thispage = page;
+  req.data.claim = _.sample(claims);
   req.url = '/staffui/claimant_'+page;
   next();
 });
