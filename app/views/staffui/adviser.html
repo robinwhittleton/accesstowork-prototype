@@ -1,38 +1,20 @@
 {% extends "staffui/layout.html" %}
 
-{% block pageTitle %}
-	Access To Work - Prototype
-{% endblock %}
+{% block staff_content %}
 
-{% block content %}
+	<section class="staff-main">
 
-<main id="content" role="main">
-
-<div class="staff-container">
-
-	<section class="staff-nav">
-		<div class="staff-nav-links">
-			<ol>
-				<li><a href="/staffui/all">All claimants</a></li>
-				<li><a href="/staffui/all/0" class="selected">Your claimants</a></li>
-			</ol>
-		</div>
-	</section>
-
-	<section class="staff-main">				
-	
 		<h1 class="heading-large">{{ claimants[0].adviser.name }} {{ claimants[0].adviser.surname }}</h1>
 
-		<ol class="stats">						
+		<ol class="stats">
 			<li> <p class="stat-label">Open cases</p><h2 class="stat-num heading-xlarge">{{ claimants | length }}</h2> </li>
 			<li> <p class="stat-label">Last login</p><h2 class="stat-num heading-xlarge">14.07.2015</h2> </li>
 		</ol>
 
-		<table>			
+		<table>
 			<thead>
 				<tr>
 					<th>claimant</th>
-					<!-- <th>adviser</th> -->
 					<th>status</th>
 					<th class="last">last status change</th>
 				</tr>
@@ -46,12 +28,10 @@
 					</td>
 					<td class="last">{{ item.fromNow }}</td>
 				</tr>
-			{% endfor %}			
+			{% endfor %}
 	  	</tbody>
 		</table>
-			
-	</section>
 
-</main>
+	</section>
 
 {% endblock %}
