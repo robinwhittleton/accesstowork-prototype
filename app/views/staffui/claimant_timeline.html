@@ -13,8 +13,8 @@
     </div>
     <div class="bd">
       <p style="float:right"><span class="tag {{ item.status | slugify }}">{{ item.status }}</span></p>
-      <h3 class="heading-medium">{{ item.heading }}</h3>
-      <p>{{ item.body }}</p>
+      <h3 class="heading-small heading-top">{{ item.heading }}</h3>
+      <p style="font-size:14px;">{{ item.body }}</p>
       <p class="font-xsmall">
         <a href="">{{ item.adviser.name }} {{ item.adviser.surname }}</a> • {{ item.fromNow }}</p>
     </div>

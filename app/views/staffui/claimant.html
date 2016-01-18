@@ -9,16 +9,40 @@
 	<section class="staff-main">
 
 		<h1 class="heading-large">{{ claimant.name }} {{ claimant.surname }}</h1>
+
 		<p class="lede">{{ claimant.condition }}</p>
 
-		<ul class="nav nav-tabs clearfix">
-		  <li class="{{ thispage | check("timeline","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/timeline">Timeline</a></li>
-		  <li class="{{ thispage | check("personal","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/personal">Personal Information</a></li>
-		  <li class="{{ thispage | check("jobs","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/jobs">Jobs</a></li>
-		  <li class="{{ thispage | check("help","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/help">The Help They're Getting</a></li>
-		</ul>
+		<div class="grid-row">
+		<div class="column-two-thirds">
 
-		{% block claim_content %}{% endblock %}
+			<ul class="nav nav-tabs clearfix">
+			  <li class="{{ thispage | check("timeline","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/timeline">Timeline</a></li>
+			  <li class="{{ thispage | check("personal","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/personal">Personal Information</a></li>
+			  <li class="{{ thispage | check("jobs","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/jobs">Jobs</a></li>
+			  <li class="{{ thispage | check("help","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/help">The Help They're Getting</a></li>
+			</ul>
+
+			{% block claim_content %}{% endblock %}
+
+		</div>
+		<div class="column-third">
+
+			<div class="todo_list clearfix">
+				<h2 class="heading-medium top">To do list</h2>
+				<fieldset class="form-group">
+					<input id="todo_1" type="checkbox" name="" value="" />
+					<label class="form-label form-control-checkbox" for="todo_1">Contact line manager</label>
+					<input id="todo_2" type="checkbox" name="" value="" />
+					<label class="form-label form-control-checkbox" for="todo_2">Assessment decision</label>
+					<input id="todo_3" type="checkbox" name="" value="" />
+					<label class="form-label form-control-checkbox" for="todo_3">Feed the fish</label>
+					<input id="todo_4" type="checkbox" name="" value="" />
+					<label class="form-label form-control-checkbox" for="todo_3">Buy some milk</label>
+				</fieldset>
+			</div>
+
+		</div>
+	</div><!-- .grid-row -->
 
 	</section>
 

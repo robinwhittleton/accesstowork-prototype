@@ -1,10 +1,12 @@
 @import 'elements';
 @import 'elements/icons';
+@import "elements/forms/form-custom";
 @import "clearfix";
 
 @import "staff/gds_overrides";
 @import "staff/layout";
 @import "staff/indexes";
+@import "staff/todo";
 
 
 .eligability {
@@ -272,7 +274,7 @@ $tab-border: $grey-2;
 .bd {
   background-color:$grey-4;
   padding:10px 20px;
-  .heading-medium {
+  .heading-top {
     margin:0 0 10px 0;
   }
   .tag {

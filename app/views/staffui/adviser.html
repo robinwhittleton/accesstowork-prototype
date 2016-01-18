@@ -4,33 +4,42 @@
 
 	<section class="staff-main">
 
-		<h1 class="heading-large">{{ claimants[0].adviser.name }} {{ claimants[0].adviser.surname }}</h1>
+		<h1 class="heading-large">Hello, {{ claimants[0].adviser.name }}</h1>
 
 		<ol class="stats">
 			<li> <p class="stat-label">Open cases</p><h2 class="stat-num heading-xlarge">{{ claimants | length }}</h2> </li>
 			<li> <p class="stat-label">Last login</p><h2 class="stat-num heading-xlarge">14.07.2015</h2> </li>
 		</ol>
 
-		<table>
-			<thead>
-				<tr>
-					<th>customer</th>
-					<th>status</th>
-					<th class="last">last status change</th>
-				</tr>
-			</thead>
-			<tbody class="app-list">
-			{% for item in claimants %}
-				<tr>
-					<td><a href="/staffui/claimant/{{ item.id }}">{{ item.name }} {{ item.surname }}</a></td>
-					<td>
-						<span class="tag {{ item.status | slugify }}">{{ item.status }}</span>
-					</td>
-					<td class="last">{{ item.fromNow }}</td>
-				</tr>
-			{% endfor %}
-	  	</tbody>
-		</table>
+		<div class="grid-row">
+
+			<div class="column-three-quarters">
+
+				<table>
+					<thead>
+						<tr>
+							<th>customer</th>
+							<th>status</th>
+							<th class="last">last status change</th>
+						</tr>
+					</thead>
+					<tbody class="app-list">
+					{% for item in claimants %}
+						<tr>
+							<td><a href="/staffui/claimant/{{ item.id }}">{{ item.name }} {{ item.surname }}</a></td>
+							<td>
+								<span class="tag {{ item.status | slugify }}">{{ item.status }}</span>
+							</td>
+							<td class="last">{{ item.fromNow }}</td>
+						</tr>
+					{% endfor %}
+			  	</tbody>
+				</table>
+			</div>
+			<div class="column-quarter">
+
+			</div>
+		</div>
 
 	</section>
 
