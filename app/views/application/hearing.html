@@ -62,7 +62,7 @@
 {% block page_script %}
 <script type="text/javascript">
   $(document).on('ready',function()
-  {    
+  {
     var form = $('form');
     $('#nextButton').on('click',function(e)
     {
@@ -82,14 +82,13 @@
       */
       if (!picked) alert('Please pick one!')
       else {
-        Cookies.set('hearing_count',0);
-        form.submit();  
+        form.submit();
       }
 
       // grab the form as an array.
       // var f = form.serializeArray();
       // reset the count so the next page works.
-      
+
     });
   });
 </script>

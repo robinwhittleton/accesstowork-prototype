@@ -10,17 +10,7 @@
 
 <div class="grid-row">
 
-
-
 <section class="column-two-thirds" aria-labelledby="aboutjob">
-
-  <script type="text/javascript">
-    var hearing_needs = [];
-    {% for item in deaf_need %}
-      hearing_needs.push('{{ item }}');    
-    {% endfor %}
-    if (hearing_needs[0] == '') hearing_needs[0] = '{{ deaf_need }}';      
-  </script>
 
   <!-- BACK LINK -->
   <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
@@ -64,7 +54,7 @@
         <p class="cond"><input name="need-tasks" class="form-control" style="width:50%" autocomplete="off"/></p>
       </div>
       <p><a href="#" id="add" class="button-add">&#43; add another</a></p>
-    </fieldset>    
+    </fieldset>
 
     <fieldset class="primary-nav form-group">
       <legend>Form Navigation</legend>
@@ -89,12 +79,16 @@
 <script type="text/javascript">
 $(document).on("ready",function(e)
 {
-  // grab the count from the cookie (if it exists).
-  var t = JSON.parse(Cookies.get('hearing_count'));
+  var t = window.location.hash.substring(1);
   if (!t) t = 0;
+
+  // grab the values from the cookie then check that it's an array.
+  var deaf_need = JSON.parse(Cookies.get('deaf_need'));
+  if (typeof deaf_need == 'string') deaf_need = [deaf_need];
+
   // just put the first one on the page.
-  var hearing_count = t;  
-  $('#needs').text(hearing_needs[hearing_count]);
+  var hearing_count = t;
+  $('#needs').text(deaf_need[hearing_count]);
 
   var form = $('form');
 
@@ -104,22 +98,21 @@ $(document).on("ready",function(e)
     /*
       First see if all the tasks questions have been asked.
     */
-    hearing_count++; 
-    Cookies.set('hearing_count',hearing_count);
-    if (hearing_count < hearing_needs.length)
+    hearing_count++;
+    if (hearing_count < deaf_need.length)
     {
-      $('#needs').text(hearing_needs[hearing_count]);
-      $(window).scrollTop(0);
-      $("html").hide();
-      setTimeout(function(){$("html").show();},50);
-    } else {
+      form.attr('action','hearing-tasks#'+hearing_count);
       form.submit();
-    }    
+
+    } else {
+
+      form.submit();
+    }
   });
 
-  // This has to happen after the on.click handler has 
+  // This has to happen after the on.click handler has
   // been defined above otherwise the form will just be submitted.
-  if (hearing_count >= hearing_needs.length) $('#nextButton').trigger('click');
+  if (hearing_count >= deaf_need.length) $('#nextButton').trigger('click');
 
   /*
     make the "add another" link work.
