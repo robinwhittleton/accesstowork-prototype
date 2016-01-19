@@ -13,12 +13,12 @@
 		<ol class="stats">
 			{% for key in ['just in','allocated','gathering','support agreed','needs review'] %}
 				<li>
-					<p class="stat-label">{{ key }}</p><h2 class="stat-num heading-xlarge">{{ counts[key] }}</h2>
+					<p class="stat__label">{{ key }}</p><h2 class="stat-num heading-xlarge">{{ counts[key] }}</h2>
 				</li>
 			{% endfor %}
 		</ol>
 
-		<table>
+		<table class="customers customers--all">
 			<thead>
 				<tr>
 					<th>customer</th>

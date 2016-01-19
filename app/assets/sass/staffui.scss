@@ -8,9 +8,29 @@
 @import "staff/indexes";
 @import "staff/todo";
 
+.govuk-blue {
+  color:$govuk-blue;
+}
+.grey {
+  color:$grey-1;
+}
+
+.btop {
+  padding-top:5px;
+  border-top:1px solid $grey-2;
+}
+
+.font-xxsmall {
+  font-size:14px;
+}
 
 .eligability {
   th,td {text-align:center}
+}
+
+.autocompleted {
+  border-color:white;
+  padding-left:0;
 }
 
 /* STAFF ACCESS NAV */
@@ -25,49 +45,13 @@
       display:block;
       margin:auto;
     }
-
-    &.selected {
-      color:white;
-      background-color:$grey-3;
-      // pointer-events: none;
-    }
     &:hover {
       color:white;
       background-color:$turquoise-50;
     }
   }
 }
-.staff-apps {
-  padding-top:0;
-  padding-left:15px;
-  a.selected {
-    background-color:$turquoise-50;
-  }
-}
-.app-date {
-  @extend .font-xsmall;
-}
 
-/* STAFF ACESSS - MAIN */
-.details {
-  dt,dd {padding:10px 10px 7px 0;}
-  dt {
-    float:left;
-    clear:left;
-    text-align:right;
-    width:120px;
-    font-weight:bold;
-    text-transform:uppercase;
-    font-size:14px;
-    letter-spacing:2px;
-    background-color:$grey-3;
-    margin-bottom:5px;
-  }
-  dd {
-    float:left;
-    padding-left:10px
-  }
-}
 .tag {
   @extend .font-xsmall;
   display:inline-block;
@@ -78,23 +62,16 @@
   border-radius:5px;
   margin-left:5px;
 }
-table td:first-child {
-  width:auto;
-}
-td.adviser {
-  display:table-cell;
-}
-td.choice {
-  display:none;
-}
-table th {
-  color:$text-colour;
-}
-th.last,
-td.last {
-  text-align:right;
-}
 
+table td:first-child { width:auto; }
+
+table.customers {
+  td.adviser { display:table-cell; }
+  td.choice { display:none; }
+  table th { color:$text-colour; }
+  th.last,
+  td.last { text-align:right; }
+}
 
 
 /*
@@ -114,7 +91,7 @@ td.last {
   }
 
 }
-.stat-label {
+.stat__label {
   margin:0;
 }
 .stat-num {
@@ -310,6 +287,40 @@ $tab-border: $grey-2;
   cursor: pointer;
   margin-bottom: -1px;
   padding: 5px 8px;
-  background: url(https://assets.digital.cabinet-office.gov.uk/static/govuk-component/option-…prite-5f8bb91ff4faf8d3dbcd46d0a4d1e90834b9b9ab3d41979068ea19fdf27529be.png) no-repeat right 5px;
+  // background: url() no-repeat right 5px;
   background-color: #dee0e2;
+}
+
+.quote {
+  position:absolute;
+  top:12px;left:115px;
+  width:300px;
+  color:black;
+  display:none;
+  background-color:rgba(white,0.8);
+  border-radius:15px;
+  border:3px solid $govuk-blue;
+  padding:10px;
+}
+.quote:before
+{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	right: 100%;
+	top: 15px;
+	border: 20px solid;
+	border-color: $govuk-blue $govuk-blue transparent transparent ;
+}
+.quote:after
+{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	right: 100%;
+	top: 18px;
+	border: 16px solid;
+	border-color: white white transparent transparent ;
 }

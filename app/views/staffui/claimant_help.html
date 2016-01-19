@@ -1,28 +1,85 @@
 {% extends "staffui/claimant.html" %}
 
+{% block staff_content %}
+	<section class="staff-main">
+		<h1 class="heading-large">{{ claimant.name }} {{ claimant.surname }}</h1>
+		<p class="lede">{{ claimant.condition }}</p>
+		<ul class="nav nav-tabs clearfix">
+		  <li class="{{ thispage | check("timeline","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/timeline">Timeline</a></li>
+		  <li class="{{ thispage | check("personal","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/personal">Personal Information</a></li>
+		  <li class="{{ thispage | check("jobs","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/jobs">Jobs</a></li>
+		  <li class="{{ thispage | check("help","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/help">The Help They're Getting</a></li>
+		</ul>
+		{% block claim_content %}{% endblock %}
+	</section>
+{% endblock %}
+
 {% block claim_content %}
 
-  <h2 class="heading-medium">Task: <small>Answering the phone</small></h2>
-  <p>&ldquo;{{ claim['How does your condition make it harder for you to do your job?'] }}&rdquo;</p>
-  <form>
-    <div class="form-group">
-      <label class="form-label">Solution</label>
-      <input name="solution_1" type="text" class="form-control"/>
-      <button class="button">Suggest?</button>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Reasons</label>
-      <textarea name="" class="form-control"></textarea>
-    </div>
-    <div class="form-group grid-row">
-      <div class="column-half">
-        <input id="todo_1" type="checkbox" name="" value="" />
-        <label class="form-label form-control-checkbox" for="todo_1">Chosen?</label>
-      </div>
-      <div class="column-half">
-        <h4 class="heading-small" style="margin-top:10px;text-align:right">Price: <small>£23.00</small></h4>
-      </div>
-    </div>
-  </form>
+  <h2 class="heading-medium">Task: <small class="govuk-blue">Answering the phone</small></h2>
 
+	{% set desc = claim['How does your condition make it harder for you to do your job?'] %}
+	{% if  desc | length > 300 %}
+  	<p id="less" style="max-height:100px; overflow:hidden;">&ldquo;{{ desc | truncate(300) }}&rdquo; <a id="more_trigger" href="#">show more</a></p>
+  	<p id="more" class="js-hidden">&ldquo;{{ desc }}&rdquo; <a id="less_trigger" href="#">show less</a></p>
+	{% else %}
+		<p id="more">&ldquo;{{ desc }}&rdquo;</p>
+	{% endif %}
+  <table id="options">
+    <tr>
+      <th width="10px">&nbsp;</th>
+      <th width="25%">Solution</th>
+      <th width="">For / Against</th>
+      <th width="15%">Price</th>
+      <th width="10%">Chosen</th>
+    </tr>
+    {% include "staffui/option_auto.html" %}
+    {% include "staffui/option_customer.html" %}
+
+    <tr class="">
+			<td class="heading-medium">3</td>
+      <td> <input name="solution_1" type="text" class="form-control" style="width:100%"/> </td>
+      <td> <textarea name="" class="form-control"></textarea> </td>
+      <td> <input name="solution_1" type="text" class="form-control" style="width:100%"/> </td>
+      <td> <label class="form-label form-control-checkbox" for="todo_1"></label> <input id="todo_1" type="checkbox" name="" value="" /> </td>
+    </tr>
+  </table>
+
+  <br /><button class="button">Add another</button>
+
+{% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    $("#options").find('tr');
+
+		$('#more_trigger').on('click',function(e)
+		{
+			e.preventDefault();
+			$('#more').show();
+			$('#less').hide();
+		});
+
+		$('#less_trigger').on('click',function(e)
+		{
+			e.preventDefault();
+			$('#less').show();
+			$('#more').hide();
+		});
+
+		$('#view_quote').on('click',function(e)
+		{
+		  e.preventDefault();
+		  var quote = $(this).siblings('.quote');
+			quote.fadeToggle('slow');
+			var t = $(this).text();
+			if (t == 'view quote') $(this).text('hide quote');
+			else $(this).text('view quote');
+
+		});
+
+  });
+</script>
 {% endblock %}

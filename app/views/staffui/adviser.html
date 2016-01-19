@@ -11,35 +11,33 @@
 			<li> <p class="stat-label">Last login</p><h2 class="stat-num heading-xlarge">14.07.2015</h2> </li>
 		</ol>
 
-		<div class="grid-row">
-
-			<div class="column-three-quarters">
-
-				<table>
-					<thead>
-						<tr>
-							<th>customer</th>
-							<th>status</th>
-							<th class="last">last status change</th>
-						</tr>
-					</thead>
-					<tbody class="app-list">
-					{% for item in claimants %}
-						<tr>
-							<td><a href="/staffui/claimant/{{ item.id }}">{{ item.name }} {{ item.surname }}</a></td>
-							<td>
-								<span class="tag {{ item.status | slugify }}">{{ item.status }}</span>
-							</td>
-							<td class="last">{{ item.fromNow }}</td>
-						</tr>
-					{% endfor %}
-			  	</tbody>
-				</table>
-			</div>
-			<div class="column-quarter">
-
-			</div>
-		</div>
+		<table class="customers">
+			<thead>
+				<tr>
+					<th>customer</th>
+					<th>status</th>
+					<th>eligability</th>
+					<th class="last">last update</th>
+				</tr>
+			</thead>
+			<tbody class="app-list">
+			{% for item in claimants %}
+				<tr>
+					<td><a href="/staffui/claimant/{{ item.id }}">{{ item.name }} {{ item.surname }}</a></td>
+					<td>
+						<span class="tag {{ item.status | slugify }}">{{ item.status }}</span>
+					</td>
+					<td>
+						{% set status = ['tick-grn','question','cross-red'] %}
+						{% for i in range(0,4) %}
+							<img src="/public/images/staff/{{ status | random }}.png" width="20px"/>
+						{% endfor %}
+					</td>
+					<td class="last">{{ item.fromNow }}</td>
+				</tr>
+			{% endfor %}
+	  	</tbody>
+		</table>
 
 	</section>
 
