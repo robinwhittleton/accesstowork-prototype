@@ -1,12 +1,12 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
@@ -17,7 +17,7 @@
 
   <!-- HEADING -->
   <h1 class="form-title heading-large" id="aboutjob">
-    <span class="section-progress">Section 1 of 6</span> 
+    <span class="section-progress">Section 1 of 6</span>
     About your interview
   </h1>
 
@@ -53,6 +53,4 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}

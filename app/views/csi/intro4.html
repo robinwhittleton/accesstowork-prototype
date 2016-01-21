@@ -1,12 +1,12 @@
-{{< csi/layout }}
+{% extends "csi/layout.html" %}
 
-{{$pageTitle}}Apply for Communication Support at an Interview{{/pageTitle}}
+{% block pageTitle %}Apply for Communication Support at an Interview{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-  {{>includes/alpha}}
+  {% include "includes/alpha.html" %}
 
   <div class="grid-row">
 
@@ -59,7 +59,7 @@
           </div>
         </details>
 
-        <br />        
+        <br />
 
         <p><a href="interview" class="button button-get-started">Apply now</a></p>
       </div><!-- .intro-content -->
@@ -70,13 +70,10 @@
 
     </section>
 
-    {{>includes/elsewhere}}
+    {% include "includes/elsewhere.html" %}
 
   </div>
 
 </main>
 
-{{/content}}
-
-{{/ csi/layout }}
-
+{% endblock %}

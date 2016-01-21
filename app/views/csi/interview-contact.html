@@ -1,12 +1,12 @@
-{{<layout}}
+{% extends "layout.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
@@ -17,7 +17,7 @@
 
   <!-- HEADING -->
   <h1 class="form-title heading-large" id="aboutjob">
-    <span class="section-progress">Section 3 of 6</span> 
+    <span class="section-progress">Section 3 of 6</span>
     Interview contact
   </h1>
 
@@ -26,7 +26,7 @@
   <form action="interview-why" method="post" class="form">
 
     <fieldset>
-     
+
       <!-- THEIR NAME -->
       <div class="form-group">
           <label class="form-label-bold" for="employer-name">Their name</label>
@@ -46,18 +46,18 @@
           <label for="line-email" class="block-label" data-target="email-ask">
             <input id="line-email" type="checkbox" name="line-contact-pref" value="email">
             Email
-          </label>                
+          </label>
           <fieldset class="mid-form js-hidden" id="email-ask">
             <div class="form-group panel-indent mid-form">
               <label class="form-label" for="email-address">Email address</label>
-              <input class="form-control" id="email-address" name="line-email-address" type="text" aria-required="true">      
+              <input class="form-control" id="email-address" name="line-email-address" type="text" aria-required="true">
             </div>
           </fieldset>
 
           <!-- PHONE -->
-          <label for="line-phone" class="block-label" data-target="phone-ask"> 
+          <label for="line-phone" class="block-label" data-target="phone-ask">
             <input id="line-phone" type="checkbox" name="line-contact-pref" value="phone">
-            Phone call 
+            Phone call
           </label>
           <fieldset class="mid-form js-hidden" id="phone-ask">
             <div class="form-group panel-indent mid-form">
@@ -67,11 +67,11 @@
             </div>
           </fieldset>
 
-          <!-- TEXT MESSAGAE -->                
+          <!-- TEXT MESSAGAE -->
           <label for="line-text" class="block-label" data-target="text-ask">
             <input id="line-text" type="checkbox" name="line-contact-pref" value="text">
             Text message
-          </label>              
+          </label>
           <fieldset class="mid-form js-hidden" id="text-ask">
             <div class="form-group panel-indent mid-form">
               <label class="form-label" for="telephone-number">Phone number</label>
@@ -99,6 +99,4 @@
 
 </main>
 
-{{/content}}
-
-{{/layout}}
+{% endblock %}

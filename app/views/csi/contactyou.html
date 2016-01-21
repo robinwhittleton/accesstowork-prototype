@@ -1,16 +1,16 @@
-{{< csi/layout }}
+{% extends "csi/layout.html" %}
 
-{{$pageTitle}}About you{{/pageTitle}}
+{% block pageTitle %}About you{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-  {{>includes/alpha}}
+  {% include "includes/alpha.html" %}
 
   <div class="grid-row">
 
-    {{>includes/leftcol_v9}}
+    {% include "includes/leftcol_v9.html" %}
 
     <section class="column-two-thirds" aria-labelledby="aboutyou">
 
@@ -28,7 +28,7 @@
         <!-- CONTACT WHO? -->
         <h2 class="heading-medium">Who do you want to be contacted about your condition, award or application?</h2>
         <div class="form-group">
-          <fieldset>                    
+          <fieldset>
             <label for="contact-me" class="block-label" data-target="me-reveal" id="screenshotclick">
               <input id="contact-me" type="radio" name="contact-pref" value="contact-me">
               Yourself
@@ -55,7 +55,7 @@
               <fieldset class="mid-form js-hidden" id="email-ask">
                 <div class="form-group panel-indent mid-form">
                   <label class="form-label" for="email-address">Email address</label>
-                  <input class="form-control" id="email-address" name="you-email-address" type="text" aria-required="true">      
+                  <input class="form-control" id="email-address" name="you-email-address" type="text" aria-required="true">
                 </div>
               </fieldset>
 
@@ -76,7 +76,7 @@
               <label for="you-text" class="block-label" data-target="text-ask">
                 <input id="you-text" type="checkbox" name="you-contact-pref" value="text">
                 Text message
-              </label>              
+              </label>
               <fieldset class="mid-form js-hidden" id="text-ask">
                 <div class="form-group panel-indent mid-form">
                   <label class="form-label" for="telephone-number">Phone number</label>
@@ -85,11 +85,11 @@
                 </div>
               </fieldset>
 
-              
+
               <label for="you-post" class="block-label" data-target="">
                 <input id="you-post" type="checkbox" name="you-contact-pref" value="post">
                 Letter
-              </label>                            
+              </label>
 
             </div>
           </fieldset>
@@ -109,7 +109,7 @@
           <fieldset>
             <legend class="heading-medium" style="margin-bottom:0;">How can they be contacted?</legend>
             <p>Select as many as you like.</p>
-            <div class="form-group" aria-labelledby="howEmployed">              
+            <div class="form-group" aria-labelledby="howEmployed">
 
               <!-- EMAIL -->
               <label for="them-email" class="block-label" data-target="them-email-ask">
@@ -119,7 +119,7 @@
               <fieldset class="mid-form js-hidden" id="them-email-ask">
                 <div class="form-group panel-indent">
                   <label class="form-label" for="email-address">Email address</label>
-                  <input class="form-control" id="email-address" name="you-email-address" type="text" aria-required="true">      
+                  <input class="form-control" id="email-address" name="you-email-address" type="text" aria-required="true">
                 </div>
               </fieldset>
 
@@ -140,7 +140,7 @@
               <label for="them-text" class="block-label" data-target="them-text-ask">
                 <input id="them-text" type="checkbox" name="them-contact-pref" value="text">
                 Text message
-              </label>              
+              </label>
               <fieldset class="mid-form js-hidden" id="them-text-ask">
                 <div class="form-group panel-indent mid-form">
                   <label class="form-label" for="telephone-number">Phone number</label>
@@ -152,7 +152,7 @@
               <label for="them-post" class="block-label" data-target="">
                 <input id="them-post" type="checkbox" name="them-contact-pref" value="post">
                 Letter
-              </label>              
+              </label>
             </div>
 
             <div class="form-group">
@@ -172,12 +172,10 @@
 
     </section><!-- .column-two-thirds -->
 
-    {{> application/rightcol }}
+    {% include " application/rightcol .html" %}
 
   </div><!-- .grid-row -->
 
 </main>
 
-{{/content}}
-
-{{/ csi/layout }}
+{% endblock %}

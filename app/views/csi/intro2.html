@@ -1,12 +1,12 @@
-{{< csi/layout }}
+{% extends "csi/layout.html" %}
 
-{{$pageTitle}}Apply for Communication Support at an Interview{{/pageTitle}}
+{% block pageTitle %}Apply for Communication Support at an Interview{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
@@ -39,7 +39,7 @@
     <h2 class="heading-medium">2. Eligibility</h2>
     <p>You can only apply for an CSI grant if you live and work in England, Scotland or Wales. There's a different system in <a href="http://www.nidirect.gov.uk/access-to-work-practical-help-at-work">Northern Ireland.</a></p>
     <p>You must be 16 or over and have an interview.</p>
-    
+
     <h2 class="heading-medium">Your condition</h2>
     <p>Your disability or health condition must affect your ability to do your job or mean you have to pay work-related costs. For example, if you need to buy computer equipment or have to take taxis because you can’t use public transport.</p>
 
@@ -60,16 +60,13 @@
 	  <a href="index" class="first" rel="next" title="Navigate to previous part">Previous<span class="pagination-part-title">Overview</span></a>
     <a href="intro3" rel="next" title="Navigate to next part">Next<span class="pagination-part-title">What you'll get</span></a>
   </nav>
-   
+
 </section>
 
-{{>includes/elsewhere}}
+{% include "includes/elsewhere.html" %}
 
 </div><!-- .grid-row -->
 
 </main>
 
-{{/content}}
-
-{{/ csi/layout }}
-
+{% endblock %}

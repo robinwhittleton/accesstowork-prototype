@@ -1,13 +1,13 @@
-{{< csi/layout }}
+{% extends "csi/layout.html" %}
 
-{{$pageTitle}}Application complete{{/pageTitle}}
+{% block pageTitle %}Application complete{% endblock %}
 
-{{$content}}
+{% block content %}
 
 
 <main id="content" role="main">
 
-  {{>includes/alpha}}
+  {% include "includes/alpha.html" %}
 
   <div class="grid-row">
 
@@ -45,7 +45,4 @@
 
 </main>
 
-{{/content}}
-
-{{/ csi/layout }}
-
+{% endblock %}

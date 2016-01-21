@@ -1,12 +1,12 @@
-{{< csi/layout }}
+{% extends "csi/layout.html" %}
 
-{{$pageTitle}}Consent &amp; Declaration{{/pageTitle}}
+{% block pageTitle %}Consent &amp; Declaration{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-  {{>includes/alpha}}
+  {% include "includes/alpha.html" %}
 
   <div class="grid-row">
 
@@ -51,13 +51,10 @@
 
     </section>
 
-    {{> application/rightcol }}
+    {% include " application/rightcol .html" %}
 
   </div>
 
 </main>
 
-{{/content}}
-
-{{/ csi/layout }}
-
+{% endblock %}

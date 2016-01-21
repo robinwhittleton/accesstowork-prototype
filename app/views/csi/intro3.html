@@ -1,19 +1,19 @@
-{{< csi/layout }}
+{% extends "csi/layout.html" %}
 
-{{$pageTitle}}Apply for Communication Support at an Interview{{/pageTitle}}
+{% block pageTitle %}Apply for Communication Support at an Interview{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
 <section class="column-two-thirds">
 
   <h1 class="form-title heading-xlarge">Apply for Communication Support at an Interview</h1>
-    
+
   <nav class="intro-nav">
   	<ol>
 	  	<li class="font-xsmall">
@@ -39,7 +39,7 @@
 	  <h2 class="heading-medium">3. What you'll get</h2>
 	  <p>How much you'll be offered depends on how much help you need.</p>
 	  <p>A grant can pay for communication support at an interview.</p>
-  	
+
     <h2 class="heading-medium">Maximum grant</h2>
   	<p>The most you can get as an CSI grant is &pound;40,800 per year.</p>
     <p>If you have a grant that's worth more it'll be reduced in April 2018.</p>
@@ -49,16 +49,13 @@
  		<a href="intro2" class="first" rel="next" title="Navigate to previous part">Previous<span class="pagination-part-title">Eligibility</span></a>
     <a href="intro4" rel="next" title="Navigate to next part">Next<span class="pagination-part-title">How to claim</span></a>
   </nav>
-   
+
 </section>
 
-{{>includes/elsewhere}}
-    
+{% include "includes/elsewhere.html" %}
+
 </div><!-- .grid-row -->
 
 </main>
 
-{{/content}}
-
-{{/ csi/layout }}
-
+{% endblock %}

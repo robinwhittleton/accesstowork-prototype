@@ -1,19 +1,19 @@
-{{< csi/layout }}
+{% extends "csi/layout.html" %}
 
-{{$pageTitle}}Apply for Communication Support at an Interview{{/pageTitle}}
+{% block pageTitle %}Apply for Communication Support at an Interview{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
-{{>includes/alpha}}
+{% include "includes/alpha.html" %}
 
 <div class="grid-row">
 
 <section class="column-two-thirds">
 
   <h1 class="form-title heading-xlarge">Apply for Communication Support at an Interview</h1>
-    
+
   <!-- INTRO NAVIGAITON -->
   <nav class="intro-nav">
   	<ol>
@@ -46,7 +46,7 @@
  <nav class="intro-next">
           <a href="intro2" rel="next" title="Navigate to next part">Next<span class="pagination-part-title">Eligibility</span></a>
        </nav>
-   
+
 </section>
 
 
@@ -56,30 +56,27 @@
 		  		<li>
                   <a href="#">Reasonable adjustments for disabled workers</a>
                 </li>
-              
+
                 <li>
                   <a href="#">Definition of disability under the Equality Act 2010</a>
                 </li>
-              
+
                 <li>
                   <a href="#">Disability rights</a>
                 </li>
-              
+
                 <li>
                   <a href="#">Looking for work if you're disabled</a>
                 </li>
-              
-              
+
+
             </ul>
     </aside>
-    
+
 </div>
 
 
 
 </main>
 
-{{/content}}
-
-{{/ csi/layout }}
-
+{% endblock %}
