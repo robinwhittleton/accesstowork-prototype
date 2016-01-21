@@ -10,8 +10,6 @@
 
 <div class="grid-row">
 
-
-
 <section class="column-two-thirds" aria-labelledby="thirdparty">
 
   <!-- BACK LINK -->
@@ -20,7 +18,7 @@
   <!-- HEADING -->
   <h1 class="form-title heading-large">
     <span class="section-progress">Section 4 of 7</span>
-    {% block pageTitle %}{% endblock %} 
+    {% block pageTitle %}{% endblock %}
   </h1>
 
   <form action="during-work-why" method="post" class="form" id="theForm">
@@ -38,11 +36,11 @@
 
       <!-- HOW MANY HOURS -->
       <fieldset class="inline">
-        
+
         <label class="form-label-bold" for="full-name" id="full-name-label">
           Do you know of something that could help you with <span class="need" style="color:#005ea5"></span>?
         </label>
-      
+
         <!-- Do you need - Yes No -->
         <fieldset class="inline" id="havejob">
           <div class="form-group" style="margin-bottom:15px;">
@@ -90,27 +88,27 @@
     console.log(t);
 
     // just put the first one on the page.
-    var during_count = t;  
+    var during_count = t;
     var the_needs = JSON.parse(Cookies.get('during_work'));
     var the_text = the_needs[during_count];
 
     $('.need').text(the_text);
 
     var form = $('form');
-    
+
     $('#submitButton').on('click',function(e)
     {
       e.preventDefault();
-      
-      during_count++;       
+
+      during_count++;
       if (during_count < the_needs.length)
       {
         Cookies.set('during_count',during_count);
         form.attr('action','during-work-why#'+during_count);
         form.submit();
-    
+
       } else {
-    
+
         form.attr('action','job-status');
         form.submit();
       }

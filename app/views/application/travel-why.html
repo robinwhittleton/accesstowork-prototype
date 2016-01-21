@@ -12,21 +12,13 @@
 
 <section class="column-two-thirds" aria-labelledby="thirdparty">
 
-  <script type="text/javascript">
-    var the_needs = [];
-    {% for item in travel_now %}
-      the_needs.push('{{ item }}');
-    {% endfor %}
-    if (the_needs[0] == '') the_needs[0] = '{{ travel_now }}';      
-  </script>
-
   <!-- BACK LINK -->
   <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
 
 	<!-- HEADING -->
   <h1 class="form-title heading-large">
     <span class="section-progress">Section 3 of 7</span>
-    {% block pageTitle %}{% endblock %} 
+    {% block pageTitle %}{% endblock %}
   </h1>
 
   <form action="travel-why" method="post" class="form" id="theForm">
@@ -44,11 +36,11 @@
 
       <!-- HOW MANY HOURS -->
       <fieldset class="inline">
-        
+
         <label class="form-label-bold" for="full-name" id="full-name-label">
           How often do you travel by <span class="need" style="color:#005ea5"></span> for work usually?
         </label>
-      
+
         <p>Count each journey separately, eg if you go to and from work the same way, that would be 2 journeys a day.</p>
 
         <div class="form-group">
@@ -96,26 +88,29 @@
     if (!t) t = 0;
 
     // just put the first one on the page.
-    var travel_count = t;  
+    var travel_count = t;
+    var the_needs = JSON.parse(Cookies.get('travel_now'));
+    if (typeof the_needs == 'string') the_needs = [the_needs];
     var the_text = the_needs[travel_count];
+
     if (the_text == 'something else') the_text = JSON.parse(Cookies.get('travel_now_se_ask'));
     $('.need').text(the_text);
 
     var form = $('form');
-    
+
     $('#submitButton').on('click',function(e)
     {
       e.preventDefault();
-      
-      travel_count++;       
+
+      travel_count++;
       if (travel_count < the_needs.length)
       {
         Cookies.set('travel_count',travel_count);
         form.attr('action','travel-why#'+travel_count);
         form.submit();
-    
+
       } else {
-    
+
         form.attr('action','travel-not');
         form.submit();
       }

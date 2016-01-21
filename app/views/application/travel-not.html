@@ -27,23 +27,23 @@
     <div class="form-group" id="travel-options" style="margin-bottom:30px !important;">
 
       <!-- WHAT DO YOU NEED -->
-      <fieldset class="form-group">      
-        
+      <fieldset class="form-group">
+
         <input id="travel-not-bus" type="checkbox" name="travel-not" value="bus or tram" />
         <label class="form-label form-control-checkbox" for="travel-not-bus">Bus or tram</label>
-        
+
         <input id="travel-not-train" type="checkbox" name="travel-not" value="train" />
         <label class="form-label form-control-checkbox" for="travel-not-train">Train</label>
-        
+
         <input id="travel-not-walk" type="checkbox" name="travel-not" value="walking" />
         <label class="form-label form-control-checkbox" for="travel-not-walk">Walking</label>
-        
-        <input id="travel-not-car" type="checkbox" name="travel-not" value="car" />
+
+        <input id="travel-not-car" type="checkbox" name="travel-not" value="driving your own car" />
         <label class="form-label form-control-checkbox" for="travel-not-car">Your own car</label>
 
-      </fieldset>      
+      </fieldset>
 
-    </div><!-- .form-group -->    
+    </div><!-- .form-group -->
 
     <!-- NEXT BUTTON -->
     <fieldset class="primary-nav form-group" style="margin-top:30px">
@@ -69,9 +69,11 @@
 <script type="text/javascript">
 $(document).on('ready',function()
 {
+  Cookies.remove('travel_not');
+
   // grab the options from the cookie.
   var options = $.parseJSON(Cookies.get('travel_now'));
-  
+
   // make sure it's always an array.
   if (typeof options == 'string') options = [options];
 
@@ -84,14 +86,26 @@ $(document).on('ready',function()
       {
         var id = $(el).attr('id');
         $('label[for="'+id+'"]').hide();
-      }      
+      }
   });
 
   $('#nextButton').on('click',function(e)
   {
     e.preventDefault();
-    Cookies.set('travel_count',0);
-    $('form').submit();
+    var picked = false;
+    $('input[name="travel-not"]').each(function(i,el)
+    {
+      if ($(el).prop('checked')) picked = true;
+    });
+
+    if (picked)
+    {
+      $('form').submit();
+    } else {
+      $('form').attr('action','during-work');
+      $('form').submit();
+    }
+
   });
 });
 </script>
