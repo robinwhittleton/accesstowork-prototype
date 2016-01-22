@@ -1,8 +1,8 @@
-{{<layout_v8}}
+{% extends "layout_v8.html" %}
 
-{{$pageTitle}}About your application{{/pageTitle}}
+{% block pageTitle %}About your application{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -14,7 +14,7 @@
   </section>
 
   <section class="column-two-thirds">
-    <div class="completion">
+    <div class="completion" style="margin-bottom:30px">
       <h1 class="heading-xlarge" style="margin:1em">In progress</h1>
     </div>
     <p>Your application is still being considered.</p>
@@ -26,6 +26,4 @@
 
 </main>
 
-{{/content}}
-
-{{/layout_v8}}
+{% endblock %}

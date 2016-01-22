@@ -4,7 +4,7 @@
 FILES="*.html"
 # FILES = "index.html"
 
-sed -i '' 's/{{<[[:space:]]*\([^}]*\)[[:space:]]}}/{% extends "\1.html" %}/g' $FILES
+sed -i '' 's/{{<[[:space:]]*\([^}]*\)[[:space:]]*}}/{% extends "\1.html" %}/g' $FILES
 
 sed -i '' 's/{{<[ ]*\([a-zA-Z/]*\)[ ]*}}/{% extends "\1.html" %}/g' $FILES
 

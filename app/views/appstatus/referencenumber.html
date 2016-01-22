@@ -1,8 +1,8 @@
-{{<layout_v8}}
+{% extends "layout_v8.html" %}
 
-{{$pageTitle}}About your job{{/pageTitle}}
+{% block pageTitle %}About your job{% endblock %}
 
-{{$content}}
+{% block content %}
 
 <main id="content" role="main">
 
@@ -19,12 +19,12 @@
 			<input class="form-control form-control-3-4" name="reference"/>
 		</fieldset>
 
-		<fieldset class="primary-nav form-group">      
+		<fieldset class="primary-nav form-group">
 			<input type="submit" value="Next" class="button" id="nextButton"/>
 		</fieldset>
 
 		<div class="ui-notes" style="display:none">
-			Psst... 
+			Psst...
 			<ol>
 				<li><a href="status-progress">In progress</a></li>
 				<li><a href="status-waiting">Waiting</a></li>
@@ -37,10 +37,9 @@
 
 </main>
 
-{{/content}}
+{% endblock %}
 
-{{/layout_v8}}
-
+{% block page_script %}
 <script type="text/javascript">
 	$(document).on('ready',function()
 	{
@@ -53,3 +52,4 @@
 	  });
 	});
 </script>
+{% endblock %}
