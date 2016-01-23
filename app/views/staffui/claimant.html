@@ -15,13 +15,7 @@
 		<div class="grid-row">
 		<div class="column-three-quarters">
 
-			<ul class="nav nav-tabs clearfix">
-			  <li class="{{ thispage | check("timeline","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/timeline">Timeline</a></li>
-			  <li class="{{ thispage | check("personal","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/personal">Personal Information</a></li>
-			  <li class="{{ thispage | check("jobs","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/jobs">Jobs</a></li>
-			  <li class="{{ thispage | check("help","active") }}"><a href="/staffui/claimant/{{ claimant.id }}/help">The Help They're Getting</a></li>
-			</ul>
-
+			{% include "staffui/claimant_tabs.html" %}
 			{% block claim_content %}{% endblock %}
 
 		</div>
