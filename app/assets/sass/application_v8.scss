@@ -72,14 +72,16 @@ select {
 
 /* Typeahead */
 .tt-menu {
-  width:100%;
+  width:50%;
+  background-color:$grey-3;
   border:2px solid $border-colour;
   box-sizing:border-box;
 }
 .tt-suggestion {
   @extend .form-control;
-  width:100%;
+  background:none;
   border:none;
+  width:100%;
 }
 .twitter-typeahead {
   width:100%;

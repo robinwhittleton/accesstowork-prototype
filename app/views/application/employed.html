@@ -79,3 +79,48 @@
 </main>
 
 {% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+    var substringMatcher = function(strs)
+    {
+       return function findMatches(q, cb)
+       {
+         console.log('got here');
+         var matches = [];
+         var substrRegex = new RegExp(q, 'i');
+         $.each(strs, function(i, str) {
+           if (substrRegex.test(str)) {
+             matches.push(str);
+           }
+         });
+         cb(matches);
+       };
+    };
+
+    var conditions = [
+      'BT',
+      'Royal Mail',
+      'BBC',
+      'Coop',
+      'Ernst & Young',
+      'British Gas',
+      'HMRC',
+      'RBS',
+      'Sainsburys',
+      'Red Cross',
+      'Microlink'
+    ];
+
+    $(document).on('ready',function()
+    {
+      $('#company-name').typeahead(
+        { "hint":true, "highlight":true, "minLength":1 },
+        {
+         name:'conditions',
+         source: substringMatcher(conditions)
+        }
+      );
+    });
+</script>
+{% endblock %}

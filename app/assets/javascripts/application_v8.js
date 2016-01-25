@@ -18,9 +18,9 @@ $(document).ready(function() {
   // toggleContent.showHideCheckboxToggledContent();
 
   $('.form-control-radio').on('click',function(e)
-  {    
+  {
     // save the clicked label
-    var self = this;    
+    var self = this;
 
     // grab the fieldset containing it
     var fs = $(this).closest('fieldset');
@@ -40,10 +40,10 @@ $(document).ready(function() {
   });
 
   $('.form-control-checkbox').on('click',function(e)
-  { 
-    var target = $(this).data('target');   
+  {
+    var target = $(this).data('target');
     $('#'+target).toggle();
-  });  
+  });
 
   $('#skiplink-container div').append('<a id="toggle-highcontrast" href="#" class="skiplink">High contrast version</a>');
   $('#skiplink-container div').append('<a id="toggle-remove" href="#" class="skiplink">Remove high contrast</a>');
@@ -62,11 +62,9 @@ $(document).ready(function() {
 
   $('input, textarea').attr({
     "autocomplete":"off",
-    "autocorrect":"off", 
-    "autocapitalize":"off", 
+    "autocorrect":"off",
+    "autocapitalize":"off",
     "spellcheck":"false"
   });
 
 });
-
-
