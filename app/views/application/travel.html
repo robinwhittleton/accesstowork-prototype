@@ -58,7 +58,7 @@
         <input id="travel-now-car" type="checkbox" name="travel-now" value="car or getting a lift" />
         <label class="form-label form-control-checkbox" for="travel-now-car">Car or get a lift</label>
 
-        <input id="travel-now-se" type="checkbox" name="travel-now" value="something else" />
+        <input id="travel-now-se" type="checkbox" name="travel-now" value="" />
         <label class="form-label form-control-checkbox" for="travel-now-se" data-target="se-ask">Something else</label>
         <fieldset class="mid-form js-hidden" id="se-ask">
           <div class="form-group panel-indent mid-form">
@@ -100,17 +100,11 @@
   $('#nextButton').on('click',function(e)
   {
     e.preventDefault();
-    // if they've added a "Something Else" option
-    if ($('#travel-now-se').prop('checked'))
-    {
-      var val = $('#travel-now-se-ask').val();
-      if (val) $('#travel-now-se').val(val.toLowerCase());
-      $('#travel-now-se-ask').val('')
-    }
 
     var picked = false;
     $('input[name="help-travelling"]').each(function(i,el)
     {
+      console.log('got here');
       if( $(el).prop('checked') ) // if Yes or No has been ticked.
       {
         if ( $(el).val() == 'No' ) // if it's No.
@@ -119,16 +113,29 @@
           $('form').attr('action','during-work');
         }
 
-        if ( $(el).val() == 'Yes' ) // if it's No.
+        if ( $(el).val() == 'Yes' ) // if it's Yes.
         {
           $('input[name="travel-now"]').each(function(i,el)
           {
-            if ($(el).prop('checked')) picked = true;
+            if ($(el).attr('id') == 'travel-now-se') // if it's the SE option
+            {
+              if ($(el).prop('checked')) // if it's checked save the typed value.
+              {
+                var val = $('#travel-now-se-ask').val();
+                if (val) // if they've actually typeed something.
+                {
+                    $('#travel-now-se').val(val.toLowerCase());
+                    picked = true;
+                }
+              }
+            } else {
+              if ($(el).prop('checked')) picked = true;
+            }
           });
         }
       }
     });
-
+    // console.log(picked);
     if (picked) $('form').submit();
     else alert('Please pick one or choose "No" above.');
   });

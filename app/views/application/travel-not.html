@@ -70,8 +70,9 @@ $(document).on('ready',function()
   Cookies.remove('travel_not');
 
   // grab the options from the cookie.
-  var options = $.parseJSON(Cookies.get('travel_now'));
-
+  var tmp = Cookies.get('travel_now');
+  if (tmp) var options = $.parseJSON(tmp);
+  else options = [];
   // make sure it's always an array.
   if (typeof options == 'string') options = [options];
 
