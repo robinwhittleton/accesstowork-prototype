@@ -61,7 +61,7 @@
 
   $(document).on('ready',function()
   {
-    var cond = JSON.parse(Cookies.get('my_condition'));
+    var cond = Cookies.getJSON('my_condition');
     console.log(cond);
     if (cond.match(/deaf/ig))
     {

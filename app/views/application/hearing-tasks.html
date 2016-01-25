@@ -81,7 +81,7 @@ $(document).on("ready",function(e)
   if (!t) t = 0;
 
   // grab the values from the cookie then check that it's an array.
-  var deaf_need = JSON.parse(Cookies.get('deaf_need'));
+  var deaf_need = Cookies.getJSON('deaf_need');
   if (typeof deaf_need == 'string') deaf_need = [deaf_need];
 
   // just put the first one on the page.

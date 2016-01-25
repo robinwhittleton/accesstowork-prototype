@@ -89,11 +89,11 @@
 
     // just put the first one on the page.
     var travel_count = t;
-    var the_needs = JSON.parse(Cookies.get('travel_now'));
+    var the_needs = Cookies.getJSON('travel_now');
     if (typeof the_needs == 'string') the_needs = [the_needs];
     var the_text = the_needs[travel_count];
 
-    if (the_text == 'something else') the_text = JSON.parse(Cookies.get('travel_now_se_ask'));
+    if (the_text == 'something else') the_text = Cookies.getJSON('travel_now_se_ask');
     $('.need').text(the_text);
 
     var form = $('form');

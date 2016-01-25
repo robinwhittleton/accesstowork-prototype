@@ -89,7 +89,7 @@
 
     // just put the first one on the page.
     var during_count = t;
-    var the_needs = JSON.parse(Cookies.get('during_work'));
+    var the_needs = Cookies.getJSON('during_work');
     var the_text = the_needs[during_count];
 
     $('.need').text(the_text);

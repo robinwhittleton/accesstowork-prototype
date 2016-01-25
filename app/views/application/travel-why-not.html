@@ -63,7 +63,7 @@
     var t = window.location.hash.substring(1);
     if (!t) t = 0;
 
-    var the_needs = JSON.parse(Cookies.get('travel_not'));
+    var the_needs = Cookies.getJSON('travel_not');
     if (typeof the_needs == 'string') the_needs = [the_needs];
 
     // just put the first one on the page.
