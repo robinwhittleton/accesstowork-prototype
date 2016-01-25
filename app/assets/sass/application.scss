@@ -121,9 +121,9 @@ td.numeric {
   }
 }
 /*
-  
+
 */
-.show-pages {  
+.show-pages {
   position:absolute;
   top:0;left:0;
   background:rgba(white,0.95);
@@ -174,3 +174,17 @@ span.answer {
   color:$purple;
   font-weight:700;
 }
+
+.panel-indent .form-control,
+.panel-indent .button-add {
+  @media (max-width:640px)
+  {
+    width:90%;
+  }
+}
+ #proposition-name {
+   @media (max-width:640px){ text-align:center; }
+ }
+ .phase-banner .phase-tag {
+   @media (max-width:640px) {display:none}
+ }
