@@ -28,7 +28,7 @@
     <!-- WHAT YOU NEED? -->
     <fieldset class="form-group" id="what-you-need">
       <p>Select all that apply</p>
-      <div class="form-group" aria-labelledby="what-you-need-label">              
+      <div class="form-group" aria-labelledby="what-you-need-label">
         <input name="what-you-need" value="Communication"id="what-you-need-comms" type="checkbox" data-dest="need-communication">
         <label id="deaf-questions" class="form-label form-control-checkbox" for="what-you-need-comms" style="display:none"> Support for a hearing impairment</label>
         <input name="what-you-need" value="Travelling"id="what-you-need-travel" type="checkbox" data-dest="need-travel">
@@ -41,9 +41,7 @@
     <!-- NEXT BUTTON -->
     <fieldset class="primary-nav form-group">
       <legend>Form Navigation</legend>
-      <ul>
-        <li><input type="submit" value="Continue" class="button" id="submitButton"/></li>
-      </ul>
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
     </fieldset>
 
   </form>
@@ -65,7 +63,7 @@
   {
     var cond = JSON.parse(Cookies.get('my_condition'));
     console.log(cond);
-    if (cond.match(/deaf/ig)) 
+    if (cond.match(/deaf/ig))
     {
       console.log('match');
       $("#deaf-questions").show();

@@ -19,7 +19,7 @@
 
   <!-- HEADING -->
   <h1 class="form-title heading-large" id="thirdparty">
-    <span class="section-progress">Section 5 of 7</span> 
+    <span class="section-progress">Section 5 of 7</span>
     Employment status
   </h1>
 
@@ -47,9 +47,7 @@
     <!-- NEXT BUTTON -->
     <fieldset class="primary-nav form-group">
       <legend>Form Navigation</legend>
-      <ul>
-        <li><input type="submit" value="Continue" class="button" id="submitButton"/></li>
-      </ul>
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
     </fieldset>
 
   </form>
@@ -91,7 +89,7 @@
         if ($(e).prop('checked'))  emp_status = $(e).attr('value');
       });
 
-      // 
+      //
       switch(emp_status)
       {
         case "Employed": dest = 'employed'; break;

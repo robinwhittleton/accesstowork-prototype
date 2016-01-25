@@ -31,9 +31,7 @@
 
     <fieldset class="primary-nav form-group">
 		  <legend>Form Navigation</legend>
-        <ul>
-	      	<li><input type="submit" value="Continue" class="button" id="submitButton"/></li>
-	      </ul>
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
     </fieldset>
 
   </form>
@@ -67,20 +65,20 @@
         var substrRegex = new RegExp('^'+val, 'i');
         var match = false;
         $.each(deaf_conditions, function(i, str) {
-          if (substrRegex.test(str)) 
+          if (substrRegex.test(str))
           {
             console.log(substrRegex);
             return match = true;
           }
-        });        
-        if (match) 
+        });
+        if (match)
         {
           Cookies.set('sections',6);
           $("form").attr('action','hearing');
         } else {
           Cookies.set('sections',5);
         }
-      }      
+      }
       $("form").submit();
     });
   });

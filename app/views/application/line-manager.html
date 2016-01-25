@@ -20,7 +20,7 @@
   <form action="aboutyou" method="post" class="form">
 
     <fieldset>
-     
+
       <!-- THEIR NAME -->
       <div class="form-group">
           <label class="form-label-bold" for="employer-name">Their name</label>
@@ -40,7 +40,7 @@
                 <fieldset class="mid-form js-hidden" id="email-ask">
                   <div class="form-group panel-indent mid-form">
                     <label class="form-label" for="email-address">Email address</label>
-                    <input class="form-control" id="email-address" name="line-email-address" type="text" aria-required="true">      
+                    <input class="form-control" id="email-address" name="line-email-address" type="text" aria-required="true">
                   </div>
                 </fieldset>
 
@@ -57,7 +57,7 @@
 
                 <!-- TEXT MESSAGAE -->
                 <input id="line-text" type="checkbox" name="line-contact-pref" value="text">
-                <label for="line-text" class="form-label form-control-checkbox" data-target="text-ask"> Text message </label>              
+                <label for="line-text" class="form-label form-control-checkbox" data-target="text-ask"> Text message </label>
                 <fieldset class="mid-form js-hidden" id="text-ask">
                   <div class="form-group panel-indent mid-form">
                     <label class="form-label" for="telephone-number">Phone number</label>
@@ -74,10 +74,8 @@
 
     <!-- Primary buttons, secondary links -->
     <fieldset class="primary-nav form-group">
-        <legend>Navigation</legend>
-              <ul>
-                <li><input type="submit" value="Continue" class="button"/></li>
-              </ul>
+      <legend>Navigation</legend>
+      <input type="submit" value="Continue" class="button"/>
     </fieldset>
 
   </form>
@@ -91,4 +89,3 @@
 </main>
 
 {% endblock %}
-

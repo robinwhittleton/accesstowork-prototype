@@ -41,16 +41,16 @@
 
       <!-- WHAT DO YOU NEED -->
       <fieldset class="form-group">
-        
+
         <legend class="heading-medium" style="margin-bottom:5px">Which of these do you find more diffcult to do in work?</legend>
         <p class="form-hint">Tick any that apply</p>
-        
+
         <input id="work-now-phone" type="checkbox" name="work-now" value="taking phone calls" />
         <label class="form-label form-control-checkbox" for="work-now-phone">Taking phone calls</label>
-        
+
         <input id="work-now-computer" type="checkbox" name="work-now" value="using a computer" />
         <label class="form-label form-control-checkbox" for="work-now-computer">Using a computer</label>
-        
+
         <input id="work-now-meetings" type="checkbox" name="work-now" value="having meetings" />
         <label class="form-label form-control-checkbox" for="work-now-meetings">Meetings with colleagues</label>
 
@@ -85,7 +85,7 @@
 
     <fieldset class="primary-nav form-group" style="margin-top:30px">
       <legend>Form Navigation</legend>
-      <ul> <li><input type="submit" value="Continue" class="button" id="nextButton"/></li> </ul>
+      <input type="submit" value="Continue" class="button" id="nextButton"/>
     </fieldset>
 
   </form>
@@ -121,7 +121,7 @@ $(document).on('ready',function()
     {
       if ($(el).prop('checked'))
       {
-        data.push($(el).val()); 
+        data.push($(el).val());
       }
     });
 
@@ -129,7 +129,7 @@ $(document).on('ready',function()
     {
       if ($(el).val() !== '')
       {
-        data.push($(el).val().toLowerCase()); 
+        data.push($(el).val().toLowerCase());
       }
     });
 
@@ -146,10 +146,10 @@ $(document).on('ready',function()
           },function(data) {
             Cookies.set('during_count',0);
             window.location.href = '/application/during-work-why';
-          });  
+          });
       }
     }
-  });  
+  });
 });
 </script>
 {% endblock %}
