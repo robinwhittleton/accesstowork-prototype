@@ -188,3 +188,18 @@ span.answer {
  .phase-banner .phase-tag {
    @media (max-width:640px) {display:none}
  }
+.form {
+  @extend .clearfix;
+}
+#help {
+  padding-top:60px;
+  display:none;
+  @media (min-width: 640px) {
+    text-align:right;
+  }
+  @media (max-width: 640px)
+  {
+    display:block;
+    padding-top:15px;
+  }
+}
