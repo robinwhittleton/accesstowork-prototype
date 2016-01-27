@@ -1,0 +1,109 @@
+{% extends "application/v11/layout.html" %}
+
+{% block pageTitle %}About you{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/alpha.html" %}
+
+<div class="grid-row">
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" style="margin-bottom:30px;">
+    <span class="section-progress">Section 3 of 7</span>
+    Could you use any of these to get to or from work if you didn't have your condition?
+  </h1>
+  <p>For example, if there's a bus route but you find it difficult to stand on a bus.</p>
+
+  <form action="travel-why-not" method="post" class="form" id="theForm">
+
+    <div class="" id="travel-options" style="margin-bottom:30px !important;">
+
+      <!-- WHAT DO YOU NEED -->
+      <fieldset class="form-group">
+
+        <input id="travel-not-bus" type="checkbox" name="travel-not" value="bus or tram" />
+        <label class="form-label form-control-checkbox" for="travel-not-bus">Bus or tram</label>
+
+        <input id="travel-not-train" type="checkbox" name="travel-not" value="train" />
+        <label class="form-label form-control-checkbox" for="travel-not-train">Train</label>
+
+        <input id="travel-not-walk" type="checkbox" name="travel-not" value="walking" />
+        <label class="form-label form-control-checkbox" for="travel-not-walk">Walking</label>
+
+        <input id="travel-not-car" type="checkbox" name="travel-not" value="driving your own car" />
+        <label class="form-label form-control-checkbox" for="travel-not-car">Your own car</label>
+
+      </fieldset>
+
+    </div><!-- .form-group -->
+
+    <!-- NEXT BUTTON -->
+    <fieldset class="primary-nav form-group" style="margin-top:30px">
+      <legend>Form Navigation</legend>
+      <input type="submit" value="Continue" class="button" id="nextButton"/>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+{% include "application/v11/rightcol.html" %}
+
+</div><!-- .grid-row -->
+
+</main>
+
+{% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+$(document).on('ready',function()
+{
+  Cookies.remove('travel_not');
+
+  // grab the options from the cookie.
+  var options = Cookies.getJSON('travel_now');
+  // make sure it's always an array.
+  if (typeof options == 'string') options = [options];
+
+  // go through the travel inputs
+  $('input[name="travel-not"]').each(function(i,el)
+  {
+      // check whether the value of the input is already in the options array.
+      var val = $(el).val();
+      if ($.inArray(val, options) >= 0)
+      {
+        var id = $(el).attr('id');
+        $('label[for="'+id+'"]').hide();
+      }
+  });
+
+  $('#nextButton').on('click',function(e)
+  {
+    e.preventDefault();
+    var picked = false;
+    $('input[name="travel-not"]').each(function(i,el)
+    {
+      if ($(el).prop('checked')) picked = true;
+    });
+
+    if (picked)
+    {
+      $('form').submit();
+    } else {
+      $('form').attr('action','during-work');
+      $('form').submit();
+    }
+
+  });
+});
+</script>
+{% endblock %}

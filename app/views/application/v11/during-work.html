@@ -1,0 +1,154 @@
+{% extends "application/v11/layout.html" %}
+
+{% block pageTitle %}About your job{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/alpha.html" %}
+
+<div class="grid-row">
+
+
+
+<section class="column-two-thirds" aria-labelledby="aboutjob">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" style="margin-bottom:30px">
+    <span class="section-progress">Section 4 of 7</span>
+    Does your condition cause you difficulties during work?
+  </h1>
+
+  <form action="job-status" method="post" class="form">
+
+    <!-- Do you need - Yes No -->
+    <fieldset class="inline" id="havejob">
+      <div class="form-group">
+        <input id="during-work-yes" type="radio" name="during-work" value="Yes" />
+        <label id="screen1" class="form-label form-control-radio" data-target="work-taks" for="during-work-yes">Yes</label>
+      </div>
+      <div class="form-group form-group-compound">
+        <input id="during-work-no" type="radio" name="during-work" value="No" />
+        <label class="form-label form-control-radio" data-target="" for="during-work-no">No</label>
+      </div>
+    </fieldset>
+
+    <div id="work-taks" class="js-hidden panel-indent" style="margin-bottom:30px !important;">
+
+      <!-- WHAT DO YOU NEED -->
+      <fieldset class="form-group">
+        <legend class="heading-medium" style="margin-bottom:5px">Which of these do you find more difficult to do in work?</legend>
+        <p class="form-hint">Tick any that apply</p>
+
+        <input id="work-now-phone" type="checkbox" name="work-now" value="taking phone calls" />
+        <label class="form-label form-control-checkbox" for="work-now-phone">Taking phone calls</label>
+
+        <input id="work-now-computer" type="checkbox" name="work-now" value="using a computer" />
+        <label class="form-label form-control-checkbox" for="work-now-computer">Using a computer</label>
+
+        <input id="work-now-meetings" type="checkbox" name="work-now" value="having meetings" />
+        <label class="form-label form-control-checkbox" for="work-now-meetings">Heavy lifting</label>
+
+      </fieldset>
+
+      <!-- LIST THE THINGS -->
+      <fieldset class="form-group">
+        <legend class="form-label-bold" id="alreadyJob">Are there any other work tasks that are harder for you because of your condition?</legend>
+        <!-- <p class="form-hint">This includes getting to or from work, or anything you have to do as part of your job role.</p> -->
+        <fieldset class="inline">
+          <div class="form-group" style="margin-bottom:10px">
+            <input id="work-more-yes" type="radio" name="work-more" value="Yes" />
+            <label id="screen2" class="form-label form-control-radio" data-target="work-tasks" for="work-more-yes">Yes</label>
+          </div>
+          <div class="form-group form-group-compound">
+            <input id="work-more-no" type="radio" name="work-more" value="No" />
+            <label class="form-label form-control-radio" data-target="" for="work-more-no">No</label>
+          </div>
+        </fieldset>
+        <div class="form-group js-hidden panel-indent" id="work-tasks">
+          <p class="form-hint">Add as many as you like</p>
+          <div class="conditions" style="margin-bottom:15px">
+            <p class="cond"><input name="user-tasks" class="form-control" autocomplete="off"/></p>
+            <p class="cond"><input name="user-tasks" class="form-control" autocomplete="off"/></p>
+            <p class="cond"><input name="user-tasks" class="form-control" autocomplete="off"/></p>
+          </div>
+          <p><a href="#" id="add" class="button-add">&#43; add another task</a></p>
+        </div>
+      </fieldset>
+
+    </div>
+
+    <fieldset class="primary-nav form-group" style="margin-top:30px">
+      <legend>Form Navigation</legend>
+      <input type="submit" value="Continue" class="button" id="nextButton"/>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+{% include "application/v11/rightcol.html" %}
+
+</div><!-- .grid-row -->
+
+</main>
+
+{% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+$(document).on('ready',function()
+{
+  $('#add').on("click",function(e)
+  {
+    e.preventDefault();
+    var c = $($('.conditions .cond')[0]).clone(); // clone the first input
+    $('.conditions').append(c); // apend it to the block.
+    $(c.find('input')).val("").focus(); // empty the vlalue.
+  });
+
+  $('#nextButton').on('click',function(e)
+  {
+    e.preventDefault();
+
+    var data = [];
+    $('input[name="work-now"]').each(function(i,el)
+    {
+      if ($(el).prop('checked'))
+      {
+        data.push($(el).val());
+      }
+    });
+
+    $('input[name="user-tasks"]').each(function(i,el)
+    {
+      if ($(el).val() !== '')
+      {
+        data.push($(el).val().toLowerCase());
+      }
+    });
+
+    // if Yes isn't picked at the top.
+    if (!$('#during-work-yes').prop('checked'))
+    {
+      $("form").submit();
+    } else {
+      if (!data.length) alert('Please pick or enter at least one task.');
+      else {
+        $.post("/application/during-work",
+          {
+            "during-work":data,
+          },function(data) {
+            Cookies.set('during_count',0);
+            window.location.href = '/application/during-work-why';
+          });
+      }
+    }
+  });
+});
+</script>
+{% endblock %}

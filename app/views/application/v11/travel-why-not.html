@@ -1,0 +1,91 @@
+{% extends "application/v11/layout.html" %}
+
+{% block pageTitle %}Travelling now{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/alpha.html" %}
+
+<div class="grid-row">
+
+<section class="column-two-thirds" aria-labelledby="thirdparty">
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    <span class="section-progress">Section 3 of 7</span>
+    {% block pageTitle %}{% endblock %}
+  </h1>
+
+  <form action="travel-why-not" method="post" class="form" id="theForm">
+
+    <!-- HOW MANY HOURS -->
+    <div class="form-group">
+
+      <!-- WHY DO YOU NEED -->
+      <div class="form-group">
+        <label class="form-label-bold" for="reasons" id="">
+          Why can't you travel to and from work by <span class="need" style="color:#005ea5"></span>?
+        </label>
+        <textarea class="form-control" id="reasons" name="reasons"></textarea>
+      </div>
+
+    </div>
+
+    <fieldset class="primary-nav form-group">
+		  <legend>Form Navigation</legend>
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+</section><!-- .column-two-thirds -->
+
+{% include "application/v11/rightcol.html" %}
+
+</div><!-- .grid-row -->
+
+</main>
+
+{% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    var form = $('form');
+
+    // grab the count from the cookie (if it exists).
+    var t = window.location.hash.substring(1);
+    if (!t) t = 0;
+
+    var the_needs = Cookies.getJSON('travel_not');
+    if (typeof the_needs == 'string') the_needs = [the_needs];
+
+    // just put the first one on the page.
+    var travel_count = t;
+    $('.need').text(the_needs[travel_count]);
+
+    $('#submitButton').on('click',function(e)
+    {
+      e.preventDefault();
+
+      travel_count++;
+      if (travel_count < the_needs.length)
+      {
+        form.attr('action','travel-why-not#'+travel_count);
+        form.submit();
+
+      } else {
+
+        form.attr('action','during-work');
+        form.submit();
+      }
+    });
+  });
+</script>
+{% endblock %}
