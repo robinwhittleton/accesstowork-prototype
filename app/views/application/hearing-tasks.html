@@ -83,6 +83,7 @@ $(document).on("ready",function(e)
   // grab the values from the cookie then check that it's an array.
   var deaf_need = Cookies.getJSON('deaf_need');
   if (typeof deaf_need == 'string') deaf_need = [deaf_need];
+  if (deaf_need == undefined) deaf_need = ['a BSL Interpreter'];
 
   // just put the first one on the page.
   var hearing_count = t;
