@@ -26,24 +26,23 @@ module.exports = function(grunt){
     },
 
     // Copies templates and assets from external modules and dirs
-    copy: {
+    sync: {
       assets: {
         files: [{
-          expand: true,
           cwd: 'app/assets/',
           src: ['**/*', '!sass/**'],
           dest: 'public/'
-        }]
+        }],
+        ignoreInDest: "**/stylesheets/**",
+        updateAndDelete: true
       },
       govuk: {
         files: [{
-          expand: true,
           cwd: 'node_modules/govuk_frontend_toolkit',
           src: '**',
           dest: 'govuk_modules/govuk_frontend_toolkit/'
         },
         {
-          expand: true,
           cwd: 'node_modules/govuk_template_mustache/',
           src: '**',
           dest: 'govuk_modules/govuk_template/'
@@ -62,7 +61,7 @@ module.exports = function(grunt){
       },
       assets:{
         files: ['app/assets/**/*', '!app/assets/sass/**'],
-        tasks: ['copy:assets'],
+        tasks: ['sync:assets'],
         options: {
           spawn: false,
         }
@@ -92,7 +91,7 @@ module.exports = function(grunt){
   });
 
   [
-    'grunt-contrib-copy',
+    'grunt-sync',
     'grunt-contrib-watch',
     'grunt-contrib-clean',
     'grunt-sass',
@@ -103,8 +102,7 @@ module.exports = function(grunt){
   });
 
   grunt.registerTask('generate-assets', [
-    'clean',
-    'copy',
+    'sync',
     'sass'
   ]);
 
@@ -113,14 +111,14 @@ module.exports = function(grunt){
     'concurrent:target'
   ]);
 
-  grunt.event.on('watch', function(action, filepath, target) {
-
-    // just copy the asset that was changed, not all of them
-
-    if (target == "assets"){
-      grunt.config('copy.assets.files.0.src', filepath.replace("app/assets/",""));
-    }
-
-  });
+  // grunt.event.on('watch', function(action, filepath, target) {
+  //
+  //   // just copy the asset that was changed, not all of them
+  //
+  //   if (target == "assets"){
+  //     grunt.config('copy.assets.files.0.src', filepath.replace("app/assets/",""));
+  //   }
+  //
+  // });
 
 };
