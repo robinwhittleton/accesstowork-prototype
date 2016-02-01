@@ -6,6 +6,8 @@
 
 {% block content %}
 
+{% set pages = ["login","all","adviser","claimant","claimant_0_personal","claimant_0_job","claimant_0_help"] %}
+
 <main id="content" role="main">
 <div class="staff-container">
 
@@ -15,24 +17,11 @@
 
 			<h1 class="heading-large">Pages</h1>
 			<ol class="screens">
-				<li><a href="login">
-          login <div style="background-image:url(/public/images/staff/pages/login-thumb.png)"></div>
-        </a></li>
-        <li><a href="all">
-          all customers <div style="background-image:url(/public/images/staff/pages/all-thumb.png)"></div>
-        </a></li>
-        <li><a href="adviser">
-          adviser <div style="background-image:url(/public/images/staff/pages/adviser-thumb.png)"></div>
-        </a></li>
-				<li><a href="claimant">
-          customer - timeline <div style="background-image:url(/public/images/staff/pages/claimant-thumb.png)"></div>
-        </a></li>
-				<li><a href="claimant/0/personal/">
-          customer - personal <div style="background-image:url(/public/images/staff/pages/claimant_0_personal-thumb.png)"></div>
-        </a></li>
-				<li><a href="claimant/0/jobs/">
-          customer - jobs <div style="background-image:url(/public/images/staff/pages/claimant_0_jobs-thumb.png)"></div>
-        </a></li>
+				{% for item in pages %}
+					<li><a href="login">
+						{{ item }} <div style="background-image:url(/public/images/pages/staff/{{ item }}-thumb.png)"></div>
+					</a></li>
+				{% endfor %}
 			</ol>
 
 	</section>
