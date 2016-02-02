@@ -1,14 +1,14 @@
 var path          = require('path'),
     express       = require('express'),
     browserSync   = require('browser-sync'),
-    nunjucks      = require('express-nunjucks'),    
+    nunjucks      = require('express-nunjucks'),
     favicon       = require('serve-favicon'),
     basicAuth     = require('basic-auth-connect'),
     bodyParser    = require('body-parser'),
     cookieParser  = require('cookie-parser'),
     port          = (process.env.PORT || 3000),
     app           = express(),
-    
+
     // routing and extras
     routes        = require(__dirname + '/lib/default-routes.js'),
     app_routes    = require(__dirname + '/app/routes.js'),
@@ -21,7 +21,7 @@ var path          = require('path'),
     env = process.env.NODE_ENV || 'development';
 
 /*
-  Authenticate against the environment-provided credentials, 
+  Authenticate against the environment-provided credentials,
   if running the app in production (Heroku, effectively)
 */
 // if (env === 'production') {
@@ -109,7 +109,7 @@ if (env === 'production') {
       proxy:'localhost:'+port,
       port:port+1,
       ui:false,
-      files:['public/**/*.{js,css}','app/views/**/*.html'],
+      files:['public/**/*.{js,css,png}','app/views/**/*.html'],
       ghostmode:{clicks:true, forms: true, scroll:true},
       open:false,
     });

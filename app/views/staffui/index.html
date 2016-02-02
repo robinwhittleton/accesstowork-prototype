@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% set pages = ["login","all","adviser","claimant","claimant_0_personal","claimant_0_job","claimant_0_help"] %}
+{% set pages = ["login","all","adviser","claimant","claimant/0/personal","claimant/0/jobs","claimant/0/help"] %}
 
 <main id="content" role="main">
 <div class="staff-container">
@@ -18,8 +18,8 @@
 			<h1 class="heading-large">Pages</h1>
 			<ol class="screens">
 				{% for item in pages %}
-					<li><a href="login">
-						{{ item }} <div style="background-image:url(/public/images/pages/staff/{{ item }}-thumb.png)"></div>
+					<li><a href="{{ item }}">
+						{{ item }} <div style="background-image:url(/public/images/pages/staff/{{ item | slugify }}-thumb.png)"></div>
 					</a></li>
 				{% endfor %}
 			</ol>
