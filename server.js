@@ -13,6 +13,7 @@ var path          = require('path'),
     routes        = require(__dirname + '/lib/default-routes.js'),
     app_routes    = require(__dirname + '/app/routes.js'),
     staff_routes  = require(__dirname + '/app/views/staffui/routes.js'),
+    staff_routes  = require(__dirname + '/app/views/feedback/routes.js'),
     user_data     = require(__dirname + '/lib/user_data.js'),
 
     // Grab environment variables specified in Procfile or as Heroku config vars
@@ -49,6 +50,9 @@ nunjucks.setup({
   });
   env.addFilter('check', function(str,checkee,output) {
       return str == checkee ? output : '';
+  });
+  env.addFilter('classify', function(str,checkee,output) {
+      return str.split(' ')[0].toLowerCase();
   });
 });
 

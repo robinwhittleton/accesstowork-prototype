@@ -1,0 +1,39 @@
+{% extends "feedback/layout.html" %}
+
+{% block pageTitle %}
+	Access To Work - Feedback
+{% endblock %}
+
+{% block content %}
+
+	{# {% set item = feedback | random %} #}
+	{% set item = feedback[32] %}
+
+	<div class="title">Access To Work &mdash; Feedback</div>
+	<div class="count">{{ feedback | length }} so far</div>
+
+	<main id="content" role="main">
+		<div id="feedback">
+			<div class="circle {{ item.RATING | classify }}"></div>
+			<p class="rating">{{ item.RATING }}</p>
+			<p class="date">{{ item.DATE }}</p>
+			{% if item["FEEDBACK - POSTIVE"] %}<p>&ldquo;{{ item["FEEDBACK - POSTIVE"] | truncate(300) }}&rdquo;</p>{% endif %}
+			{% if item["FEEDBACK - IMPROVEMENT"] %}<p>&ldquo;{{ item["FEEDBACK - IMPROVEMENT"] | truncate(300) }}&rdquo;</p>{% endif %}
+			{% if item["FEEDBACK - NE"] %}<p>&ldquo;{{ item["FEEDBACK - NEUTRAL"] | truncate(300) }}&rdquo;</p>{% endif %}
+		</div>
+	</main>
+
+{% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+	$(document).on('ready',function()
+	{
+	  setTimeout(function()
+		{
+			// alert('fish');
+			// window.location.reload();
+		},1000)
+	});
+</script>
+{% endblock %}

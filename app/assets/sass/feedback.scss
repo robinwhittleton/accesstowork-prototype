@@ -1,0 +1,53 @@
+@import 'elements';
+@import 'elements/icons';
+@import "elements/forms/form-custom";
+@import "clearfix";
+
+html,body { height: 100%; margin: 0px; padding: 0px; }
+body {background-color:$turquoise;}
+#content {
+  height:100%;
+  position:relative;
+  margin-bottom:0;padding-bottom:0;
+}
+#feedback {
+  position:absolute;
+  top:42%;
+  transform: translateY(-50%);
+  font-size:42px;
+  color:white;
+  text-align:center;
+  width:100%;
+}
+.rating {
+  font-weight:700;
+}
+.date {
+  color:black;
+  font-size:18px;
+  text-transform:uppercase;
+  letter-spacing:0.25em;
+  font-weight:700;
+  opacity:0.42;
+  margin-bottom:40px;
+}
+.circle {
+  margin:0 auto;
+  $size:76px;
+  width:$size;height:$size;
+  background:black;
+  border-radius:50%;
+  border:5px solid white;
+  // margin-bottom:30px;
+  &.satisfied {background-color:$live-colour}
+  &.dissatisfied {background-color:$error-colour}
+  &.neither {background-color:$beta-colour}
+}
+.title,
+.count {
+  color:white;
+  position:absolute;
+  font-size:24px;
+}
+.title {top:30px;left:30px;}
+.count {top:30px;right:30px;}
