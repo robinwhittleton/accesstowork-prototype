@@ -6,8 +6,8 @@
 
 {% block content %}
 
-	{# {% set item = feedback | random %} #}
-	{% set item = feedback[32] %}
+	{% set item = feedback | random %}
+	{# {% set item = feedback[32] %} #}
 
 	<div class="title">Access To Work &mdash; Feedback</div>
 	<div class="count">{{ feedback | length }} so far</div>
