@@ -43,23 +43,10 @@
         <legend class="heading-medium">Which of these do you use to get to or from work?</legend>
         <p>Tick all that apply</p>
 
-        <input id="travel-now-walk" type="checkbox" name="travel-now" value="walking" />
-        <label class="form-label form-control-checkbox" for="travel-now-walk">Walking</label>
-
-        <input id="travel-now-bike" type="checkbox" name="travel-now" value="riding a bicycle" />
-        <label class="form-label form-control-checkbox" for="travel-now-bike">Bicycle</label>
-
-        <input id="travel-now-bus" type="checkbox" name="travel-now" value="catching a bus or tram" />
-        <label class="form-label form-control-checkbox" for="travel-now-bus">Bus or tram</label>
-
-        <input id="travel-now-train" type="checkbox" name="travel-now" value="catching a train" />
-        <label class="form-label form-control-checkbox" for="travel-now-train">Train</label>
-
-        <input id="travel-now-tube" type="checkbox" name="travel-now" value="catching the tube" />
-        <label class="form-label form-control-checkbox" for="travel-now-tube">Tube</label>
-
-        <input id="travel-now-car" type="checkbox" name="travel-now" value="using your car or getting a lift" />
-        <label class="form-label form-control-checkbox" for="travel-now-car">Car or get a lift</label>
+        {% for item in travel_options %}
+          <input id="{{ item.value | slugify }}" type="checkbox" name="travel-now" value="{{ item.value }}" />
+          <label class="form-label form-control-checkbox" for="{{ item.value | slugify }}">{{ item.label }}</label>
+        {% endfor %}
 
         <input id="travel-now-se" type="checkbox" name="travel-now" value="" />
         <label class="form-label form-control-checkbox" for="travel-now-se" data-target="se-ask">Something else</label>

@@ -29,17 +29,10 @@
       <!-- WHAT DO YOU NEED -->
       <fieldset class="form-group">
 
-        <input id="travel-not-bus" type="checkbox" name="travel-not" value="bus or tram" />
-        <label class="form-label form-control-checkbox" for="travel-not-bus">Bus or tram</label>
-
-        <input id="travel-not-train" type="checkbox" name="travel-not" value="train" />
-        <label class="form-label form-control-checkbox" for="travel-not-train">Train</label>
-
-        <input id="travel-not-walk" type="checkbox" name="travel-not" value="walking" />
-        <label class="form-label form-control-checkbox" for="travel-not-walk">Walking</label>
-
-        <input id="travel-not-car" type="checkbox" name="travel-not" value="driving your own car" />
-        <label class="form-label form-control-checkbox" for="travel-not-car">Your own car</label>
+        {% for item in travel_options %}
+          <input id="{{ item.value | slugify }}" type="checkbox" name="travel-not" value="{{ item.value }}" />
+          <label class="form-label form-control-checkbox" for="{{ item.value | slugify }}">{{ item.label }}</label>
+        {% endfor %}
 
       </fieldset>
       <fieldset class="form-group">
