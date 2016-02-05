@@ -51,3 +51,10 @@ body {background-color:$turquoise;}
 }
 .title {top:30px;left:30px;}
 .count {top:30px;right:30px;}
+.timer {
+  position:absolute;
+  left:0;bottom:10px;
+  background-color:darken($turquoise,10);
+  width:0%;
+  height:10px;
+}

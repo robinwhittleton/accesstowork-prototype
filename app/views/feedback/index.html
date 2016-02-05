@@ -6,11 +6,11 @@
 
 {% block content %}
 
-	{% set item = feedback | random %}
+	{% set item = feedback %}
 	{# {% set item = feedback[32] %} #}
 
 	<div class="title">Access To Work &mdash; Feedback</div>
-	<div class="count">{{ feedback | length }} so far</div>
+	<div class="count">{{ total }} so far</div>
 
 	<main id="content" role="main">
 		<div id="feedback">
@@ -23,17 +23,25 @@
 		</div>
 	</main>
 
+	<div class="timer"></div>
+
 {% endblock %}
 
 {% block page_script %}
 <script type="text/javascript">
+
+	var time = 30*1000;
+
 	$(document).on('ready',function()
 	{
+		var num = {{ number }};
 	  setTimeout(function()
 		{
 			// alert('fish');
-			window.location.reload();
-		},60*1000)
+			window.location.href = '/feedback/'+(num+1)+'/';
+		},time)
+
+		$(".timer").animate({"width":"100%"},time,"easeInQuint");
 	});
 </script>
 {% endblock %}
