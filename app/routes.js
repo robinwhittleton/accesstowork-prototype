@@ -133,7 +133,20 @@ router.get('/application/describe', function(req,res,next)
   } else {
     req.cookies['explore-tasks'] = ['Phone calls','Meetings']
   }
+  next();
+});
 
+/*
+  Diff pages
+*/
+router.get(/\/application\/v([0-9]+)\/diff/, function(req,res,next)
+{
+  var version = 'v'+req.params[0];
+  json = JSON.parse(fs.readFileSync(__dirname + "/views/application/"+version+"/diff.json").toString());
+  req.data.diffdata = json;
+  req.data.vthis = req.params[0];
+  req.data.vlast = req.params[0]-1;
+  req.url = '/diff/';
   next();
 });
 

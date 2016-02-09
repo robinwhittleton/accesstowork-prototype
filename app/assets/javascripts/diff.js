@@ -11,6 +11,8 @@ $(document).on("ready",function(e)
   var vprev = 'v'+(version-1);
   var vthis = 'v'+version;
 
+  console.log(data); 
+
   for(var a in data)
   {
     $('#summary dl').append('<dt class="heading-small">'+a+'.html</dt>');
@@ -19,10 +21,10 @@ $(document).on("ready",function(e)
       +'<a class="screen" href="/public/images/shots/'+vprev+'/'+a+'-full.png" data-lightbox="'+a+'">'+vprev+'<br /><img src="/public/images/shots/'+vprev+'/'+a+'-full.png" width="100"></a>'
       +'<a class="screen" href="/public/images/shots/'+vthis+'/'+a+'-full.png" data-lightbox="'+a+'">'+vthis+'<br /><img src="/public/images/shots/'+vthis+'/'+a+'-full.png" width="100"></a>'
       +'</dd>');
-  }  
+  }
 
   $('#navs a').each(function(i,e)
-  {  
+  {
     var href = $(e).attr('href');
     href = href.substr(1,href.length-5);
     if (data[href])

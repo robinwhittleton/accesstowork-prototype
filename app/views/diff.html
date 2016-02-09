@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Diffing versions{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+<div clas"grid-row">
+
+  <section class="column-third">
+
+    <h2 class="heading-medium" style="margin-bottom:0">Changed files</h2>
+    <p class="font-xsmall">(where the action is)</p>
+    <ul id="navs">
+    {% for item in diffdata.changed %}
+      <li><a href="#{{ item | sanssuffix }}">{{ item }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <br /><h2 class="heading-medium" style="margin-bottom:0">New files</h2>
+    <ul>
+    {% for item in diffdata.new %}
+      <li><a href="/application/v{{ vthis }}/{{ item | sanssuffix }}">{{ item }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <br /><h2 class="heading-medium" style="margin-bottom:0">Deleted files</h2>
+    <ul>
+    {% for item in diffdata.deleted %}
+      <li><a href="/application/v{{ vlast }}/{{ item | sanssuffix }}">{{ item }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <br /><h2 class="heading-medium" style="margin-bottom:0">Ignore</h2><p class="font-xsmall">(minor changes non-iterative)</p>
+    <ul id="ignored"></ul>
+
+  </section>
+
+  <section class="column-two-thirds">
+    {{ diffdata.diffs | safe }}
+  </section>
+
+</div>
+
+</main>
+
+{% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+  var version = {{ vthis }};
+  {% set datafile = "application/v"+vthis+"/data.js" %}
+  {% include datafile %}
+</script>
+<script type="text/javascript" src="/public/javascripts/lightbox.js"> </script>
+<script type="text/javascript" src="/public/javascripts/diff.js"> </script>
+{% endblock %}
