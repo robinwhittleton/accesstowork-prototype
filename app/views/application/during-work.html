@@ -39,17 +39,29 @@
 
       <!-- WHAT DO YOU NEED -->
       <fieldset class="form-group">
-        <legend class="heading-medium" style="margin-bottom:5px">Which of these do you find more difficult to do in work?</legend>
+        <legend class="heading-medium" style="margin-bottom:5px">Are any of these more difficult for you in work?</legend>
         <p class="form-hint">Tick any that apply</p>
 
-        <input id="work-now-phone" type="checkbox" name="work-now" value="taking phone calls" />
-        <label class="form-label form-control-checkbox" for="work-now-phone">Taking phone calls</label>
+        <div class="grid-row">
+          <div class="column-half">
+          {% set tasks = [
+            "Taking phone calls",
+            "Using a computer",
+            "Heavy lifting",
+            "Sitting for a long time",
+            "Climbing stairs",
+            "Attending meetings"
+            ] %}
 
-        <input id="work-now-computer" type="checkbox" name="work-now" value="using a computer" />
-        <label class="form-label form-control-checkbox" for="work-now-computer">Using a computer</label>
-
-        <input id="work-now-meetings" type="checkbox" name="work-now" value="heavy lifting" />
-        <label class="form-label form-control-checkbox" for="work-now-meetings">Heavy lifting</label>
+          {% for item in tasks %}
+            <input id="{{ item | slugify }}" type="checkbox" name="work-now" value="{{ item | lower }}" />
+            <label class="form-label form-control-checkbox" for="{{ item | slugify }}">{{ item }}</label>
+            {% if loop.index == 3 %}
+          </div>
+          <div class="column-half">
+            {% endif %}
+          {% endfor %}
+        </div>
 
       </fieldset>
 
