@@ -2,6 +2,11 @@
 
 {% block content %}
 
+{% if version != 'current' %}
+	{% set version  = 'v'+version %}
+	{% set url  = version+"/" %}
+{% endif %}
+
 <main id="content" role="main">
 <div class="staff-container">
 
@@ -12,8 +17,8 @@
 			<h1 class="heading-large">Pages</h1>
 			<ol class="screens">
 				{% for item in pages %}
-					<li><a href="/application/v{{ version }}/{{ item }}">
-						{{ item }} <div style="background-image:url(/public/images/pages/v{{ version }}/{{ item }}-thumb.png)"></div>
+					<li><a href="/application/{{ url }}{{ item }}">
+						{{ item }} <div style="background-image:url(/public/images/pages/{{ version }}/{{ item }}-thumb.png)"></div>
 					</a></li>
 				{% endfor %}
 			</ol>
