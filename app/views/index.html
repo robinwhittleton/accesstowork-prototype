@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}
+{% block page_title %}
 	Access To Work - Prototype
 {% endblock %}
 
@@ -10,7 +10,7 @@
 
 	<h2 class="heading-xlarge">Prototypes</h2>
 
-	<!-- ----------------------- APPLICATION ----------------------- -->
+	<!-- - APPLICATION - -->
 	<h3 class="heading-medium">Apply for an Access To Work grant</h3>
 	<table class="list-bullet index-table">
 		<tr>
@@ -19,23 +19,27 @@
 		</tr>
 		<tr>
 			<td colspan="3">
-				<a href="/application/intro1">Current version</a> 
+				<a href="/application/">Current version</a>
 			</td>
 			<td>
-				<a class="font-xxsmall pages-link" href="/application/">pages</a>
+				<a class="font-xxsmall pages-link" href="/application/pages/">pages</a>
 			</td>
 		</tr>
 		{% for item in application %}
 			<tr>
 				<td><a href="/application/v{{ item.number }}/">Version {{ item.number }}</a></td>
 				<td>&nbsp;<span class="font-xxsmall">{{ item.date }}</span></td>
-				<td><a class="font-xxsmall" href="/application/v{{ item.number }}/diff">changes</a></td>
-				<td><a class="font-xxsmall pages-link" href="#" data-num="application/v{{ item.number }}">pages</a></td>
+				{% if loop.last %}
+					<td></td>
+				{% else %}
+					<td><a class="font-xxsmall" href="/application/v{{ item.number }}/diff">changes</a></td>
+				{% endif %}
+				<td><a class="font-xxsmall pages-link" href="/application/v{{ item.number }}/pages" data-num="application/v{{ item.number }}">pages</a></td>
 			</tr>
 		{% endfor %}
 	</table>
 
-	<!-- ----------------------- CSI --------------------------- -->
+	<!-- - CSI - -->
 	<h3 class="heading-medium">Communication Support at Interview</h3>
 	<table class="list-bullet index-table">
 		<tr>
@@ -44,7 +48,7 @@
 		</tr>
 	</table>
 
-	<!-- ----------------------- STATUS ----------------------- -->
+	<!-- - STATUS - -->
 	<h3 class="heading-medium">Application status</h3>
 	<table class="list-bullet index-table">
 		<tr>
@@ -53,7 +57,7 @@
 		</tr>
 	</table>
 
-	<!-- ----------------------- OFFER ----------------------- -->
+	<!-- - OFFER - -->
 	<h3 class="heading-medium">Accept your offer</h3>
 	<table class="list-bullet index-table">
 		<tr>
@@ -62,7 +66,7 @@
 		</tr>
 	</table>
 
-	<!-- ----------------------- STATFF UI ----------------------- -->
+	<!-- - STATFF UI - -->
 	<h3 class="heading-medium">Staff access UI</h3>
 	<table class="list-bullet index-table">
 		<tr>
@@ -87,5 +91,5 @@
 {% endblock %}
 
 {% block page_script %}
-<script type="text/javascript" src="/public/javascripts/homepage.js"></script>
+{# <script type="text/javascript" src="/public/javascripts/homepage.js"></script> #}
 {% endblock %}
