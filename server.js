@@ -54,6 +54,9 @@ nunjucks.setup({
   env.addFilter('classify', function(str,checkee,output) {
       return str.split(' ')[0].toLowerCase();
   });
+  env.addFilter('sanssuffix', function(str) {
+      return str.replace(".html","");
+  });
 });
 
 
