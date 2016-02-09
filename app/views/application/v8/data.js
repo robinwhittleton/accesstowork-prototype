@@ -1,24 +1,4 @@
-{% extends "layout.html" %}
 
-{% block pageTitle %}Diffing versions{% endblock %}
-
-{% block content %}
-
-<main id="content" role="main">
-
-<div clas"grid-row">
-
-{% include "application/v8/diffs.html" %}
-
-</div>
-
-</main>
-
-{% endblock %}
-
-{% block page_script %}
-<script type="text/javascript">
-  var version = "v8";
   var data = {
     aboutwork:"Removed the 'permanent job' question as it turns out it wasn't really needed.",
     aboutyou:"Moved the contact details off this page (one-thing-per-page styleee!).",
@@ -32,6 +12,3 @@
     "need-why":"Content change.",
     "whatyouneed":"Again with the three boxes (as with 'expore.html') and a bit of wording at the top.",
   }
-</script>
-<script type="text/javascript" src="/public/javascripts/diff.js"> </script>
-{% endblock %}

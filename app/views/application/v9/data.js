@@ -1,23 +1,3 @@
-{% extends "layout.html" %}
-
-{% block pageTitle %}Diffing versions{% endblock %}
-
-{% block content %}
-
-<main id="content" role="main">
-
-<div clas"grid-row">
-
-{% include "application/v9/diffs.html" %}
-
-</div>
-
-</main>
-
-{% endblock %}
-
-{% block page_script %}
-<script type="text/javascript">
   var data = {
     aboutyou: "Removed the date example as it was putting some users off (for some reason).",
     doyouknow: "Changed the questions to be more specific so as not to encourage people to choose them when actually they'd be better served with the &ldquo;Something Else&rdquo; flow",
@@ -28,6 +8,3 @@
     'need-tasks': "Put the 'How many hours' at the top because we believe it'll be a more natural way for users to answer this then the following question on this page.",
     'need-why': "Small content change.",
   }
-</script>
-<script type="text/javascript" src="/public/javascripts/diff.js"> </script>
-{% endblock %}
