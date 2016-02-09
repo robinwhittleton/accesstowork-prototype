@@ -12,7 +12,7 @@
 			<h1 class="heading-large">Pages</h1>
 			<ol class="screens">
 				{% for item in pages %}
-					<li><a href="../{{ item }}">
+					<li><a href="/application/v{{ version }}/{{ item }}">
 						{{ item }} <div style="background-image:url(/public/images/pages/v{{ version }}/{{ item }}-thumb.png)"></div>
 					</a></li>
 				{% endfor %}
