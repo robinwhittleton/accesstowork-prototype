@@ -60,17 +60,17 @@
     {
       e.preventDefault();
       var val = $('#conditions').val();
-      if (val)
+      // console.log("typed: "+val);
+      if (val) // if they've filled something in (they don't have to).
       {
-        var substrRegex = new RegExp('^'+val, 'i');
         var match = false;
-        $.each(deaf_conditions, function(i, str) {
-          if (substrRegex.test(str))
-          {
-            console.log(substrRegex);
-            return match = true;
-          }
+        $.each(deaf_conditions, function(i, str)
+        {
+          // console.log("condition: "+str);
+          var matches = val.toLowerCase().match(str.toLowerCase());
+          if (matches) match = true;
         });
+        // console.log(match);
         if (match)
         {
           Cookies.set('hearing',true);
@@ -80,7 +80,7 @@
           Cookies.set('sections',5);
         }
       }
-      $("form").submit();
+      // $("form").submit();
     });
   });
 </script>
