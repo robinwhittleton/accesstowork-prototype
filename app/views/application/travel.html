@@ -18,20 +18,21 @@
 	<!-- HEADING -->
   <h1 class="form-title heading-large" style="margin-bottom:30px;">
     <span class="section-progress">Section 3 of 7</span>
-    Do you need our help with work travel?
+    Can you get to and from work OK?
   </h1>
+  <p class='helper'>This means you don't have to pay extra to travel because of your condition and can get to work on time.</p>
 
   <form action="travel-why" method="post" class="form" id="theForm">
 
     <!-- Do you need - Yes No -->
     <fieldset class="inline">
       <div class="form-group">
-        <input id="help-travelling-yes" type="radio" name="help-travelling" value="Yes"/>
-        <label id="screen1" class="form-label form-control-radio" data-target="travel-options" for="help-travelling-yes">Yes</label>
+        <input id="help-travelling-no" type="radio" name="help-travelling" value="No"/>
+        <label class="form-label form-control-radio" data-target="" for="help-travelling-no">Yes</label>
       </div>
-      <div class="form-group form-group-compound">
-        <input id="help-travelling-no" type="radio" name="help-travelling" value="No" />
-        <label class="form-label form-control-radio" data-target="" for="help-travelling-no">No</label>
+      <div class="form-group ">
+        <input id="help-travelling-yes" type="radio" name="help-travelling" value="Yes" />
+        <label id="screen1" class="form-label form-control-radio" data-target="travel-options" for="help-travelling-yes">No</label>
       </div>
     </fieldset>
 
@@ -40,7 +41,7 @@
       <!-- WHAT DO YOU NEED -->
       <fieldset class="form-group">
 
-        <legend class="heading-medium">Which of these do you use for work and need help with?</legend>
+        <legend class="heading-medium">How do you travel to and from work at the moment?</legend>
         <p>Tick all that apply</p>
 
         {% for item in travel_options %}
