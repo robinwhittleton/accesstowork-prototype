@@ -204,3 +204,20 @@ span.answer {
     padding-top:15px;
   }
 }
+
+
+.review-answers {
+  margin-bottom:30px;
+  dt {
+    clear:both;
+    float:left;
+    width:200px;
+  }
+  dd {
+    overflow:auto;
+  }
+}
+
+.blue {
+  color:$govuk-blue;
+}

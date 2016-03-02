@@ -1,12 +1,75 @@
-{% extends "layout_v8.html" %}
+{% extends "application/layout.html" %}
 
-{% block page_title %}About your job{% endblock %}
+{% block page_title %}Your offer - Access To Work{% endblock %}
 
 {% block content %}
+
 <main id="content" role="main">
 
   <div class="grid-row">
     <section class="column">
+
+      <h2 class="heading-medium">Review answers</h2>
+      <dl class="review-answers">
+        <dt>Your Condition</dt>
+        <dd>{{ user['start']['my-condition'] }}</dd>
+        <dt>Fast track</dt>
+        <dd>{{ user['start']['fast'] }}</dd>
+      </dl>
+
+      {% if user['start']['fast'] %}
+      <dl class="review-answers">
+        <dt>Deaf Needs</dt>
+        <dd>
+          {% for item in user['hearing']['deaf_need'] %}
+            <p>
+              You've said you need <span class="blue">{{ item }}</span>,
+              <span class="blue">{{ user['hearing_tasks'][loop.index0]['hours'] }} times {{ user['hearing_tasks'][loop.index0]['hours_unit'] }}</span>
+              to help you with <span class="blue">{{ user['hearing_tasks'][loop.index0]['need_tasks'] | join(", ") }}</span>
+            </p>
+          {% endfor %}
+        </dd>
+      </dl>
+      {% endif %}
+
+      <dl class="review-answers">
+        <dt>Able to travel OK</dt>
+        <dd>{{ user['travel']['help-travelling'] }}</dd>
+        <dt>Travelling situation</dt>
+        <dd>
+          {% for item in user['travel']['travel-now'] | arrayify %}
+            <p>
+              You've said you travel by <span class="blue">{{ item }}</span>,
+              but can't continue for these reasons: <span class="blue">&ldquo;{{ user['travel_why'][loop.index0]['reasons'] }}&rdquo;</span>
+            </p>
+          {% endfor %}
+        </dd>
+        <dt>Travelling possiblities</dt>
+        <dd>
+          {% for item in user['travel_not']['travel-not'] | arrayify  %}
+            <p>
+              You've said could travel by <span class="blue">{{ item }}</span>,
+              but can't right now for these reasons: <span class="blue">&ldquo;{{ user['travel_why_not'][loop.index0]['reasons'] }}&rdquo;</span>
+            </p>
+          {% endfor %}
+        </dd>
+      </dl>
+
+      <dl class="review-answers">
+        <dt>Is help during work needed?</dt>
+        <dd>{{ user['during_work']['help-during-work'] }}</dd>
+        <dt>Work situation</dt>
+        <dd>
+          {% for item in user['during_work']['during_work_tasks'] | arrayify %}
+            <p>
+              You've said you struggle with <span class="blue">{{ item }}</span>,
+              because: <span class="blue">&ldquo;{{ user['during_work_why'][loop.index0]['reasons'] }}&rdquo;</span>
+            </p>
+          {% endfor %}
+        </dd>
+      </dl>
+
+      <div style="clear:both"></div>
 
       <p style="text-transform:uppercase;float:right;margin-top:45px">REF: <span style="font-weight:bold">{{ reference | default('LKSDF86SDF7864SDF') }}</span></p>
       <h1 class="heading-large">Your offer</h1>

@@ -16,6 +16,7 @@ var path          = require('path'),
     app_routes    = require(__dirname + '/app/routes.js'),
     staff_routes  = require(__dirname + '/app/views/staffui/routes.js'),
     fdbck_routes  = require(__dirname + '/app/views/feedback/routes.js'),
+    offer_routes  = require(__dirname + '/app/views/offer/routes.js'),
     user_data     = require(__dirname + '/lib/user_data.js'),
     database      = process.env.MONGOLAB_URI || 'mongodb://localhost/accesstowork',
 
@@ -59,6 +60,10 @@ nunjucks.setup({
   });
   env.addFilter('sanssuffix', function(str) {
       return str.replace(".html","");
+  });
+  env.addFilter('arrayify', function(val) {
+      if (typeof val == 'string') return [val];
+      else return val;
   });
 });
 
@@ -110,6 +115,7 @@ if (typeof(routes) != "function") {
   app.use(app_routes);    // these have to come first.
   app.use(staff_routes);  // these have to come first.
   app.use(fdbck_routes);  // these have to come first.
+  app.use(offer_routes);  // these have to come first.
   app.use(routes);        // these come last because they mop up!
 }
 
