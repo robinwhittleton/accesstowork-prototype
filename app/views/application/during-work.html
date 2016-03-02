@@ -23,14 +23,16 @@
 
   <form action="job-status" method="post" class="form">
 
+    <input type="hidden" name="page_name" value="during_work"/>
+
     <!-- Do you need - Yes No -->
     <fieldset class="inline" id="havejob">
       <div class="form-group">
-        <input id="during-work-yes" type="radio" name="during-work" value="Yes" />
+        <input id="during-work-yes" type="radio" name="help-during-work" value="Yes" />
         <label id="screen1" class="form-label form-control-radio" data-target="work-taks" for="during-work-yes">Yes</label>
       </div>
       <div class="form-group form-group-compound">
-        <input id="during-work-no" type="radio" name="during-work" value="No" />
+        <input id="during-work-no" type="radio" name="help-during-work" value="No" />
         <label class="form-label form-control-radio" data-target="" for="during-work-no">No</label>
       </div>
     </fieldset>
@@ -127,8 +129,18 @@ $(document).on('ready',function()
   $('#nextButton').on('click',function(e)
   {
     e.preventDefault();
+    // take out the data I don't want going through.
+    var formdata = $('form').serializeArray().filter(function(el,i)
+    {
+        if (el.name == "work-now") return false;
+        if (el.name == "user-tasks") return false;
+        return true;
+    });
 
     var data = [];
+    /*
+      Put the work tasks back in.
+    */
     $('input[name="work-now"]').each(function(i,el)
     {
       if ($(el).prop('checked'))
@@ -137,6 +149,9 @@ $(document).on('ready',function()
       }
     });
 
+    /*
+      Put the user added tasks back in.
+    */
     $('input[name="user-tasks"]').each(function(i,el)
     {
       if ($(el).val() !== '')
@@ -144,6 +159,15 @@ $(document).on('ready',function()
         data.push($(el).val().toLowerCase());
       }
     });
+
+    /*
+      Add all these back into the form data.
+    */
+    $.each(data,function(i,el)
+    {
+      formdata.push({name:"during_work_tasks", value:el});
+    });
+
 
     // if Yes isn't picked at the top.
     if (!$('#during-work-yes').prop('checked'))
@@ -153,9 +177,8 @@ $(document).on('ready',function()
       if (!data.length) alert('Please pick or enter at least one task.');
       else {
         $.post("/application/during-work",
-          {
-            "during-work":data,
-          },function(data) {
+            formdata
+            ,function(data) {
             Cookies.set('during_count',0);
             window.location.href = '/application/during-work-why';
           });

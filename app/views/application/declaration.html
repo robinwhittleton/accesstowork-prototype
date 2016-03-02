@@ -19,7 +19,9 @@
       <h1 class="form-title heading-large" id="declaration">Declaration</h1>
 
 
-      <form action="/" method="post" class="form">
+      <form action="finish" method="post" class="form">
+
+        <input type="hidden" name="page_name" value="delcaration"/>
 
         <fieldset>
           <legend class="form-label-bold dec-legend" id="app">By sending this application you agree that:</legend>
@@ -44,7 +46,7 @@
         <fieldset class="primary-nav form-group">
           <legend>Form Navigation</legend>
           <ul>
-            <li><a href="finish" class="button">I agree - send my application</a></li>
+            <li><button class="button" name="agreed" value="true">I agree - send my application</button></li>
           </ul>
         </fieldset>
 
@@ -59,4 +61,3 @@
 </main>
 
 {% endblock %}
-
