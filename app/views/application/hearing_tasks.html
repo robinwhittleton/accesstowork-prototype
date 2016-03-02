@@ -24,6 +24,8 @@
   <form action="travel" method="post" class="form">
 
     <input type="hidden" name="page_name" value="hearing_tasks"/>
+    <input type="hidden" name="multiple" value="0" id="multiple"/>
+
 
     <!-- HOW MANY HOURS -->
     <div class="form-group">
@@ -81,6 +83,8 @@ $(document).on("ready",function(e)
 {
   var t = window.location.hash.substring(1);
   if (!t) t = 0;
+
+  $('#multiple').val(t);
 
   // grab the values from the cookie then check that it's an array.
   var deaf_need = Cookies.getJSON('deaf_need');
