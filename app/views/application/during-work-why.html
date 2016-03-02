@@ -23,6 +23,8 @@
 
   <form action="during-work-why" method="post" class="form" id="theForm">
 
+    <input type="hidden" name="page_name" value="during_work_why"/>
+
     <!-- HOW MANY HOURS -->
     <div class="form-group">
 
@@ -85,11 +87,9 @@
     var t = window.location.hash.substring(1);
     if (!t) t = 0;
 
-    console.log(t);
-
     // just put the first one on the page.
     var during_count = t;
-    var the_needs = Cookies.getJSON('during_work');
+    var the_needs = Cookies.getJSON('during_work_tasks');
     var the_text = the_needs[during_count];
 
     $('.need').text(the_text);

@@ -6,6 +6,8 @@ var path          = require('path'),
     basicAuth     = require('basic-auth-connect'),
     bodyParser    = require('body-parser'),
     cookieParser  = require('cookie-parser'),
+    session       = require('express-session'),
+    monk          = require('monk'),
     port          = (process.env.PORT || 3000),
     app           = express(),
 
@@ -15,11 +17,13 @@ var path          = require('path'),
     staff_routes  = require(__dirname + '/app/views/staffui/routes.js'),
     fdbck_routes  = require(__dirname + '/app/views/feedback/routes.js'),
     user_data     = require(__dirname + '/lib/user_data.js'),
+    database      = process.env.MONGOLAB_URI || 'mongodb://localhost/accesstowork',
 
     // Grab environment variables specified in Procfile or as Heroku config vars
     username = process.env.USERNAME,
     password = process.env.PASSWORD,
-    env = process.env.NODE_ENV || 'development';
+    env = process.env.NODE_ENV || 'development',
+    sessionSecret = process.env.SESSION_SECRET || 'sessionsecret';
 
 /*
   Authenticate against the environment-provided credentials,
@@ -32,7 +36,6 @@ var path          = require('path'),
 //   }
 //   app.use(express.basicAuth(username, password));
 // }
-
 
 /*
   Setting up the templating system, nunjucks etc.
@@ -76,7 +79,14 @@ app.use(favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets'
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
-app.use(user_data.form_to_cookie());
+app.use(session({
+  secret: sessionSecret,
+  cookie: { maxAge: 10 * 60 * 1000 },
+  resave: true,
+  saveUninitialized: true,
+  rolling: true
+}));
+app.use(user_data.save_input_data());
 
 
 /*

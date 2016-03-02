@@ -23,6 +23,8 @@
 
   <form action="travel" method="post" class="form" id="theForm">
 
+    <input type="hidden" name="page_name" value="start"/>
+
     <!-- YOUR CONDITION -->
     <div class="form-group" style="margin-bottom:45px">
       <!-- <label class="form-label-bold" for="conditions-and-dis" id="">What's your condition or disability?</label> -->
@@ -75,6 +77,7 @@
         {
           Cookies.set('hearing',true);
           Cookies.set('sections',6);
+          $("form").append('<input type="hidden" name="fast" value="true" />');
           $("form").attr('action','hearing');
         } else {
           Cookies.set('sections',5);
