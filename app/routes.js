@@ -20,22 +20,20 @@ router.get('/', function (req, res) {
 */
 router.get('/session',function(req, res)
 {
-  var user = JSON.parse(fs.readFileSync(__dirname + "/views/application/session.json").toString());
-  req.session.user = merge(user, req.session.user);
+  // var user = JSON.parse(fs.readFileSync(__dirname + "/views/application/session.json").toString());
+  // req.session.user = merge(user, req.session.user);
   res.send("<pre>"+util.inspect(req.session,{depth:10})+"</pre>");
 });
 
-router.get('/application/finish',function(req, res, next)
+router.get('/application/job-status',function(req, res, next)
 {
-  req.session.user = req.session.user || {};
-  req.session.user.date = Date.now();
-  var store = db.get('user');
-  store.insert(req.session.user, function(err,id)
-  {
-    // if (err) throw err;
-    // res.send("<pre>"+util.inspect(req.session.user,{depth:10})+"</pre>");
-    next();
-  });
+  // req.session.user = req.session.user || {};
+  // req.session.user.date = Date.now();
+  // var store = db.get('user');
+  // store.insert(req.session.user, function(err,id)
+  // {
+  //   next();
+  // });
 });
 
 router.get('/db',function(req, res, next)
@@ -47,7 +45,7 @@ router.get('/db',function(req, res, next)
     for (var i = 0; i < docs.length; i++) {
       d.push(new Date(docs[i].date));
     }
-    res.send("<pre>"+util.inspect(d,{depth:10})+"</pre>");
+    res.send("<pre>"+util.inspect(docs[0],{depth:10})+"</pre>");
   });
 });
 

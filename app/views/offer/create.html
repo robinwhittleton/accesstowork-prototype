@@ -1,0 +1,107 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}Your offer - Access To Work{% endblock %}
+
+{% block content %}
+
+<form action="create" method="post">
+  <input type="hidden" name="_id" value="{{ user._id }}" />
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <section class="column">
+
+      <h2 class="heading-large">Create an offer letter</h2>
+
+      <dl class="review-answers">
+        <dt>Your Condition</dt>
+        <dd>{{ user['start']['my-condition'] }}</dd>
+        {# <dt>Fast track</dt>
+        <dd>{{ user['start']['fast'] }}</dd> #}
+      </dl>
+
+      {% if user['start']['fast'] %}
+      <dl class="review-answers">
+        <dt>Needs</dt>
+        <dd>
+          {% for item in user['hearing']['deaf_need'] %}
+            <p>
+              They've said they need <span class="blue">{{ item }}</span>,
+              <span class="blue">{{ user['hearing_tasks'][loop.index0]['hours'] }} times {{ user['hearing_tasks'][loop.index0]['hours_unit'] }}</span>
+              to help them with <span class="blue">{{ user['hearing_tasks'][loop.index0]['need_tasks'] | join(", ") }}</span>
+            </p>
+            <textarea class="form-control" name="deaf">{{ user.offers.deaf[loop.index0] }}</textarea>
+          {% endfor %}
+        </dd>
+      </dl>
+      {% endif %}
+
+      <h2 class="heading-medium">Travel</h2>
+      <dl class="review-answers">
+        <dt>Needs</dt>
+        <dd>
+          {% if user['travel']['help-travelling'] == 'No' %}
+            They <span class="blue">are</span> getting to work OK right now.
+          {% else %}
+            They <span class="blue">are not</span> getting to work OK right now.
+          {% endif %}
+        </dd>
+        <br />
+        <dt>Travel situation</dt>
+        <dd>
+          {% for item in user['travel']['travel-now'] | arrayify %}
+            <p>
+              They've said they travel by <span class="blue">{{ item }}</span>,
+              but can't continue for these reasons: <span class="blue">&ldquo;{{ user['travel_why'][loop.index0]['reasons'] }}&rdquo;</span>
+            </p>
+          {% endfor %}
+        </dd>
+        <dt>Other travel options</dt>
+        <dd>
+          {% for item in user['travel_not']['travel-not'] | arrayify  %}
+            <p>
+              They've said could travel by <span class="blue">{{ item }}</span>,
+              but can't right now for these reasons: <span class="blue">&ldquo;{{ user['travel_why_not'][loop.index0]['reasons'] }}&rdquo;</span>
+            </p>
+          {% endfor %}
+        </dd>
+        <dt>&nbsp;</dt>
+        <dd><textarea class="form-control" name="travel">{{ user.offers.travel }}</textarea></dd>
+      </dl>
+
+      <h2 class="heading-medium">During Work</h2>
+      <dl class="review-answers">
+        <dt>Needs</dt>
+        <dd>
+          {% if user['during_work']['help-during-work'] == 'No' %}
+            Your condition <span class="blue">does</span> effect how well you can do your job.
+          {% else %}
+            Your condition <span class="blue">does not</span> effect how well can you do your job.
+          {% endif %}
+        </dd>
+        <br />
+        <dt>Work situation</dt>
+        <dd>
+          {% for item in user['during_work']['during_work_tasks'] | arrayify %}
+            <p>
+              You've said you struggle with <span class="blue">{{ item }}</span>,
+              because: <span class="blue">&ldquo;{{ user['during_work_why'][loop.index0]['reasons'] }}&rdquo;</span>
+            </p>
+            <textarea name="work" class="form-control">{{ user.offers.work[loop.index0] }}</textarea>
+          {% endfor %}
+        </dd>
+        <dt>&nbsp;</dt>
+        <dd><br /><button class="button">Submit</button></dd>
+      </dl>
+</main>
+</form>
+{% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+$(document).on('ready',function()
+{
+  // $("textarea").val("Lorem ipsum dolor sit amet, has in quodsi inermis vivendum. Ne eos definiebas reformidans, cum diam delenit consectetuer ei. Ius ea adhuc mediocrem. Has nisl magna ut. Menandri prodesset id eum, reque fastidii vel ei.");
+});
+</script>
+{% endblock %}

@@ -9,125 +9,53 @@
   <div class="grid-row">
     <section class="column">
 
-      <h2 class="heading-medium">Review your answers</h2>
+      <h2 class="heading-large">Your offer</h2>
+
       <dl class="review-answers">
-        <dt>Your Condition</dt>
-        <dd>{{ user['start']['my-condition'] }}</dd>
+        {# <dt>Your Condition</dt>
+        <dd>{{ user['start']['my-condition'] }}</dd> #}
         {# <dt>Fast track</dt>
         <dd>{{ user['start']['fast'] }}</dd> #}
       </dl>
 
       {% if user['start']['fast'] %}
-      <dl class="review-answers">
-        <dt>Needs</dt>
-        <dd>
-          {% for item in user['hearing']['deaf_need'] %}
-            <p>
-              You've said you need <span class="blue">{{ item }}</span>,
-              <span class="blue">{{ user['hearing_tasks'][loop.index0]['hours'] }} times {{ user['hearing_tasks'][loop.index0]['hours_unit'] }}</span>
-              to help you with <span class="blue">{{ user['hearing_tasks'][loop.index0]['need_tasks'] | join(", ") }}</span>
-            </p>
-          {% endfor %}
-        </dd>
-      </dl>
+
+        {% for item in user['hearing']['deaf_need'] %}
+        <dl class="review-answers">
+          <dt>You said:</dt>
+          <dd class="blue">You need {{ item }}</dd>
+          <dt>Computer says:</dt>
+          <dd>{{ user.offers.deaf[loop.index0] }}</dd>
+        </dl>
+        {% endfor %}
+
       {% endif %}
 
       <h2 class="heading-medium">Travel</h2>
       <dl class="review-answers">
-        <dt>You've said</dt>
-        <dd>
+        <dt>You've said:</dt>
           {% if user['travel']['help-travelling'] == 'No' %}
-            You <span class="blue">are</span> getting to work OK right now.
+            <dd class="blue">You are getting to work OK right now.</dd>
           {% else %}
-            You <span class="blue">are not</span> getting to work OK right now.
+            <dd class="blue">You are not getting to work OK right now.</dd>
+            <dt>Computer says:</dt>
+            <dd>{{ user.offers.travel }}</dd>
           {% endif %}
-        </dd>
-        <br />
-        <dt>Situation</dt>
-        <dd>
-          {% for item in user['travel']['travel-now'] | arrayify %}
-            <p>
-              You've said you travel by <span class="blue">{{ item }}</span>,
-              but can't continue for these reasons: <span class="blue">&ldquo;{{ user['travel_why'][loop.index0]['reasons'] }}&rdquo;</span>
-            </p>
-          {% endfor %}
-        </dd>
-        <dt>Other travel options</dt>
-        <dd>
-          {% for item in user['travel_not']['travel-not'] | arrayify  %}
-            <p>
-              You've said could travel by <span class="blue">{{ item }}</span>,
-              but can't right now for these reasons: <span class="blue">&ldquo;{{ user['travel_why_not'][loop.index0]['reasons'] }}&rdquo;</span>
-            </p>
-          {% endfor %}
-        </dd>
       </dl>
 
-      <h2 class="heading-medium">During Work</h2>
-      <dl class="review-answers">
-        <dt>Is help during work needed?</dt>
-        <dd>{{ user['during_work']['help-during-work'] }}</dd>
-        <dt>Work situation</dt>
-        <dd>
-          {% for item in user['during_work']['during_work_tasks'] | arrayify %}
-            <p>
-              You've said you struggle with <span class="blue">{{ item }}</span>,
-              because: <span class="blue">&ldquo;{{ user['during_work_why'][loop.index0]['reasons'] }}&rdquo;</span>
-            </p>
-          {% endfor %}
-        </dd>
-      </dl>
+      {% if user['during_work']['help-during-work'] == "Yes" %}
+        <h2 class="heading-medium">During Work</h2>
+        {% for item in user['during_work']['during_work_tasks'] | arrayify %}
+        <dl class="review-answers">
+          <dt>You said:</dt>
+          <dd class="blue">You struggle with {{ item }} </dd>
+          <dt>Computer says:</dt>
+          <dd>{{ user.offers.work[loop.index0] }}</dd>
+        </dl>
+        {% endfor %}
+      {% endif %}
 
-      <div style="clear:both"></div>
-
-      <p style="text-transform:uppercase;float:right;margin-top:45px">REF: <span style="font-weight:bold">{{ reference | default('LKSDF86SDF7864SDF') }}</span></p>
-      <h1 class="heading-large">Your offer</h1>
-      <h2 class="heading-medium">Your details</h2>
-      <table class="offer-table">
-        <tr>
-          <td class="title">Your job</td>
-          <td class="condition">{{ job_title | default('Technical Architect') }}</td>
-        </tr>
-        <tr>
-          <td class="title">Your condition</td>
-          <td class="condition">Back pain &amp; anxiety caused by severe diabetes</td>
-        </tr>
-        <tr>
-          <td class="title no-border" colspan="2">You said this condition makes it harder for you to:</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td style="padding-top:0;">
-            <ol class="task-list">
-              <li>
-                <h3 class="heading-small" style="margin-top:0;">Make phone calls</h3>
-                <p>&ldquo;I find it hard to hold a phone and listen for an extended period of time.&rdquo;</p>
-              </li>
-              <li>
-                <h3 class="heading-small">Sit at my deak</h3>
-                <p>&ldquo;I experience pain and discomfort when I do this for longer than 30 minutes.&rdquo;</p>
-              </li>
-              <li>
-                <h3 class="heading-small">Communicating with my line manager and colleagues</h3>
-                <p>&ldquo;My anxiety causes stress in these situations.&rdquo;</p>
-              </li>
-            </ol>
-          </td>
-        </tr>
-      </table>
-
-      <h2 class="heading-medium">Your offer</h2>
-      <p>Access to Work will offer you a grant to help pay for:</h2>
-      <ol>
-                <li><span class="font-large">a communication support worker for 2 hours a day</span>
-              </li>
-              <li>
-                a suitably adapted chair
-              </li>
-              <li>
-                <span class="font-large">disability awareness sessions</span>
-              </li>
-            </ol>
+      <hr />
 
       <form action="offer" methodS="post">
 
