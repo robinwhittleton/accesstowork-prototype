@@ -27,13 +27,13 @@ router.get('/session',function(req, res)
 
 router.get('/application/job-status',function(req, res, next)
 {
-  // req.session.user = req.session.user || {};
-  // req.session.user.date = Date.now();
-  // var store = db.get('user');
-  // store.insert(req.session.user, function(err,id)
-  // {
-  //   next();
-  // });
+  req.session.user = req.session.user || {};
+  req.session.user.date = Date.now();
+  var store = db.get('user');
+  store.insert(req.session.user, function(err,id)
+  {
+    next();
+  });
 });
 
 router.get('/db',function(req, res, next)
