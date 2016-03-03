@@ -7,7 +7,6 @@ var path          = require('path'),
     bodyParser    = require('body-parser'),
     cookieParser  = require('cookie-parser'),
     session       = require('express-session'),
-    monk          = require('monk'),
     port          = (process.env.PORT || 3000),
     app           = express(),
 

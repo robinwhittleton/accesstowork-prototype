@@ -1,7 +1,10 @@
 var express     = require('express'),
     fs          = require("fs"),
     util        = require("util"),
+    merge       = require("merge"),
     router      = express.Router(),
+    db_url      = process.env.MONGOLAB_URI || 'mongodb://localhost/accesstowork',
+    db          = require('monk')(db_url),
     versions    = require(__dirname + '/../lib/versions.js'),
     user_data   = require(__dirname + '/../lib/user_data.js');
 
@@ -18,9 +21,55 @@ router.get('/', function (req, res) {
 router.get('/session',function(req, res)
 {
   var user = JSON.parse(fs.readFileSync(__dirname + "/views/application/session.json").toString());
-  req.session.user = user;
+  req.session.user = merge(user, req.session.user);
   res.send("<pre>"+util.inspect(req.session,{depth:10})+"</pre>");
 });
+
+router.get('/application/finish',function(req, res, next)
+{
+  req.session.user = req.session.user || {};
+  req.session.user.date = Date.now();
+  var store = db.get('user');
+  store.insert(req.session.user, function(err,id)
+  {
+    // if (err) throw err;
+    // res.send("<pre>"+util.inspect(req.session.user,{depth:10})+"</pre>");
+    next();
+  });
+});
+
+router.get('/db',function(req, res, next)
+{
+  var store = db.get('user');
+  store.find({},{sort:{"date":-1}},function(err,docs)
+  {
+    var d = [];
+    for (var i = 0; i < docs.length; i++) {
+      d.push(new Date(docs[i].date));
+    }
+    res.send("<pre>"+util.inspect(d,{depth:10})+"</pre>");
+  });
+});
+
+// router.get('/mon/',function(req, res, next)
+// {
+//   var foo = db.get('foo');
+//   foo.find({},function(err,docs)
+//   {
+//     console.log("first");
+//     console.log(docs);
+//     res.send(util.inspect(docs)+'<form action="/mon/" method="post"><button class="button">Continue</button></form>')
+//   });
+// });
+//
+// router.post('/mon/',function(req, res, next)
+// {
+//   var foo = db.get('foo');
+//   foo.insert({name:"Chimp",surname:"Morgan",wobble:[
+//     "polly","pilly",'pally'
+//   ]});
+//   res.redirect('/mon/');
+// });
 
 /*
   Removing all the cookies.

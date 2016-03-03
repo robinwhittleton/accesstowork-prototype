@@ -43,5 +43,44 @@
         { "reasons": "It\"s hard because it laudem expetendis ei, lucilius accusamus scripserit eu ius. Ad sea solum mazim, postea dissentiet an vel, modo gloriatur ut usu. Has paulo timeam vocibus cu, has nihil iriure at.",
           "help": "No" },
         { "reasons": "It\"s hard because it laudem expetendis ei, lucilius accusamus scripserit eu ius. Ad sea solum mazim, postea dissentiet an vel, modo gloriatur ut usu. Has paulo timeam vocibus cu, has nihil iriure at.",
-          "help": "Yes" } ]
+          "help": "Yes" } ],
+    "job_status": { "emp-status": "Employed" },
+      "employed":
+        { "job-title": "Interaction Designer",
+          "employed-company-name": "British Gas",
+          "address1": "19 Hill Street",
+          "address2": "Filbert",
+          "address3": "Leeds",
+          "address4": "West Yonkshire",
+          "postCode": "LS29 7YG" },
+      "about_job":
+        { "emp-length": "morethansix",
+          "work-dob-day": [ ", " ],
+          "work-dob-month": [ ", " ],
+          "work-dob-year": [ ", " ],
+          "work-work-days": "34",
+          "work-job-hours": "21" },
+      "line_manager":
+        { "employed-employer-name": "Bob Corrolgees",
+          "line-contact-pref": "email",
+          "line-email-address": "bob@fish.com",
+          "line-telephone-number": "" },
+      "about_you":
+        { "you-full-name": "Thomas Morgan",
+          "you-dob-day": "19",
+          "you-dob-month": "10",
+          "you-dob-year": "1976",
+          "address1": "19 Old Town Lane",
+          "address2": "Formby",
+          "address3": "Liverpool",
+          "address4": "",
+          "postCode": "L37 3HJ" },
+      "contact_you":
+        { "contact-pref": "contact-me",
+          "you-contact-pref": [ "email", "phone" ],
+          "you-email-address": [ "tsmorgan@gmail.com" ],
+          "you-telephone-number": [ "07974978707" ],
+          "employed-employer-name": "",
+          "trd-relationship": "" },
+      "delcaration": { "agreed": "true" }
 }

@@ -12,6 +12,7 @@ router.get('/staffui/all/:order?', function(req,res,next)
 
   json = JSON.parse(fs.readFileSync(__dirname + "/claimants.json").toString());
 
+  req.data = req.data || {};
   req.data.claimants  = _.sortBy(json,order);
 
   if (order == 'timet') req.data.claimants.reverse();
@@ -31,6 +32,7 @@ router.get('/staffui/adviser/:id?', function(req,res,next)
   {
     return el.adviser.id == id;
   });
+  req.data = req.data || {};
   req.data.claimants = data;
   req.url = '/staffui/adviser/';
   next();
@@ -53,6 +55,7 @@ router.get('/staffui/claimant/:id?/:page?/', function(req,res,next)
 
   var claims = JSON.parse(fs.readFileSync(__dirname + "/claims.json").toString());
 
+  req.data = req.data || {};
   req.data.claimant = data[0];
   req.data.timeline = timeline;
   req.data.thispage = page;
