@@ -14,9 +14,11 @@ var path          = require('path'),
     // routing and extras
     routes        = require(__dirname + '/lib/default-routes.js'),
     app_routes    = require(__dirname + '/app/routes.js'),
+    leg_routes    = require(__dirname + '/app/legacy-routes.js'),
     staff_routes  = require(__dirname + '/app/views/staffui/routes.js'),
     fdbck_routes  = require(__dirname + '/app/views/feedback/routes.js'),
     offer_routes  = require(__dirname + '/app/views/offer/routes.js'),
+
     user_data     = require(__dirname + '/lib/user_data.js'),
     database      = process.env.MONGOLAB_URI || 'mongodb://localhost/accesstowork',
 
@@ -113,6 +115,7 @@ if (typeof(routes) != "function") {
 } else {
   console.log('Using routes');
   app.use(app_routes);    // these have to come first.
+  app.use(leg_routes);    // these have to come first.
   app.use(staff_routes);  // these have to come first.
   app.use(fdbck_routes);  // these have to come first.
   app.use(offer_routes);  // these have to come first.

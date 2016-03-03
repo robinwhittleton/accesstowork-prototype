@@ -1,43 +1,9 @@
 var express     = require('express'),
     fs          = require("fs"),
+    util        = require("util"),
     router      = express.Router(),
     versions    = require(__dirname + '/../lib/versions.js'),
     user_data   = require(__dirname + '/../lib/user_data.js');
-
-router.get(/dump/,function(req,res,next)
-{
-  console.log(req.cookies);
-});
-
-/*
-  Cleaning up the cookies data.
-  - - - - - - - - - - - - - - -
-  Not sure this is needed anymore as I'm parsing JSON in
-  the pages instead. Probably needs to be left for previous
-  prototype versions.
-*/
-router.get(/.*/, function(req,res,next)
-{
-  for(var key in req.cookies)
-  {
-    var val;
-    try {
-      val = JSON.parse(req.cookies[key]);
-    } catch(e) {
-      val = req.cookies[key]
-    }
-    req.cookies[key] = val;
-  }
-  req.data = {};
-  next();
-});
-
-/*
-  Redirect from the old prototype folder into the new.
-*/
-router.get('/accesstowork/', function (req, res) {
-  res.redirect('application/');
-});
 
 /*
   Special route for the index page.
@@ -47,32 +13,13 @@ router.get('/', function (req, res) {
 });
 
 /*
-  API route for reading filename for the index page to call via AJAX.
+  Dump session data so I can see it.
 */
-router.get(/\/api\/(.*)\//, function (req, res)
+router.get('/session',function(req, res)
 {
-  var dir = __dirname + '/views/'+req.params[0]; console.log(dir);
-  var filenames = fs.readdirSync(dir);
-  for (var i=0; i<filenames.length; i++)
-  {
-    var isfile = fs.lstatSync(__dirname + '/views/'+req.params[0]+'/'+filenames[i]).isFile();
-    if (isfile)
-    {
-      /*
-
-      */
-      var diff = filenames[i].substr(0,4);
-      if (diff == 'diff')
-      {
-        filenames.splice(i,1);
-        i--;
-      }
-    } else {
-      filenames.splice(i,1);
-      i--;
-    }
-  }
-  res.json(filenames);
+  var user = JSON.parse(fs.readFileSync(__dirname + "/views/application/session.json").toString());
+  req.session.user = user;
+  res.send("<pre>"+util.inspect(req.session,{depth:10})+"</pre>");
 });
 
 /*
@@ -90,52 +37,6 @@ router.get('/application/start', function(req, res, next)
   next();
 });
 
-
-router.get('/v*/*', function(req, res, next)
-{
-  res.prototype = req.params[0];
-  next();
-});
-
-router.all('/application/v[789]/need-tasks', function(req, res, next)
-{
-  // just take the first item out of the array.
-  try {
-    val = JSON.parse(req.cookies['what-you-need']);
-    req.cookies['what-you-need'] = val[0];
-  } catch(e) { }
-
-  next();
-});
-
-router.all('/application/v[789]/need-why', function(req, res, next)
-{
-  // just take the first item out of the array.
-  try {
-    val = JSON.parse(req.cookies['what-you-need']);
-    req.cookies['what-you-need'] = val[0];
-  } catch(e) { }
-
-  next();
-});
-
-/* sanitising data for the describe page */
-router.get('/application/describe', function(req,res,next)
-{
-  if (req.cookies['explore-tasks'])
-  {
-    for (var i = 0; i < req.cookies['explore-tasks'].length; i++) {
-      if (req.cookies['explore-tasks'][i] == '') {
-        req.cookies['explore-tasks'].splice(i, 1);
-        i--;
-      }
-    }
-  } else {
-    req.cookies['explore-tasks'] = ['Phone calls','Meetings']
-  }
-  next();
-});
-
 /*
   Diff pages
 */
@@ -150,38 +51,12 @@ router.get(/\/application\/v([0-9]+)\/diff/, function(req,res,next)
   next();
 });
 
-router.get(/\/offer\/offer*/, function(req,res,next)
-{
-  req.data.offers = [];
-  if (req.cookies['explore-tasks'])
-  for (var i = 0; i < req.cookies['explore-tasks'].length; i++)
-  {
-    var task = req.cookies['explore-tasks'][i];
-    var how = req.cookies['explore-hows'][i];
-    if (req.cookies['explore-offers']) var off = req.cookies['explore-offers'][i];
-    // add them in if the task wasn't blank.
-    if (task != '') req.data.offers[i] = {task:task,how:how,off:off};
-  };
-  console.log(req.data.offer);
-  next();
-});
-
-router.get('/application/explore', function(req,res,next)
-{
-  res.cookie('taskcount',0);
-  next();
-});
-
-router.get('/application/explore-another', function(req,res,next)
-{
-  req.cookies['taskcount']++;
-  res.cookie('taskcount',req.cookies['taskcount']);
-  // req.data.taskcount = req.cookies['taskcount'];
-  next();
-});
-
+/*
+  Setting up some default data for use of the travel pages.
+*/
 router.get('/application/travel*', function(req,res,next)
 {
+  req.data = req.data || {};
   req.data.travel_options = [
     {"value":"walking",'label':"Walking"},
     {"value":"riding a bicycle",'label':"Bicycle"},

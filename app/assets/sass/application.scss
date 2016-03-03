@@ -205,19 +205,23 @@ span.answer {
   }
 }
 
-
+/*
+  OFFER STUFF
+*/
 .review-answers {
   margin-bottom:30px;
   dt {
     clear:both;
     float:left;
     width:200px;
+    text-align:right;
+    padding-right:1em;
+    color:$secondary-text-colour;
   }
   dd {
     overflow:auto;
   }
 }
-
 .blue {
   color:$govuk-blue;
 }

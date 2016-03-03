@@ -9,17 +9,17 @@
   <div class="grid-row">
     <section class="column">
 
-      <h2 class="heading-medium">Review answers</h2>
+      <h2 class="heading-medium">Review your answers</h2>
       <dl class="review-answers">
         <dt>Your Condition</dt>
         <dd>{{ user['start']['my-condition'] }}</dd>
-        <dt>Fast track</dt>
-        <dd>{{ user['start']['fast'] }}</dd>
+        {# <dt>Fast track</dt>
+        <dd>{{ user['start']['fast'] }}</dd> #}
       </dl>
 
       {% if user['start']['fast'] %}
       <dl class="review-answers">
-        <dt>Deaf Needs</dt>
+        <dt>Needs</dt>
         <dd>
           {% for item in user['hearing']['deaf_need'] %}
             <p>
@@ -32,10 +32,18 @@
       </dl>
       {% endif %}
 
+      <h2 class="heading-medium">Travel</h2>
       <dl class="review-answers">
-        <dt>Able to travel OK</dt>
-        <dd>{{ user['travel']['help-travelling'] }}</dd>
-        <dt>Travelling situation</dt>
+        <dt>You've said</dt>
+        <dd>
+          {% if user['travel']['help-travelling'] == 'No' %}
+            You <span class="blue">are</span> getting to work OK right now.
+          {% else %}
+            You <span class="blue">are not</span> getting to work OK right now.
+          {% endif %}
+        </dd>
+        <br />
+        <dt>Situation</dt>
         <dd>
           {% for item in user['travel']['travel-now'] | arrayify %}
             <p>
@@ -44,7 +52,7 @@
             </p>
           {% endfor %}
         </dd>
-        <dt>Travelling possiblities</dt>
+        <dt>Other travel options</dt>
         <dd>
           {% for item in user['travel_not']['travel-not'] | arrayify  %}
             <p>
@@ -55,6 +63,7 @@
         </dd>
       </dl>
 
+      <h2 class="heading-medium">During Work</h2>
       <dl class="review-answers">
         <dt>Is help during work needed?</dt>
         <dd>{{ user['during_work']['help-during-work'] }}</dd>

@@ -1,0 +1,47 @@
+{
+  "start": { "my-condition": "Deaf", "fast": "true" },
+  "hearing":
+    { "deaf_need": [ "a BSL interpreter", "a lip speaker", "hearing aids" ],
+      "deaf_need-se": "Hearing Aids" },
+  "hearing_tasks":
+    [ { "hours": "10",
+        "hours_unit": "a week",
+        "need_tasks": [ "Meetings", "Phone calls", "" ] },
+      { "hours": "2",
+        "hours_unit": "a week",
+        "need_tasks": [ "Meetings", "", "" ] },
+      { "hours": "1",
+        "hours_unit": "a week",
+        "need_tasks": [ "Tuesday Stand Up", "", "" ] } ],
+    "travel":
+      { "help-travelling": "Yes",
+        "travel-now": [ "walking", "catching a train" ],
+        "travel-now-se": "" },
+    "travel_why":
+      [ { "reasons": "It\"s fine I can carry on." },
+        { "reasons": "I get anxious in crowded spaces and so if the train gets too packed I have to get off and try and catch another one which causes me to sometimes be late for work." } ],
+    "travel_not": { "travel-not": [ "riding a bicycle", "catching a bus or tram" ] },
+    "travel_why_not":
+      [ { "reasons": "I can\"t ride a bike since I had both legs amputated in 1987." },
+        { "reasons": "because my blindness makes it almost impossible to see the bus coming, know whether it\"s the right bus, safely get on or navigate my way to a seat etc etc." } ],
+    "during_work":
+      { "help-during-work": "Yes",
+        "work-more": "Yes",
+        "during_work_tasks":
+         [ "taking phone calls",
+           "heavy lifting",
+           "climbing stairs",
+           "fishing",
+           "swimming" ] },
+    "during_work_why":
+      [ { "reasons": "It\"s hard because it laudem expetendis ei, lucilius accusamus scripserit eu ius. Ad sea solum mazim, postea dissentiet an vel, modo gloriatur ut usu. Has paulo timeam vocibus cu, has nihil iriure at.",
+          "help": "Yes" },
+        { "reasons": "It\"s hard because it laudem expetendis ei, lucilius accusamus scripserit eu ius. Ad sea solum mazim, postea dissentiet an vel, modo gloriatur ut usu. Has paulo timeam vocibus cu, has nihil iriure at.",
+          "help": "Yes" },
+        { "reasons": "It\"s hard because it laudem expetendis ei, lucilius accusamus scripserit eu ius. Ad sea solum mazim, postea dissentiet an vel, modo gloriatur ut usu. Has paulo timeam vocibus cu, has nihil iriure at.",
+          "help": "No" },
+        { "reasons": "It\"s hard because it laudem expetendis ei, lucilius accusamus scripserit eu ius. Ad sea solum mazim, postea dissentiet an vel, modo gloriatur ut usu. Has paulo timeam vocibus cu, has nihil iriure at.",
+          "help": "No" },
+        { "reasons": "It\"s hard because it laudem expetendis ei, lucilius accusamus scripserit eu ius. Ad sea solum mazim, postea dissentiet an vel, modo gloriatur ut usu. Has paulo timeam vocibus cu, has nihil iriure at.",
+          "help": "Yes" } ]
+}
