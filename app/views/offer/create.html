@@ -21,6 +21,7 @@
       </dl>
 
       {% if user['start']['fast'] %}
+      {% set deafoffers = user.offers.deaf | arrayify %}
       <dl class="review-answers">
         <dt>Needs</dt>
         <dd>
@@ -30,7 +31,7 @@
               <span class="blue">{{ user['hearing_tasks'][loop.index0]['hours'] }} times {{ user['hearing_tasks'][loop.index0]['hours_unit'] }}</span>
               to help them with <span class="blue">{{ user['hearing_tasks'][loop.index0]['need_tasks'] }}</span>
             </p>
-            <textarea class="form-control" name="deaf">{{ user.offers.deaf[loop.index0] }}</textarea>
+            <textarea class="form-control" name="deaf">{{ deafoffers[loop.index0] }}</textarea>
           {% endfor %}
         </dd>
       </dl>
@@ -80,6 +81,7 @@
                   You've said you struggle with <span class="blue">{{ item }}</span>,
                   because: <span class="blue">&ldquo;{{ user['during_work_why'][loop.index0]['reasons'] }}&rdquo;</span>
                 </p>
+                {% set workoffers = user.offers.work | arrayify %}
                 <textarea name="work" class="form-control">{{ user.offers.work[loop.index0] }}</textarea>
               {% endfor %}
             </dd>

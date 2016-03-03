@@ -20,12 +20,14 @@
 
       {% if user['start']['fast'] %}
 
-        {% for item in user['hearing']['deaf_need'] %}
+        {% set deafoffers = user.offers.deaf | arrayify %}
+
+        {% for item in user['hearing']['deaf_need'] | arrayify %}
         <dl class="review-answers">
           <dt>You said:</dt>
           <dd class="blue">You need {{ item }}</dd>
           <dt>Computer says:</dt>
-          <dd>{{ user.offers.deaf[loop.index0] }}</dd>
+          <dd>{{ deafoffers[loop.index0] }}</dd>
         </dl>
         {% endfor %}
 
@@ -50,7 +52,8 @@
           <dt>You said:</dt>
           <dd class="blue">You struggle with {{ item }} </dd>
           <dt>Computer says:</dt>
-          <dd>{{ user.offers.work[loop.index0] }}</dd>
+          {% set workoffers = user.offers.work | arrayify %}
+          <dd>{{ workoffers[loop.index0] }}</dd>
         </dl>
         {% endfor %}
       {% endif %}
