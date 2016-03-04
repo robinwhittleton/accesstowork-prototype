@@ -7,3 +7,4 @@ node_modules/*
 *.sublime-*
 makediffs
 app/data
+v12
