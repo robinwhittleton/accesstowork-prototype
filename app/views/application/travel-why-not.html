@@ -61,16 +61,15 @@
   $(document).on('ready',function()
   {
     var form = $('form');
-
     // grab the count from the cookie (if it exists).
     var t = window.location.hash.substring(1);
     if (!t) t = 0;
-
+    // put the number in the multiple field (for session data)
     $('#multiple').val(t);
-
+    // grab the list of things from travel_not
     var the_needs = Cookies.getJSON('travel_not');
+    // make sure it's an array
     if (typeof the_needs == 'string') the_needs = [the_needs];
-
     // just put the first one on the page.
     var travel_count = t;
     $('.need').text(the_needs[travel_count]);
@@ -78,15 +77,16 @@
     $('#submitButton').on('click',function(e)
     {
       e.preventDefault();
-
+      // move the count onto the next item.
       travel_count++;
+      // check there's some left.
       if (travel_count < the_needs.length)
       {
+        // ask the about the next item.
         form.attr('action','travel-why-not#'+travel_count);
         form.submit();
-
       } else {
-
+        // move on to the next set of questions.
         form.attr('action','during-work');
         form.submit();
       }

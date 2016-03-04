@@ -91,11 +91,16 @@ $(document).on('ready',function()
   {
     e.preventDefault();
     var picked = false;
+    /*
+      Check at least one option has been picked.
+    */
     $('input[name="travel-not"]').each(function(i,el)
     {
       if ($(el).prop('checked')) picked = true;
     });
-
+    /*
+      If nothing is picked 
+    */
     if (picked)
     {
       $('form').submit();
