@@ -12,7 +12,7 @@
 
     <h2 class="heading-medium" style="margin-bottom:0">Changed files</h2>
     <p class="font-xsmall">(where the action is)</p>
-    <ul id="navs">
+    <ul id="changed">
     {% for item in diffdata.changed %}
       <li><a href="#{{ item | sanssuffix }}">{{ item }}</a></li>
     {% endfor %}
