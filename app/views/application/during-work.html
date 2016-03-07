@@ -18,7 +18,7 @@
 	<!-- HEADING -->
   <h1 class="form-title heading-large" style="margin-bottom:30px">
     <span class="section-progress">Section 4 of 7</span>
-    Does your condition cause you <span id="hearing">any other</span> difficulties during work?
+    How does your condition affect you at work?
   </h1>
 
   <form action="job-status" method="post" class="form">
@@ -26,22 +26,35 @@
     <input type="hidden" name="page_name" value="during_work"/>
 
     <!-- Do you need - Yes No -->
-    <fieldset class="inline" id="havejob">
-      <div class="form-group">
-        <input id="during-work-yes" type="radio" name="help-during-work" value="Yes" />
-        <label id="screen1" class="form-label form-control-radio" data-target="work-taks" for="during-work-yes">Yes</label>
-      </div>
-      <div class="form-group form-group-compound">
-        <input id="during-work-no" type="radio" name="help-during-work" value="No" />
-        <label class="form-label form-control-radio" data-target="" for="during-work-no">No</label>
+    <fieldset id="havejob">
+      <div class="form-group ">
+        <!-- Yes, whole job -->
+        <input id="during-work-whole" type="radio" name="help-during-work" value="whole" />
+        <label id="screen1" class="form-label form-control-radio" data-target="work-whole" for="during-work-whole">My whole working day is affected</label>
+        <!-- Yes, only part of my job -->
+        <input id="during-work-part" type="radio" name="help-during-work" value="part" />
+        <label class="form-label form-control-radio" data-target="work-tasks" for="during-work-part">My condition affects only certain tasks</label>
+        <!-- No, none of my job is affected -->
+        <input id="during-work-no" type="radio" name="help-during-work" value="none" />
+        <label class="form-label form-control-radio" data-target="" for="during-work-no">My condition doesn't affect me at work at all</label>
       </div>
     </fieldset>
 
-    <div id="work-taks" class="js-hidden panel-indent" style="margin-bottom:30px !important;">
+    <div id="work-whole" class="js-hidden panel-indent">
+      <!-- WHY DO YOU NEED -->
+      <fieldset class="form-group">
+        <label class="form-label-bold" for="reasons" id="">
+          Describe how you working day is affected by your condition.
+        </label>
+        <textarea class="form-control" name="whole-day-desc" style="height:250px"></textarea>
+      </fieldset>
+    </div>
+
+    <div id="work-tasks" class="js-hidden panel-indent" style="margin-bottom:30px !important;">
 
       <!-- WHAT DO YOU NEED -->
       <fieldset class="form-group">
-        <legend class="heading-medium" style="margin-bottom:5px">Are any of these more difficult for you in work?</legend>
+        <legend class="heading-medium" style="margin-bottom:5px">Which tasks are more difficult for you in work?</legend>
         <p class="form-hint">Tick any that apply</p>
 
         <div class="grid-row">
@@ -138,9 +151,8 @@ $(document).on('ready',function()
     });
 
     var data = [];
-    /*
-      Put the work tasks back in.
-    */
+
+    // Put the work tasks back in.
     $('input[name="work-now"]').each(function(i,el)
     {
       if ($(el).prop('checked'))
@@ -149,9 +161,7 @@ $(document).on('ready',function()
       }
     });
 
-    /*
-      Put the user added tasks back in.
-    */
+    // Put the user added tasks back in.
     $('input[name="user-tasks"]').each(function(i,el)
     {
       if ($(el).val() !== '')
@@ -160,25 +170,22 @@ $(document).on('ready',function()
       }
     });
 
-    /*
-      Add all these back into the form data.
-    */
+    // Add all these back into the form data.
     $.each(data,function(i,el)
     {
       formdata.push({name:"during_work_tasks", value:el});
     });
 
-
     // if Yes isn't picked at the top.
-    if (!$('#during-work-yes').prop('checked'))
+    if ($('#during-work-no').prop('checked'))
     {
       $("form").submit();
     } else {
       if (!data.length) alert('Please pick or enter at least one task.');
       else {
         $.post("/application/during-work",
-            formdata
-            ,function(data) {
+          formdata
+          ,function(data) {
             Cookies.set('during_count',0);
             window.location.href = '/application/during-work-why';
           });

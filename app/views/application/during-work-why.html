@@ -93,6 +93,7 @@
     // just put the first one on the page.
     var during_count = t;
     var the_needs = Cookies.getJSON('during_work_tasks');
+    if (typeof the_needs == 'string') the_needs = [the_needs];
     var the_text = the_needs[during_count];
 
     $('.need').text(the_text);
