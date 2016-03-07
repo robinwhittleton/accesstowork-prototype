@@ -17,6 +17,7 @@ router.get('/feedback/:number?', function(req,res,next)
 
   if (number >= data.length) number = 0;
 
+  req.data = req.data || {};
   req.data.feedback = data[number];
   req.data.total = data.length;
   req.data.number = number;
