@@ -17,7 +17,7 @@
 
 	<!-- HEADING -->
   <h1 class="form-title heading-large" style="margin-bottom:30px;">
-    <span class="section-progress">Section 3 of 7</span>
+    {# <span class="section-progress">Section 3 of 7</span> #}
     Is it impossible for you to get to and from work using any of these?
   </h1>
   <p>Tick all the travel methods that you can't use at the moment.</p>
@@ -99,7 +99,7 @@ $(document).on('ready',function()
       if ($(el).prop('checked')) picked = true;
     });
     /*
-      If nothing is picked 
+      If nothing is picked
     */
     if (picked)
     {
