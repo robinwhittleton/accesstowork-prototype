@@ -50,8 +50,7 @@
 {% block page_script %}
 <script type="text/javascript">
   var version = {{ vthis }};
-  {% set datafile = "application/v"+vthis+"/data.js" %}
-  {% include datafile %}
+{% include "application/v"+vthis+"/data.js" %}
 </script>
 <script type="text/javascript" src="/public/javascripts/lightbox.js"> </script>
 <script type="text/javascript" src="/public/javascripts/diff.js"> </script>

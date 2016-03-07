@@ -14,16 +14,14 @@ $(document).on("ready",function(e)
   var vprev = 'v'+(version-1);
   var vthis = 'v'+version;
 
-  console.log(data);
-
   for(var a in data)
   {
     console.log(a);
     $('#summary dl').append('<dt class="heading-small">'+a+'.html</dt>');
     $('#summary dl').append('<dd>'+data[a]+'</dd>');
     $('#summary dl').append('<dd>'
-      // +'<a class="screen" href="/public/images/shots/'+vprev+'/'+a+'-full.png" data-lightbox="'+a+'">'+vprev+'<br /><img src="/public/images/shots/'+vprev+'/'+a+'-full.png" width="100"></a>'
-      // +'<a class="screen" href="/public/images/shots/'+vthis+'/'+a+'-full.png" data-lightbox="'+a+'">'+vthis+'<br /><img src="/public/images/shots/'+vthis+'/'+a+'-full.png" width="100"></a>'
+      +'<a class="screen" href="/public/images/pages/'+vprev+'/'+a+'-thumb.png" data-lightbox="'+a+'">'+vprev+'<br /><img src="/public/images/pages/'+vprev+'/'+a+'-thumb.png" width="100"></a>'
+      +'<a class="screen" href="/public/images/pages/'+vthis+'/'+a+'-thumb.png" data-lightbox="'+a+'">'+vthis+'<br /><img src="/public/images/pages/'+vthis+'/'+a+'-thumb.png" width="100"></a>'
       +'</dd>');
   }
 
