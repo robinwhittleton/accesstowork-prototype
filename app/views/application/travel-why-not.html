@@ -86,8 +86,12 @@
         form.attr('action','travel-why-not#'+travel_count);
         form.submit();
       } else {
+
+        var seen_fasttrack = Cookies.getJSON('fast');
+        console.log(seen_fasttrack);
         // move on to the next set of questions.
-        form.attr('action','during-work');
+        if (seen_fasttrack) form.attr('action','job-status');
+        else form.attr('action','during-work');
         form.submit();
       }
     });
