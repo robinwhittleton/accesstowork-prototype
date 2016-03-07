@@ -23,7 +23,7 @@
 			<tbody class="app-list">
 			{% for item in claimants %}
 				<tr>
-					<td><a href="/staffui/claimant/{{ item.id }}">{{ item.name }} {{ item.surname }}</a></td>
+					<td><a href="/staffui/claimant/{{ item._id }}">{{ item.name }} {{ item.surname }}</a></td>
 					<td>
 						<span class="tag {{ item.status | slugify }}">{{ item.status }}</span>
 					</td>
