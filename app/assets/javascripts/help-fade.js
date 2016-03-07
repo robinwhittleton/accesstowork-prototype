@@ -1,5 +1,6 @@
 $(document).on('ready',function()
 {
+  var secs = 20; // seconds delay
   // hmm
   jQuery.fx.off = false;
 
@@ -8,7 +9,7 @@ $(document).on('ready',function()
   {
     $('#help').hide();
     $(document).idleTimer( {
-        timeout:20000,
+        timeout:secs*1000,
         events:'keydown focus select change',
     });
     $( document ).on( "idle.idleTimer", function(event, elem, obj){

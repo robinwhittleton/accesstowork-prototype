@@ -169,7 +169,10 @@ td.numeric {
 }
 .intro-right {
   // border-top-color:#28a197;
+  float:right;
+  padding-left:1em;
   border-top-color:#95d0cb;
+  border-top-width:10px;
 }
 span.answer {
   color:$purple;
