@@ -1,11 +1,13 @@
-var fs      = require('fs'),
-    _       = require('underscore'),
-    moment  = require('moment');
+var fs          = require('fs'),
+    _           = require('underscore'),
+    db_url      = process.env.MONGOLAB_URI || 'mongodb://localhost/accesstowork',
+    db          = require('monk')(db_url),
+    moment      = require('moment');
 
 // load the raw data
-var advisers = JSON.parse(fs.readFileSync(__dirname + "/advisers.json").toString());
-var people = JSON.parse(fs.readFileSync(__dirname + "/raw-claimants.json").toString());
-var stati = JSON.parse(fs.readFileSync(__dirname + "/stati.json").toString());
+var advisers = JSON.parse(fs.readFileSync(__dirname + "/data-advisers.json").toString());
+var people = JSON.parse(fs.readFileSync(__dirname + "/data-raw-claimants.json").toString());
+var stati = JSON.parse(fs.readFileSync(__dirname + "/data-stati.json").toString());
 var conditions = JSON.parse(fs.readFileSync(__dirname + "/conditions.json").toString());
 
 var waiting = ['med ev','quotes','employer','extra info','assessment','offer sent'];
@@ -33,4 +35,20 @@ _.each(people,function(el,i,array)
   el.fromNow = now.subtract(r,'day').fromNow();
 });
 
-fs.writeFileSync(__dirname + "/claimants.json", JSON.stringify(people));
+var store = db.get('user');
+store.insert({name:"tom",surname:"morgan"});
+
+// _.each(people, function(el,i)
+// {
+//   delete el.id;
+//   console.log(el);
+//
+//   // var id = store.insert(el, function(err,doc){
+//   //   console.log(err);
+//   // });
+//
+// });
+
+process.exit();
+
+// fs.writeFileSync(__dirname + "/data-claimants.json", JSON.stringify(people));

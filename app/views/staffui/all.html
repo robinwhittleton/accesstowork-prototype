@@ -28,21 +28,23 @@
 				</tr>
 			</thead>
 			<tbody class="app-list">
-			{% for i in range (0,100) %}
-			{% set item = claimants[i] %}
-				<tr>
-					<td><a href="/staffui/claimant/{{ item.id }}/">{{ item.name }} {{ item.surname }}</a></td>
-					<td>
-						<span class="tag {{ item.status | slugify }}">{{ item.status }}</span>
-					</td>
-					<td class="adviser">
-						{% if (item.adviser.name) %}
-							<a href="adviser/{{ item.adviser.id }}">{{ item.adviser.name }} {{ item.adviser.surname }}</a>
-						{% endif %}
-					</td>
-					<td class="last">{{ item.fromNow }}</td>
-				</tr>
-			{% endfor %}
+			{% if claimants | length %}
+				{% for i in range (0,100) %}
+				{% set item = claimants[i] %}
+					<tr>
+						<td><a href="/staffui/claimant/{{ item.id }}/">{{ item.name }} {{ item.surname }}</a></td>
+						<td>
+							<span class="tag {{ item.status | slugify }}">{{ item.status }}</span>
+						</td>
+						<td class="adviser">
+							{% if (item.adviser.name) %}
+								<a href="adviser/{{ item.adviser.id }}">{{ item.adviser.name }} {{ item.adviser.surname }}</a>
+							{% endif %}
+						</td>
+						<td class="last">{{ item.fromNow }}</td>
+					</tr>
+				{% endfor %}
+			{% endif %}
 	  	</tbody>
 		</table>
 

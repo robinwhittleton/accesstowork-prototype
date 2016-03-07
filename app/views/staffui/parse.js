@@ -4,5 +4,5 @@ var csv = require('csv')
 var fish = fs.readFileSync('fish.csv');
 csv.parse(fish, {"columns":true}, function(err,data)
 {
-  fs.writeFileSync(__dirname + "/claims.json", JSON.stringify(data));
+  fs.writeFileSync(__dirname + "/data-claims.json", JSON.stringify(data));
 });

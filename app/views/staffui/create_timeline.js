@@ -2,8 +2,8 @@ var fs      = require('fs'),
     _       = require('underscore'),
     moment  = require('moment');
 
-var advisers = JSON.parse(fs.readFileSync(__dirname + "/advisers.json").toString());
-var stati = JSON.parse(fs.readFileSync(__dirname + "/stati.json").toString());;
+var advisers = JSON.parse(fs.readFileSync(__dirname + "/data-advisers.json").toString());
+var stati = JSON.parse(fs.readFileSync(__dirname + "/data-stati.json").toString());;
 
 var lorum = [
   "Mauris congue varius lectus eget tempor.",
@@ -45,4 +45,4 @@ for(var i=0; i < 100; i++)
 
 timeline = _.sortBy(timeline,'timet').reverse();
 
-fs.writeFileSync(__dirname + "/timeline.json", JSON.stringify(timeline));
+fs.writeFileSync(__dirname + "/data-timeline.json", JSON.stringify(timeline));
