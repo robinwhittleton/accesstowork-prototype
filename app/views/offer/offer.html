@@ -12,7 +12,7 @@
       <h2 class="heading-large">Your offer</h2>
 
       <dl class="review-answers">
-        {# <dt>Your Condition</dt>
+        {# <dt>Your condition</dt>
         <dd>{{ user['start']['my-condition'] }}</dd> #}
         {# <dt>Fast track</dt>
         <dd>{{ user['start']['fast'] }}</dd> #}
@@ -26,7 +26,7 @@
         <dl class="review-answers">
           <dt>You said:</dt>
           <dd class="blue">You need {{ item }}</dd>
-          <dt>Computer says:</dt>
+          <dt>We can offer you:</dt>
           <dd>{{ deafoffers[loop.index0] }}</dd>
         </dl>
         {% endfor %}
@@ -35,23 +35,23 @@
 
       <h2 class="heading-medium">Travel</h2>
       <dl class="review-answers">
-        <dt>You've said:</dt>
+        <dt>You said:</dt>
           {% if user['travel']['help-travelling'] == 'No' %}
-            <dd class="blue">You are getting to work OK right now.</dd>
+            <dd class="blue">You can get to or from work OK - you don't need any help.</dd>
           {% else %}
-            <dd class="blue">You are not getting to work OK right now.</dd>
-            <dt>Computer says:</dt>
+            <dd class="blue">You can't get to or from work OK.</dd>
+            <dt>We can offer you:</dt>
             <dd>{{ user.offers.travel }}</dd>
           {% endif %}
       </dl>
 
       {% if user['during_work']['help-during-work'] == "Yes" %}
-        <h2 class="heading-medium">During Work</h2>
+        <h2 class="heading-medium">During work</h2>
         {% for item in user['during_work']['during_work_tasks'] | arrayify %}
         <dl class="review-answers">
           <dt>You said:</dt>
           <dd class="blue">You struggle with {{ item }} </dd>
-          <dt>Computer says:</dt>
+          <dt>We can offer you:</dt>
           {% set workoffers = user.offers.work | arrayify %}
           <dd>{{ workoffers[loop.index0] }}</dd>
         </dl>
@@ -66,7 +66,7 @@
         <h2 class="heading-medium">Do you accept this offer?</h2>
         <fieldset class="form-group" style="margin:1em 0 2em">
           <input id="offer-agree" type="radio" value="agree" name="offer-agree">
-          <label class="form-label form-control-radio" for="offer-agree" data-target="submit">Yes, you accept this offer</label>
+          <label class="form-label form-control-radio" for="offer-agree" data-target="submit">Yes, you accept</label>
           <input id="offer-disagree" type="radio" value="disagree" name="offer-agree">
           <label class="form-label form-control-radio" for="offer-disagree" data-target="reconsidesation">No, you don't accept</label>
         </fieldset>
@@ -78,15 +78,15 @@
         <!-- NO I DON'T -->
         <fieldset class="panel-indent form-group js-hidden" id="reconsidesation">
           <h2 class="heading-medium" style="margin-top:0">Reconsiderations</h2>
-         <p>You can ask for your offer to be reconsidered if you want.</p>
-          <p>Give details of why this offer doesn't meet your needs, and what alternative or additional help you'd like.</p>
+         <p>You can ask for your offer to be looked at again if you want.</p>
+          <p>Give details of why you think this offer won't meet your needs and suggest what alternative or additional help you think you need.</p>
           <div class="form-group">
             <textarea class="form-control" name="new-info"></textarea>
           </div>
         </fieldset>
 
         <div class="form-group" style="margin-top:30px;">
-          <a href="agree-moreinfo" class="button">Submit</a>
+          <a href="agree-moreinfo" class="button">Send</a>
         </div>
 
       </form>

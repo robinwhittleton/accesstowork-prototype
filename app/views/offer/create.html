@@ -41,15 +41,15 @@
       <dl class="review-answers">
         <dt>Needs</dt>
         {% if user['travel']['help-travelling'] == 'No' %}
-          <dd>They <span class="blue">are</span> getting to work OK right now.</dd>
+          <dd>They <span class="blue">need help</span> getting to work.</dd>
         {% else %}
-          <dd>They <span class="blue">are not</span> getting to work OK right now.</dd>
+          <dd>They <span class="blue">don't need help</span> getting to work.</dd>
           <br />
           <dt>Travel situation</dt>
           <dd>
             {% for item in user['travel']['travel-now'] | arrayify %}
               <p>
-                They've said they travel by <span class="blue">{{ item }}</span>,
+                They've currently travel by <span class="blue">{{ item }}</span>,
                 but can't continue for these reasons: <span class="blue">&ldquo;{{ user['travel_why'][loop.index0]['reasons'] }}&rdquo;</span>
               </p>
             {% endfor %}
@@ -58,8 +58,8 @@
           <dd>
             {% for item in user['travel_not']['travel-not'] | arrayify  %}
               <p>
-                They've said could travel by <span class="blue">{{ item }}</span>,
-                but can't right now for these reasons: <span class="blue">&ldquo;{{ user['travel_why_not'][loop.index0]['reasons'] }}&rdquo;</span>
+                They can't travel by <span class="blue">{{ item }}</span>,
+                because: <span class="blue">&ldquo;{{ user['travel_why_not'][loop.index0]['reasons'] }}&rdquo;</span>
               </p>
             {% endfor %}
           </dd>
@@ -68,17 +68,17 @@
         {% endif %}
       </dl>
 
-      <h2 class="heading-medium">During Work</h2>
+      <h2 class="heading-medium">During work</h2>
       <dl class="review-answers">
         <dt>Needs</dt>
           {% if user['during_work']['help-during-work'] == 'Yes' %}
-            <dd>Their condition <span class="blue">does</span> effect how well they can do your job.</dd>
+            <dd>Their condition <span class="blue">affects</span> them in their work duties.</dd>
             <br />
             <dt>Work situation</dt>
             <dd>
               {% for item in user['during_work']['during_work_tasks'] | arrayify %}
                 <p>
-                  You've said you struggle with <span class="blue">{{ item }}</span>,
+                  They struggle with <span class="blue">{{ item }}</span>,
                   because: <span class="blue">&ldquo;{{ user['during_work_why'][loop.index0]['reasons'] }}&rdquo;</span>
                 </p>
                 {% set workoffers = user.offers.work | arrayify %}
@@ -86,7 +86,7 @@
               {% endfor %}
             </dd>
           {% else %}
-            <dd>Their condition <span class="blue">does not</span> effect how well can they do your job.</dd>
+            <dd>Their condition <span class="blue">doesn't affect</span> them in their duties.</dd>
           {% endif %}
         <dt>&nbsp;</dt>
         <dd><br /><button class="button">Submit</button></dd>
