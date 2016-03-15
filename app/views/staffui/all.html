@@ -41,7 +41,7 @@
 						</td>
 						<td>{{ item.fromNow }}</td>
 						<td class="adviser last">
-							{% if (item.adviser.name) %}
+							{% if item.status.awaiting == 'adviser' %}
 								<a href="adviser/{{ item.adviser.id }}">{{ item.adviser.name }} {{ item.adviser.surname }}</a>
 							{% endif %}
 						</td>

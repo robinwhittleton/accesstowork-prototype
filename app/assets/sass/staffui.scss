@@ -8,13 +8,10 @@
 @import "staff/indexes";
 @import "staff/todo";
 @import "staff/tabs";
+@import "staff/stats";
 
-.govuk-blue {
-  color:$govuk-blue;
-}
-.grey {
-  color:$grey-1;
-}
+.govuk-blue { color:$govuk-blue; }
+.grey { color:$grey-1; }
 
 .btop {
   padding-top:5px;
@@ -63,6 +60,14 @@
   border-radius:5px;
   margin-left:5px;
   float:left;
+
+  &.circle {
+    $size:30px;
+    display:block;
+    border-radius:50%;
+    width:$size;height:$size;
+    padding:0;
+  }
 }
 .tag_date {
   float:left;
@@ -81,57 +86,13 @@ table.customers {
 }
 
 
-/*
-  Stats bits
-*/
-.stats {
-  margin-bottom:30px;
-  border-bottom:1px solid $grey-2;
-  display:table;
-  width:100%;
-  li {
-    box-sizing:border-box;
-    display:table-cell;
-    width:19%;
-    margin:0;padding:0;
-    padding-right:10px;
-  }
 
-}
-.stat__label {
-  margin:0;
-}
-.stat-num {
-  margin:0;
-}
-.stats {
-  h2.adviser {color:$alpha-colour}
-  h2.assessor {color:$beta-colour}
-  h2.mainenance {color:$live-colour}
-  h2.customer {color:$govuk-blue}
-  h2.qaf {color:$discovery-colour}
-}
 .tag {
   &.adviser {background-color:$alpha-colour}
   &.assessor {background-color:$beta-colour}
   &.mainenance {background-color:$live-colour}
   &.customer {background-color:$govuk-blue}
   &.qaf {background-color:$discovery-colour}
-  // &.customer {background-color:$discovery-colour}
-
-  // &.just_in {background-color:$discovery-colour}
-  // &.allocated {background-color:$alpha-colour}
-  // &.gathering {background-color:$beta-colour}
-  // &.needs_review {background-color:$turquoise}
-  // &.offer_sent {background-color:$live-colour}
-  // &.support_agreed {background-color:$live-colour}
-  //
-  // &.employer {background-color:$alpha-colour}
-  // &.extra_info {background-color:$discovery-colour}
-  // &.quotes {background-color:$alpha-colour}
-  // &.assessment {background-color:$beta-colour}
-  //
-  // &.turq {background-color:$turquoise}
 
   &.waiting_assessment,
   &.waiting_employer,

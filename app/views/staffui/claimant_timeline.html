@@ -9,11 +9,12 @@
 
   <div class="media">
     <div class="img">
-      <img src="/public/images/staff/{{ item.icon }}" alt="me" width="50px"/>
+      <span class="tag circle {{ item.status.awaiting | slugify }}"></span>
+      {# <img src="/public/images/staff/{{ item.icon }}" alt="me" width="50px"/> #}
     </div>
     <div class="bd">
-      <p style="float:right"><span class="tag {{ item.status | slugify }}">{{ item.status }}</span></p>
-      <h3 class="heading-small heading-top">{{ item.heading }}</h3>
+
+      <h3 class="heading-small heading-top" style="">{{ item.status.label | capitalize }}</h3>
       <p style="font-size:14px;">{{ item.body }}</p>
       <p class="font-xsmall">
         <a href="">{{ item.adviser.name }} {{ item.adviser.surname }}</a> • {{ item.fromNow }}</p>

@@ -31,7 +31,7 @@ for(var i=0; i < 100; i++)
   el.id = i;
   el.adviser = _.sample(advisers);
   el.body = _.shuffle(_.sample(lorum,Math.floor(Math.random()*lorum.length))).join(' ');
-  console.log(el.body);
+  // console.log(el.body);
   el.heading = _.sample(icons).heading;
   el.icon = _.sample(icons).icon;
   el.status = _.sample(stati);

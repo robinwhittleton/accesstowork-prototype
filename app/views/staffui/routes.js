@@ -7,15 +7,10 @@ var express     = require('express'),
     db          = require('monk')(db_url),
     router      = express.Router();
 
-util.tog = function(data)
-{
-  var o = '<pre>';
-  o += util.inspect(data,{depth:10})
-  o += '</pre>';
-  return o;
-}
+// quick logging function to help with data.
+var tog = function(data) { var o = '<pre>'; o += util.inspect(data,{depth:10}); o += '</pre>'; return o; }
 
-router.get('/staffui/all/:order?', function(req,res,next)
+router.get('/staffui/all/', function(req,res,next)
 {
   var order = req.params.order;
 
@@ -30,13 +25,9 @@ router.get('/staffui/all/:order?', function(req,res,next)
       req.data = req.data || {};
       req.data.claimants  = _.sortBy(json,order);
       if (order == 'timet') req.data.claimants.reverse();
-
       req.data.counts = _.countBy(json,function(item){
-        return item.status.waiting;
+        return item.status.awaiting;
       });
-
-      console.log(req.data.counts);
-
       req.url = '/staffui/all/';
       next();
     } else res.send('Empty data!');
@@ -46,21 +37,52 @@ router.get('/staffui/all/:order?', function(req,res,next)
 router.get('/staffui/adviser/:id?', function(req,res,next)
 {
   var id = req.params.id;
-  if (typeof id == "undefined") id = 0;
+  if (typeof id == "undefined")
+  {
+    res.redirect('/staffui/adviser/'+Math.floor(Math.random()*30));
+  }
+
+
 
   var store = db.get('customers');
   store.find({},function(err,json)
   {
     var data = _.filter(json, function(el)
     {
-      return el.adviser.id == id;
+      return el.adviser.id == id && el.status.awaiting == 'adviser';
     });
+
+    var number = data.length;
+
+    // if no data just grab some so we have the adviser name.
+    if (!number)
+    {
+      var data = _.filter(json, function(el) { return el.adviser.id == id; });
+    }
+
     req.data = req.data || {};
-    req.data.claimants = data;
+    req.data.number = number;
+    req.data.claimants  = _.sortBy(data,'timet').reverse();
     req.url = '/staffui/adviser/';
     next();
   });
 });
+
+router.get('/staffui/edit/claimant/:id?/timeline', function(req,res,next)
+{
+  var id = req.params.id;
+  if (typeof id == "undefined") res.send('Need an id in the URL please!')
+
+  var timeline = JSON.parse(fs.readFileSync(__dirname + "/data-timeline.json").toString());
+
+  var store = db.get('customers');
+  store.findById(id, function(err,data)
+  {
+    data.timeline = timeline;
+    res.send(tog(data));
+  });
+});
+
 
 router.get('/staffui/edit/claimant/:id?/', function(req,res,next)
 {
@@ -132,7 +154,7 @@ router.get('/staffui/claimant/:id?/:page?/', function(req,res,next)
 
 router.get('/staffui/db',function(req,res,next)
 {
-  var stati = JSON.parse(fs.readFileSync(__dirname + "/data-stati.json").toString());
+  // var stati = JSON.parse(fs.readFileSync(__dirname + "/data-stati.json").toString());
 
   var store = db.get('customers');
   store.find({}, function(err,docs)
@@ -141,18 +163,33 @@ router.get('/staffui/db',function(req,res,next)
     // out = util.inspect(stati,{depth:10})+"<br /><br />";
     _.each(docs,function(el,i)
     {
+      /*
+        Updating statuses.
+      */
       // var w = el.status.waiting;
       // delete el.status.waiting;
       // el.status['awaiting'] = w;
 
-      // output
-      out += util.inspect(el,{depth:10})+"<br /><br />";
+      /*
+        Updating the time fields.
+      */
+      // var now = moment();
+      // var r = Math.ceil(Math.random()*2*7*24);
+      // out += String(r) + "\n";
+      // var time = now.subtract(r,'hours');
+      // out += String(time) + "\n";
+      // el.timet = time.format("x");
+      // el.lastUpdated = time.format("dddd, MMMM Do YYYY, h:mm:ss a");
+      // el.fromNow = time.fromNow();
 
-      // store.updateById(el._id,el,function(err,doc)
-      // {
-      //     // output
-      //     out += util.inspect([err,doc],{depth:10})+"\n\n";
-      // });
+      // output
+      out += util.inspect(el,{depth:10})+"\n\n";
+
+      store.updateById(el._id,el,function(err,doc)
+      {
+          // output
+          out += util.inspect([err,doc],{depth:10})+"\n\n";
+      });
 
     });
     out += '</pre>';

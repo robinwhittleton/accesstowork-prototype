@@ -4,13 +4,14 @@
 
 	<section class="staff-main">
 
-		<h1 class="heading-large">Hello, {{ claimants[0].adviser.name }}</h1>
+		<h1 class="heading-large">Hello, {{ claimants[0].adviser.name }} {{ claimants[0].adviser.surname }}</h1>
 
 		<ol class="stats">
 			<li> <p class="stat-label">Open cases</p><h2 class="stat-num heading-xlarge">{{ claimants | length }}</h2> </li>
 			<li> <p class="stat-label">Last login</p><h2 class="stat-num heading-xlarge">14.07.2015</h2> </li>
 		</ol>
 
+		{% if number %}
 		<table class="customers">
 			<thead>
 				<tr>
@@ -31,6 +32,9 @@
 			{% endfor %}
 	  	</tbody>
 		</table>
+		{% else %}
+		<p>You have no open cases at the moment.</p>
+		{% endif %}
 
 	</section>
 
