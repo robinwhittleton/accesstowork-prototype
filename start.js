@@ -12,7 +12,7 @@ require(__dirname + '/node_modules/grunt/lib/grunt.js').cli({
 
 fs.writeFileSync(pidFile, process.pid, fileOptions);
 
-process.on('SIGINT', function() 
+process.on('SIGINT', function()
 {
   try {
     var pid = fs.readFileSync(pidFile, fileOptions);
