@@ -1,0 +1,115 @@
+{% extends "staffui/layout.html" %}
+
+{% block staff_content %}
+
+	<section class="staff-main">
+
+		<div class="grid-row">
+		<div class="column-three-quarters">
+
+			<form class="form" action="/staffui/edit/claimant/" method="post">
+
+				<h1 class="heading-medium">{{ claimant.name }} {{ claimant.surname }}</h1>
+				<p>{{ claimant.condition }}</p>
+
+				<input type="hidden" name="_id" value="{{ claimant._id }}" />
+
+				<h2 class="heading-medium">Status</h2>
+				<div class="form-group">
+					<label class="form-label">label</label>
+					<input id="status" class="form-control" name="status[label]" value="{{ claimant.status.label }}" />
+				</div>
+				<div class="form-group">
+					<label class="form-label">waiting for:</label>
+					<select name="status[awaiting]" class="form-select">
+						{% for label in ['customer','adviser','assessor','qaf','mainenance'] %}
+							{% if claimant.status.awaiting == label %}
+							  <option value="{{ label }}" selected="selected">{{ label }}</option>
+							{% else %}
+								<option value="{{ label }}">{{ label }}</option>
+							{% endif %}
+						{% endfor %}
+					</select>
+
+					<h2 class="heading-medium">Adviser</h2>
+					<div class="form-group">
+						<label class="form-label">Adviser:</label>
+						<select name="adviser" class="form-select">
+							{% for adviser in advisers %}
+								{% if claimant.adviser.id == adviser.id %}
+									<option value="{{ adviser.id }}" selected="selected">{{ adviser.name }} {{ adviser.surname }}</option>
+								{% else %}
+									<option value="{{ adviser.id }}">{{ adviser.name }} {{ adviser.surname }}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+
+				</div>
+
+				<button class="button">Submit</button>
+
+			</form>
+
+		</div>
+		<div class="column-quarter">
+
+		</div>
+	</div><!-- .grid-row -->
+
+	</section>
+
+{% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+    var substringMatcher = function(strs)
+    {
+       return function findMatches(q, cb)
+       {
+				 if (q === '') {
+						cb(strs);
+					} else {
+	         var matches = [];
+	         var substrRegex = new RegExp(q, 'i');
+	         $.each(strs, function(i, str) {
+	           if (substrRegex.test(str)) {
+	             matches.push(str);
+	           }
+	         });
+	         cb(matches);
+				 	}
+       };
+    };
+
+		var statuses = [
+			"application recieved",
+			"cost share agreed in principle",
+			"incoming call from customer",
+			"incoming call from employer",
+			"message left for customer",
+			"message left for employer",
+			"awaiting further information from assessor",
+			"assessment submitted",
+			"assessment returned to contractor for rework",
+			"submitted for approval",
+			"failed QAF",
+			"customer referred to NHS for medical evidence",
+			"customer referred to NHS audiologist",
+			"application withdrawn",
+			"grant notification sent to customer",
+			"signature received"
+		];
+
+		$(document).on('ready',function()
+		{
+			$('#status').typeahead(
+				{ "hint":true, "highlight":true, "minLength":0 },
+				{
+				 name:'statuses',
+				 limit:100,
+				 source: substringMatcher(statuses)
+				}
+			);
+		});
+</script>
+{% endblock %}

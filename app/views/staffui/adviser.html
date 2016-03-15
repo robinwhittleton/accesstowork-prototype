@@ -16,8 +16,6 @@
 				<tr>
 					<th>customer</th>
 					<th>status</th>
-					<th>eligability</th>
-					<th class="last">last update</th>
 				</tr>
 			</thead>
 			<tbody class="app-list">
@@ -25,15 +23,10 @@
 				<tr>
 					<td><a href="/staffui/claimant/{{ item._id }}">{{ item.name }} {{ item.surname }}</a></td>
 					<td>
-						<span class="tag {{ item.status | slugify }}">{{ item.status }}</span>
+						<span class="tag {{ item.status.awaiting | slugify }}">{{ item.status.label }}</span>
+						<span class="tag_date">({{ item.fromNow }})</span>
 					</td>
-					<td>
-						{% set status = ['tick-grn','question','cross-red'] %}
-						{% for i in range(0,4) %}
-							<img src="/public/images/staff/{{ status | random }}.png" width="20px"/>
-						{% endfor %}
-					</td>
-					<td class="last">{{ item.fromNow }}</td>
+					<td class="last"></td>
 				</tr>
 			{% endfor %}
 	  	</tbody>
