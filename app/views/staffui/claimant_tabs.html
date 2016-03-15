@@ -1,16 +1,16 @@
 <div class="section-tabs js-tabs clearfix">
   <ul>
     <li class="{{ thispage | check("timeline","active") }}">
-      <a href="/staffui/claimant/{{ claimant.id }}/timeline">Timeline</a>
+      <a href="/staffui/claimant/{{ claimant._id }}/timeline">Timeline</a>
     </li>
     <li class="{{ thispage | check("personal","active") }}">
-      <a href="/staffui/claimant/{{ claimant.id }}/personal">Personal Information</a>
+      <a href="/staffui/claimant/{{ claimant._id }}/personal">Personal Information</a>
     </li>
     <li class="{{ thispage | check("jobs","active") }}">
-      <a href="/staffui/claimant/{{ claimant.id }}/jobs">Jobs</a>
+      <a href="/staffui/claimant/{{ claimant._id }}/jobs">Jobs</a>
     </li>
     <li class="{{ thispage | check("help","active") }}">
-      <a href="/staffui/claimant/{{ claimant.id }}/help">The Help They're Getting</a>
+      <a href="/staffui/claimant/{{ claimant._id }}/help">The Help They're Getting</a>
     </li>
   </ul>
 </div>

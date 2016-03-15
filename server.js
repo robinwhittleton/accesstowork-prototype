@@ -17,9 +17,7 @@ var path          = require('path'),
     staff_routes  = require(__dirname + '/app/views/staffui/routes.js'),
     fdbck_routes  = require(__dirname + '/app/views/feedback/routes.js'),
     offer_routes  = require(__dirname + '/app/views/offer/routes.js'),
-
     user_data     = require(__dirname + '/lib/user_data.js'),
-    database      = process.env.MONGOLAB_URI || 'mongodb://localhost/accesstowork',
 
     // Grab environment variables specified in Procfile or as Heroku config vars
     username = process.env.USERNAME,
