@@ -29,7 +29,7 @@
     <div class="" id="travel-options" style="margin-bottom:30px !important;">
 
       <!-- WHAT DO YOU NEED -->
-      <fieldset class="form-group">
+      <fieldset class="form-group" id="options">
 
         {% for item in travel_options %}
           <input id="{{ item.value | slugify }}" type="checkbox" name="travel-not" value="{{ item.value }}" />
@@ -68,13 +68,12 @@
 <script type="text/javascript">
 $(document).on('ready',function()
 {
+  // clear any old cookies hanging on.
   Cookies.remove('travel_not');
-
   // grab the options from the cookie.
   var options = Cookies.getJSON('travel_now');
   // make sure it's always an array.
   if (typeof options == 'string') options = [options];
-
   // go through the travel inputs
   $('input[name="travel-not"]').each(function(i,el)
   {
@@ -85,6 +84,22 @@ $(document).on('ready',function()
         var id = $(el).attr('id');
         $('label[for="'+id+'"]').hide();
       }
+  });
+
+  $('#options label').on('click',function(e)
+  {
+    $('#travel-not-none').prop('checked',false);
+  });
+
+  $('#travel-not-none').on('click',function(e)
+  {
+    if($(this).prop('checked'))
+    {
+      $('#options input').each(function(i,el)
+      {
+        $(el).prop('checked',false);
+      });
+    }
   });
 
   $('#nextButton').on('click',function(e)
