@@ -4,12 +4,15 @@
 
 {% block content %}
 
-<form action="create" method="post">
-  <input type="hidden" name="_id" value="{{ user._id }}" />
+<form action="/offer/create" method="post">
+<input type="hidden" name="_id" value="{{ user._id }}" />
+
 <main id="content" role="main">
 
   <div class="grid-row">
     <section class="column">
+
+      <p style="margin-top:10px;float:right"><a href="/offer/list/">List of applications</a></p>
 
       <h2 class="heading-large">Create an offer letter</h2>
 
@@ -31,9 +34,11 @@
               <span class="blue">{{ user['hearing_tasks'][loop.index0]['hours'] }} times {{ user['hearing_tasks'][loop.index0]['hours_unit'] }}</span>
               to help them with <span class="blue">{{ user['hearing_tasks'][loop.index0]['need_tasks'] }}</span>
             </p>
-            <textarea class="form-control" name="deaf">{{ deafoffers[loop.index0] }}</textarea>
           {% endfor %}
         </dd>
+        <hr class="rule" style="margin-bottom:30px;"/>
+        <dt class="blue">Offer</dt>
+        <dd><textarea class="form-control" name="deaf">{{ user.offers.deaf }}</textarea></dd>
       </dl>
       {% endif %}
 
@@ -98,12 +103,24 @@
             <dd>Their condition <span class="blue">doesn't affect</span> them in their duties.</dd>
           {% endif %}
         <dt>&nbsp;</dt>
-        <dd><br /><button class="button">Submit</button></dd>
+        <dd>
+          <br />
+          <button class="button">Submit</button>
+          <a href="/offer/offer/{{ user._id }}" class="button button-blue">View Offer</a>
+        </dd>
       </dl>
+
+      <div class="grid-row">
+        <div class="column">
+          <hr />
+          <h2 class="heading-small">RAW data</h2>
+          {{ dump | safe }}
+        </div>
+      </div>
 </main>
 </form>
 
-{{ dump | safe }}
+
 
 {% endblock %}
 

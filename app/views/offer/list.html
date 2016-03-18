@@ -1,0 +1,27 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}Your offer - Access To Work{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <section class="column">
+      <h2 class="heading-medium">Applications</h2>
+      <table class="table">
+      {% for item in users %}
+        <tr>
+          <td><h4 class="heading-small">{{ item.start['my-condition'] }}</h4></td>
+          <td><br />{{ item.date }}</td>
+          <td class="numeric"><a href="/offer/create/{{ item.id }}"><button class="button">Create offer</button></td>
+        </tr>
+      {% endfor %}
+      </table>
+    </section>
+  </div>
+
+</main>
+{% endblock %}
+
+{% block page_script %} {% endblock %}

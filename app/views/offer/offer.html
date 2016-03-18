@@ -33,17 +33,16 @@
 
       {% endif %}
 
+      {% if user['travel']['help-travelling'] == 'Yes' %}
       <h2 class="heading-medium">Travel</h2>
       <dl class="review-answers">
         <dt>You said:</dt>
-          {% if user['travel']['help-travelling'] == 'No' %}
-            <dd class="blue">You can get to or from work OK - you don't need any help.</dd>
-          {% else %}
+            <!-- <dd class="blue">You can get to or from work OK - you don't need any help.</dd> -->
             <dd class="blue">You can't get to or from work OK.</dd>
             <dt>We can offer you:</dt>
             <dd>{{ user.offers.travel }}</dd>
-          {% endif %}
       </dl>
+      {% endif %}
 
       {% if user['during_work']['help-during-work'] == "whole" %}
         <h2 class="heading-medium">During work</h2>

@@ -9,47 +9,82 @@ var express     = require('express'),
     tog         = require(__dirname+'/../../../lib/tog.js'),
     router      = express.Router();
 
-router.get('/offer/offer', function(req,res,next)
+router.get('/offer/list', function(req,res,next)
 {
-  // req.data = req.data || {};
-  // req.data.user = req.session.user;
   var store = db.get('user');
   store.find({},{sort:{"date":-1}},function(err,docs)
   {
+    var data = _.map(docs,function(el)
+    {
+      return {
+        id: el._id,
+        start: el.start,
+        date: moment(el.date).fromNow(),
+      }
+    });
     req.data = req.data || {};
-    req.data.user = docs[0];
-    // res.send("<pre>"+util.inspect(docs[0],{depth:10})+"</pre>");
+    req.data.users = data;
     next();
   });
 });
 
-router.get('/offer/create', function(req,res,next)
+var getSingleApplication = function(req,res,next,url)
 {
+  var id = req.params.id, data;
   var store = db.get('user');
-  store.find({},{sort:{"date":-1}},function(err,docs)
+  // check whether an id has been passed
+  if (typeof id == "undefined")
   {
+    // if not - grab the latest application
+    store.find({},{sort:{"date":-1}},function(err,docs)
+    {
+      data = docs[0];
+      compete();
+    });
+  } else {
+    // if so - grab the correct application
+    store.findById(id, function(err,doc)
+    {
+      data = doc;
+      compete();
+    });
+  }
+  /*
+    Finishing function to call in the callbacks above.
+  */
+  var compete = function() {
     req.data = req.data || {};
-    req.data.user = docs[0];
-    req.data.dump = tog(docs[0]);
+    req.data.user = data;
+    req.data.dump = tog(data);
+    req.url = url;
     next();
-    // res.send("<pre>"+util.inspect(docs[0],{depth:10})+"</pre>");
-  });
+  }
+}
+
+router.get('/offer/offer/:id?', function(req,res,next)
+{
+  getSingleApplication(req,res,next,'/offer/offer/');
+});
+
+router.get('/offer/create/:id?', function(req,res,next)
+{
+  getSingleApplication(req,res,next,'/offer/create/');
 });
 
 router.post('/offer/create', function(req,res,next)
 {
   var store = db.get('user');
-  var id = store.id(req.body._id);
+  var _id = store.id(req.body._id);
   delete req.body._id;
 
-  store.findById(id, function(err,doc)
+  store.findById(_id, function(err,doc)
   {
     var newdata = merge(doc, {"offers":req.body} );
-    store.updateById(id, newdata, function(err,id)
+    store.updateById(_id, newdata, function(err,id)
     {
       req.data = req.data || {};
       req.data.user = newdata;
-      // res.send("<pre>"+util.inspect(newdata,{depth:10})+"</pre>");
+      req.url = '/offer/create/'+_id;
       next();
     });
   });
