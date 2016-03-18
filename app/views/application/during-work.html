@@ -43,7 +43,7 @@
     <div id="work-whole" class="js-hidden panel-indent">
       <!-- WHY DO YOU NEED -->
       <fieldset class="form-group">
-        <label class="form-label-bold" for="reasons" id="">
+        <label class="form-label-bold" for="reasons">
           Describe how your working day is affected by your condition.
         </label>
         <textarea class="form-control" name="whole-day-desc" style="height:250px"></textarea>
@@ -51,23 +51,19 @@
     </div>
 
     <div id="work-tasks" class="js-hidden panel-indent" style="margin-bottom:30px !important;">
-
-      <!-- WHAT DO YOU NEED -->
       <fieldset class="form-group">
         <legend class="heading-medium" style="margin-bottom:5px">Which tasks are more difficult for you in work?</legend>
         <p class="form-hint">Tick any that apply</p>
-
         <div class="grid-row">
           <div class="column-half">
           {% set tasks = [
-            "Taking phone calls",
-            "Using a computer",
-            "Heavy lifting",
-            "Sitting for a long time",
-            "Climbing stairs",
-            "Going to meetings"
+              "Taking phone calls",
+              "Using a computer",
+              "Heavy lifting",
+              "Sitting for a long time",
+              "Climbing stairs",
+              "Going to meetings"
             ] %}
-
           {% for item in tasks %}
             <input id="{{ item | slugify }}" type="checkbox" name="work-now" value="{{ item | lower }}" />
             <label class="form-label form-control-checkbox" for="{{ item | slugify }}">{{ item }}</label>
@@ -77,35 +73,34 @@
             {% endif %}
           {% endfor %}
         </div>
-
       </fieldset>
 
-      <!-- LIST THE THINGS -->
+      <!-- ANYTHING ELSE -->
       <fieldset class="form-group">
         <legend class="form-label-bold" id="alreadyJob">Anything else?</legend>
         <!-- <p class="form-hint">This includes getting to or from work, or anything you have to do as part of your job role.</p> -->
         <fieldset class="inline">
           <div class="form-group" style="margin-bottom:10px">
             <input id="work-more-yes" type="radio" name="work-more" value="Yes" />
-            <label id="screen2" class="form-label form-control-radio" data-target="work-tasks" for="work-more-yes">Yes</label>
+            <label id="screen2" class="form-label form-control-radio" data-target="extra-tasks" for="work-more-yes">Yes</label>
           </div>
           <div class="form-group form-group-compound">
             <input id="work-more-no" type="radio" name="work-more" value="No" />
             <label class="form-label form-control-radio" data-target="" for="work-more-no">No</label>
           </div>
         </fieldset>
-        <div class="form-group js-hidden panel-indent" id="work-tasks">
+        <div class="form-group js-hidden panel-indent" id="extra-tasks">
           <p class="form-hint">Add as many as you like</p>
           <div class="conditions" style="margin-bottom:15px">
             <p class="cond"><input name="user-tasks" class="form-control" autocomplete="off"/></p>
             <p class="cond"><input name="user-tasks" class="form-control" autocomplete="off"/></p>
             <p class="cond"><input name="user-tasks" class="form-control" autocomplete="off"/></p>
           </div>
-          <p><a href="#" id="add" class="button-add">&#43; add another task</a></p>
+          <p><a href="#" id="add" class="button-add">&#43; add another task </a></p>
         </div>
       </fieldset>
 
-    </div>
+    </div><!-- #work-tasks -->
 
     <fieldset class="primary-nav form-group" style="margin-top:30px">
       <legend>Form Navigation</legend>
@@ -177,7 +172,7 @@ $(document).on('ready',function()
     });
 
     // if Yes isn't picked at the top.
-    if ($('#during-work-no').prop('checked'))
+    if ($('#during-work-no').prop('checked')||$('#during-work-whole').prop('checked'))
     {
       $("form").submit();
     } else {

@@ -24,7 +24,6 @@ router.get('/application/v10/explore-another', function(req,res,next)
 /* sanitising data for the old describe page */
 router.get(/\/application\/v([0-9]+)\/describe/, function(req,res,next)
 {
-  console.log('describe!!!');
   if (req.cookies['explore-tasks'])
   {
     for (var i = 0; i < req.cookies['explore-tasks'].length; i++) {
@@ -73,7 +72,7 @@ router.get(/.*/, function(req,res,next)
 */
 router.get(/\/api\/(.*)\//, function (req, res)
 {
-  var dir = __dirname + '/views/'+req.params[0]; console.log(dir);
+  var dir = __dirname + '/views/'+req.params[0];
   var filenames = fs.readdirSync(dir);
   for (var i=0; i<filenames.length; i++)
   {

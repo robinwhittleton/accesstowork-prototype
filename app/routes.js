@@ -54,8 +54,6 @@ router.get('/db',function(req, res, next)
 //   var foo = db.get('foo');
 //   foo.find({},function(err,docs)
 //   {
-//     console.log("first");
-//     console.log(docs);
 //     res.send(util.inspect(docs)+'<form action="/mon/" method="post"><button class="button">Continue</button></form>')
 //   });
 // });
