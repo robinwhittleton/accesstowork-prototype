@@ -36,6 +36,19 @@ router.get('/application/job-status',function(req, res, next)
   });
 });
 
+router.get('/application/during-work',function(req,res,next)
+{
+  if (   !req.session.user
+      || !req.session.user.start
+      || !req.session.user.start.fast
+    )
+  {
+    next();
+  } else {
+    res.redirect('/application/job-status/');
+  }
+});
+
 router.get('/db',function(req, res, next)
 {
   var store = db.get('user');
@@ -49,27 +62,9 @@ router.get('/db',function(req, res, next)
   });
 });
 
-// router.get('/mon/',function(req, res, next)
-// {
-//   var foo = db.get('foo');
-//   foo.find({},function(err,docs)
-//   {
-//     res.send(util.inspect(docs)+'<form action="/mon/" method="post"><button class="button">Continue</button></form>')
-//   });
-// });
-//
-// router.post('/mon/',function(req, res, next)
-// {
-//   var foo = db.get('foo');
-//   foo.insert({name:"Chimp",surname:"Morgan",wobble:[
-//     "polly","pilly",'pally'
-//   ]});
-//   res.redirect('/mon/');
-// });
-
 /*
   Removing all the cookies.
-*/
+*/  
 router.get('/reset', function(req, res)
 {
   user_data.clear(req, res);
