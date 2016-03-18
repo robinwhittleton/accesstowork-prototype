@@ -5,10 +5,8 @@ var express     = require('express'),
     moment      = require('moment');
     db_url      = process.env.MONGOLAB_URI || 'mongodb://localhost/accesstowork',
     db          = require('monk')(db_url),
+    tog         = require(__dirname+'/../../../lib/tog.js'),
     router      = express.Router();
-
-// quick logging function to help with data.
-var tog = function(data) { var o = '<pre>'; o += util.inspect(data,{depth:10}); o += '</pre>'; return o; }
 
 router.get('/staffui/all/', function(req,res,next)
 {
