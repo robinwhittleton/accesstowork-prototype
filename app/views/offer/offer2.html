@@ -1,7 +1,5 @@
 {% extends "layout_v8.html" %}
 
-{% block page_title %}About your job{% endblock %}
-
 {% block content %}
 
 <main id="content" role="main">
@@ -12,8 +10,8 @@
 
     <p style="text-transform:uppercase;float:right;margin-top:45px">REF: <span style="font-weight:bold">{{ reference }}{{^ reference }}LKSDF86SDF7864SDF{% endblock %}</span></p>
     <h1 class="heading-large">Your Access to Work offer</h1>
-    <h2 class="heading-medium">Your details</h2>    
-    <table class="offer-table"> 
+    <h2 class="heading-medium">Your details</h2>
+    <table class="offer-table">
       <tr>
         <td class="title">Your job</td>
         <td class="condition">{{ job-title }}{{^ job-title }}Technical Architect{% endblock %}</td>
@@ -36,11 +34,11 @@
             </li>
           {% endblock %}
           </ol>
-        </td>        
+        </td>
       </tr>
     </table>
 
-    <h2 class="heading-medium">Access to Work will offer you a grant to help pay for the following:</h2>    
+    <h2 class="heading-medium">Access to Work will offer you a grant to help pay for the following:</h2>
     <table class="offer-table">
       <tr>
         <td></td>
@@ -53,27 +51,27 @@
             </li>
           {% endblock %}
           </ol>
-        </td>        
+        </td>
       </tr>
     </table>
 
     <form action="offer" methodS="post">
-      
+
       <!-- DO YOU ACCEPT -->
-      <h2 class="heading-medium">Do you accept this offer?</h2>                  
+      <h2 class="heading-medium">Do you accept this offer?</h2>
       <fieldset class="form-group" style="margin:1em 0 2em">
         <input id="offer-agree" type="radio" value="agree" name="offer-agree">
-        <label class="form-label form-control-radio" for="offer-agree" data-target="submit">Yes, you accept this offer</label>      
+        <label class="form-label form-control-radio" for="offer-agree" data-target="submit">Yes, you accept this offer</label>
         <input id="offer-disagree" type="radio" value="disagree" name="offer-agree">
         <label class="form-label form-control-radio" for="offer-disagree" data-target="reconsidesation">No, you don't accept this offer</label>
       </fieldset>
-      
+
       <!-- YES I DO -->
-      <!-- <fieldset class="panel-indent primary-nav form-group js-hidden" id="submit">                  
+      <!-- <fieldset class="panel-indent primary-nav form-group js-hidden" id="submit">
       </fieldset> -->
-      
+
       <!-- NO I DON'T -->
-      <fieldset class="panel-indent form-group js-hidden" id="reconsidesation">  
+      <fieldset class="panel-indent form-group js-hidden" id="reconsidesation">
         <h2 class="heading-medium" style="margin-top:0">Reconsiderations</h2>
        <p>You can ask for your offer to be reconsidered if you want.</p>
         <p>Give details of why this offer doesn't meet your needs, and what alternative or additional help you'd like.</p>
@@ -83,7 +81,7 @@
       </fieldset>
 
       <div class="form-group" style="margin-top:30px;">
-        <a href="agree-moreinfo" class="button">Submit</a>          
+        <a href="agree-moreinfo" class="button">Submit</a>
       </div>
 
     </form>
@@ -100,7 +98,7 @@
     $('.button').on('click',function(e)
     {
       e.preventDefault();
-    
+
     });
   });
 </script>

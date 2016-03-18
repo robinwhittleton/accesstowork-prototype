@@ -45,7 +45,15 @@
           {% endif %}
       </dl>
 
-      {% if user['during_work']['help-during-work'] == "Yes" %}
+      {% if user['during_work']['help-during-work'] == "whole" %}
+        <h2 class="heading-medium">During work</h2>
+        <dl class="review-answers">
+          <dt>You said:</dt>
+          <dd class="blue">{{ user['during_work']['whole-day-desc'] }}</dd>
+          <dt>We can offer you:</dt>
+          <dd>{{ user.offers.daywork }}</dd>
+        </dl>
+      {% elif user['during_work']['help-during-work'] == "part" %}
         <h2 class="heading-medium">During work</h2>
         {% for item in user['during_work']['during_work_tasks'] | arrayify %}
         <dl class="review-answers">
@@ -77,7 +85,7 @@
 
         <!-- NO I DON'T -->
         <fieldset class="panel-indent form-group js-hidden" id="reconsidesation">
-          <h2 class="heading-medium" style="margin-top:0">Reconsiderations</h2>
+          <h2 class="heading-medium" style="margin-top:0">Request a reconsideration</h2>
          <p>You can ask for your offer to be looked at again if you want.</p>
           <p>Give details of why you think this offer won't meet your needs and suggest what alternative or additional help you think you need.</p>
           <div class="form-group">
@@ -104,6 +112,22 @@
     $('.button').on('click',function(e)
     {
       e.preventDefault();
+      var agree = $('#offer-agree').prop('checked');
+      var disagree = $('#offer-disagree').prop('checked');
+      if (agree)
+      {
+        $('form').attr('action','thanks');
+        $('form').submit();
+      }
+      if (disagree)
+      {
+        $('form').attr('action','thanks-recon');
+        $('form').submit();
+      }
+      if (!agree && !disagree)
+      {
+        alert('Choose whether you accept or don\'t accept the offer');
+      }
     });
   });
 </script>

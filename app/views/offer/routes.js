@@ -6,6 +6,7 @@ var express     = require('express'),
     moment      = require('moment');
     db_url      = process.env.MONGOLAB_URI || 'mongodb://localhost/accesstowork',
     db          = require('monk')(db_url),
+    tog         = require(__dirname+'/../../../lib/tog.js'),
     router      = express.Router();
 
 router.get('/offer/offer', function(req,res,next)
@@ -29,6 +30,7 @@ router.get('/offer/create', function(req,res,next)
   {
     req.data = req.data || {};
     req.data.user = docs[0];
+    req.data.dump = tog(docs[0]);
     next();
     // res.send("<pre>"+util.inspect(docs[0],{depth:10})+"</pre>");
   });

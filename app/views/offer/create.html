@@ -1,6 +1,6 @@
 {% extends "application/layout.html" %}
 
-{% block page_title %}Your offer - Access To Work{% endblock %}
+{% block page_title %}Their offer - Access To Work{% endblock %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
       <h2 class="heading-large">Create an offer letter</h2>
 
       <dl class="review-answers">
-        <dt>Your Condition</dt>
+        <dt>Their Condition</dt>
         <dd>{{ user['start']['my-condition'] }}</dd>
         {# <dt>Fast track</dt>
         <dd>{{ user['start']['fast'] }}</dd> #}
@@ -41,9 +41,9 @@
       <dl class="review-answers">
         <dt>Needs</dt>
         {% if user['travel']['help-travelling'] == 'No' %}
-          <dd>They <span class="blue">need help</span> getting to work.</dd>
-        {% else %}
           <dd>They <span class="blue">don't need help</span> getting to work.</dd>
+        {% else %}
+          <dd>They <span class="blue">do need help</span> getting to work.</dd>
           <br />
           <dt>Travel situation</dt>
           <dd>
@@ -63,7 +63,8 @@
               </p>
             {% endfor %}
           </dd>
-          <dt>&nbsp;</dt>
+          <hr class="rule" style="margin-bottom:30px;"/>
+          <dt class="blue">Offer</dt>
           <dd><textarea class="form-control" name="travel">{{ user.offers.travel }}</textarea></dd>
         {% endif %}
       </dl>
@@ -71,8 +72,16 @@
       <h2 class="heading-medium">During work</h2>
       <dl class="review-answers">
         <dt>Needs</dt>
-          {% if user['during_work']['help-during-work'] == 'Yes' %}
-            <dd>Their condition <span class="blue">affects</span> them in their work duties.</dd>
+          {% if user['during_work']['help-during-work'] == 'whole' %}
+            <dd>Their condition affects <span class="blue">their whole day</span>.</dd>
+            <br />
+            <dt>Description</dt>
+            <dd>{{ user['during_work']['whole-day-desc'] }}</dd>
+            <hr class="rule" style="margin-bottom:30px;"/>
+            <dt>Offer</dt>
+            <dd><textarea name="daywork" class="form-control">{{ user.offers.daywork }}</textarea></dd>
+          {% elif user['during_work']['help-during-work'] == 'part' %}
+            <dd>Their condition affects <span class="blue">only certain tasks</span> in work.</dd>
             <br />
             <dt>Work situation</dt>
             <dd>
@@ -93,6 +102,9 @@
       </dl>
 </main>
 </form>
+
+{{ dump | safe }}
+
 {% endblock %}
 
 {% block page_script %}
