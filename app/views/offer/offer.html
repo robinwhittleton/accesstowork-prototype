@@ -115,12 +115,12 @@
       var disagree = $('#offer-disagree').prop('checked');
       if (agree)
       {
-        $('form').attr('action','thanks');
+        $('form').attr('action','/offer/thanks');
         $('form').submit();
       }
       if (disagree)
       {
-        $('form').attr('action','thanks-recon');
+        $('form').attr('action','/offer/thanks-recon');
         $('form').submit();
       }
       if (!agree && !disagree)
