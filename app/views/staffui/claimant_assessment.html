@@ -1,0 +1,52 @@
+{% extends "staffui/claimant.html" %}
+
+{% block staff_content %}
+	<section class="staff-main">
+		<h1 class="heading-large">{{ claimant.name }} {{ claimant.surname }}</h1>
+		<p class="lede">{{ claimant.condition }}</p>
+
+		{% include "staffui/claimant_tabs.html" %}
+
+		{% block claim_content %}{% endblock %}
+	</section>
+{% endblock %}
+
+{% block claim_content %}
+
+	<div class="grid-row">
+
+		<div class="column column-third">
+			<h2 class="heading-medium">RBLI</h2>
+			<table class="contact">
+				<tr>
+					<td><span class="tag">carried out by</span></td>
+					<td><a href="#">Eileen Dover</a></td>
+				</tr>
+				<tr>
+					<td><span class="tag">on</span> </td>
+					<td>19th July 2016</td>
+				</tr>
+				<tr>
+					<td><span class="tag">also attending</span></td>
+					<td>
+						<p>Dave Burrows (Line Manager)</p>
+						<p>Dave Burrows (Line Manager)</p>
+						<p>Dave Burrows (Line Manager)</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="column column-two-thirds">
+			<h2 class="heading-medium">Computer visual processing</h2>
+			<p>The primary element of customer’s role involves working from a computer desk based workstation.	
+			<p>During these times, he is required to use all functions of his computer, including e-mails and writing reports and letters; as well as data entry. Due to the extent of the volume of data management, he is required to work across a dual screen. To help support his difficulties, his employer has provided him with two larger monitors to help provide an optimum viewing field. The IT support team have also increased the screen resolution.
+			<p>With lack of clarity in his vision, it is difficult for Customer to comfortably access all the functions of his computer.  This is particularly the case with reading. Due to the nature of his condition, his vision can vary on a day to day basis. Factors that affect this include tiredness and fatigue and long periods of concentration.</p>
+		</div>
+
+	</div>
+
+{% endblock %}
+
+{% block page_script %}
+{% endblock %}

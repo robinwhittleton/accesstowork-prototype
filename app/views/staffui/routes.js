@@ -78,7 +78,7 @@ router.get('/staffui/edit/claimant/:id?/timeline', function(req,res,next)
   var store = db.get('customers');
   store.findById(id, function(err,data)
   {
-    data.timeline = timeline;
+    data.timeline = _.sample(timeline,10);
     res.send(tog(data));
   });
 });

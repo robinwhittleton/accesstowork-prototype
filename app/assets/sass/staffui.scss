@@ -59,7 +59,7 @@
   background-color:$grey-1;
   border-radius:5px;
   margin-left:5px;
-  float:left;
+  min-width:50px;
 
   &.circle {
     $size:30px;
