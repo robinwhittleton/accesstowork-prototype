@@ -10,11 +10,11 @@
 
 <div class="email">
 	<h1 class="heading-medium" style="border-bottom:1px solid black">Email</h1>
-	<p class="email-meta email-to"><span class="meta-label">To:</span> {{ you-email-address | default("yourname@gmail.com") }}</p>
+	<p class="email-meta email-to"><span class="meta-label">To:</span> {{ you_email_address | default("yourname@gmail.com") }}</p>
 	<p class="email-meta email-from"><span class="meta-label">From:</span> accesstowork@dwp.gsi.gok.uk</p>
 	<div class="email-body">
 		<p><img src="/public/images/DWP-logo.png" width="120" /></p>
-		<p>Dear {{ you-full-name | default("Mrs Smith") }}</p>
+		<p>Dear {{ you_full_name | default("Mrs Smith") }}</p>
 		<p>You've been awarded an Access to Work grant.</p>
 		<p><a href="/offer/referencenumber">View full details online</a>.</p>
 		<!-- <p>http://atw.dwp.gov.uk/offdec/as64sdh3776sj39263j2837sd8263</a></p> -->
