@@ -96,7 +96,7 @@
                   because: <span class="blue">&ldquo;{{ user['during_work_why'][loop.index0]['reasons'] }}&rdquo;</span>
                 </p>
                 {% set workoffers = user.offers.work | arrayify %}
-                <textarea name="work" class="form-control">{{ user.offers.work[loop.index0] }}</textarea>
+                <textarea name="work" class="form-control">{{ workoffers[loop.index0] }}</textarea>
               {% endfor %}
             </dd>
           {% else %}

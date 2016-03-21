@@ -38,13 +38,21 @@ router.get('/application/job-status',function(req, res, next)
 
 router.get('/application/during-work',function(req,res,next)
 {
-  if (   !req.session.user
+  /*
+    If the user has seen the fast track
+  */
+  if (   (!req.session.user
       || !req.session.user.start
-      || !req.session.user.start.fast
+      || !req.session.user.start.fast)
+      && !req.cookies.fast
     )
   {
+    // res.send('showing During Work');
+    // show the During Work quesitons.
     next();
   } else {
+    // skip the During Work questions.
+    // res.send('skipping During Work');
     res.redirect('/application/job-status/');
   }
 });
@@ -64,7 +72,7 @@ router.get('/db',function(req, res, next)
 
 /*
   Removing all the cookies.
-*/  
+*/
 router.get('/reset', function(req, res)
 {
   user_data.clear(req, res);
