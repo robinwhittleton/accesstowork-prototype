@@ -95,15 +95,15 @@ select {
   background-color:$link-hover-colour;
   color:$highlight-colour;
 }
-
-
 .button-blue {
-  background-color:$govuk-blue;
-  &:hover {
-    background-color:darken($govuk-blue,4.2);
+  &:link, &:visited {
+    background-color:$govuk-blue;
+    &:hover {
+      background-color:darken($govuk-blue,4.2);
+    }
   }
-}
 
+}
 hr.rule {
   border:0;
   height:2px;
