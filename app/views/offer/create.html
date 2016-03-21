@@ -92,8 +92,9 @@
             <dd>
               {% for item in user['during_work']['during_work_tasks'] | arrayify %}
                 <p>
-                  They struggle with <span class="blue">{{ item }}</span>,
-                  because: <span class="blue">&ldquo;{{ user['during_work_why'][loop.index0]['reasons'] }}&rdquo;</span>
+                  They struggle with <span class="blue">{{ item }}</span><br />
+                  because <span class="blue">&ldquo;{{ user['during_work_why'][loop.index0]['reasons'] }}&rdquo;</span><br />
+                  and would like <span class="blue">&ldquo;{{ user['during_work_why'][loop.index0]['help-what'] }}&rdquo;</span>
                 </p>
                 {% set workoffers = user.offers.work | arrayify %}
                 <textarea name="work" class="form-control">{{ workoffers[loop.index0] }}</textarea>
