@@ -23,7 +23,7 @@
         <dd>{{ user['start']['fast'] }}</dd> #}
       </dl>
 
-      {% if user['start']['fast'] %}
+      {% if user['start']['fast'] == "true" %}
       {% set deafoffers = user.offers.deaf | arrayify %}
       <dl class="review-answers">
         <dt>Needs</dt>
