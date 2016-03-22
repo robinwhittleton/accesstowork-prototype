@@ -53,7 +53,7 @@ router.get('/application/during-work',function(req,res,next)
   } else {
     // skip the During Work questions.
     // res.send('skipping During Work');
-    res.redirect('/application/job-status/');
+    res.redirect('/application/job-status');
   }
 });
 
