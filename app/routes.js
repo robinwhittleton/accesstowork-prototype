@@ -20,8 +20,6 @@ router.get('/', function (req, res) {
 */
 router.get('/session',function(req, res)
 {
-  // var user = JSON.parse(fs.readFileSync(__dirname + "/views/application/session.json").toString());
-  // req.session.user = merge(user, req.session.user);
   res.send("<pre>"+util.inspect(req.session,{depth:10})+"</pre>");
 });
 
