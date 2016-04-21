@@ -139,12 +139,12 @@ $(document).on('ready',function()
     } else {
       if (!data.length) alert('Please pick or enter at least one task.');
       else {
-        $.post("/application/during-work",
+        $.post("during-work",
           {
             "during-work":data,
           },function(data) {
             Cookies.set('during_count',0);
-            window.location.href = '/application/during-work-why';
+            window.location.href = 'during-work-why';
           });
       }
     }
