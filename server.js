@@ -29,13 +29,13 @@ var path          = require('path'),
   Authenticate against the environment-provided credentials,
   if running the app in production (Heroku, effectively)
 */
-// if (env === 'production') {
-//   if (!username || !password) {
-//     console.log('Username or password is not set, exiting.');
-//     process.exit(1);
-//   }
-//   app.use(express.basicAuth(username, password));
-// }
+if (env === 'production') {
+  if (!username || !password) {
+    console.log('Username or password is not set, exiting.');
+    process.exit(1);
+  }
+  app.use(express.basicAuth(username, password));
+}
 
 /*
   Setting up the templating system, nunjucks etc.
