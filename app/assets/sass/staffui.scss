@@ -9,6 +9,10 @@
 @import "staff/todo";
 @import "staff/tabs";
 @import "staff/stats";
+@import "staff/lefttabs";
+@import "staff/tags";
+@import "staff/oo-media";
+@import "staff/typeahead";
 
 .govuk-blue { color:$govuk-blue; }
 .grey { color:$grey-1; }
@@ -31,50 +35,6 @@
   padding-left:0;
 }
 
-/* STAFF ACCESS NAV */
-.staff-nav-links {
-
-  a {
-    display:block;
-    padding:10px;
-    text-decoration:none;
-
-    img {
-      display:block;
-      margin:auto;
-    }
-    &:hover {
-      color:white;
-      background-color:$turquoise-50;
-    }
-  }
-}
-
-.tag {
-  @extend .font-xsmall;
-  display:inline-block;
-  position:relative; top:-2px;
-  padding:4px 7px 2px;
-  color:white;
-  background-color:$grey-1;
-  border-radius:5px;
-  margin-left:5px;
-  min-width:50px;
-
-  &.circle {
-    $size:30px;
-    display:block;
-    border-radius:50%;
-    width:$size;height:$size;
-    padding:0;
-  }
-}
-.tag_date {
-  float:left;
-  margin-left:15px;
-  margin-top:2px;
-}
-
 table td:first-child { width:auto; }
 
 table.customers {
@@ -85,192 +45,18 @@ table.customers {
   td.last { text-align:right; }
 }
 
-
-
-.tag {
-  &.adviser {background-color:$alpha-colour}
-  &.assessor {background-color:$beta-colour}
-  &.mainenance {background-color:$live-colour}
-  &.customer {background-color:$govuk-blue}
-  &.qaf {background-color:$discovery-colour}
-
-  &.waiting_assessment,
-  &.waiting_employer,
-  &.waiting_extra_info,
-  &.waiting_med_ev,
-  &.waiting_offer_sent,
-  &.waiting_quotes,
-    {background-color:$error-colour}
-}
-
-/* Tabs */
-.nav {
-  margin-bottom: 0;
-  padding-left: 0; // Override default ul/ol
-  list-style: none;
-
-  > li {
-    position: relative;
-    display: block;
-
-    > a {
-      position: relative;
-      display: block;
-      padding: 15px;
-      &:hover,
-      &:focus {
-        text-decoration: none;
-        background-color: $grey-3;
-      }
-    }
-
-    // Disabled state sets text to gray and nukes hover/tab effects
-    &.disabled > a {
-      color: $grey-1;
-      pointer-events:none;
-      text-decoration: none;
-    }
-  }
-}
-
-// Tabs
-// -------------------------
-
-// Give the tabs something to sit on
-$tab-border: $grey-2;
-
-.nav-tabs {
-  border-bottom: 1px solid $tab-border;
-  > li {
-    float: left;
-    // Make the list-items overlay the bottom border
-    // margin-bottom: -1px;
-
-    // Actual tabs (as links)
-    > a {
-      margin-right: 2px;
-      line-height: 1em;
-      border: 1px solid transparent;
-    }
-
-    // Active state, and its :hover to override normal :hover
-    &.active > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $text-colour;
-        background-color: white;
-        border: none;
-        border-bottom: 5px solid $turquoise;
-        pointer-events:none;
-        text-decoration:none;
-      }
-    }
-  }
-    // pulling this in mainly for less shorthand
-  &.nav-justified {
-    @extends .nav-justified;
-    @extends .nav-tabs-justified;
-  }
-}
-
-.nav-justified {
-  width: 100%;
-
-  > li {
-    float: none;
-    > a {
-      text-align: center;
-      margin-bottom: 5px;
-    }
-  }
-
-  > .dropdown .dropdown-menu {
-    top: auto;
-    left: auto;
-  }
-
-  @media (min-width: 640) {
-    > li {
-      display: table-cell;
-      width: 1%;
-      > a {
-        margin-bottom: 0;
-      }
-    }
-  }
-}
-
-// Move borders to anchors instead of bottom of list
-//
-// Mixin for adding on top the shared `.nav-justified` styles for our tabs
-.nav-tabs-justified {
-  border-bottom: 0;
-
-  > li > a {
-    // Override margin from .nav-tabs
-    margin-right: 0;
-    // border-radius: 5px;
-  }
-}
-
 .timeline {
   margin-top:30px;
 }
 
-/* ====== media ====== */
-.media {
-  border:1px solid $grey-2;
-  border-bottom-width:10px;
-  padding:10px 0px 0 20px;
-  margin-bottom:20px;
-}
-.media, .bd {
-  overflow:hidden;
-  _overflow:visible;
-  zoom:1;
-}
-.bd {
-  background-color:$grey-4;
-  padding:10px 20px;
-  .heading-top {
-    margin:0 0 10px 0;
-  }
-  .tag {
-    margin-left:0;
-  }
-}
-.media .img {
-  float:left;
-  margin:15px 10px 15px 0;
-}
-.media .img img { display:block; }
-.media .imgExt{ float:right; margin-left: 10px; }
-
-/* Bits */
-
+/*
+  Bits
+*/
 .contact {
   border-top:2px solid $grey-2;
   .tag {
     margin-right:10px;
   }
-}
-
-/*
-  Toggle stuff
-*/
-.js-enabled .govuk-option-select.js-collapsible button {
-  z-index: 100;
-  position: relative;
-  border: none;
-  display: block;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  margin-bottom: -1px;
-  padding: 5px 8px;
-  // background: url() no-repeat right 5px;
-  background-color: #dee0e2;
 }
 
 .quote {
@@ -305,31 +91,4 @@ $tab-border: $grey-2;
 	top: 18px;
 	border: 16px solid;
 	border-color: white white transparent transparent ;
-}
-
-
-/* Typeahead */
-.tt-menu {
-  width:50%;
-  background-color:$grey-3;
-  border:2px solid $border-colour;
-  box-sizing:border-box;
-}
-.tt-suggestion {
-  @extend .form-control;
-  background:none;
-  border:none;
-  width:100%;
-  cursor:pointer;
-  &:hover {
-    background-color:$link-hover-colour;
-    color:$highlight-colour;
-  }
-}
-.twitter-typeahead {
-  width:100%;
-}
-.tt-cursor {
-  background-color:$link-hover-colour;
-  color:$highlight-colour;
 }
