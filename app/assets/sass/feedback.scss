@@ -44,7 +44,8 @@ body {background-color:$turquoise;}
   &.neither {background-color:$beta-colour}
 }
 .title,
-.count {
+.count,
+.breakdown {
   color:white;
   position:absolute;
   font-size:24px;
@@ -57,4 +58,15 @@ body {background-color:$turquoise;}
   background-color:darken($turquoise,10);
   width:0%;
   height:10px;
+}
+.breakdown {
+  top:60px;
+  right:30px;
+  font-size:14px;
+  background:white;
+  padding:5px 10px 3px;
+  margin-top:15px;
+  .sat { color:$live-colour }
+  .nei { color:$beta-colour}
+  .dis { color:$error-colour }
 }

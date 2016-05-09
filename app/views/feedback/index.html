@@ -10,7 +10,13 @@
 	{# {% set item = feedback[32] %} #}
 
 	<div class="title">Access To Work &mdash; Feedback</div>
-	<div class="count">{{ total }} so far</div>
+	<div class="count"> {{ totals.total }} so far </div>
+	<div class="breakdown">
+			<span class="sat">{{ totals.satisfied }}% satisfied</span><br />
+			<span class="nei">{{ totals.neither }}% neither</span><br />
+			<span class="dis">{{ totals.dissatisfied }}% dissatisfied</span>
+	</div>
+
 
 	<main id="content" role="main">
 		<div id="feedback">
