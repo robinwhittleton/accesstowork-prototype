@@ -1,0 +1,87 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}About your job{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/alpha.html" %}
+
+  <div class="grid-row">
+
+    <section class="column-two-thirds cookies" aria-labelledby="cookie">
+
+      <h1 class="title heading-large" id="cookie">Cookies</h1>
+
+      <p>Google Analytics sets the following cookies:</p>
+
+      <h3 class="heading-small">Universal Analytics</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Purpose</th>
+            <th>Expires</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>_ga</td>
+            <td>This helps us count how many people visit GOV.UK by tracking if you’ve visited before</td>
+            <td>2 years</td>
+          </tr>
+          <tr>
+            <td>_gat</td>
+            <td>Used to manage the rate at which page view requests are made</td>
+            <td>10 minutes</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-small">Google Analytics</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Purpose</th>
+            <th>Expires</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>_utma</td>
+            <td>Like _ga, this lets us know if you’ve visited before, so we can count how many of our visitors are new to GOV.UK or to a certain page</td>
+            <td>2 years</td>
+          </tr>
+          <tr>
+            <td>_utmb</td>
+            <td>This works with _utmc to calculate the average length of time you spend on GOV.UK</td>
+            <td>30 minutes</td>
+          </tr>
+          <tr>
+            <td>_utmc</td>
+            <td>This works with _utmb to calculate when you close your browser</td>
+            <td>when you close your browser</td>
+          </tr>
+          <tr>
+            <td>_utmz</td>
+            <td>This tells us how you reached GOV.UK (eg from another website or a search engine)</td>
+            <td>6 months</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+
+  {% include "application/rightcol.html" %}
+
+</div><!-- .grid-row -->
+
+</main>
+
+{% endblock %}
+
+{% block page_script %} {% endblock %}
