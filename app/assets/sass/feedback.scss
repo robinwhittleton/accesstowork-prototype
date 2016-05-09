@@ -4,7 +4,7 @@
 @import "clearfix";
 
 html,body { height: 100%; margin: 0px; padding: 0px; }
-body {background-color:$turquoise;}
+body {background-color:$turquoise;overflow:hidden;}
 #content {
   height:100%;
   position:relative;
