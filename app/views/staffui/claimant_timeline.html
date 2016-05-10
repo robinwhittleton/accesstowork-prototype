@@ -9,7 +9,8 @@
 
   <div class="media">
     <div class="img">
-      <span class="tag circle {{ item.status.awaiting | slugify }}"></span>
+      {# <span class="tag circle {{ item.status.<a href="#"></a>waiting | slugify }}"></span> #}
+      <span class="tag {{ item.status.awaiting | slugify }}">{{ item.status.awaiting }}</span>
       {# <img src="/public/images/staff/{{ item.icon }}" alt="me" width="50px"/> #}
     </div>
     <div class="bd">

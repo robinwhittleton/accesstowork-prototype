@@ -1,16 +1,5 @@
 {% extends "staffui/claimant.html" %}
 
-{% block staff_content %}
-	<section class="staff-main">
-		<h1 class="heading-large">{{ claimant.name }} {{ claimant.surname }}</h1>
-		<p class="lede">{{ claimant.condition }}</p>
-
-		{% include "staffui/claimant_tabs.html" %}
-
-		{% block claim_content %}{% endblock %}
-	</section>
-{% endblock %}
-
 {% block claim_content %}
 
   <h2 class="heading-medium">Task: <small class="govuk-blue">Answering the phone</small></h2>
