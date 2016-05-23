@@ -2,10 +2,12 @@
 
 {% block content %}
 
-{% if version != 'current' %}
+{% if version != 'current' %}{% if version != 'mvp' %}
 	{% set version  = 'v'+version %}
 	{% set url  = version+"/" %}
-{% endif %}
+{% else %}
+	{% set url  = "mvp/" %}
+{% endif %}{% endif %}
 
 <main id="content" role="main">
 <div class="staff-container">
