@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}About you{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	<div class="grid-row">
+
+		<section class="column-two-thirds" aria-labelledby="aboutyou">
+
+			<h1 class="form-title heading-large" style="margin-top:30px;">
+				Accept your offer
+			</h1>
+
+			<form action="accept" method="post" class="form">
+
+				<fieldset class="form-group">
+
+					<legend class="hidden-legend" aria-hidden="true">Your details</legend>	
+
+					<div class="form-group">
+						<label class="form-label-bold" for="full-name">Full name</label>
+						<input class="form-control" id="full-name" name="you-full-name" type="text" aria-required="true">
+					</div>
+          
+          <div class="form-group">
+						<label class="form-label-bold" for="full-name">Reference Number</label>
+            <p class="form-hint">This was given to you when you applied and was included on your offer letter.</p>
+						<input class="form-control" id="full-name" name="you-full-name" type="text" aria-required="true">
+					</div>
+          
+          <h2 class="heading-medium">Do you accept this offer?</h2>
+					<div class="form-group inline form-group-compound" aria-labelledby="represent">
+						<label class="block-label" data-target="continue" for="accept-yes">
+							<input id="accept-yes" type="radio" name="accept-offer" value="Yes">
+							Yes
+						</label>
+						<label class="block-label" data-target="handbag" for="accept-no">
+							<input id="accept-no" type="radio" name="accept-offer" value="No">
+							No
+						</label>
+					</div>
+          
+          <p class="js-hidden panel-indent" id="handbag">
+            If you don't want to accept your offer you'll need to request a reconsideration. This means you have to phone us up on <a href="tel:0987 654 3212">09876543212</a> and tell us what isn't right about your offer and give us more information that you haven't already that might make us change our ... ugh ... This is why we need content designers. Tom can you just write something better than this please?</p>
+          </p>
+
+				</fieldset>
+
+        <div class="js-hidden" id="continue">
+		      <input type="submit" value="Continue" class="button" />
+        </div>
+
+			</form>
+
+		</section>
+    
+    {# {% include "application/mvp/leftcol.html" %} #}
+
+	</div>
+
+</main>
+
+{% endblock %}
