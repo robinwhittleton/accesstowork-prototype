@@ -12,82 +12,92 @@
 
 	<section class="column-two-thirds" aria-labelledby="condition">
 
-		<h1 class="form-title heading-large" id="condition">
+		<h1 class="form-title heading-large" id="condition" style="margin-bottom:15px">
 			<span class="section-progress">Section 4 of 4</span>
-			Help during work
+			Does your condition make it harder for you to do your job?
 		</h1>
 
 		<form action="declaration" method="post" class="form">
 
-			<fieldset class="push--down">
-				<h2 class="form-label-bold">How does your condition make it harder for you to do your job?</h2>
+			<div class="form-group">
 				
-				<div id="problems" class="problems">
-						
-						<fieldset class="prob">
-							
-							<!-- <h3 class="heading-small">What do you have to do and how is this harder for you?</h3> -->
-							<textarea class="textarea" name="problem" style="min-height:12em"></textarea>
-							
-							<p>&nbsp;</p>
+				<fieldset class="inline form-group">
+					<label class="block-label" data-target="main-questions" for="during-work-yes">
+						<input id="during-work-yes" type="radio" name="during-work" value="Yes">
+						Yes
+					</label>
+					<label class="block-label" for="during-work-no">
+						<input id="during-work-no" type="radio" name="during-work" value="No">
+						No
+					</label>
+				</fieldset>
 
-							<h3 class="form-label-bold">Do you do anything to get around these problems at the moment?</h3>
-							<div class="form-group form-group-compound" aria-labelledby="represent">
-								<fieldset class="inline">
-						      		<label class="block-label" data-target="coping-1" for="coping-1-yes">
-						        		<input id="coping-1-yes" type="radio" name="managing-yesno" value="Yes">
-						        		Yes
-						      		</label>
-						      		<label class="block-label" for="coping-1-no">
-						        		<input id="coping-1-no" type="radio" name="managing-yesno" value="No">
-						        		No
-						      		</label>
-						      </fieldset>
-						    </div>
+				<div class="js-hidden panel-indent form-group" id="main-questions">
+					<fieldset class="push--down">
+						<h2 class="form-label-bold">How is it harder?</h2>
+					{# <h2 class="form-label-bold">How does your condition make it harder for you to do your job?</h2>				 #}
+					<div id="problems" class="problems">						
+							<fieldset class="prob">
+								
+								<!-- <h3 class="heading-small">What do you have to do and how is this harder for you?</h3> -->
+								<textarea class="textarea" name="problem" style="min-height:12em"></textarea>
+								
+								<p>&nbsp;</p>
 
-					    	<div class="panel-indent js-hidden" id="coping-1">			    	
-					    		<div class="form-group">
-							        <label class="form-label" for="effect1">What do you do?</label>
-							        <textarea class="form-control" id="effect1" name="managing" spellcheck="false"></textarea>
+								<h3 class="form-label-bold">Do you do anything to get around these problems at the moment?</h3>
+								<div class="form-group form-group-compound" aria-labelledby="represent">
+									<fieldset class="inline">
+							      		<label class="block-label" data-target="coping-1" for="coping-1-yes">
+							        		<input id="coping-1-yes" type="radio" name="managing-yesno" value="Yes">
+							        		Yes
+							      		</label>
+							      		<label class="block-label" for="coping-1-no">
+							        		<input id="coping-1-no" type="radio" name="managing-yesno" value="No">
+							        		No
+							      		</label>
+							      </fieldset>
+							    </div>
+
+						    	<div class="panel-indent js-hidden" id="coping-1">			    	
+						    		<div class="form-group">
+								        <label class="form-label" for="effect1">What do you do?</label>
+								        <textarea class="form-control" id="effect1" name="managing" spellcheck="false"></textarea>
+								  	</div>
+								</div>
+
+								<p>&nbsp;</p>
+								<h3 class="form-label-bold">Do you know what you need to help you with this?</h3>
+								<div class="form-group form-group-compound" aria-labelledby="represent">
+									<fieldset class="inline">
+							      		<label class="block-label" data-target="help-1" for="help-1-yes">
+							        		<input id="help-1-yes" type="radio" name="help-yesno" value="Yes">
+							        		Yes
+							      		</label>
+							      		<label class="block-label" for="help-1-no">
+							        		<input id="help-1-no" type="radio" name="help-yesno" value="No">
+							        		No
+					      				</label>
+						      		</fieldset>
+						    	</div>
+
+						    	<div class="panel-indent js-hidden" id="help-1">			    	
+							    	<div class="form-group">
+									    <label class="form-label" for="effect1">What would help you?</label>
+									    <textarea class="form-control" id="effect1" name="help" spellcheck="false"></textarea>
+								  	</div>
 							  	</div>
-							</div>
 
-							<p>&nbsp;</p>
-							<h3 class="form-label-bold">Do you know what you need to help you with this?</h3>
-							<div class="form-group form-group-compound" aria-labelledby="represent">
-								<fieldset class="inline">
-						      		<label class="block-label" data-target="help-1" for="help-1-yes">
-						        		<input id="help-1-yes" type="radio" name="help-yesno" value="Yes">
-						        		Yes
-						      		</label>
-						      		<label class="block-label" for="help-1-no">
-						        		<input id="help-1-no" type="radio" name="help-yesno" value="No">
-						        		No
-				      				</label>
-					      		</fieldset>
-					    	</div>
+							</fieldset><!-- .prob -->
+					</div><!-- .problems -->
+					</fieldset>		  
+				</div>
 
-					    	<div class="panel-indent js-hidden" id="help-1">			    	
-						    	<div class="form-group">
-								    <label class="form-label" for="effect1">What would help you?</label>
-								    <textarea class="form-control" id="effect1" name="help" spellcheck="false"></textarea>
-							  	</div>
-						  	</div>
-
-						</fieldset><!-- .prob -->
-				</div><!-- .problems -->
-
-			</fieldset>		  
-
-		    <!-- Primary buttons, secondary links -->
-
-			<p>&nbsp;</p>
+			</div>
 		
 	    <fieldset class="primary-nav form-group">
 				<legend>Navigation</legend>     
 	      <ul> <li><input type="submit" value="Next" class="button"/></li> </ul>
 			</fieldset>
-			
 
 		  </form>
 	  
