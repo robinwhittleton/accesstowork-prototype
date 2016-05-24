@@ -79,7 +79,7 @@ router.get('/reset', function(req, res)
 router.get('/application/start', function(req, res, next)
 {
   console.log('appstart reset');
-  user_data.clear(req, res);
+  if (!req.session.coc) user_data.clear(req, res);
   next();
 });
 

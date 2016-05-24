@@ -111,6 +111,7 @@ if (typeof(routes) != "function") {
   routes.bind(app);
 } else {
   console.log('Using routes');
+  app.use(require(__dirname + '/app/views/coc/routes.js'));    // these have to come first.
   app.use(app_routes);    // these have to come first.
   app.use(leg_routes);    // these have to come first.
   app.use(staff_routes);  // these have to come first.

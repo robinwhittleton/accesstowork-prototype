@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}About you{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	<div class="grid-row">
+
+		<section class="column-two-thirds" aria-labelledby="aboutyou">
+
+			<h1 class="form-title heading-large" style="margin-top:30px;">
+				What's changed?
+			</h1>
+
+			<form action="/coca/start" method="post" class="form">
+        
+        <input type="hidden" name="page_name" value="whatchanged" />
+
+				<fieldset class="form-group">
+
+          <p class="form-hint">Select all that apply</p>
+           <div class="form-group form-group-compound">
+            <label class="block-label" for="condition">
+              <input id="condition" type="checkbox" name="what-changed" value="condition">
+              Your condition
+            </label>
+            <label class="block-label" for="job">
+              <input id="job" type="checkbox" name="what-changed" value="job">
+              Your job
+            </label>
+            <label class="block-label" for="nameaddress">
+              <input id="nameaddress" type="checkbox" name="what-changed" value="nameaddress">
+              Your name or address
+            </label>
+            <label class="block-label" for="contact">
+              <input id="contact" type="checkbox" name="what-changed" value="contact">
+              Your contact details
+            </label>
+          </div>
+
+				</fieldset>
+
+        <div id="continue">
+		      <input type="submit" value="Continue" class="button" />
+        </div>
+
+			</form>
+
+		</section>
+    
+    {# {% include "application/mvp/leftcol.html" %} #}
+
+	</div>
+
+</main>
+
+{% endblock %}
