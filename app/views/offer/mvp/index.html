@@ -33,7 +33,7 @@
           
           <h2 class="heading-medium">Do you accept this offer?</h2>
 					<div class="form-group inline form-group-compound" aria-labelledby="represent">
-						<label class="block-label" data-target="continue" for="accept-yes">
+						<label class="block-label" for="accept-yes">
 							<input id="accept-yes" type="radio" name="accept-offer" value="Yes">
 							Yes
 						</label>
@@ -43,13 +43,14 @@
 						</label>
 					</div>
           
-          <p class="js-hidden panel-indent" id="handbag">
-            If you don't think your offer meets your needs <a href="tel:0987 654 3212">09876543212</a> and ask for it to be reconsidered. You'll have to give more information about your work and the help you think you need.</p>
-          </p>
+          <div class="js-hidden panel-indent" id="handbag">
+						<p>What is it about your offer that doesn’t work for you?</p>
+            <textarea class="form-control" id="no-text" /></textarea>
+          </div>
 
 				</fieldset>
 
-        <div class="js-hidden" id="continue">
+        <div id="continue">
 		      <input type="submit" value="Continue" class="button" />
         </div>
 
@@ -63,4 +64,25 @@
 
 </main>
 
+{% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+	$('#continue input').on('click',function(e)
+	{
+		e.preventDefault();
+		var yes = $('#accept-yes').prop('checked');
+		var no = $('#accept-no').prop('checked');
+		if (!yes && !no)
+		{
+			alert('Select Yes or No.')
+		} else if (yes) {
+			$('form').attr('action','accepted');
+			$('form').submit();
+		} else if (no) {
+			$('form').attr('action','rejected');
+			$('form').submit();
+		}
+	});
+</script>
 {% endblock %}
