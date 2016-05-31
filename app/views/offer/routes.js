@@ -67,6 +67,11 @@ router.get('/offer/offer/:id?', function(req,res,next)
   getSingleApplication(req,res,next,'/offer/offer/');
 });
 
+router.get('/offer/mvp/letter/:id?', function(req,res,next)
+{
+  getSingleApplication(req,res,next,'/offer/mvp/letter/');
+});
+
 router.get('/offer/create/:id?', function(req,res,next)
 {
   getSingleApplication(req,res,next,'/offer/create/');
