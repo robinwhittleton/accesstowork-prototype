@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}About you{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	<div class="grid-row">
+
+		<section class="column-two-thirds" aria-labelledby="aboutyou">
+
+			<h1 class="form-title heading-large" style="margin-top:30px;">
+				A Change of Circumstances
+			</h1>
+
+			<form action="accepted" method="post" class="form">
+
+				<fieldset class="form-group">
+
+					<legend class="hidden-legend" aria-hidden="true">Your details</legend>	
+
+					<div class="form-group">
+						<label class="form-label-bold" for="full-name">Full name</label>
+						<input class="form-control" id="full-name" name="you-full-name" type="text" aria-required="true">
+					</div>
+          
+          <div class="form-group">
+						<label class="form-label-bold" for="full-name">Reference number</label>
+            <p class="form-hint">Find this on your offer letter.</p>
+						<input class="form-control" id="full-name" name="you-full-name" type="text" aria-required="true">
+					</div>
+          
+          <h2 class="heading-medium">What's changed?</h2>
+          <textarea class="form-control" name="changes" style="height:200px"></textarea>
+
+          
+          <div class="js-hidden panel-indent" id="handbag">
+						<p>What is it about your offer that doesn’t work for you?</p>
+            <textarea class="form-control" id="no-text"/></textarea>
+          </div>
+
+				</fieldset>
+
+        <div id="continue">
+		      <input type="submit" value="Continue" class="button" />
+        </div>
+
+			</form>
+
+		</section>
+    
+    {# {% include "application/mvp/leftcol.html" %} #}
+
+	</div>
+
+</main>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

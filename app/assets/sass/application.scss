@@ -103,11 +103,15 @@ td.numeric {
   top:-2px;
   margin-right:0.25em;
 }
+.heading-close {
+  margin-bottom:0;
+}
 
 .index-table {
   width:auto;
   td:first-child {width:auto;padding-right:10px}
   td {white-space:nowrap;}
+  margin-bottom:60px;
 }
 .font-xxsmall {
   font-size:12px;
