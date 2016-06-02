@@ -19,13 +19,15 @@ router.get('/coca/:page', function(req,res,next)
     
     // check whether they'd ticked the relevant box and redirect appropriately.
     if (page == "start" && wc.indexOf("condition") < 0) {      
-      res.redirect('/coca/job-status');
-    } else if (page == "job-status" && wc.indexOf("job") < 0) {
       res.redirect('/coca/aboutyou');
     } else if (page == "aboutyou" && wc.indexOf("nameaddress") < 0) {
       res.redirect('/coca/contactyou');
     } else if (page == "contactyou" && wc.indexOf("contact") < 0) {
-      res.redirect('/coca/declaration');
+      res.redirect('/coca/coc_other');
+    } else if (page == "declaration" && wc.indexOf("other") > 0) { // nb this is to pick up if other WAS chosen
+      res.redirect('/coca/coc_other');
+    } else if (page == "other" && wc.indexOf("other") < 0) {
+      res.redirect('/coca/coc_declaration');
     }
     
     // make use of the default application pages where possible.
