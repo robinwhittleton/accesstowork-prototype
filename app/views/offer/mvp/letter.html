@@ -47,17 +47,20 @@
       {% set deafoffers = user.offers.deaf | arrayify %}
 
       {% for item in user['hearing']['deaf_need'] | arrayify %}
-        <p>You said you need {{ item }}. We can offer you: {{ deafoffers[loop.index0] }}</p>
+        <p>You said you need {{ item }}.</p>
+        <p>To help with this you can have a grant to pay for: {{ deafoffers[loop.index0] }}</p>
       {% endfor %}
 
     {% endif %}
 
     {% if user['travel']['help-travelling'] == 'Yes' %}
-      <p>You said you can't get to or from work OK. We can offer you: <b>{{ user.offers.travel }}</b></p>
+      <p>You said you can't get to or from work OK.</p>
+      <p>To help with this you can have a grant to pay for: <b>{{ user.offers.travel }}</b></p>
     {% endif %}
 
     {% if user['during_work']['help-during-work'] == "whole" %}
-      <p>You said {{ user['during_work']['whole-day-desc'] }}. We can offer you: <b>{{ user.offers.daywork | safe }}</b></p>
+      <p>You said: {{ user['during_work']['whole-day-desc'] }}.</p>
+      <p>To help with this you can have a grant to pay for: <b>{{ user.offers.daywork | safe }}</b></p>
     {% elif user['during_work']['help-during-work'] == "part" %}      
       {% for item in user['during_work']['during_work_tasks'] | arrayify %}
         {% set workoffers = user.offers.work | arrayify %}
@@ -67,20 +70,11 @@
     
     <h3 class="heading-medium">What you need to do next</h3>
     <ul class="list list-bullets">
-      <li>discuss the agreed support with your manager unless you  are self-employed</li>
-      <li>either:</li>
-      <ul>
-        <li>sign and return the Declaration on page 4 of this letter</li>
-        <li>or use the new online form to accept this offer immediately by going to: <a href="http://accesstowork.herokuapp.com/offer/mvp/">http://accesstowork.herokuapp.com/offer/mvp/</a> </li>
-      </ul>
+      <li>discuss the agreed support with your manager (if you're not self-employed)</li>
+      <li>respond to your offer at <a href="http://accesstowork.herokuapp.com/offer/mvp/">http://accesstowork.herokuapp.com/offer/mvp/</a> </li>
 		</ul>
-    
-    <h3 class="heading-medium">Important information</h3>
-    <p>You must complete and return this Declaration to us within 4 weeks of the date of this letter. You will need to keep a copy for yourself. We can&rsquo;t provide support or send you claim forms until we receive your signed Declaration. If you don’t return the signed Declaration within 4 weeks of the date of this letter, the offer of support will be removed, your application will be closed and you will need to apply again.</p>
-    <p>You can respond to this offer online using the digital service by going to: <a href="http://accesstowork.herokuapp.com/offer/mvp/">http://accesstowork.herokuapp.com/offer/mvp/</a></p>
-    
-    <h3 class="heading-medium">Then what?</h3>
-    <p>When you have returned your signed Declaration to us, an Access to Work adviser will contact you. They will explain what to do next.</p>
+    <p>If you can't get online you can sign and return the printed declaration included with this letter. If you don't reply within 4 weeks the offer can be withdrawn and you'll need to apply again.</p>
+  
 
     <img style="margin-top:30px;" src="/public/images/sig.png" width="35%" />
       

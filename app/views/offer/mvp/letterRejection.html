@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>An letter to you</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link href="/public/stylesheets/fonts.css?0.12.0" media="all" rel="stylesheet" type="text/css" />
+	<link href="/public/stylesheets/govuk-template.css?0.12.0" media="screen" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/email.css">
+  <style media="screen">
+    .heading-medium {
+      margin-top:45px;
+    }
+  </style>
+</head>
+
+<body class="email-page">
+
+<div class="email">
+	<h1 class="heading-medium" style="border-bottom:1px solid black; margin-top:0">Letter</h1>
+	<p class="letter-meta letter-to">
+    Access to Work<br />
+    Operational Support Unit<br />
+    Harrow Jobcentre<br />
+    Mail Handling Site A<br />
+    Wolverhampton<br />
+    WV98 1JE<br /><br />
+    www.gov.uk<br /><br />
+    Telephone:	0345 268 8489<br />
+    Textphone:	0345 608 8753<br /><br />
+    <span style="font-weight:700">1st June 2016</span>
+  </p>
+  <p><img src="/public/images/DWP-logo.png" width="160" /></p>
+	<div class="email-body" style="clear:both;">
+    <p class="">
+      {{ you_full_name | default("Mrs Smith") }}<br />
+      The Old Rose Bowl<br />
+      Ferrywheel<br />
+      Dorset<br />
+      DR3 8GE
+		</p>
+		<p style="margin-top:60px;">Dear {{ you_full_name | default("Mrs Smith") }}</p>
+		<p>You've not been awarded an Access to Work grant.</p>
+    
+    <p>An Access to Work grant can only pay for things that help you work.</p>
+    <p>If your disability isn't causing you problems at work, or the help you want isn't directly relevant to your work role then you won't be entiteld to the grant.</p>
+    <p>If you're still having difficulty at work you should ask your manager to consider making reasonable adjustments.</p>
+  
+
+    <img style="margin-top:30px;" src="/public/images/sig.png" width="35%" />
+      
+		<p>Yours sincerely</p>
+		<p>Linda Anderson<br /><small>(Access To Work advisor)</small></p>
+	</div>
+</div>
+
+</body>
+</html>
