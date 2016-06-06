@@ -39,42 +39,45 @@
 		</p>
 		<p style="margin-top:60px;">Dear {{ you_full_name | default("Mrs Smith") }}</p>
 		<p>You've been awarded an Access to Work grant.</p>
+    <p>Your grant can be used to pay for the below items to help you at work.</p>
     <h3 class="heading-medium">Reference: ATW-4890-XC</h3>
     
     <h3 class="heading-medium" style="margin-top:45px">Your offer</h3>
-    
     {% if user['start']['fast'] %}
 
       {% set deafoffers = user.offers.deaf | arrayify %}
 
       {% for item in user['hearing']['deaf_need'] | arrayify %}
         <p>You said you need {{ item }}.</p>
-        <p>To help with this you can have a grant to pay for: {{ deafoffers[loop.index0] }}</p>
+        <p>To help with this: <b>{{ deafoffers[loop.index0] }}</b></p>
       {% endfor %}
 
     {% endif %}
 
     {% if user['travel']['help-travelling'] == 'Yes' %}
       <p>You said you can't get to or from work OK.</p>
-      <p>To help with this you can have a grant to pay for: <b>{{ user.offers.travel }}</b></p>
+      <p>To help with this: <b>{{ user.offers.travel }}</b></p>
     {% endif %}
 
     {% if user['during_work']['help-during-work'] == "whole" %}
       <p>You said: {{ user['during_work']['whole-day-desc'] }}.</p>
-      <p>To help with this you can have a grant to pay for: <b>{{ user.offers.daywork | safe }}</b></p>
+      <p>To help with this: <b>{{ user.offers.daywork | safe }}</b></p>
     {% elif user['during_work']['help-during-work'] == "part" %}      
       {% for item in user['during_work']['during_work_tasks'] | arrayify %}
         {% set workoffers = user.offers.work | arrayify %}
-        <p>You said you struggle with {{ item | safe  }}. We can offer you: <b>{{ workoffers[loop.index0] | safe }}</b></p>        
+        <p>You said you struggle with {{ item | safe  }}.</p>
+        <p>To help with this: <b>{{ workoffers[loop.index0] | safe }}</b></p>        
       {% endfor %}
     {% endif %}
     
-    <h3 class="heading-medium">What you need to do next</h3>
+    <h3 class="heading-medium">What to do next</h3>
     <ul class="list list-bullets">
-      <li>discuss the agreed support with your manager (if you're not self-employed)</li>
-      <li>respond to your offer at <a href="http://accesstowork.herokuapp.com/offer/mvp/">http://accesstowork.herokuapp.com/offer/mvp/</a> </li>
+      <li>discuss the support with your employer if you need to - they've been sent a copy of this letter</li>
+      <li>accept or reject your offer at <a href="http://accesstowork.herokuapp.com/offer/mvp/">http://accesstowork.herokuapp.com/offer/mvp/</a></li>
 		</ul>
-    <p>If you can't get online you can sign and return the printed declaration included with this letter. If you don't reply within 4 weeks the offer can be withdrawn and you'll need to apply again.</p>
+    <p>If you only want some of the help offered, go to <a href="http://accesstowork.herokuapp.com/offer/mvp/">http://accesstowork.herokuapp.com/offer/mvp/</a> and reject the offer. You can then give more details of what you agree with and what you don't.</p>
+    <h4 class="heading-small">If you can't get online</h4>
+    <p>If you can't get online you can sign and return the printed declaration included with this letter. If you don't send a reply within 4 weeks the offer can be withdrawn and you'll need to apply again.</p>
   
 
     <img style="margin-top:30px;" src="/public/images/sig.png" width="35%" />
