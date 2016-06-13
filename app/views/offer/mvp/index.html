@@ -35,16 +35,25 @@
 					<div class="form-group inline form-group-compound" aria-labelledby="represent">
 						<label class="block-label" for="accept-yes">
 							<input id="accept-yes" type="radio" name="accept-offer" value="Yes">
-							Yes
+							Yes, I accept everything
 						</label>
-						<label class="block-label" data-target="handbag" for="accept-no">
-							<input id="accept-no" type="radio" name="accept-offer" value="No">
-							No
+						<label class="block-label" data-target="handbag" for="accept-no-one">
+							<input id="accept-no-one" type="radio" name="accept-offer" value="No">
+							No, some of what I've offered doesn't work for me
+						</label>
+						<label class="block-label" data-target="garment" for="accept-no-two">
+							<input id="accept-no-two" type="radio" name="accept-offer" value="No">
+							No, I disgree with your decision completely
 						</label>
 					</div>
           
           <div class="js-hidden panel-indent" id="handbag">
 						<p>What is it about your offer that doesn’t work for you?</p>
+            <textarea class="form-control" id="no-text" /></textarea>
+          </div>
+					
+					<div class="js-hidden panel-indent" id="garment">
+						<p>What parts of your offer aren't suitable and why?</p>
             <textarea class="form-control" id="no-text" /></textarea>
           </div>
 
@@ -72,14 +81,15 @@
 	{
 		e.preventDefault();
 		var yes = $('#accept-yes').prop('checked');
-		var no = $('#accept-no').prop('checked');
-		if (!yes && !no)
+		var no1 = $('#accept-no-one').prop('checked');
+		var no2 = $('#accept-no-two').prop('checked');
+		if (!yes && !no1 && !no2)
 		{
 			alert('Select Yes or No.')
 		} else if (yes) {
 			$('form').attr('action','accepted');
 			$('form').submit();
-		} else if (no) {
+		} else if (no1 || no2) {
 			$('form').attr('action','rejected');
 			$('form').submit();
 		}
