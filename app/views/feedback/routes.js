@@ -4,20 +4,25 @@ var express     = require('express'),
     moment      = require('moment');
     router      = express.Router();
 
+var json = JSON.parse(fs.readFileSync(__dirname + "/feedback.json").toString());
+/*  removing those who don't have a
+    satisfaction rating (i.e. the string
+    isn't long enough) */
+var data = _.filter(json, function(el)
+{
+  return el.RATING.length > 5;
+});
+
+router.get('/feedback/', function(req,res,next)
+{
+  var num = Math.floor(Math.random()*data.length);
+  res.redirect('/feedback/'+num+'/');
+});
+
 router.get('/feedback/:number?', function(req,res,next)
 {
   var number = req.params.number;
-  if (!number) number = 0;
-
-  json = JSON.parse(fs.readFileSync(__dirname + "/feedback.json").toString());
-
-  /*  removing those who don't have a
-      satisfaction rating (i.e. the string
-      isn't long enough) */
-  var data = _.filter(json, function(el)
-  {
-    return el.RATING.length > 5;
-  });
+  if (!number) number = 0;  
 
   /*  If number has gone too high reset it
       and start the loop again. */
