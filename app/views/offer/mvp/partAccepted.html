@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}About you{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	<div class="grid-row">
+
+		<section class="column-two-thirds" aria-labelledby="aboutyou">
+
+			<div class="completion">
+        <h1 class="form-title heading-large" id="complete" style="padding-top:30px">Your response has been received</h1>
+        <p style="color:white;margin-top:-30px">Your reference number is: <b style="font-weight:700">KJSAD</b></p>
+      </div>
+			<h2 class="heading-medium">What happens next</h2>
+			
+			<p>Someone will look at the parts of your offer you have questions about, and may be in touch with you for more information. </p>
+			<p>This shouldn't delay you getting other parts of your offer if you need them more urgently.</p>
+
+		</section>
+    
+    {# {% include "application/mvp/leftcol.html" %} #}
+
+	</div>
+
+</main>
+
+{% endblock %}
