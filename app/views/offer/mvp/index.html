@@ -89,7 +89,10 @@
 		} else if (yes) {
 			$('form').attr('action','accepted');
 			$('form').submit();
-		} else if (no1 || no2) {
+		} else if (no1) {
+			$('form').attr('action','partAccepted');
+			$('form').submit();
+		} else if (no1) {
 			$('form').attr('action','rejected');
 			$('form').submit();
 		}
