@@ -69,8 +69,7 @@
         hasCookieMessage = (message && GOVUK.cookie('seen_cookie_message') === null);
 
     if (hasCookieMessage) {
-      message.style.display = 'block';
-      GOVUK.cookie('seen_cookie_message', 'yes', { days: 28 });
+      message.style.display = 'block';      
     }
   };
 }).call(this);
@@ -121,6 +120,3 @@
     }
   }
 }).call(this);
-
-
-

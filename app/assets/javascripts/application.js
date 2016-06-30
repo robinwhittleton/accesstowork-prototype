@@ -133,4 +133,11 @@ $(document).ready(function() {
   var toggleContent = new ShowHideContent();
   toggleContent.showHideRadioToggledContent();
   toggleContent.showHideCheckboxToggledContent();
+  
+  $('#cookie_gotit').on('click',function(e)
+  {
+    e.preventDefault();
+    GOVUK.cookie('seen_cookie_message', 'yes', { days: 28 });
+    $('#global-cookie-message').hide();
+  });
 });
