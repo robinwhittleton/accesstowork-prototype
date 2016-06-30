@@ -82,9 +82,7 @@
       <div class="header-wrapper">
         <div class="header-global">
           <div class="header-logo">
-            <a href="{{ homepage_url|default('https://www.gov.uk') }}" title="{{ logo_link_title|default('Go to the GOV.UK homepage') }}" id="logo" class="content">
-              <img src="{{ asset_path }}images/staff/atwsa.png?0.12.0" alt="" width="191" height="21" />
-            </a>
+            {% block logo %}{% endblock %}            
           </div>
           {% block inside_header %}{% endblock %}
         </div>
