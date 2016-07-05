@@ -1,0 +1,53 @@
+{% extends "staffui/mvp/layout.html" %}
+
+{% block staff_content %}
+
+  {{ case | log }}
+  <div class="grid-row" style="margin:60px 0;">
+    <div class="column-third">
+      <ul class="list bullet-list">
+        <li><a href="">Personal Details</a></li>
+    </div><!-- column -->
+    <div class="column-two-thirds">
+      <h2 class="heading-large" style="margin-top:0">{{ case.name }} {{ case.surname }} ({{ case.gender }})</h2>
+      <p>{{ case.condition }}</p>
+      {# <hr class="rule" /> #}
+      <p><span class="font-xsmall">{{ case.job_status }}</span><br /><span class="bold-medium">{{ case.job_title }}</spanc></p>
+      <table style="border-top:1px solid #000; margin-top:60px;">
+        {% if case.job_how_harder %}
+        <tr>
+          <td class="bold nobr">How is your job harder?</td>
+          <td>{{ case.job_how_harder }}</td>
+        </tr>        
+        <tr>
+          <td class="bold nobr">What do you do now?</td>
+          <td>{{ case.job_what_do_now | default("Not answered")}}</td>
+        </tr>
+        <tr>
+          <td class="bold nobr">What do you want?</td>
+          <td>{{ case.job_what_need | default("Not answered") }}</td>
+        </tr>
+        {% endif %}
+        {% if  case.travel_how_harder %}
+        <tr>
+          <td class="bold nobr">How is your job harder?</td>
+          <td>{{ case.travel_how_harder }}</td>
+        </tr>
+        <tr>
+          <td class="bold nobr">What do you do now?</td>
+          <td>{{ case.travel_what_do_now | default("Not answered")}}</td>
+        </tr>
+        <tr>
+          <td class="bold nobr">What do you want?</td>
+          <td>{{ case.travel_what_need | default("Not answered") }}</td>
+        </tr>
+        {% endif %}
+      </table>
+    </div><!-- column -->
+  </div><!-- row -->
+
+{% endblock %}
+
+{% block page_script %}
+
+{% endblock %}

@@ -7,18 +7,11 @@ var path          = require('path'),
     bodyParser    = require('body-parser'),
     cookieParser  = require('cookie-parser'),
     session       = require('express-session'),
+    moment        = require('moment'),
     port          = (process.env.PORT || 3000),
     app           = express(),
-
-    // routing and extras
-    routes        = require(__dirname + '/lib/default-routes.js'),
-    app_routes    = require(__dirname + '/app/routes.js'),
-    leg_routes    = require(__dirname + '/app/legacy-routes.js'),
-    staff_routes  = require(__dirname + '/app/views/staffui/routes.js'),
-    fdbck_routes  = require(__dirname + '/app/views/feedback/routes.js'),
-    offer_routes  = require(__dirname + '/app/views/offer/routes.js'),
     user_data     = require(__dirname + '/lib/user_data.js'),
-
+    routes        = require(__dirname + '/lib/default-routes.js'),
     // Grab environment variables specified in Procfile or as Heroku config vars
     username = process.env.USERNAME,
     password = process.env.PASSWORD,
@@ -48,6 +41,8 @@ nunjucks.setup({
     noCache: true,
 }, app, function(env)
 {
+  var nunjucksSafe = env.getFilter('safe');
+  
   env.addFilter('slugify', function(str) {
       return str.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()’]/g,"").replace(/ +/g,'_').toLowerCase();
   });
@@ -63,6 +58,16 @@ nunjucks.setup({
   env.addFilter('arrayify', function(val) {
       if (typeof val == 'string') return [val];
       else return val;
+  });
+  env.addFilter('log', function log(a) {
+  	return nunjucksSafe('<script>console.log(' + JSON.stringify(a, null, '\t') + ');</script>');
+  });
+  env.addFilter('makeDate', function(str) {
+      var d = new Date(str);
+      return d.toString();
+  });
+  env.addFilter('formatDate', function(str,format) {
+      return moment(str).format(format);
   });
 });
 
@@ -112,11 +117,12 @@ if (typeof(routes) != "function") {
 } else {
   console.log('Using routes');
   app.use(require(__dirname + '/app/views/coc/routes.js'));    // these have to come first.
-  app.use(app_routes);    // these have to come first.
-  app.use(leg_routes);    // these have to come first.
-  app.use(staff_routes);  // these have to come first.
-  app.use(fdbck_routes);  // these have to come first.
-  app.use(offer_routes);  // these have to come first.
+  app.use(require(__dirname + '/app/routes.js'));    // these have to come first.
+  app.use(require(__dirname + '/app/legacy-routes.js'));    // these have to come first.
+  app.use(require(__dirname + '/app/views/staffui/routes.js'));  // these have to come first.
+  app.use(require(__dirname + '/app/views/staffui/mvp/routes.js'));  // these have to come first.
+  app.use(require(__dirname + '/app/views/feedback/routes.js'));  // these have to come first.
+  app.use(require(__dirname + '/app/views/offer/routes.js'));  // these have to come first.
   app.use(routes);        // these come last because they mop up!
 }
 
