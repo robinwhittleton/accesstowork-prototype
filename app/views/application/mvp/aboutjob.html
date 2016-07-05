@@ -5,74 +5,78 @@
 {% block content %}
 
 <main id="content" role="main">
-
-  <div class="grid-row">
-
-    {% include "application/mvp/leftcol.html" %}
+  
+  <div class="phase-banner">
+    <p>
+      <strong class="phase-tag">BETA</strong>
+      <span>This is a new service - your <a href="mailto:sijuwade.salami@dwp.gsi.gov.uk?Subject=ATW%20Feedback">feedback</a> will help us to improve it.</span>
+    </p>
+  </div>
+  
+  <div class="grid-row">    
 
     <section class="column-two-thirds" aria-labelledby="aboutjob">
 
-      <h1 class="form-title heading-large" id="aboutjob">
-        <span class="section-progress">Section 3 of 4</span> 
-        About your job
+      <h1 class="form-title heading-large" id="aboutjob" style="margin:50px 0 0 0";>
+        {# <span class="section-progress">Section 3 of 4</span>  #}
+        How are you employed?
       </h1>
 
       <form action="aboutjob2" method="post" class="form">
 
-       <div id="employment-status">
-        <fieldset>
-         <legend class="form-label" id="howEmployed">How are you employed?</legend>
-         <div class="form-group form-group-compound" aria-labelledby="howEmployed">
-          <label class="block-label" for="employed">
-            <input style="display:inline" id="employed" type="radio" name="emp-status" value="Employed" data-dest="employed">
-            Employed
-          </label>
-          <label class="block-label" for="self-employed">
-            <input style="display:inline" id="self-employed" type="radio" name="emp-status" value="Self" data-dest="self-employed">
-            Self-employed
-          </label>
-          <label class="block-label" for="ltd">
-            <input style="display:inline" id="ltd" type="radio" name="emp-status" value="Director of a limited company" data-dest="limited-company">
-            Director of a limited company
-          </label>
+        <div id="employment-status">
+          <fieldset>
+            {# <legend class="form-label" id="howEmployed">How are you employed?</legend> #}
+            <p class="form-hint" style="margin-bottom:30px;">If you haven’t started your job yet, put how you will be employed</p>
+            <div class="form-group form-group-compound" aria-labelledby="howEmployed">
+              <label class="block-label" for="employed">
+                <input style="display:inline" id="employed" type="radio" name="emp-status" value="Employed" data-dest="employed">
+                Employed
+              </label>
+              <label class="block-label" for="self-employed">
+                <input style="display:inline" id="self-employed" type="radio" name="emp-status" value="Self" data-dest="self-employed">
+                Self-employed
+              </label>
+              <label class="block-label" for="ltd">
+                <input style="display:inline" id="ltd" type="radio" name="emp-status" value="Director of a limited company" data-dest="limited-company">
+                Director of a limited company
+              </label>
+            </div>
+          </fieldset>
         </div>
-      </fieldset>
-    </div>
 
-    <div id="csi-status" class="js-hidden panel-indent">
-      <fieldset class="inline">
-        <legend class="form-label" id="haveInterview">Do you have an interview?</legend>
-        <div class="form-group" aria-labelledby="haveInterview">
-          <label class="block-label" for="radio-indent-interview-yes">
-            <input id="radio-indent-interview-yes" type="radio" name="interview" value="Yes" data-dest="aboutinterview">
-            Yes
-          </label>
-          <label class="block-label" for="radio-indent-interview-no">
-            <input id="radio-indent-interview-no" type="radio" name="interview" value="No" data-dest="index">
-            No
-          </label>
-        </div>			    
-      </fieldset>	
-    </div>
+        <div id="csi-status" class="js-hidden panel-indent">
+          <fieldset class="inline">
+            <legend class="form-label" id="haveInterview">Do you have an interview?</legend>
+            <div class="form-group" aria-labelledby="haveInterview">
+              <label class="block-label" for="radio-indent-interview-yes">
+                <input id="radio-indent-interview-yes" type="radio" name="interview" value="Yes" data-dest="aboutinterview">
+                Yes
+              </label>
+              <label class="block-label" for="radio-indent-interview-no">
+                <input id="radio-indent-interview-no" type="radio" name="interview" value="No" data-dest="index">
+                No
+              </label>
+            </div>			    
+          </fieldset>	
+        </div>
 
-    <!-- Primary buttons, secondary links -->
+        <!-- Primary buttons, secondary links -->
+        <br />
+        <fieldset class="primary-nav form-group">
+          <legend>Form Navigation</legend>    
+          <ul>
+           <li><input type="submit" value="Next" class="button" id="submitButton"/></li>
+         </ul>
+        </fieldset>
 
-    <br />
-    <fieldset class="primary-nav form-group">
-      <legend>Form Navigation</legend>    
-      <ul>
-       <li><input type="submit" value="Next" class="button" id="submitButton"/></li>
-     </ul>
-   </fieldset>
-
- </form>
-
-</section>
-
-</div>
-
+      </form>
+    </section><!-- .column -->
+    
+    {% include "application/mvp/leftcol.html" %}
+    
+  </div><!-- .row --> 
 </main>
-
 {% endblock %}
 
 {% block page_script %}
