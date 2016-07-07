@@ -2,10 +2,59 @@
 
 {% block staff_content %}
 
+<h1 class="heading-xlarge" style="margin-bottom:0">All unallocated</h1>
+
+<div class="show_only list_{{ by }}">
+  <ul>
+    <li>show only:</li>
+    {% set fish = ['all','deaf','hidden','large','self','director','visual','unknown'] %}
+    {% for item in fish %}
+      <li class="item_{{ item }}"><a href="/staffui/mvp/groupby/{{ item }}">{{ item }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
 <div class="grid-row">
-  <div class="column-third">
-    Hello
+  <div class="column-full">    
+    
+    <table>
+      <thead>
+        <tr>
+          <th style="padding-left:15px;">Name</th>
+          <th>Allocation</th>
+          {# <th width="30%">Condition</th> #}
+          <th>Job</th>
+          <th class="numeric">Date</th>
+        </tr>
+      </thead>
+    {% for i in range(0, 100) %}
+      {% set item  = cases[i] %}
+      <tr class="customer_row" data-id="{{ item.id }}">
+        <td style="padding-left:15px;" class="">{{ item.name }} {{ item.surname }}</td>
+        <td><span class="tag {{ item.allocation }}">{{ item.allocation }}</span></td>
+        {# <td>{{ item.condition }}</td> #}
+        <td>{{ item.job_title }}</td>
+        <td class="nobr numeric">{{ item.postDate | formatDate('Do MMMM YYYY') }}</td>
+      </tr>
+      {# {{ item | log }} #}    
+    {% endfor %}
+    </table>
   </div><!-- column -->
 </div><!-- row -->  
 
+{% endblock %}
+
+{% block page_script %}
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    $('.customer_row').on('click',function(e)
+    {
+      e.preventDefault();
+      var id = $(this).data('id');
+      console.log(id); 
+      window.location.href = "/staffui/mvp/customer/"+id;
+    });
+  });
+</script>
 {% endblock %}
