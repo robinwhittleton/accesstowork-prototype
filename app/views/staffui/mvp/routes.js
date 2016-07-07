@@ -9,7 +9,8 @@ var express     = require('express'),
     tog         = require(__dirname+'/../../../../lib/tog.js'),
     router      = express.Router();
 
-var customers = JSON.parse(fs.readFileSync(__dirname + "/new_customers.json").toString());  
+var customers = JSON.parse(fs.readFileSync(__dirname + "/_data/new_customers.json").toString());  
+console.log(customers.length); 
 
 router.get('/staffui/mvp/', function(req,res,next)
 {
@@ -26,7 +27,7 @@ router.get('/staffui/mvp/groupby/all', function(req,res,next)
 
 router.get('/staffui/mvp/advisers/', function(req,res,next)
 {
-  var customers = JSON.parse(fs.readFileSync(__dirname + "/new_customers.json").toString());  
+  var customers = JSON.parse(fs.readFileSync(__dirname + "/_data/new_customers.json").toString());  
   var advisers  = _.uniq(_.pluck(customers,"adviser"),false,function(p){ return p.id });
   
   req.data = req.data || {};
