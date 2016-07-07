@@ -8,6 +8,7 @@
   border-radius:5px;
   margin-left:5px;
   min-width:50px;
+  text-align:center;
 
   &.circle {
     $size:30px;
@@ -31,6 +32,14 @@
   &.mainenance {background-color:$live-colour}
   &.customer {background-color:$govuk-blue}
   &.qaf {background-color:$discovery-colour}
+  
+  &.deaf {background-color:$purple}
+  &.hidden {background-color:$brown;visibility:visible;}
+  &.large {background-color:$fuschia}
+  &.self {background-color:$grass-green}
+  &.director {background-color:$green}
+  &.visual {background-color:$mellow-red}
+  &.unknown {background-color:$grey-1}
 
   &.waiting_assessment,
   &.waiting_employer,

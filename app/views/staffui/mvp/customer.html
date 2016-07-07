@@ -5,11 +5,15 @@
   {{ case | log }}
   <div class="grid-row" style="margin:60px 0;">
     <div class="column-third">
-      <ul class="list bullet-list">
+      <ul class="list bullet-list left_nav">
+        <li><a href="">Application Details</a></li>
+        <li><a href="">Job Details</a></li>
         <li><a href="">Personal Details</a></li>
+        <li><a href="">Contact Details</a></li>
+      </ul>
     </div><!-- column -->
     <div class="column-two-thirds">
-      <h2 class="heading-large" style="margin-top:0">{{ case.name }} {{ case.surname }} ({{ case.gender }})</h2>
+      <h2 class="heading-large" style="margin-top:0">{{ case.name }} {{ case.surname }}</h2>
       <p>{{ case.condition }}</p>
       {# <hr class="rule" /> #}
       <p><span class="font-xsmall">{{ case.job_status }}</span><br /><span class="bold-medium">{{ case.job_title }}</spanc></p>
