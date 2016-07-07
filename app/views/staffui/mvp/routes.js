@@ -16,6 +16,13 @@ var customers = _.filter(customers, function(el)
 });
 console.log(customers.length); 
 
+router.get('/staffui/mvp/login', function(req,res,next)
+{
+  req.data = req.data || {};
+  req.data.advisers = _.uniq(_.pluck(customers,"adviser"),false,function(p){ return p.id });;
+  next();  
+});
+
 router.get('/staffui/mvp/', function(req,res,next)
 {
   req.data = req.data || {};

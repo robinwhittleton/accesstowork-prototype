@@ -23,14 +23,14 @@
       <thead>
         <tr>
           <th style="padding-left:15px;">Name</th>
-          <th>Allocation</th>
+          <th>Category</th>
           {# <th width="30%">Condition</th> #}
           <th>Job</th>
-          <th class="numeric">Date</th>
+          <th class="numeric">Application Date</th>
           <th class="numeric">Adviser</th>
         </tr>
       </thead>
-    {% for i in range(0, 100) %}
+    {% for i in range(0, cases.length) %}
       {% set item  = cases[i] %}
       <tr class="customer_row" data-id="{{ item.id }}">
         <td style="padding-left:15px;" class="">{{ item.name }} {{ item.surname }}</td>
