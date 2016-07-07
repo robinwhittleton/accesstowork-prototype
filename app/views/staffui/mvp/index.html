@@ -8,7 +8,7 @@
 
 <div class="show_only list_{{ by }}">
   <ul>
-    <li>show only:</li>
+    <li><a>show only:</a></li>
     {% set fish = ['all','deaf','hidden','large','self','director','visual','unknown'] %}
     {% for item in fish %}
       <li class="item_{{ item }}"><a href="/staffui/mvp/groupby/{{ item }}">{{ item }}</a></li>
@@ -27,6 +27,7 @@
           {# <th width="30%">Condition</th> #}
           <th>Job</th>
           <th class="numeric">Date</th>
+          <th class="numeric">Adviser</th>
         </tr>
       </thead>
     {% for i in range(0, 100) %}
@@ -37,6 +38,7 @@
         {# <td>{{ item.condition }}</td> #}
         <td>{{ item.job_title }}</td>
         <td class="nobr numeric">{{ item.postDate | formatDate('Do MMMM YYYY') }}</td>
+        <td class="nobr numeric">{{ item.adviser.name }} {{ item.adviser.surname }}</td>
       </tr>
       {# {{ item | log }} #}    
     {% endfor %}

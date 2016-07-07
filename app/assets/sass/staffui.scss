@@ -140,11 +140,19 @@ hr.rule {
   }
 }
 
-.left_nav li a {
-  display:block;
-  padding:15px 30px;
-  margin-right:30px;
-  &:hover {
-    background-color:$grey-3;
+.left_nav {
+  li a {
+    display:block;
+    padding:15px 30px;
+    margin-right:30px;
+    border-top:1px solid $grey-2;  
+    &:hover {
+      background-color:$grey-3;
+    }
   }
+}
+
+.cust_info {
+  @include core-19;
+  padding-bottom:30px;
 }

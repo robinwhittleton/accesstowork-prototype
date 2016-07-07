@@ -1,0 +1,15 @@
+
+{% set root = "/staffui/mvp/customer/"+case.id %}
+
+<h3 class="heading-small">Customer</h3>
+<ul class="list bullet-list left_nav">
+  <li><a href="{{ root }}/application">Application</a></li>
+  <li><a href="{{ root }}/job">Job</a></li>
+  <li><a href="{{ root }}/contact">Contact</a></li>
+</ul>
+<h3 class="heading-small">Adviser</h3>
+<ul class="list bullet-list left_nav">
+  <li><a href="/staffui/mvp/adviser/{{ case.adviser.id }}/">{{ case.adviser.name }} {{ case.adviser.surname }}</a></li>
+</ul> 
+
+<p style="margin-top:30px;"><span class="tag {{ case.allocation }}">{{ case.allocation }}</span></p>

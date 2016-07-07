@@ -10,6 +10,10 @@ var express     = require('express'),
     router      = express.Router();
 
 var customers = JSON.parse(fs.readFileSync(__dirname + "/_data/new_customers.json").toString());  
+var customers = _.filter(customers, function(el)
+{
+  return el.open;
+});
 console.log(customers.length); 
 
 router.get('/staffui/mvp/', function(req,res,next)
@@ -42,7 +46,7 @@ router.get('/staffui/mvp/adviser/:id', function(req,res,next)
   var cases = _.filter(customers, function(el)
   {
     console.log(el.adviser.id,id); 
-    return el.adviser.id == id;
+    return el.adviser.id == id && el.open;
   });
 
   req.data = req.data || {};
@@ -65,13 +69,22 @@ router.get('/staffui/mvp/groupby/:by', function(req,res,next)
   next();  
 });
 
-router.get('/staffui/mvp/customer/:id', function(req,res,next)
+// router.get('/staffui/mvp/customer/:id/', function(req,res,next)
+// {
+//   var id = req.params.id;
+//   req.url = '/staffui/mvp/customer/'+id+"/application/";
+//   next();  
+// });
+
+router.get('/staffui/mvp/customer/:id/:what?', function(req,res,next)
 {
   var id = req.params.id;
+  var what = (req.params.what) ? '_'+req.params.what : '_application';
   
   req.data = req.data || {};
   req.data.case = _.findWhere(customers, {'id':id});
-  req.url = '/staffui/mvp/customer/';
+  
+  req.url = '/staffui/mvp/customer'+what+'/';
   next();  
 });
 
