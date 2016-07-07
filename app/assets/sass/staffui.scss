@@ -141,14 +141,35 @@ hr.rule {
 }
 
 .left_nav {
-  li a {
-    display:block;
-    padding:15px 30px;
+  li {
+    display:block;    
     margin-right:30px;
     border-top:1px solid $grey-2;  
+    a {
+      display:inline-block;
+      padding:15px 30px;  
+    }
     &:hover {
       background-color:$grey-3;
     }
+  }
+  .show .tag {
+    display:inline-block;
+    margin:15px 30px;
+  }
+  &.editting {
+    .show {display:none}
+    .edit {display:block}
+  }
+  .editter {
+    float:right;
+    @include core-16;
+  }
+  .edit {
+    display:none;
+  }
+  .login {
+    margin:15px 15px;
   }
 }
 

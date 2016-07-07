@@ -30,12 +30,9 @@ router.get('/staffui/mvp/', function(req,res,next)
   next();  
 });
 
-router.get('/staffui/mvp/groupby/all', function(req,res,next)
-{
-  res.redirect('/staffui/mvp/');
-  next();  
-});
-
+/*
+  LIST ALL ADVISERS
+*/
 router.get('/staffui/mvp/advisers/', function(req,res,next)
 {
   var customers = JSON.parse(fs.readFileSync(__dirname + "/_data/new_customers.json").toString());  
@@ -46,6 +43,9 @@ router.get('/staffui/mvp/advisers/', function(req,res,next)
   next();  
 });
 
+/*
+  ADVISER CASES PAGE
+*/
 router.get('/staffui/mvp/adviser/:id', function(req,res,next)
 {
   var id = parseInt(req.params.id);
@@ -62,6 +62,9 @@ router.get('/staffui/mvp/adviser/:id', function(req,res,next)
   next();  
 });
 
+/*
+  ALL CASES GROUPS BY CATEGORY
+*/
 router.get('/staffui/mvp/groupby/:by', function(req,res,next)
 {
   var by = req.params.by;
@@ -75,20 +78,25 @@ router.get('/staffui/mvp/groupby/:by', function(req,res,next)
   req.url = '/staffui/mvp/';
   next();  
 });
+//  REDIRECT ALL TO INDEX
+router.get('/staffui/mvp/groupby/all', function(req,res,next)
+{
+  res.redirect('/staffui/mvp/');
+  next();  
+});
 
-// router.get('/staffui/mvp/customer/:id/', function(req,res,next)
-// {
-//   var id = req.params.id;
-//   req.url = '/staffui/mvp/customer/'+id+"/application/";
-//   next();  
-// });
-
+/*
+  CUSTOMER DETAILS PAGES.
+*/
 router.get('/staffui/mvp/customer/:id/:what?', function(req,res,next)
 {
   var id = req.params.id;
   var what = (req.params.what) ? '_'+req.params.what : '_application';
   
+  var advisers  = _.uniq(_.pluck(customers,"adviser"),false,function(p){ return p.id });
+  
   req.data = req.data || {};
+  req.data.advisers = advisers;
   req.data.case = _.findWhere(customers, {'id':id});
   
   req.url = '/staffui/mvp/customer'+what+'/';

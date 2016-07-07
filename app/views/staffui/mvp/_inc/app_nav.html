@@ -8,8 +8,34 @@
   <li><a href="{{ root }}/contact">Contact</a></li>
 </ul>
 <h3 class="heading-small">Adviser</h3>
-<ul class="list bullet-list left_nav">
-  <li><a href="/staffui/mvp/adviser/{{ case.adviser.id }}/">{{ case.adviser.name }} {{ case.adviser.surname }}</a></li>
+<ul class="list bullet-list left_nav shower">
+  <li>
+    <div class="show">
+      <a href="/staffui/mvp/adviser/{{ case.adviser.id }}/">{{ case.adviser.name }} {{ case.adviser.surname }}</a> <a href="#" class="editter">edit</a>  
+    </div>
+    <div class="edit">
+      <select class="login">
+        {% for item in advisers %}
+          <option value="{{item.id}}">{{item.name}} {{item.surname}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </li>
 </ul> 
-
-<p style="margin-top:30px;"><span class="tag {{ case.allocation }}">{{ case.allocation }}</span></p>
+<h3 class="heading-small">Category</h3>
+<ul class="list bullet-list left_nav shower">
+  <li>
+    <div class="show">
+      <span class="tag {{ case.allocation }}">{{ case.allocation }}</span>
+      <a href="#" class="editter">edit</a>  
+    </div>
+    <div class="edit">
+      <select class="login">
+        {% set categories = ['deaf','hidden','large','self','director','visual','unknown'] %}
+        {% for item in categories %}
+          <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </li>
+</ul> 
