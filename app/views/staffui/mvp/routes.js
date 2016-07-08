@@ -87,6 +87,38 @@ router.get('/staffui/mvp/groupby/:by', function(req,res,next)
   });
 });
 
+router.post('/staffui/mvp/customer/adviser/update', function(req,res,next)
+{  
+  var cid = req.body.case_id;
+  var aid = parseInt(req.body.adviser_id);
+  var advisers = JSON.parse(fs.readFileSync(__dirname + "/_data/advisers.json").toString());
+  var newad = _.findWhere(advisers,{"id":aid});  
+  store.findById(cid,function(err,the_case)
+  {
+    the_case.adviser = newad;
+    store.updateById(the_case._id,the_case,function(err,doc)
+    {
+      res.status(200);
+      res.send(JSON.stringify(newad));
+    });
+  });
+});
+
+router.post('/staffui/mvp/customer/cat/update', function(req,res,next)
+{  
+  var cid = req.body.case_id;
+  var cat = req.body.category;
+
+  store.findById(cid,function(err,the_case)
+  {
+    the_case.allocation = cat;
+    store.updateById(the_case._id,the_case,function(err,doc)
+    {
+      res.status(200);
+      res.send("success");
+    });
+  });
+});
 
 /*
   CUSTOMER DETAILS PAGES.
@@ -108,20 +140,6 @@ router.get('/staffui/mvp/customer/:id/:what?', function(req,res,next)
     req.url = '/staffui/mvp/customer'+what+'/';
     next(); 
   });
-  
-  // store.findById(id).then(function(cases)
-  // {
-  //   // var cases = JSON.parse(fs.readFileSync(__dirname + "/_data/new_customers.json").toString());  
-  //   var advisers  = _.uniq(_.pluck(cases,"adviser"),false,function(p){ return p.id });
-  //   
-  //   req.data = req.data || {};
-  //   req.data.advisers = advisers;
-  //   // req.data.case = _.findWhere(cases, {'_id':String(id)});
-  //   req.data.case = cases;
-  //   
-  //   req.url = '/staffui/mvp/customer'+what+'/';
-  //   next(); 
-  // }); 
 });
 
 module.exports = router;

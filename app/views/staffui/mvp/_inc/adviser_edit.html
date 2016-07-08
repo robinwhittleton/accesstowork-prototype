@@ -3,7 +3,7 @@
   {
     $('.updated').hide();
     
-    $('.editter').on('click',function(e)
+    $(document.body).on('click','.editter',function(e)
     {
       e.preventDefault();
       $(this).closest('.shower').toggleClass('editting');
@@ -21,6 +21,42 @@
       
       $(this).toggleClass('toggler-off')
       $(this).toggleClass('toggler-on')
+    });
+    
+    $('#edit_adviser').on('change',function(e)
+    {
+      e.preventDefault();
+      var ad_id = $(this).val();
+      
+      $.ajax({
+        url: '/staffui/mvp/customer/adviser/update',
+        method: "POST",
+        contentType: 'application/json', 
+        data: JSON.stringify({"adviser_id":ad_id,"case_id":CASE_ID}),
+        dataType: 'json',
+        complete:  function(data,status,xhr) {
+          var d = data.responseJSON; 
+          $('#ad_show').toggleClass('editting');
+          $('#ad_show .show').html('<a href="/staffui/mvp/adviser/'+d._id+'">'+d.name+' '+d.surname+'</a>');
+          $('#ad_show .show').append('<a href="#" class="editter">edit</a>');
+        }});
+    });
+    
+    $('#edit_category').on('change',function(e)
+    {
+      e.preventDefault();
+      var new_cat = $(this).val();
+      
+      $.ajax({
+        url: '/staffui/mvp/customer/cat/update',
+        method: "POST",
+        contentType: 'application/json', 
+        data: JSON.stringify({"category":new_cat,"case_id":CASE_ID}),
+        dataType: 'json',
+        complete:  function(data,status,xhr) {
+          $('#cat_show .show span').text(new_cat).removeClass().addClass('tag '+new_cat); 
+          $('#cat_show').toggleClass('editting');          
+        }});
     });
     
   });

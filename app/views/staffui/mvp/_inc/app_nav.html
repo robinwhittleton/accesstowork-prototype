@@ -1,6 +1,10 @@
 
 {% set root = "/staffui/mvp/customer/"+case._id %}
 
+<script type="text/javascript">
+  var CASE_ID = "{{ case._id }}";
+</script>
+
 <h3 class="heading-small">Customer</h3>
 <ul class="list bullet-list left_nav">
   <li><a href="{{ root }}/application">Application</a></li>
@@ -8,32 +12,33 @@
   <li><a href="{{ root }}/contact">Contact</a></li>
 </ul>
 <h3 class="heading-small">Adviser</h3>
-<ul class="list bullet-list left_nav shower">
+<ul class="list bullet-list left_nav shower" id="ad_show">
   <li>
     <div class="show">
       <a href="/staffui/mvp/adviser/{{ case.adviser.id }}/">{{ case.adviser.name }} {{ case.adviser.surname }}</a> <a href="#" class="editter">edit</a>  
     </div>
     <div class="edit">
-      <select class="login">
+      <select class="login" id="edit_adviser">
+        
         {% for item in advisers %}
-          <option value="{{item.id}}">{{item.name}} {{item.surname}}</option>
+          <option value="{{item.id}}" {% if item.id == case.adviser.id %}selected="selected"{% endif %} >{{item.name}} {{item.surname}}</option>
         {% endfor %}
       </select>
     </div>
   </li>
 </ul> 
 <h3 class="heading-small">Category</h3>
-<ul class="list bullet-list left_nav shower">
+<ul class="list bullet-list left_nav shower" id="cat_show">
   <li>
     <div class="show">
       <span class="tag {{ case.allocation }}">{{ case.allocation }}</span>
       <a href="#" class="editter">edit</a>  
     </div>
     <div class="edit">
-      <select class="login">
+      <select class="login" id="edit_category">
         {% set categories = ['deaf','hidden','large','self','director','visual','unknown'] %}
         {% for item in categories %}
-          <option value="{{ item }}">{{ item }}</option>
+          <option value="{{ item }}" {% if case.allocation == item %}selected="selected"{% endif %}>{{ item }}</option>
         {% endfor %}
       </select>
     </div>
