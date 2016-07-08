@@ -32,8 +32,7 @@ while(customers.length > 0)
       "adviser":adviser,
       "open":open
     });
-  newd.push(o);
-  console.log(c++); 
+  newd.push(o); 
 }
 
 newd = _.sortBy(newd,"postDate").reverse();

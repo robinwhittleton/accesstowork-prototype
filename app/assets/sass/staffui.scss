@@ -175,6 +175,7 @@ hr.rule {
 
 .cust_info {
   @include core-19;
+  padding-top:12px;
   padding-bottom:30px;
 }
 
@@ -195,4 +196,34 @@ hr.rule {
   border: 2px solid #bfc1c3;
   -webkit-appearance: none;
   border-radius: 0;
+}
+
+.toggler {
+  position:relative;
+  display:block;
+  margin:15px 30px;
+  border:1px solid $grey-2;
+  height:60px;
+  width:200px;
+  cursor: pointer;
+  .nub {
+    display:block;
+    position:absolute;
+    width:100px;    
+    text-align:center;
+    font-size:24px;
+    padding-top:0.6em;
+    background:$grey-2;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    left:0;top:0;bottom:0;
+  }
+  &.toggler-off .nub {
+    transform:translate(100px,0);
+    background-color:$error-colour;
+    color:white;
+  }
+  &.toggler-on .nub {
+    background-color:$live-colour;
+    color:white;
+  }
 }

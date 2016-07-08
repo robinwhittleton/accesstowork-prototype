@@ -1,5 +1,5 @@
 
-{% set root = "/staffui/mvp/customer/"+case.id %}
+{% set root = "/staffui/mvp/customer/"+case._id %}
 
 <h3 class="heading-small">Customer</h3>
 <ul class="list bullet-list left_nav">
@@ -38,4 +38,13 @@
       </select>
     </div>
   </li>
+  <h3 class="heading-small">In DISC?</h3>
+  <div class="toggler toggler-off" id="disc_toggle">
+    <div class="nub">No</div>
+  </div>
 </ul> 
+
+<div class="updated">
+  <hr class="rule" />
+  <a href="{{ root }}" class="button">Update</a>
+</div>

@@ -21,7 +21,7 @@
         </thead>
       {% for i in range(0, cases.length) %}
         {% set item  = cases[i] %}
-        <tr class="customer_row" data-id="{{ item.id }}">
+        <tr class="customer_row" data-id="{{ item._id }}">
           <td style="padding-left:15px;" class="">{{ item.name }} {{ item.surname }}</td>
           <td><span class="tag {{ item.allocation }}">{{ item.allocation }}</span></td>
           {# <td>{{ item.condition }}</td> #}
@@ -45,7 +45,6 @@
     {
       e.preventDefault();
       var id = $(this).data('id');
-      console.log(id); 
       window.location.href = "/staffui/mvp/customer/"+id;
     });
   });
