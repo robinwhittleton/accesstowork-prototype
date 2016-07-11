@@ -49,6 +49,9 @@ nunjucks.setup({
   env.addFilter('check', function(str,checkee,output) {
       return str == checkee ? output : '';
   });
+  env.addFilter('bool', function(str,yes,no) {
+      return Boolean(str) ? yes : no ;
+  });
   env.addFilter('classify', function(str,checkee,output) {
       return str.split(' ')[0].toLowerCase();
   });

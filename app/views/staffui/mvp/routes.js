@@ -120,6 +120,38 @@ router.post('/staffui/mvp/customer/cat/update', function(req,res,next)
   });
 });
 
+router.post('/staffui/mvp/customer/disc/update',function(req,res,next)
+{
+  var cid = req.body.case_id;
+  var open = req.body.open;
+  
+  store.findById(cid,function(err,the_case)
+  {
+    the_case.open = open;
+    store.updateById(the_case._id,the_case,function(err,doc)
+    {
+      res.status(200);
+      res.send(JSON.stringify(doc));
+    });
+  });
+});
+
+router.post('/staffui/mvp/customer/cat/update', function(req,res,next)
+{  
+  var cid = req.body.case_id;
+  var cat = req.body.category;
+
+  store.findById(cid,function(err,the_case)
+  {
+    the_case.allocation = cat;
+    store.updateById(the_case._id,the_case,function(err,doc)
+    {
+      res.status(200);
+      res.send("success");
+    });
+  });
+});
+
 /*
   CUSTOMER DETAILS PAGES.
 */

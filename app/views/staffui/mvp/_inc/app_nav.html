@@ -11,6 +11,8 @@
   <li><a href="{{ root }}/job">Job</a></li>
   <li><a href="{{ root }}/contact">Contact</a></li>
 </ul>
+
+<!-- - - - - -  ADVISER - - - - - -->
 <h3 class="heading-small">Adviser</h3>
 <ul class="list bullet-list left_nav shower" id="ad_show">
   <li>
@@ -28,6 +30,8 @@
     </div>
   </li>
 </ul> 
+
+<!-- - - - - -  CATEGORY - - - - - -->
 <h3 class="heading-small">Category</h3>
 <ul class="list bullet-list left_nav shower" id="cat_show">
   <li>
@@ -44,12 +48,14 @@
       </select>
       <a href="#" class="editter">cancel</a>  
     </div>
-  </li>
-  <h3 class="heading-small">In DISC?</h3>
-  <div class="toggler toggler-off" id="disc_toggle">
-    <div class="nub"><div class="nub_inner">No</div></div>
-  </div>
+  </li>  
 </ul> 
+
+<!-- - - - - -  IN DISC - - - - - -->
+<h3 class="heading-small" style="border-bottom: 1px solid #bfc1c3;">In DISC?</h3>
+<div class="toggler {{ case.open | bool('toggler-off','toggler-on')}}" id="disc_toggle">
+  <div class="nub"><div class="nub_inner">{{ case.open | bool('No','Yes')}}</div></div>
+</div>
 
 <div class="updated">
   <hr class="rule" />

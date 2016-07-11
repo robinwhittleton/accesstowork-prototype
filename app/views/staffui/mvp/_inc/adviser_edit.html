@@ -14,7 +14,19 @@
     {
       e.preventDefault();     
       
-      var nub = $(this).find(".nub .nub_inner");
+      var nub = $(this).find(".nub .nub_inner");      
+      var disc = nub.text() == 'Yes';
+      
+      $.ajax({
+        url: '/staffui/mvp/customer/disc/update',
+        method: "POST",
+        contentType: 'application/json', 
+        data: JSON.stringify({"open":disc,"case_id":CASE_ID}),
+        dataType: 'json',
+        complete:  function(data,status,xhr) {
+          var d = data.responseJSON; 
+          console.log(d); 
+        }});
       
       if (nub.text().trim() == 'No') nub.text("Yes");
       else if (nub.text().trim() == 'Yes') nub.text("No");
