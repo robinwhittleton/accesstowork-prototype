@@ -28,7 +28,7 @@
     "merge": "^1.2.0",
     "minimist": "0.0.8",
     "moment": "^2.11.0",
-    "monk": "^1.0.1",
+    "monk": "^3.0.6",
     "serve-favicon": "2.3.0",
     "underscore": "^1.8.3"
   }
