@@ -24,6 +24,7 @@
           <option value="{{item.id}}" {% if item.id == case.adviser.id %}selected="selected"{% endif %} >{{item.name}} {{item.surname}}</option>
         {% endfor %}
       </select>
+      <a href="#" class="editter">cancel</a>  
     </div>
   </li>
 </ul> 
@@ -41,11 +42,12 @@
           <option value="{{ item }}" {% if case.allocation == item %}selected="selected"{% endif %}>{{ item }}</option>
         {% endfor %}
       </select>
+      <a href="#" class="editter">cancel</a>  
     </div>
   </li>
   <h3 class="heading-small">In DISC?</h3>
   <div class="toggler toggler-off" id="disc_toggle">
-    <div class="nub">No</div>
+    <div class="nub"><div class="nub_inner">No</div></div>
   </div>
 </ul> 
 

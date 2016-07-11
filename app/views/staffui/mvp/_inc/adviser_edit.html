@@ -14,7 +14,7 @@
     {
       e.preventDefault();     
       
-      var nub = $(this).find(".nub");
+      var nub = $(this).find(".nub .nub_inner");
       
       if (nub.text().trim() == 'No') nub.text("Yes");
       else if (nub.text().trim() == 'Yes') nub.text("No");
