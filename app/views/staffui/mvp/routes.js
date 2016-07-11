@@ -27,7 +27,19 @@ router.get('/staffui/mvp/', function(req,res,next)
   store.find({"open":true}).then(function(cases)
   {
     req.data = req.data || {};
+    req.data.by = "all";
     req.data.cases = cases;  
+    next();  
+  });
+});
+
+router.get('/staffui/mvp/show/disc', function(req,res,next)
+{
+  store.find({"open":false}).then(function(cases)
+  {
+    req.data = req.data || {};
+    req.data.cases = cases;  
+    req.url = '/staffui/mvp/';
     next();  
   });
 });
