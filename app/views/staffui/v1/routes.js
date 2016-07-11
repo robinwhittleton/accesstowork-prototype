@@ -10,6 +10,11 @@ var express     = require('express'),
 
 var url_root = '/staffui/v1';
 
+router.get('/staffui/all',function(req,res,next)
+{
+  res.redirect('/staffui/v1/all');
+});
+
 router.get(url_root+'/all/', function(req,res,next)
 {
   var order = req.params.order;
