@@ -1,4 +1,4 @@
-{% extends "staffui/layout.html" %}
+{% extends "staffui/v1/layout.html" %}
 
 {% block staff_content %}
 
@@ -22,7 +22,7 @@
 			<tbody class="app-list">
 			{% for item in claimants %}
 				<tr>
-					<td><a href="/staffui/claimant/{{ item._id }}">{{ item.name }} {{ item.surname }}</a></td>
+					<td><a href="/staffui/v1/claimant/{{ item._id }}">{{ item.name }} {{ item.surname }}</a></td>
 					<td>
 						<span class="tag {{ item.status.awaiting | slugify }}">{{ item.status.label }}</span>
 						<span class="tag_date">({{ item.fromNow }})</span>

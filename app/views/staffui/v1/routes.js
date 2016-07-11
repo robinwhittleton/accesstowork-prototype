@@ -5,10 +5,12 @@ var express     = require('express'),
     moment      = require('moment');
     db_url      = process.env.MONGOLAB_URI || 'mongodb://localhost/accesstowork',
     db          = require('monk')(db_url),
-    tog         = require(__dirname+'/../../../lib/tog.js'),
+    tog         = require(__dirname+'/../../../../lib/tog.js'),
     router      = express.Router();
 
-router.get('/staffui/all/', function(req,res,next)
+var url_root = '/staffui/v1';
+
+router.get(url_root+'/all/', function(req,res,next)
 {
   var order = req.params.order;
 
@@ -26,18 +28,18 @@ router.get('/staffui/all/', function(req,res,next)
       req.data.counts = _.countBy(json,function(item){
         return item.status.awaiting;
       });
-      req.url = '/staffui/all/';
+      req.url = url_root+'/all/';
       next();
     } else res.send('Empty data!');
   });
 });
 
-router.get('/staffui/adviser/:id?', function(req,res,next)
+router.get(url_root+'/adviser/:id?', function(req,res,next)
 {
   var id = req.params.id;
   if (typeof id == "undefined")
   {
-    res.redirect('/staffui/adviser/'+Math.floor(Math.random()*30));
+    res.redirect(url_root+'/adviser/'+Math.floor(Math.random()*30));
   }
 
 
@@ -61,12 +63,12 @@ router.get('/staffui/adviser/:id?', function(req,res,next)
     req.data = req.data || {};
     req.data.number = number;
     req.data.claimants  = _.sortBy(data,'timet').reverse();
-    req.url = '/staffui/adviser/';
+    req.url = url_root+'/adviser/';
     next();
   });
 });
 
-router.get('/staffui/edit/claimant/:id?/timeline', function(req,res,next)
+router.get(url_root+'/edit/claimant/:id?/timeline', function(req,res,next)
 {
   var id = req.params.id;
   if (typeof id == "undefined") res.send('Need an id in the URL please!')
@@ -82,7 +84,7 @@ router.get('/staffui/edit/claimant/:id?/timeline', function(req,res,next)
 });
 
 
-router.get('/staffui/edit/claimant/:id?/', function(req,res,next)
+router.get(url_root+'/edit/claimant/:id?/', function(req,res,next)
 {
   var id = req.params.id;
   if (typeof id == "undefined") res.send('Need an id in the URL please!')
@@ -97,12 +99,12 @@ router.get('/staffui/edit/claimant/:id?/', function(req,res,next)
     req.data = req.data || {};
     req.data.claimant = data;
     req.data.advisers = advisers;
-    req.url = '/staffui/edit_claimant';
+    req.url = url_root+'/edit_claimant';
     next();
   });
 });
 
-router.post('/staffui/edit/claimant/', function(req,res,next)
+router.post(url_root+'/edit/claimant/', function(req,res,next)
 {
 
     var advisers = JSON.parse(fs.readFileSync(__dirname + "/data-advisers.json").toString());
@@ -115,12 +117,12 @@ router.post('/staffui/edit/claimant/', function(req,res,next)
       data.adviser = adviser;
       store.updateById(data._id,data, function(err,doc)
       {
-        res.redirect('/staffui/edit/claimant/'+data._id);
+        res.redirect(url_root+'/edit/claimant/'+data._id);
       });
     });
 });
 
-router.get('/staffui/claimant/:id?/:page?/', function(req,res,next)
+router.get(url_root+'/claimant/:id?/:page?/', function(req,res,next)
 {
   var id = req.params.id;
   if (typeof id == "undefined") res.send('Need an id in the URL please!')
@@ -138,7 +140,7 @@ router.get('/staffui/claimant/:id?/:page?/', function(req,res,next)
     req.data.timeline = timeline;
     req.data.thispage = page;
     req.data.claim = _.sample(claims);
-    req.url = '/staffui/claimant_'+page;
+    req.url = url_root+'/claimant_'+page;
     next();
   });
 
@@ -150,7 +152,7 @@ router.get('/staffui/claimant/:id?/:page?/', function(req,res,next)
 
 });
 
-router.get('/staffui/db',function(req,res,next)
+router.get(url_root+'/db',function(req,res,next)
 {
   // var stati = JSON.parse(fs.readFileSync(__dirname + "/data-stati.json").toString());
 
@@ -199,7 +201,7 @@ router.get('/staffui/db',function(req,res,next)
   One time only to transfer data from file into MongoDB
   Commented so it doesn't get hit accidentally again.
 */
-// router.get('/staffui/db',function(req,res,next)
+// router.get(url_root+'/db',function(req,res,next)
 // {
 //   // res.send('fish');
 //   var store = db.get('customers');

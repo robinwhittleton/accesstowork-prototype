@@ -119,7 +119,7 @@ if (typeof(routes) != "function") {
   app.use(require(__dirname + '/app/views/coc/routes.js'));    // these have to come first.
   app.use(require(__dirname + '/app/routes.js'));    // these have to come first.
   app.use(require(__dirname + '/app/legacy-routes.js'));    // these have to come first.
-  app.use(require(__dirname + '/app/views/staffui/routes.js'));  // these have to come first.
+  app.use(require(__dirname + '/app/views/staffui/v1/routes.js'));  // these have to come first.
   app.use(require(__dirname + '/app/views/staffui/mvp/routes.js'));  // these have to come first.
   app.use(require(__dirname + '/app/views/feedback/routes.js'));  // these have to come first.
   app.use(require(__dirname + '/app/views/offer/routes.js'));  // these have to come first.
