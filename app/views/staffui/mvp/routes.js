@@ -14,7 +14,7 @@ var store = db.get('cases');
 
 router.get('/staffui/mvp/login', function(req,res,next)
 {
-  store.find().then(function(cases)
+  store.find({}).then(function(cases)
   {
     req.data = req.data || {};
     req.data.advisers = _.uniq(_.pluck(cases,"adviser"),false,function(p){ return p.id });;
@@ -33,11 +33,12 @@ router.get('/staffui/mvp/', function(req,res,next)
   });
 });
 
-router.get('/staffui/mvp/show/disc', function(req,res,next)
+router.get('/staffui/mvp/show/closed/', function(req,res,next)
 {
   store.find({"open":false}).then(function(cases)
   {
     req.data = req.data || {};
+    req.data.title = "Closed (in DISC)";  
     req.data.cases = cases;  
     req.url = '/staffui/mvp/';
     next();  
@@ -105,7 +106,7 @@ router.post('/staffui/mvp/customer/adviser/update', function(req,res,next)
   var aid = parseInt(req.body.adviser_id);
   var advisers = JSON.parse(fs.readFileSync(__dirname + "/_data/advisers.json").toString());
   var newad = _.findWhere(advisers,{"id":aid});  
-  store.findOne({"_id":cid},function(err,the_case)
+  store.findOne({"_id":cid}).then(function(the_case)
   {
     the_case.adviser = newad;
     store.update({"_id":the_case._id},the_case,function(err,doc)
@@ -124,7 +125,7 @@ router.post('/staffui/mvp/customer/disc/update',function(req,res,next)
   var cid = req.body.case_id;
   var open = req.body.open;
   
-  store.findOne({"_id":cid},function(err,the_case)
+  store.findOne({"_id":cid}).then(function(the_case)
   {
     the_case.open = open;
     store.update({"_id":the_case._id},the_case,function(err,doc)
@@ -143,7 +144,7 @@ router.post('/staffui/mvp/customer/cat/update', function(req,res,next)
   var cid = req.body.case_id;
   var cat = req.body.category;
 
-  store.findOne({"_id":cid},function(err,the_case)
+  store.findOne({"_id":cid}).then(function(the_case)
   {
     the_case.allocation = cat;
     store.update({"_id":the_case._id},the_case,function(err,doc)
@@ -162,7 +163,7 @@ router.get('/staffui/mvp/customer/:id/:what?', function(req,res,next)
   var id = req.params.id;
   var what = (req.params.what) ? '_'+req.params.what : '_application';
   
-  store.findOne({"_id":id},function(err,cases)
+  store.findOne({"_id":id}).then(function(cases)
   {
     var advisers = JSON.parse(fs.readFileSync(__dirname + "/_data/advisers.json").toString());  
     

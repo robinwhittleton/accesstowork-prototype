@@ -12,7 +12,7 @@ var url_root = '/staffui/v1';
 
 router.get('/staffui/all',function(req,res,next)
 {
-  res.redirect('/staffui/v1/all');
+  res.redirect(url_root+'/all');
 });
 
 router.get(url_root+'/all/', function(req,res,next)
@@ -23,7 +23,7 @@ router.get(url_root+'/all/', function(req,res,next)
   else order = 'timet';
 
   var store = db.get('customers');
-  store.find({},function(err,json)
+  store.find({}).then(function(json)
   {
     if (json)
     {
@@ -46,11 +46,8 @@ router.get(url_root+'/adviser/:id?', function(req,res,next)
   {
     res.redirect(url_root+'/adviser/'+Math.floor(Math.random()*30));
   }
-
-
-
   var store = db.get('customers');
-  store.find({},function(err,json)
+  store.find({}).then(function(json)
   {
     var data = _.filter(json, function(el)
     {
@@ -81,7 +78,7 @@ router.get(url_root+'/edit/claimant/:id?/timeline', function(req,res,next)
   var timeline = JSON.parse(fs.readFileSync(__dirname + "/data-timeline.json").toString());
 
   var store = db.get('customers');
-  store.findById(id, function(err,data)
+  store.findOne({"_id":id}).then(function(data)
   {
     data.timeline = _.sample(timeline,10);
     res.send(tog(data));
@@ -97,7 +94,7 @@ router.get(url_root+'/edit/claimant/:id?/', function(req,res,next)
   var advisers = JSON.parse(fs.readFileSync(__dirname + "/data-advisers.json").toString());
 
   var store = db.get('customers');
-  store.findById(id, function(err,data)
+  store.findOne({"_id":id}).then(function(data)
   {
     // res.send(util.tog(data));
 
@@ -116,11 +113,11 @@ router.post(url_root+'/edit/claimant/', function(req,res,next)
     var adviser = _.findWhere(advisers, {"id":parseInt(req.body.adviser)});
 
     var store = db.get('customers');
-    store.findById(req.body._id, function(err,data)
+    store.findOne({"_id":req.body._id}).then(function(data)
     {
       data.status = req.body.status;
       data.adviser = adviser;
-      store.updateById(data._id,data, function(err,doc)
+      store.update({"_id":data._id},data, function(err,doc)
       {
         res.redirect(url_root+'/edit/claimant/'+data._id);
       });
@@ -136,7 +133,7 @@ router.get(url_root+'/claimant/:id?/:page?/', function(req,res,next)
   if (typeof page == "undefined") page = 'timeline';
 
   var store = db.get('customers');
-  store.findById(id, function(err,data)
+  store.findOne({"_id":id}).then(function(data)
   {
     var timeline = JSON.parse(fs.readFileSync(__dirname + "/data-timeline.json").toString());
     var claims = JSON.parse(fs.readFileSync(__dirname + "/data-claims.json").toString());
@@ -162,7 +159,7 @@ router.get(url_root+'/db',function(req,res,next)
   // var stati = JSON.parse(fs.readFileSync(__dirname + "/data-stati.json").toString());
 
   var store = db.get('customers');
-  store.find({}, function(err,docs)
+  store.find({}).then(function(err,docs)
   {
     var out = '<pre>';
     // out = util.inspect(stati,{depth:10})+"<br /><br />";
@@ -190,7 +187,7 @@ router.get(url_root+'/db',function(req,res,next)
       // output
       out += util.inspect(el,{depth:10})+"\n\n";
 
-      store.updateById(el._id,el,function(err,doc)
+      store.update({"_id":el._id},el,function(err,doc)
       {
           // output
           out += util.inspect([err,doc],{depth:10})+"\n\n";

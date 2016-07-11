@@ -5,7 +5,7 @@
 {{ cases | log }}
 
 {% if by %}
-  <h1 class="heading-xlarge" style="margin-bottom:0">{{ by | capitalize }} unallocated</h1>
+  <h1 class="heading-xlarge" style="margin-bottom:0">{{ by | capitalize }} – Open</h1>
   <div class="show_only list_{{ by }}">
     <ul>
       <li><a>show only:</a></li>
@@ -15,6 +15,10 @@
       {% endfor %}
     </ul>
   </div>
+{% endif %}
+
+{% if title %}
+  <h1 class="heading-xlarge">{{ title }}</h1>
 {% endif %}
 
 <div class="grid-row">
