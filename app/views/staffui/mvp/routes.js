@@ -16,8 +16,8 @@ router.get('/staffui/mvp/login', function(req,res,next)
 {
   store.find({}).then(function(cases)
   {
-    req.data = req.data || {};
-    req.data.advisers = _.uniq(_.pluck(cases,"adviser"),false,function(p){ return p.id });;
+    req.data = req.data || {};    
+    req.data.advisers = JSON.parse(fs.readFileSync(__dirname + "/_data/advisers.json").toString());
     next(); 
   });
 });
@@ -84,12 +84,8 @@ router.get('/staffui/mvp/adviser/:id', function(req,res,next)
 {
   var id = parseInt(req.params.id);
   
-  store.find({"open":true}).then(function(cases)
+  store.find({"adviser.id":id,"open":true}).then(function(cases)
   {
-    cases = _.filter(cases,function(el)
-    {
-        return el.adviser.id == id && el.open;
-    });
     req.data = req.data || {};
     req.data.cases = cases;
     req.url = '/staffui/mvp/adviser/';

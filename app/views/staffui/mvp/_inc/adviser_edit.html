@@ -7,7 +7,7 @@
     {
       e.preventDefault();
       $(this).closest('.shower').toggleClass('editting');
-      $('.updated').show();
+      // $('.updated').show();
     });
     
     $('#disc_toggle').on('click',function(e)
@@ -48,10 +48,15 @@
         dataType: 'json',
         complete:  function(data,status,xhr) {
           var d = data.responseJSON; 
-          console.log(d); 
           $('#ad_show').toggleClass('editting');
-          $('#ad_show .show').html('<a href="/staffui/mvp/adviser/'+d.id+'">'+d.name+' '+d.surname+'</a>');
-          $('#ad_show .show').append('<a href="#" class="editter">edit</a>');
+          if (ad_id >= 0)
+          {
+            $('#ad_show .show').html('<a href="/staffui/mvp/adviser/'+d.id+'">'+d.name+' '+d.surname+'</a>');
+            $('#ad_show .show').append('<a href="#" class="editter">edit</a>');
+          } else {
+            $('#ad_show .show').html('<a href=""></a>');
+            $('#ad_show .show').append('<a href="#" class="editter">edit</a>');
+          }
         }});
     });
     

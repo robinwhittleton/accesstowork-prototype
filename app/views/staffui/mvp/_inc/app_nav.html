@@ -21,7 +21,7 @@
     </div>
     <div class="edit">
       <select class="login" id="edit_adviser">
-        
+          <option value="-1">- misallocated -</option>
         {% for item in advisers %}
           <option value="{{item.id}}" {% if item.id == case.adviser.id %}selected="selected"{% endif %} >{{item.name}} {{item.surname}}</option>
         {% endfor %}
