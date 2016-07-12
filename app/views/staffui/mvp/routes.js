@@ -27,7 +27,20 @@ router.get('/staffui/mvp/', function(req,res,next)
   store.find().then(function(cases)
   {
     req.data = req.data || {};
+    req.data.by = 'all';
     req.data.cases = cases;  
+    next();  
+  });
+});
+
+router.get('/staffui/mvp/show/closed', function(req,res,next)
+{
+  store.find({"open":false}).then(function(cases)
+  {
+    req.data = req.data || {};
+    req.data.cases = cases;  
+    req.data.title = "Closed (in DISC)"; 
+    req.url = '/staffui/mvp/';
     next();  
   });
 });
