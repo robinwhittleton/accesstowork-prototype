@@ -49,7 +49,7 @@
         complete:  function(data,status,xhr) {
           var d = data.responseJSON; 
           $('#ad_show').toggleClass('editting');
-          $('#ad_show .show').html('<a href="/staffui/mvp/adviser/'+d._id+'">'+d.name+' '+d.surname+'</a>');
+          $('#ad_show .show').html('<a href="/staffui/mvp/adviser/'+d.id+'">'+d.name+' '+d.surname+'</a>');
           $('#ad_show .show').append('<a href="#" class="editter">edit</a>');
         }});
     });
