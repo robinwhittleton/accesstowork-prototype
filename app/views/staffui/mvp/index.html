@@ -4,17 +4,22 @@
 
 {{ cases | log }}
 
-<h1 class="heading-xlarge" style="margin-bottom:0">All unallocated</h1>
+{% if by %}
+  <h1 class="heading-xlarge" style="margin-bottom:0">{{ by | capitalize }} – Open</h1>
+  <div class="show_only list_{{ by }}">
+    <ul>
+      <li><a>show only:</a></li>
+      {% set fish = ['all','deaf','hidden','large','self','director','visual','unknown'] %}
+      {% for item in fish %}
+        <li class="item_{{ item }}"><a href="/staffui/mvp/groupby/{{ item }}">{{ item }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
 
-<div class="show_only list_{{ by }}">
-  <ul>
-    <li><a>show only:</a></li>
-    {% set fish = ['all','deaf','hidden','large','self','director','visual','unknown'] %}
-    {% for item in fish %}
-      <li class="item_{{ item }}"><a href="/staffui/mvp/groupby/{{ item }}">{{ item }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+{% if title %}
+  <h1 class="heading-xlarge">{{ title }}</h1>
+{% endif %}
 
 <div class="grid-row">
   <div class="column-full">    
