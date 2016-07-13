@@ -1,28 +1,28 @@
 [
   {
-    "name": "Noah",
-    "surname": "Dubois",
+    "name": "John",
+    "surname": "Goldsmith",
     "gender": "male",
     "region": "France",
     "id": 0
   },
   {
-    "name": "Salomé",
-    "surname": "Jean",
+    "name": "Sarah",
+    "surname": "Williams",
     "gender": "female",
     "region": "France",
     "id": 1
   },
   {
-    "name": "Elsa",
-    "surname": "Millet",
+    "name": "Kim",
+    "surname": "Cox",
     "gender": "female",
     "region": "France",
     "id": 2
   },
   {
-    "name": "Maëlle",
-    "surname": "Lacroix",
+    "name": "Nick",
+    "surname": "Young",
     "gender": "female",
     "region": "France",
     "id": 3
