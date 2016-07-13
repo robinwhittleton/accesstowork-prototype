@@ -1,7 +1,7 @@
 var express     = require('express'),
     fs          = require("fs"),
     _           = require("underscore"),
-    moment      = require('moment');
+    moment      = require('moment'),
     router      = express.Router();
 
 var json = JSON.parse(fs.readFileSync(__dirname + "/feedback.json").toString());
