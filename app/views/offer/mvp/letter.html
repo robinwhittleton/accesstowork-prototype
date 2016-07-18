@@ -50,24 +50,24 @@
 
       {% for item in user['hearing']['deaf_need'] | arrayify %}
         <p>You said you need {{ item }}.</p>
-        <p>To help with this: <b>{{ deafoffers[loop.index0] }}</b></p>
+        <p>To help you with this: <b>{{ deafoffers[loop.index0] }}</b></p>
       {% endfor %}
 
     {% endif %}
 
     {% if user['travel']['help-travelling'] == 'Yes' %}
       <p>You said you can't get to or from work OK.</p>
-      <p>To help with this: <b>{{ user.offers.travel }}</b></p>
+      <p>Your grant will pay for: <b>{{ user.offers.travel }}</b></p>
     {% endif %}
 
     {% if user['during_work']['help-during-work'] == "whole" %}
       <p>You said: {{ user['during_work']['whole-day-desc'] }}.</p>
-      <p>To help with this: <b>{{ user.offers.daywork | safe }}</b></p>
+      <p>Your grant will pay for: <b>{{ user.offers.daywork | safe }}</b></p>
     {% elif user['during_work']['help-during-work'] == "part" %}      
       {% for item in user['during_work']['during_work_tasks'] | arrayify %}
         {% set workoffers = user.offers.work | arrayify %}
         <p>You said you struggle with {{ item | safe  }}.</p>
-        <p>To help with this: <b>{{ workoffers[loop.index0] | safe }}</b></p>        
+        <p>Your grant will be for: <b>{{ workoffers[loop.index0] | safe }}</b></p>        
       {% endfor %}
     {% endif %}
     
