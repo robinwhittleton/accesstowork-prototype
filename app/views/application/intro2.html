@@ -1,6 +1,6 @@
 {% extends "application/layout.html" %}
 
-{% block page_title %}Can you get an Access to Work grant?{% endblock %}
+{% block page_title %}Apply for an Access to Work grant{% endblock %}
 
 {% block content %}
 
@@ -12,55 +12,50 @@
 
 <section class="column-two-thirds">
 
-  <h1 class="form-title heading-xlarge">Apply for an Access to Work grant</h1>
+  <h1 class="form-title heading-xlarge">Access to Work</h1>
 
-  <nav class="intro-nav">
-  	<ol>
-	  	<li class="font-xsmall">
-        <span class="part-number">1.</span>
-        <a href="index" title="Part 1: Overview">Overview</a>
-      </li>
-      <li class="font-xsmall">
-        <span class="part-number">3.</span>
-        <a href="intro3" title="Part 3: What you'll get">What you'll get</a>
-      </li>
-      <li class="active font-xsmall">
-        <span class="part-number">2.</span>
-        <span>Who can apply</span>
-      </li>
-      <li class="font-xsmall">
-        <span class="part-number">4.</span>
-        <a href="intro4" title="Part 4: How to claim">Apply</a>
-      </li>
-    </ol>
-  </nav>
+
+      <nav class="intro-nav">
+        <ol>
+          <li class="font-xsmall">
+            <span class="part-number">1.</span>
+            <a href="index" title="Part 1: Overview">Overview</a>
+          </li>
+          <li class="font-xsmall">
+            <span class="part-number">3.</span>
+            <a href="intro3" title="Part 3: Apply">Apply</a>
+          </li>
+          <li class="active font-xsmall">
+            <span class="part-number">2.</span>
+            <span>What you'll get</span>
+          </li>
+          <li class="font-xsmall">
+            <span class="part-number">2.</span>
+            <a href="intro4" title="Part 4: Report changes">Report changes</a>
+          </li>
+        </ol>
+      </nav>
 
   <div class="intro-content">
-	 <h2 class="heading-medium">2. Eligibility</h2>
-	 <p>You can only apply for an Access to Work grant if you live and work in England, Scotland or Wales. There's a different system in <a href="http://www.nidirect.gov.uk/access-to-work-practical-help-at-work">Northern Ireland.</a></p>
-
-    <h2 class="heading-medium">Your condition</h2>
-    <p>Your disability or health condition must make it more difficult to do your job or get to work.</p>
-    <h2 class="heading-medium">Other benefits</h2>
-    <p>You might not get if you already:</p>
+    <h2 class="heading-medium">2. What you'll get</h2>
+    <p>Access to Work can pay for things like:</p>
     <ul class="list-bullet">
-      <li>Incapacity Benefit</li>
-      <li>Job Seekers Allowance</li>
-      <li>Employment and Support Allowance</li>
-      <li>Severe Disability Allowance</li>
-      <li>Income Support</li>
-      <li>National Insurance Credits</li>
+      <li>things to help you do your job, eg computers or software</li>
+      <li>special furniture, eg chairs or ramps</li>
+      <li>travel to and from work</li>
+      <li>a support worker, eg a sign language (BSL) interpreter</li>
+      <li>training for your colleagues to help them understand your disability</li>
     </ul>
-    <h2 class="heading-medium">Changing jobs</h2>
-    <p>If you get a grant for travel costs you'll have to apply for a new grant if you change your place of work.</p>
-    <p>You may be able to take things that Access to Work has already paid for with you if you change jobs.</p>
-  </div><!-- .intro-content -->
+    <h2 class="heading-medium">Maximum grant</h2>
+    <p>You'll get as much help as you need to do your job up to a cost of &pound;41,400 per year.</p>
+    <p>If you already have Access to Work and it's worth more it'll be reduced in April 2018.</p>
+  </div>
 
- 	<nav class="intro-next">
-	  <a href="index" class="first" rel="next" title="Navigate to previous part">Previous<span class="pagination-part-title">Overview</span></a>
-    <a href="intro3" rel="next" title="Navigate to next part">Next<span class="pagination-part-title">What you'll get</span></a>
+  <nav class="intro-next">
+    <a href="index" class="first" rel="next" title="Navigate to previous part">Previous<span class="pagination-part-title">Overview</span></a>
+    <a href="intro3" rel="next" title="Navigate to next part">Next<span class="pagination-part-title">Apply</span></a>
   </nav>
-   
+
 </section>
 
 {% include "includes/elsewhere.html" %}
@@ -70,4 +65,3 @@
 </main>
 
 {% endblock %}
-
