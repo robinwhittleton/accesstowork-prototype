@@ -2,11 +2,11 @@ var express     = require('express'),
     fs          = require("fs"),
     util        = require("util"),
     merge       = require("merge"),
-    router      = express.Router(),
     db_url      = process.env.MONGOLAB_URI || 'mongodb://localhost/accesstowork',
     db          = require('monk')(db_url),
     versions    = require(__dirname + '/../lib/versions.js'),
-    user_data   = require(__dirname + '/../lib/user_data.js');
+    user_data   = require(__dirname + '/../lib/user_data.js'),
+    router      = express.Router();
 
 /*
   Special route for the index page.

@@ -8,15 +8,15 @@ var path          = require('path'),
     cookieParser  = require('cookie-parser'),
     session       = require('express-session'),
     moment        = require('moment'),
-    port          = (process.env.PORT || 3000),
     app           = express(),
-    user_data     = require(__dirname + '/lib/user_data.js'),
-    routes        = require(__dirname + '/lib/default-routes.js'),
     // Grab environment variables specified in Procfile or as Heroku config vars
-    username = process.env.USERNAME,
-    password = process.env.PASSWORD,
-    env = process.env.NODE_ENV || 'development',
-    sessionSecret = process.env.SESSION_SECRET || 'sessionsecret';
+    port          = process.env.PORT || 3000,
+    username      = process.env.USERNAME,
+    password      = process.env.PASSWORD,
+    env           = process.env.NODE_ENV || 'development',
+    sessionSecret = process.env.SESSION_SECRET || 'sessionsecret',
+    user_data     = require(__dirname + '/lib/user_data.js'),
+    routes        = require(__dirname + '/lib/default-routes.js');
 
 /*
   Authenticate against the environment-provided credentials,
