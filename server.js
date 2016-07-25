@@ -18,6 +18,8 @@ var path          = require('path'),
     user_data     = require(__dirname + '/lib/user_data.js'),
     routes        = require(__dirname + '/lib/default-routes.js');
 
+global.appRoot = __dirname;
+
 /*
   Authenticate against the environment-provided credentials,
   if running the app in production (Heroku, effectively)
@@ -119,13 +121,14 @@ if (typeof(routes) != "function") {
   routes.bind(app);
 } else {
   console.log('Using routes');
-  app.use(require(__dirname + '/app/views/coc/routes.js'));    // these have to come first.
-  app.use(require(__dirname + '/app/routes.js'));    // these have to come first.
-  app.use(require(__dirname + '/app/legacy-routes.js'));    // these have to come first.
+  app.use("/application", require(__dirname + '/app/views/application/routes.js'));    // these have to come first.
   app.use(require(__dirname + '/app/views/staffui/v1/routes.js'));  // these have to come first.
   app.use(require(__dirname + '/app/views/staffui/mvp/routes.js'));  // these have to come first.
   app.use(require(__dirname + '/app/views/feedback/routes.js'));  // these have to come first.
   app.use(require(__dirname + '/app/views/offer/routes.js'));  // these have to come first.
+  app.use(require(__dirname + '/app/views/coc/routes.js'));    // these have to come first.
+  app.use(require(__dirname + '/app/legacy-routes.js'));    // these have to come first.
+  app.use(require(__dirname + '/app/routes.js'));    // these have to come first.
   app.use(routes);        // these come last because they mop up!
 }
 
