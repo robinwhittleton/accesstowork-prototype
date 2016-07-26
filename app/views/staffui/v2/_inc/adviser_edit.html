@@ -18,7 +18,7 @@
       var disc = nub.text() == 'Yes';
 
       $.ajax({
-        url: '/staffui/mvp/customer/disc/update',
+        url: '/{{TEMPLATE_FOLDER}}/customer/disc/update',
         method: "POST",
         contentType: 'application/json',
         data: JSON.stringify({"open":disc,"case_id":CASE_ID}),

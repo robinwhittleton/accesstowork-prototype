@@ -7,7 +7,7 @@
   
   <p>Who are you?</p>
   <div class="form-group">
-    <select class="login" id="login">
+    <select class="dropdown" id="login">
       {% for item in advisers %}
         <option value="{{item.id}}">{{item.name}} {{item.surname}}</option>
       {% endfor %}

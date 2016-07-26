@@ -74,6 +74,12 @@ nunjucks.setup({
   env.addFilter('formatDate', function(str,format) {
       return moment(str).format(format);
   });
+  env.addFilter('randarr', function(array) {
+      return _.sample(array);
+  });
+  env.addFilter('randnum', function(str,low,high) {
+      return low + Math.floor(Math.random()*(1+high-low));
+  });
 });
 
 

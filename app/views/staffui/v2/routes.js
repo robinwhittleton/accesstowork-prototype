@@ -12,6 +12,12 @@ var express     = require('express'),
 
 var store = db.get('cases');
 
+function loadAdvisers()
+{
+  var adviser_data = __dirname + "/../mvp/_data/advisers.json";
+  return JSON.parse(fs.readFileSync(adviser_data).toString());
+}
+
 router.all('*',function(req,res,next)
 {
   req.data = req.data || {};
@@ -21,18 +27,18 @@ router.all('*',function(req,res,next)
 
 router.get('/login', function(req,res,next)
 {
-  store.find({}).then(function(cases)
-  {
-    req.data.advisers = JSON.parse(fs.readFileSync(__dirname + "/_data/advisers.json").toString());
-    next();
-  });
+  req.data.advisers = loadAdvisers();
+  next();
+  // store.find({}).then(function(cases)
+  // {
+  //
+  // });
 });
 
 router.get('/', function(req,res,next)
 {
   store.find({"open":true}).then(function(cases)
   {
-
     req.data.by = "all";
     req.data.cases = cases;
     next();
@@ -75,12 +81,26 @@ router.get('/groupby/:by', function(req,res,next)
 /*
   LIST ALL ADVISERS
 */
-router.get('/advisers/', function(req,res,next)
+router.get('/advisers/:team?', function(req,res,next)
 {
-  var advisers = JSON.parse(fs.readFileSync(__dirname + "/_data/advisers.json").toString());
-  req.data.advisers = advisers;
-  next();
-});
+  var team = req.params.team
+  
+  if (team) {
+    var advisers = _.groupBy(loadAdvisers(),"team")[team]
+    req.data.teamname = team+" team§";
+    req.url = '/advisers'
+  } else {
+    var advisers = loadAdvisers()
+    req.data.teamname = "All Advisers";
+  }
+  
+  // res.send(tog(advisers[team]))
+  
+  
+  req.data.advisers = advisers
+  
+  next()
+})
 
 /*
   ADVISER CASES PAGE
@@ -93,7 +113,7 @@ router.get('/adviser/:id', function(req,res,next)
   {
 
     req.data.cases = cases;
-    req.url = '/adviser/';
+    req.url = '/adviser';
     next();
   });
 });
@@ -105,7 +125,9 @@ router.post('/customer/adviser/update', function(req,res,next)
 {
   var cid = req.body.case_id;
   var aid = parseInt(req.body.adviser_id);
-  var advisers = JSON.parse(fs.readFileSync(__dirname + "/_data/advisers.json").toString());
+  
+  var advisers = loadAdvisers();
+  
   var newad = _.findWhere(advisers,{"id":aid});
   store.findOne({"_id":cid}).then(function(the_case)
   {
@@ -166,17 +188,30 @@ router.get('/customer/:id/:what?', function(req,res,next)
 
   store.findOne({"_id":id}).then(function(cases)
   {
-    var datafile = appRoot + "/app/views/staffui/mvp/_data/advisers.json";
-    var advisers = JSON.parse(fs.readFileSync(datafile).toString());
-  
-
-    req.data.advisers = advisers;
+    req.data.advisers = loadAdvisers();
     // req.data.case = _.findWhere(cases, {'_id':String(id)});
     req.data.case = cases;
-    
+
     req.url = '/customer'+what+'/';
     next();
   });
+});
+
+router.get('/edit',function(req,res,next)
+{
+  // var out = [];
+  // store.find({"open":true}).then(function(cases)
+  // {
+  //   _.each(cases, function(el,i)
+  //   {
+  //     cases[i].team = _.sample(['deaf','hidden','large','self','director','visual','pan']);
+  //     store.updateById(el._id, cases[i], function()
+  //     {
+  //       out.push(cases[i])
+  //     });
+  //   })
+  //   res.send(tog(out));
+  // })
 });
 
 module.exports = router;

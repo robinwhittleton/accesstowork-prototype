@@ -3,7 +3,7 @@
 {% block staff_content %}
 
   {{ case | log }}
-  <div class="grid-row" style="margin:60px 0;">
+  <div class="grid-row">
     
     <div class="column-third" style="padding-right:30px">
       {% set chosen  = "application" %}
@@ -11,9 +11,10 @@
     </div><!-- column -->
     
     <div class="column-two-thirds">
-      
+            
       {% include TEMPLATE_FOLDER + "/_inc/app_top.html" %}
-        
+      
+      <div class="box">
       <table>
         {% if case.job_how_harder %}
         <tr>
@@ -31,7 +32,7 @@
         {% endif %}
         {% if  case.travel_how_harder %}
         <tr>
-          <td class="bold nobr">How is your job harder?</td>
+          <td class="bold nobr">How is your travel harder?</td>
           <td class="cust_info">{{ case.travel_how_harder }}</td>
         </tr>
         <tr>
@@ -44,6 +45,7 @@
         </tr>
         {% endif %}
       </table>
+      </div><!-- box -->
     </div><!-- column -->
   </div><!-- row -->
 

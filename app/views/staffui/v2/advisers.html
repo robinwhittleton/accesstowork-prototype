@@ -4,20 +4,46 @@
 
   {{ advisers | log }}
   
-  <div class="grid-row" style="margin:60px 0;">
-    <div class="column-third">
-    {% for item in advisers %}
-    <ul>
-      <li>
-        <a href="/{{TEMPLATE_FOLDER}}/adviser/{{ item.id }}">{{ item.name }} {{ item.surname }}</a>
-      </li>
-    </ul>
-    {% endfor %}
-    </div>
-  </div>
+  <h2 class="heading-large">{{ teamname | capitalize }}</h2>
+  
+  <div class="grid-row">
+    <div class="column-full">
+      <div class="box">
+      <table style="margin-bottom:60px" class="zebra">
+        <thead>
+          <tr>
+            <th style="padding-left:15px;">Adviser</th>
+            <th>Yesterday</th>
+            <th>Added today</th>
+            <th>Now</th>
+          </tr>
+        </thead>
+      {% for item in advisers %}
+        <tr class="click_row" data-id="{{ item.id }}">
+          <td style="padding-left:10px">{{ item.name }} {{ item.surname }}</td>
+          <td>{{ "" | randnum(15,20) }}</td>
+          <td>+ {{ "" | randnum(1,5) }}</td>
+          <td>{{ "" | randnum(15,30) }}</td>
+        </tr>
+        {# {{ item | log }} #}
+      {% endfor %}
+      </table>
+    </div><!-- box -->
+    </div><!-- column -->
+  </div><!-- row -->
     
 {% endblock %}
 
 {% block page_script %}
-
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    $('.click_row').on('click',function(e)
+    {
+      e.preventDefault();
+      var id = $(this).data('id');
+      window.location.href = "/{{TEMPLATE_FOLDER}}/adviser/"+id;
+    });
+  });
+</script>
 {% endblock %}

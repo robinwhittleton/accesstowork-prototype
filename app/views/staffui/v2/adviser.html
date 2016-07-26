@@ -2,34 +2,35 @@
 
 {% block staff_content %}
 
-  {# {{ cases | log }} #}
+  {{ cases | log }}
 
   <h2 class="heading-xlarge">Adviser: {{ cases[0].adviser.name }} {{ cases[0].adviser.surname }}</h2>
 
   <div class="grid-row">
     <div class="column-full">
 
-      <table style="margin-bottom:60px;">
+      <table style="margin-bottom:60px;" class="zebra">
         <thead>
           <tr>
             <th style="padding-left:15px;">Name</th>
-            <th>Allocation</th>
+            <th>Team</th>
             {# <th width="30%">Condition</th> #}
-            <th>Job</th>
-            <th class="numeric">Date</th>
+            <th>Condition</th>
+            <th class="numeric">Initial contact</th>
           </tr>
         </thead>
-      {% for i in range(0, cases.length) %}
-        {% set item  = cases[i] %}
-        <tr class="customer_row" data-id="{{ item._id }}">
-          <td style="padding-left:15px;" class="">{{ item.name }} {{ item.surname }}</td>
-          <td><span class="tag {{ item.allocation }}">{{ item.allocation }}</span></td>
-          {# <td>{{ item.condition }}</td> #}
-          <td>{{ item.job_title }}</td>
-          <td class="nobr numeric">{{ item.postDate | formatDate('Do MMMM YYYY') }}</td>
-        </tr>
-        {# {{ item | log }} #}
-      {% endfor %}
+        <tbody>
+          {% for i in range(0, cases.length) %}
+          {% set item  = cases[i] %}
+          <tr class="customer_row" data-id="{{ item._id }}">
+            <td style="padding-left:15px;" class="nobr">{{ item.name }} {{ item.surname }}</td>
+            <td><span class="tag {{ item.team }}">{{ item.team }}</span></td>
+            <td>{{ item.condition }}</td>
+            <td class="nobr numeric">{{ item.postDate | formatDate('Do MMMM YYYY') }}</td>
+          </tr>
+          {# {{ item | log }} #}
+          {% endfor %}
+        </tbody>
       </table>
 
     </div><!-- column -->
