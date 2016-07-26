@@ -13,18 +13,30 @@
 @import "staff/tags";
 @import "staff/oo-media";
 @import "staff/typeahead";
+@import "staff/toggler";
+@import "staff/dropdown";
+@import "staff/quote";
 
+/*
+  Helper classes.
+*/
 .govuk-blue { color:$govuk-blue; }
 .grey { color:$grey-1; }
-
+.font-xxsmall { font-size:14px; }
+.nobr { white-space:nowrap; }
+.bold { font-weight:700; }
 .btop {
   padding-top:5px;
   border-top:1px solid $grey-2;
 }
-
-.font-xxsmall {
-  font-size:14px;
+hr.rule {
+  border:0;
+  height:2px;
+  background-color:$grey-3;
+  margin:30px 0px;
 }
+
+
 
 .eligability {
   th,td {text-align:center}
@@ -49,9 +61,6 @@ table.customers {
   margin-top:30px;
 }
 
-/*
-  Bits
-*/
 .contact {
   border-top:2px solid $grey-2;
   .tag {
@@ -59,68 +68,34 @@ table.customers {
   }
 }
 
-.quote {
-  position:absolute;
-  top:12px;left:115px;
-  width:300px;
-  color:black;
-  display:none;
-  background-color:rgba(white,0.8);
-  border-radius:15px;
-  border:3px solid $govuk-blue;
-  padding:10px;
-}
-.quote:before
-{
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	right: 100%;
-	top: 15px;
-	border: 20px solid;
-	border-color: $govuk-blue $govuk-blue transparent transparent ;
-}
-.quote:after
-{
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	right: 100%;
-	top: 18px;
-	border: 16px solid;
-	border-color: white white transparent transparent ;
+.zebra {
+  .customer_row:nth-child(odd) {
+   background-color: darken($grey-4,6);
+  }
 }
 
-.nobr {
-  white-space:nowrap;
-}
-.bold {
-  font-weight:700;
-}
+
 .customer_name {
   white-space:nowrap;
   font-weight:700;
 }
+
+.click_row,
 .customer_row {
   cursor:pointer;
   &:hover {
     transition: background-color 0.2s ease;
-    background-color:$grey-3;
+    background-color: lighten($govuk-blue,60) !important;
     outline:2px solid $govuk-blue;
   }
 }
-hr.rule {
-  border:0;
-  height:2px;
-  background-color:$grey-3;
-  margin:30px 0px;
-}
+
+
+
 .show_only {
-  // margin-top:45px;
   float:right;
   margin-bottom:30px;
+  margin-top:-47px;
   border:1px solid $grey-2;
   border-width: 1px 0px;
 
@@ -178,7 +153,7 @@ hr.rule {
     display:none;
 
   }
-  .login {
+  .dropdown {
     margin:10px 15px;
   }
 }
@@ -189,70 +164,11 @@ hr.rule {
   padding-bottom:30px;
 }
 
-.login {
-  height: auto;
-  // width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
-  font-weight: 400;
-  text-transform: none;
-  padding: 5px 45px 4px 10px;
-  background-color: #fff;
-  background: #FFF url(/public/images/toggle-sprite-grey.png) no-repeat 100% -52px;
-  border: 2px solid #bfc1c3;
-  -webkit-appearance: none;
-  border-radius: 0;
-}
-
-.toggler {
-  position:relative;
-  display:block;
-  margin:15px 30px;
-  border: 2px solid #bfc1c3;
-  height:60px;
-  width:200px;
-  cursor: pointer;
-
-  .nub {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    display:block;
-    position:absolute; top:0; left:0;
-    width:50%; height:100%;
-    text-align:center;
-    font-size:24px;
-    color:white;
-    transition: transform 0.2s ease;
-    padding:5px;
-
-    .nub_inner {
-      display:block;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      padding-top:10px;
-      height:100%;
-      transition: background-color 0.5s ease, border-radius 0.5s ease;
-    }
-  }
-
-  &.toggler-off .nub {
-    transform:translate(100%,0);
-    .nub_inner {
-      background-color:$error-colour;
-      border-radius:0 5px 5px 0;
-    }
-
-  }
-  &.toggler-on .nub {
-    .nub_inner {
-      background-color:$live-colour;
-      border-radius:5px 0 0 5px;
-    }
-  }
+.box {
+  box-sizing:border-box;
+  background-color:white;
+  box-shadow:0px 1px 2px 1px rgba(black,0.1);
+  padding:10px;
+  margin-bottom:30px;
+  border-radius:3px;
 }
