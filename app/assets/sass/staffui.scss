@@ -123,15 +123,15 @@ hr.rule {
   margin-bottom:30px;
   border:1px solid $grey-2;
   border-width: 1px 0px;
-  
+
   &.list_deaf .item_deaf {background:$govuk-blue;a{color:white}}
-  
+
   li {
     float:left;
     a {
       display:inline-block;
       margin-left:5px;
-      padding:5px;  
+      padding:5px;
       &:hover {
         color:white;
         background-color:$govuk-blue;
@@ -142,12 +142,20 @@ hr.rule {
 
 .left_nav {
   li {
-    display:block;    
+    display:block;
     // margin-right:30px;
-    border-top:1px solid $grey-2;  
+    border-top:1px solid $grey-2;
     a {
-      display:inline-block;
-      padding:15px 30px;  
+      display:block;
+      padding:15px 30px;
+      text-decoration:none;
+      &.nav {
+        // background:red;
+        &.chosen {
+          background:$govuk-blue;
+          color:white;
+        }
+      }
     }
     &:hover {
       // background-color:$grey-3;
@@ -168,7 +176,7 @@ hr.rule {
   }
   .edit {
     display:none;
-    
+
   }
   .login {
     margin:10px 15px;
@@ -208,12 +216,12 @@ hr.rule {
   height:60px;
   width:200px;
   cursor: pointer;
-  
+
   .nub {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    display:block;    
+    display:block;
     position:absolute; top:0; left:0;
     width:50%; height:100%;
     text-align:center;
@@ -221,25 +229,25 @@ hr.rule {
     color:white;
     transition: transform 0.2s ease;
     padding:5px;
-    
+
     .nub_inner {
       display:block;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       padding-top:10px;
-      height:100%;      
+      height:100%;
       transition: background-color 0.5s ease, border-radius 0.5s ease;
     }
   }
-  
+
   &.toggler-off .nub {
     transform:translate(100%,0);
-    .nub_inner {      
+    .nub_inner {
       background-color:$error-colour;
       border-radius:0 5px 5px 0;
     }
-    
+
   }
   &.toggler-on .nub {
     .nub_inner {

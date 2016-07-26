@@ -11,7 +11,7 @@
   <div class="show_only list_{{ by }}">
     <ul>
       <li><a>show only:</a></li>
-      {% set fish = ['all','deaf','hidden','large','self','director','visual','unknown'] %}
+      {% set fish = ['all','deaf','hidden','large','self','director','visual','pan'] %}
       {% for item in fish %}
         <li class="item_{{ item }}"><a href="/{{TEMPLATE_FOLDER}}/groupby/{{ item }}">{{ item }}</a></li>
       {% endfor %}
@@ -30,10 +30,10 @@
       <thead>
         <tr>
           <th style="padding-left:15px;">Name</th>
-          <th>Category</th>
+          <th>Team</th>
           {# <th width="30%">Condition</th> #}
-          <th>Job</th>
-          <th class="numeric">Application Date</th>
+          <th>Condition</th>
+          <th class="numeric">Initial contact</th>
           <th class="numeric">Adviser</th>
         </tr>
       </thead>
@@ -41,8 +41,8 @@
       {% set item  = cases[i] %}
       <tr class="customer_row" data-id="{{ item._id }}">
         <td style="padding-left:15px;" class="">{{ item.name }} {{ item.surname }}</td>
-        <td><span class="tag {{ item.allocation }}">{{ item.allocation }}</span></td>
-        <td>{{ item.condition }}</td>
+        <td><span class="tag {{ item.team }}">{{ item.team }}</span></td>
+        <td>{{ item.condition | truncate(50) }}</td>
         {# <td>{{ item.job_title }}</td> #}
         <td class="nobr numeric">{{ item.postDate | formatDate('Do MMMM YYYY') }}</td>
         <td class="nobr numeric">{{ item.adviser.name }} {{ item.adviser.surname }}</td>

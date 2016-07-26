@@ -6,7 +6,7 @@
   color:white;
   background-color:$grey-1;
   border-radius:5px;
-  margin-left:5px;
+  // margin-left:5px;
   min-width:50px;
   text-align:center;
 
@@ -33,13 +33,13 @@
   &.customer {background-color:$govuk-blue}
   &.qaf {background-color:$discovery-colour}
   
-  &.deaf {background-color:$purple}
-  &.hidden {background-color:$brown;visibility:visible;}
+  &.deaf {background-color:$light-blue}
+  &.hidden {background-color:$orange;visibility:visible;}
   &.large {background-color:$fuschia}
   &.self {background-color:$grass-green}
   &.director {background-color:$green}
   &.visual {background-color:$mellow-red}
-  &.unknown {background-color:$grey-1}
+  &.pan {background-color:$pink}
 
   &.waiting_assessment,
   &.waiting_employer,
