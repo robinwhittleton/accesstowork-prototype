@@ -6,6 +6,7 @@
   <div class="grid-row" style="margin:60px 0;">
 
     <div class="column-third">
+      {% set chosen  = "job" %}
       {% include TEMPLATE_FOLDER + "/_inc/app_nav.html" %}
     </div><!-- column -->
 
@@ -39,15 +40,17 @@
         <div class="column-half">
           <p>
             <span class="font-xsmall">Started</span><br />
-            <span class="bold-medium">More than 6 months ago</span>
+            <span class="bold-medium">
+              {{ ["More than 6 weeks ago","1st June 2016","7th July 2016","8th August 2016"] | randarr }}
+            </span>
           </p>
           <p>
             <span class="font-xsmall">Days</span><br />
-            <span class="bold-medium">5 days a week</span>
+            <span class="bold-medium">{{ '' | randnum(1,5) }} days a week</span>
           </p>
           <p>
             <span class="font-xsmall">Hours</span><br />
-            <span class="bold-medium">37 hours a week</span>
+            <span class="bold-medium">{{ '' | randnum(10,37) }} hours a week</span>
           </p>
         </div><!-- column -->
       </div><!-- row -->
