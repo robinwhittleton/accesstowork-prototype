@@ -1,0 +1,63 @@
+
+{% set root = "/"+TEMPLATE_FOLDER+"/customer/"+case._id %}
+
+<script type="text/javascript">
+  var CASE_ID = "{{ case._id }}";
+</script>
+
+<h3 class="heading-small">Customer</h3>
+<ul class="list bullet-list left_nav">
+  <li><a href="{{ root }}/application">Application</a></li>
+  <li><a href="{{ root }}/job">Job</a></li>
+  <li><a href="{{ root }}/contact">Contact</a></li>
+</ul>
+
+<!-- - - - - -  ADVISER - - - - - -->
+<h3 class="heading-small">Adviser</h3>
+<ul class="list bullet-list left_nav shower" id="ad_show">
+  <li>
+    <div class="show">
+      <a href="/staffui/mvp/adviser/{{ case.adviser.id }}/">{{ case.adviser.name }} {{ case.adviser.surname }}</a> <a href="#" class="editter">edit</a>
+    </div>
+    <div class="edit">
+      <select class="login" id="edit_adviser">
+          <option value="-1">- misallocated -</option>
+        {% for item in advisers %}
+          <option value="{{item.id}}" {% if item.id == case.adviser.id %}selected="selected"{% endif %} >{{item.name}} {{item.surname}}</option>
+        {% endfor %}
+      </select>
+      <a href="#" class="editter">cancel</a>
+    </div>
+  </li>
+</ul>
+
+<!-- - - - - -  CATEGORY - - - - - -->
+<h3 class="heading-small">Category</h3>
+<ul class="list bullet-list left_nav shower" id="cat_show">
+  <li>
+    <div class="show">
+      <span class="tag {{ case.allocation }}">{{ case.allocation }}</span>
+      <a href="#" class="editter">edit</a>
+    </div>
+    <div class="edit">
+      <select class="login" id="edit_category">
+        {% set categories = ['deaf','hidden','large','self','director','visual','unknown'] %}
+        {% for item in categories %}
+          <option value="{{ item }}" {% if case.allocation == item %}selected="selected"{% endif %}>{{ item }}</option>
+        {% endfor %}
+      </select>
+      <a href="#" class="editter">cancel</a>
+    </div>
+  </li>
+</ul>
+
+<!-- - - - - -  IN DISC - - - - - -->
+<h3 class="heading-small" style="border-bottom: 1px solid #bfc1c3;">In DISC?</h3>
+<div class="toggler {{ case.open | bool('toggler-off','toggler-on')}}" id="disc_toggle">
+  <div class="nub"><div class="nub_inner">{{ case.open | bool('No','Yes')}}</div></div>
+</div>
+
+<div class="updated">
+  <hr class="rule" />
+  <a href="{{ root }}" class="button">Update</a>
+</div>

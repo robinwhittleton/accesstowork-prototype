@@ -1,0 +1,23 @@
+{% extends TEMPLATE_FOLDER+"/layout.html" %}
+
+{% block staff_content %}
+
+  {{ advisers | log }}
+  
+  <div class="grid-row" style="margin:60px 0;">
+    <div class="column-third">
+    {% for item in advisers %}
+    <ul>
+      <li>
+        <a href="/{{TEMPLATE_FOLDER}}/adviser/{{ item.id }}">{{ item.name }} {{ item.surname }}</a>
+      </li>
+    </ul>
+    {% endfor %}
+    </div>
+  </div>
+    
+{% endblock %}
+
+{% block page_script %}
+
+{% endblock %}

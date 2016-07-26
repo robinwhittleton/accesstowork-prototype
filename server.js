@@ -123,6 +123,7 @@ if (typeof(routes) != "function") {
   console.log('Using routes');
   app.use("/application", require(__dirname + '/app/views/application/routes.js'));    // these have to come first.
   app.use('/staffui/v1',  require(__dirname + '/app/views/staffui/v1/routes.js'));  // these have to come first.
+  app.use('/staffui/v2',  require(__dirname + '/app/views/staffui/v2/routes.js'));  // these have to come first.
   app.use('/staffui/mvp', require(__dirname + '/app/views/staffui/mvp/routes.js'));  // these have to come first.
   app.use(require(__dirname + '/app/views/feedback/routes.js'));  // these have to come first.
   app.use(require(__dirname + '/app/views/offer/routes.js'));  // these have to come first.

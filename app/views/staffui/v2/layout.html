@@ -1,0 +1,33 @@
+{% extends "govuk_template-staff.html" %}
+
+{% block head %}
+  <link href="/public/stylesheets/staffui.css" media="screen" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block page_title %}
+	Access To Work - Staff Access
+{% endblock %}
+
+{% block proposition_header %}
+  {% include TEMPLATE_FOLDER+"/service-name.html" %}
+{% endblock %}
+
+{% block header_class%}with-proposition{% endblock %}
+
+{% block body_end %}
+  {% include "staffui/v1/scripts.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" class="mvp">
+
+  <section class="staff-container">
+
+    {% block staff_content %}{% endblock %}
+
+  </section>
+
+</main>
+
+{% endblock %}

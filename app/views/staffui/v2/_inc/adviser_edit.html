@@ -1,0 +1,81 @@
+<script type="text/javascript">
+  $(document).on('ready',function()
+  {
+    $('.updated').hide();
+
+    $(document.body).on('click','.editter',function(e)
+    {
+      e.preventDefault();
+      $(this).closest('.shower').toggleClass('editting');
+      // $('.updated').show();
+    });
+
+    $('#disc_toggle').on('click',function(e)
+    {
+      e.preventDefault();
+
+      var nub = $(this).find(".nub .nub_inner");
+      var disc = nub.text() == 'Yes';
+
+      $.ajax({
+        url: '/staffui/mvp/customer/disc/update',
+        method: "POST",
+        contentType: 'application/json',
+        data: JSON.stringify({"open":disc,"case_id":CASE_ID}),
+        dataType: 'json',
+        complete:  function(data,status,xhr) {
+          var d = data.responseJSON;
+          console.log(d);
+        }});
+
+      if (nub.text().trim() == 'No') nub.text("Yes");
+      else if (nub.text().trim() == 'Yes') nub.text("No");
+
+      $(this).toggleClass('toggler-off')
+      $(this).toggleClass('toggler-on')
+    });
+
+    $('#edit_adviser').on('change',function(e)
+    {
+      e.preventDefault();
+      var ad_id = $(this).val();
+
+      $.ajax({
+        url: '/staffui/mvp/customer/adviser/update',
+        method: "POST",
+        contentType: 'application/json',
+        data: JSON.stringify({"adviser_id":ad_id,"case_id":CASE_ID}),
+        dataType: 'json',
+        complete:  function(data,status,xhr) {
+          var d = data.responseJSON;
+          $('#ad_show').toggleClass('editting');
+          if (ad_id >= 0)
+          {
+            $('#ad_show .show').html('<a href="/staffui/mvp/adviser/'+d.id+'">'+d.name+' '+d.surname+'</a>');
+            $('#ad_show .show').append('<a href="#" class="editter">edit</a>');
+          } else {
+            $('#ad_show .show').html('<a href=""></a>');
+            $('#ad_show .show').append('<a href="#" class="editter">edit</a>');
+          }
+        }});
+    });
+
+    $('#edit_category').on('change',function(e)
+    {
+      e.preventDefault();
+      var new_cat = $(this).val();
+
+      $.ajax({
+        url: '/staffui/mvp/customer/cat/update',
+        method: "POST",
+        contentType: 'application/json',
+        data: JSON.stringify({"category":new_cat,"case_id":CASE_ID}),
+        dataType: 'json',
+        complete:  function(data,status,xhr) {
+          $('#cat_show .show span').text(new_cat).removeClass().addClass('tag '+new_cat);
+          $('#cat_show').toggleClass('editting');
+        }});
+    });
+
+  });
+</script>

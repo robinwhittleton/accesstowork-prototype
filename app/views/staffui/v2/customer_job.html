@@ -1,0 +1,64 @@
+{% extends TEMPLATE_FOLDER+"/layout.html" %}
+
+{% block staff_content %}
+
+  {{ case | log }}
+  <div class="grid-row" style="margin:60px 0;">
+
+    <div class="column-third">
+      {% include TEMPLATE_FOLDER + "/_inc/app_nav.html" %}
+    </div><!-- column -->
+
+    <div class="column-two-thirds">
+
+      {% include TEMPLATE_FOLDER + "/_inc/app_top.html" %}
+
+      <div class="grid-row">
+        <div class="column-half">
+          <p>
+            <span class="font-xsmall">Employer</span><br />
+            <span class="bold-medium">Boots PLC</span>
+          </p>
+          <p>
+            <span class="font-xsmall">Address</span><br />
+            <span class="bold-medium">23 Railway Cuttings</span><br />
+            <span class="bold-medium">East Cheam</span><br />
+            <span class="bold-medium">London</span><br />
+            <span class="bold-medium">SM2 7YT</span><br />
+          </p>
+          <p>
+            <hr class="rule"/>
+            <span class="font-xsmall">Line Manager</span><br />
+            <span class="bold-medium">Bob Carolgees</span><br />
+            <span class="font-xsmall">Telephone:</span><br />
+            <span class="bold-medium">0768 432 4532</span><br />
+            <span class="font-xsmall">email:</span><br />
+            <span class="bold-medium">bob.carolgees@business.com</span>
+          </p>
+        </div><!-- column -->
+        <div class="column-half">
+          <p>
+            <span class="font-xsmall">Started</span><br />
+            <span class="bold-medium">More than 6 months ago</span>
+          </p>
+          <p>
+            <span class="font-xsmall">Days</span><br />
+            <span class="bold-medium">5 days a week</span>
+          </p>
+          <p>
+            <span class="font-xsmall">Hours</span><br />
+            <span class="bold-medium">37 hours a week</span>
+          </p>
+        </div><!-- column -->
+      </div><!-- row -->
+
+
+
+    </div><!-- column -->
+  </div><!-- row -->
+
+{% endblock %}
+
+{% block page_script %}
+  {% include TEMPLATE_FOLDER + "/_inc/adviser_edit.html" %}
+{% endblock %}
