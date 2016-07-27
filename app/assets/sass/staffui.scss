@@ -97,8 +97,8 @@ table.customers {
 .show_only {
   float:right;
   margin-bottom:30px;
-  margin-top:-47px;
-  border:1px solid $grey-2;
+  margin-top:-60px;
+  // border:1px solid $grey-2;
   border-width: 1px 0px;
 
   &.list_deaf .item_deaf {background:$govuk-blue;a{color:white}}
@@ -121,10 +121,11 @@ table.customers {
   li {
     display:block;
     // margin-right:30px;
-    border-top:1px solid $grey-2;
+    // border-top:1px solid $grey-2;
     a {
       display:block;
-      padding:15px 30px;
+      color:white;
+      // padding:15px 30px;
       text-decoration:none;
       &.nav {
         // background:red;
@@ -156,7 +157,7 @@ table.customers {
 
   }
   .dropdown {
-    margin:10px 15px;
+    margin:10px 0;
   }
 }
 
@@ -202,4 +203,15 @@ table.customers {
   color:$govuk-blue;
   text-align:right;
   margin:0;
+}
+
+.staff__heading {
+  background-color:$govuk-blue;
+  padding:30px 30px 10px;
+  color:white;
+  margin-bottom:30px;
+}
+
+.container {
+  margin:0 30px;
 }

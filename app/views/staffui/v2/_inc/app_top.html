@@ -1,12 +1,23 @@
 
-<div class="box" style="margin-top:50px;">
-  <h2 class="heading-large" style="margin-top:0">{{ case.name }} {{ case.surname }}</h2>
+<div class="staff__heading">
   <div class="grid-row">
-    <div class="column-half">
-      <p><span class="font-xsmall">Condition</span><br /><span class="bold-medium">{{ case.condition }}</spanc></p>
+    <div class="column-two-thirds">
+      <h2 class="heading-xlarge" style="margin:0 0 10px">{{ case.name }} {{ case.surname }}</h2>
+      <div class="grid-row">
+        <div class="column-half">
+          <p><span class="font-xsmall">Condition</span><br /><span class="bold-medium">{{ case.condition }}</spanc></p>
+        </div><!-- column -->
+        <div class="column-half">
+          <p><span class="font-xsmall">{{ case.job_status }}</span><br /><span class="bold-medium">{{ case.job_title }}</spanc></p>
+        </div><!-- column -->
+      </div><!-- row -->
     </div><!-- column -->
-    <div class="column-half">
-      <p><span class="font-xsmall">{{ case.job_status }}</span><br /><span class="bold-medium">{{ case.job_title }}</spanc></p>
+    <div class="column-third">
+      {% include TEMPLATE_FOLDER + "/_inc/app_adviser.html" %}
+      {# {% include TEMPLATE_FOLDER + "/_inc/app_team.html" %} #}
     </div><!-- column -->
   </div><!-- row -->
-</div><!-- box -->
+</div>
+
+
+  

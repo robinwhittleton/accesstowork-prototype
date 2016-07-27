@@ -72,7 +72,9 @@ nunjucks.setup({
       return d.toString();
   });
   env.addFilter('formatDate', function(str,format) {
-      return moment(str).format(format);
+      var d = moment(str).format(format);
+      if (d !== 'Invalid date') return d;
+      else return '';
   });
   env.addFilter('randarr', function(array) {
       return _.sample(array);
