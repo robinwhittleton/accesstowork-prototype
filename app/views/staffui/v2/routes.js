@@ -160,6 +160,30 @@ router.post('/customer/disc/update',function(req,res,next)
 });
 
 /*
+  UPDATE - ADD AN ITEM TO THE TIMELINE
+*/
+router.post('/timeline/update',function(req,res,next)
+{
+  var cid = req.body.case_id;
+
+  store.findOne({"_id":cid}).then(function(the_case)
+  {
+    the_case.timeline = the_case.timeline || [];
+    the_case.timeline.push({
+      "status": req.body.status,
+      "notes": req.body.notes,
+      "date": moment().toString(),
+    });
+        
+    store.update({"_id":the_case._id},the_case,function(err,doc)
+    {
+      res.status(200);
+      res.send(JSON.stringify(doc));
+    });
+  });
+});
+
+/*
   UPDATE - THIS CASE'S CATEGORY
 */
 router.post('/customer/cat/update', function(req,res,next)

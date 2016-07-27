@@ -170,7 +170,7 @@ table.customers {
   box-sizing:border-box;
   background-color:white;
   // box-shadow:0px 1px 2px 1px rgba(black,0.1);
-  border:1px solid #bfc1c3;  
+  border:1px solid #bfc1c3;
   padding:30px;
   margin-bottom:30px;
   border-radius:3px;
@@ -180,6 +180,26 @@ table.customers {
   }
 }
 
-// .big_header {
-//   background-color:$govuk-blue;
-// }
+.timeline__item {
+  background-color:white;
+  border-bottom:1px solid rgba(black,0.2);
+  padding:10px;
+  margin-bottom:15px;
+
+  h4 {
+    @include bold-16;
+    margin-bottom:5px;
+  }
+}
+
+.timeline__notes {
+  @include core-16;
+  margin-bottom:5px;
+}
+
+.timeline__date {
+  @include core-16;
+  color:$govuk-blue;
+  text-align:right;
+  margin:0;
+}

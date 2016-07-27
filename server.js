@@ -80,6 +80,9 @@ nunjucks.setup({
   env.addFilter('randnum', function(str,low,high) {
       return low + Math.floor(Math.random()*(1+high-low));
   });
+  env.addFilter('revCron', function(array) {
+      return _.sortBy(array,"date").reverse();
+  });
 });
 
 

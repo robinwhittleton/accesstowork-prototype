@@ -41,7 +41,7 @@
       var ad_id = $(this).val();
 
       $.ajax({
-        url: '/staffui/mvp/customer/adviser/update',
+        url: '/{{TEMPLATE_FOLDER}}/customer/adviser/update',
         method: "POST",
         contentType: 'application/json',
         data: JSON.stringify({"adviser_id":ad_id,"case_id":CASE_ID}),
@@ -66,7 +66,7 @@
       var new_cat = $(this).val();
 
       $.ajax({
-        url: '/staffui/mvp/customer/cat/update',
+        url: '/{{TEMPLATE_FOLDER}}/customer/cat/update',
         method: "POST",
         contentType: 'application/json',
         data: JSON.stringify({"category":new_cat,"case_id":CASE_ID}),
@@ -74,6 +74,41 @@
         complete:  function(data,status,xhr) {
           $('#cat_show .show span').text(new_cat).removeClass().addClass('tag '+new_cat);
           $('#cat_show').toggleClass('editting');
+        }});
+    });
+    
+    $('#status_button').on('click',function(e)
+    {
+      e.preventDefault();
+      $('#status_form').show();
+      $('#status_button').hide();
+    });
+    
+    $('#status_cancel').on('click',function(e)
+    {
+      e.preventDefault();
+      $('#status_form').hide();
+      $('#status_button').show();
+    });
+    
+    $('#status_add').on('click',function(e)
+    {
+      e.preventDefault();
+      var status = $('#status_status').val();
+      var notes = $('#status_notes').val();
+      var formdata = JSON.stringify({"status":status,"notes":notes,"case_id":CASE_ID});
+      
+      console.log(formdata)
+      
+      $.ajax({
+        url: '/{{TEMPLATE_FOLDER}}/timeline/update',
+        method: "POST",
+        contentType: 'application/json',
+        data: formdata,
+        dataType: 'json',
+        complete:  function(data,status,xhr) {
+          $('#status_form').hide();
+          $('#status_button').show();
         }});
     });
 
