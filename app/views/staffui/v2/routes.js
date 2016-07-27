@@ -87,7 +87,7 @@ router.get('/advisers/:team?', function(req,res,next)
   
   if (team) {
     var advisers = _.groupBy(loadAdvisers(),"team")[team]
-    req.data.teamname = team+" team§";
+    req.data.teamname = team+" team";
     req.url = '/advisers'
   } else {
     var advisers = loadAdvisers()
@@ -191,6 +191,9 @@ router.get('/customer/:id/:what?', function(req,res,next)
     req.data.advisers = loadAdvisers();
     // req.data.case = _.findWhere(cases, {'_id':String(id)});
     req.data.case = cases;
+    req.data.chosen = what.substr(1);
+    
+    console.log(what.substr(1));
 
     req.url = '/customer'+what+'/';
     next();

@@ -1,53 +1,39 @@
-{% extends TEMPLATE_FOLDER+"/layout.html" %}
+{% extends TEMPLATE_FOLDER+"/layout_case.html" %}
 
-{% block staff_content %}
-
-  {{ case | log }}
-  <div class="grid-row">
-    
-    <div class="column-third" style="padding-right:30px">
-      {% set chosen  = "application" %}
-      {% include TEMPLATE_FOLDER + "/_inc/app_nav.html" %}
-    </div><!-- column -->
-    
-    <div class="column-two-thirds">
-            
-      {% include TEMPLATE_FOLDER + "/_inc/app_top.html" %}
+{% block case_content %}
       
-      <div class="box">
-      <table>
-        {% if case.job_how_harder %}
-        <tr>
-          <td class="bold nobr">How is your job harder?</td>
-          <td class="cust_info">{{ case.job_how_harder }}</td>
-        </tr>
-        <tr>
-          <td class="bold nobr">What do you do now?</td>
-          <td class="cust_info">{{ case.job_what_do_now | default("Not answered")}}</td>
-        </tr>
-        <tr>
-          <td class="bold nobr">What do you want?</td>
-          <td class="cust_info">{{ case.job_what_need | default("Not answered") }}</td>
-        </tr>
-        {% endif %}
-        {% if  case.travel_how_harder %}
-        <tr>
-          <td class="bold nobr">How is your travel harder?</td>
-          <td class="cust_info">{{ case.travel_how_harder }}</td>
-        </tr>
-        <tr>
-          <td class="bold nobr">What do you do now?</td>
-          <td class="cust_info">{{ case.travel_what_do_now | default("Not answered")}}</td>
-        </tr>
-        <tr>
-          <td class="bold nobr">What do you want?</td>
-          <td class="cust_info">{{ case.travel_what_need | default("Not answered") }}</td>
-        </tr>
-        {% endif %}
-      </table>
-      </div><!-- box -->
-    </div><!-- column -->
-  </div><!-- row -->
+  <div class="box tabs">
+    <table>
+      {% if case.job_how_harder %}
+      <tr>
+        <td class="bold nobr">How is your job harder?</td>
+        <td class="cust_info">{{ case.job_how_harder }}</td>
+      </tr>
+      <tr>
+        <td class="bold nobr">What do you do now?</td>
+        <td class="cust_info">{{ case.job_what_do_now | default("Not answered")}}</td>
+      </tr>
+      <tr>
+        <td class="bold nobr">What do you want?</td>
+        <td class="cust_info">{{ case.job_what_need | default("Not answered") }}</td>
+      </tr>
+      {% endif %}
+      {% if  case.travel_how_harder %}
+      <tr>
+        <td class="bold nobr">How is your travel harder?</td>
+        <td class="cust_info">{{ case.travel_how_harder }}</td>
+      </tr>
+      <tr>
+        <td class="bold nobr">What do you do now?</td>
+        <td class="cust_info">{{ case.travel_what_do_now | default("Not answered")}}</td>
+      </tr>
+      <tr>
+        <td class="bold nobr">What do you want?</td>
+        <td class="cust_info">{{ case.travel_what_need | default("Not answered") }}</td>
+      </tr>
+      {% endif %}
+    </table>
+  </div><!-- box -->
 
 {% endblock %}
 

@@ -1,6 +1,6 @@
 // allow the background of the page to be that grey colour.
 body { background:inherit; }
-
+html { background-color: lighten(#dee0e2,5); }
 /*
   REMAKING SOME OF THE GDS STYLES
 */
@@ -26,7 +26,7 @@ body { background:inherit; }
   padding:0;
   margin:0;
   &.mvp {
-    margin:0 30px;
+    margin:0 45px;
   }
 }
 

@@ -1,0 +1,28 @@
+{% extends TEMPLATE_FOLDER+"/layout.html" %}
+
+{% block staff_content %}
+
+  {{ case | log }}
+  <div class="grid-row">    
+    
+    <div class="column-two-thirds">
+            
+      {% include TEMPLATE_FOLDER + "/_inc/app_top.html" %}
+      
+      {% include TEMPLATE_FOLDER + "/_inc/app_tabs.html" %}
+      
+      {% block case_content %}{% endblock %}
+      
+    </div><!-- column -->
+    
+    <div class="column-third" style="padding-right:30px">      
+      {% include TEMPLATE_FOLDER + "/_inc/app_nav.html" %}
+    </div><!-- column -->
+    
+  </div><!-- row -->
+
+{% endblock %}
+
+{% block page_script %}
+  {% include TEMPLATE_FOLDER + "/_inc/adviser_edit.html" %}
+{% endblock %}
