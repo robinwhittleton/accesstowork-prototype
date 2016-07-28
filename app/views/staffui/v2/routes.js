@@ -31,10 +31,6 @@ router.get('/login', function(req,res,next)
   delete(req.session.user);
   req.data.advisers = loadAdvisers();
   next();
-  // store.find({}).then(function(cases)
-  // {
-  //
-  // });
 });
 
 router.get('/', function(req,res,next)
@@ -65,14 +61,11 @@ router.get('/show/closed/', function(req,res,next)
 router.get('/groupby/:by', function(req,res,next)
 {
   var by = req.params.by;
-
-  if (by == "all") res.redirect('/');
+  if (by == "all") res.redirect('/'+req.data.TEMPLATE_FOLDER);
 
   store.find({"open":true}).then(function(cases)
   {
-    var cases = _.groupBy(cases,'allocation');
-
-
+    var cases = _.groupBy(cases,'team');
     req.data.by = by;
     req.data.cases = cases[by];
     req.url = '/';
@@ -167,6 +160,8 @@ router.post('/customer/disc/update',function(req,res,next)
 router.post('/timeline/update',function(req,res,next)
 {
   var cid = req.body.case_id;
+  var advisers = loadAdvisers();
+  var adviser = req.session.user || _.sample(advisers);
 
   store.findOne({"_id":cid}).then(function(the_case)
   {
@@ -175,8 +170,8 @@ router.post('/timeline/update',function(req,res,next)
       "status": req.body.status,
       "notes": req.body.notes,
       "date": moment().toString(),
+      "adviser": adviser,
     });
-        
     store.update({"_id":the_case._id},the_case,function(err,doc)
     {
       res.status(200);
@@ -239,19 +234,26 @@ router.post('/login/update',function(req,res,next)
 
 router.get('/edit',function(req,res,next)
 {
-  // var out = [];
-  // store.find({"open":true}).then(function(cases)
-  // {
-  //   _.each(cases, function(el,i)
-  //   {
-  //     cases[i].team = _.sample(['deaf','hidden','large','self','director','visual','pan']);
-  //     store.updateById(el._id, cases[i], function()
-  //     {
-  //       out.push(cases[i])
-  //     });
-  //   })
-  //   res.send(tog(out));
-  // })
+  var out = [];
+  var advisers = loadAdvisers();
+  store.find({"open":true}).then(function(cases)
+  {
+    res.send(tog(cases));
+    // _.each(cases, function(el,i)
+    // {
+    //   cases[i].timeline = [{
+    //       "status": "New application",
+    //       "notes": '',
+    //       "date": moment().add(-1 * Math.floor(Math.random()*60),'days').toString(),
+    //       "adviser": _.sample(advisers)
+    //   }];
+    //   store.updateById(el._id, cases[i], function()
+    //   {
+    //     out.push(cases[i])
+    //   });
+    // })
+    // res.send(tog(out));
+  })
 });
 
 module.exports = router;

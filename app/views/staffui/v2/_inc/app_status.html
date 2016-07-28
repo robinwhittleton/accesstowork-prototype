@@ -5,7 +5,7 @@
   {{ latest | log }}
   <h4>{{ latest[0].status }}</h4>
   <p class="timeline__notes">{{ latest[0].notes }}</p>
-  <p class="timeline__date">{{ latest[0].date | formatDate("HH:mma - Do MMM YYYY") }}</p>
+  <p class="timeline__date">{{ latest[0].adviser.name }} {{ latest[0].adviser.surname }} &mdash; {{ latest[0].date | formatDate("HH:mma - Do MMM YYYY") }}</p>
 </div>
 <button class="button" id="status_button">change status</button>
 {% set statuses = [
@@ -30,6 +30,7 @@
   "Offer rejected",
   "Change of circumstances received",
   "Case reassigned",
+  "Application withdrawn",
   "Other (see notes)"
   ] %}
 <form class="form js-hidden" id="status_form">
@@ -43,13 +44,15 @@
   <a href="#" class="editter" id="status_cancel">cancel</a>
 </form>
 
-<h3 class="heading-small">Previously</h3>
-{% for item in case.timeline | revCron %}
-  {% if loop.index0 %}
-    <div class="timeline__item">
-      <h4>{{ item.status }}</h4>
-      <p class="timeline__notes">{{ item.notes }}</p>
-      <p class="timeline__date">{{ item.date | formatDate("HH:mma - Do MMM YYYY") }}</p>
-    </div>
-  {% endif %}
-{% endfor %}
+{% if case.timeline | length > 1  %}
+  <h3 class="heading-small">Previously</h3>
+  {% for item in case.timeline | revCron %}
+    {% if loop.index0 %}
+      <div class="timeline__item">
+        <h4>{{ item.status }}</h4>
+        <p class="timeline__notes">{{ item.notes }}</p>
+        <p class="timeline__date">{{ item.adviser.name }} {{ item.adviser.surname }} &mdash; {{ item.date | formatDate("HH:mma - Do MMM YYYY") }}</p>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endif %}
