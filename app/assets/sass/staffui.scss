@@ -71,7 +71,7 @@ table.customers {
 }
 
 .zebra {
-  .customer_row:nth-child(odd) {
+  .click_row:nth-child(odd) {
    background-color: darken($grey-4,6);
   }
 }
@@ -210,8 +210,13 @@ table.customers {
   padding:30px 30px 10px;
   color:white;
   margin-bottom:30px;
+  .staff__centred {
+    max-width:1280px;
+    margin:0 auto;
+  }
 }
 
 .container {
-  margin:0 30px;
+  margin:0 auto;
+  max-width:1280px;
 }

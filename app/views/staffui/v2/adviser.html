@@ -5,7 +5,9 @@
   {{ cases | log }}
 
   <div class="staff__heading">
-    <h2 class="font-xlarge" style="margin:0 0 15px">Adviser: <span class="bold-xlarge">{{ cases[0].adviser.name }} {{ cases[0].adviser.surname }}</span></h2>
+    <div class="staff__centred">
+      <h2 class="font-xlarge" style="margin:0 0 15px">Adviser: <span class="bold-xlarge">{{ cases[0].adviser.name }} {{ cases[0].adviser.surname }}</span></h2>
+    </div>
   </div>
   
   <div class="container">
@@ -27,7 +29,7 @@
           <tbody>
             {% for i in range(0, cases.length) %}
             {% set item  = cases[i] %}
-            <tr class="customer_row" data-id="{{ item._id }}">
+            <tr class="click_row" data-id="{{ item._id }}">
               <td style="padding-left:15px;" class="nobr">{{ item.name }} {{ item.surname }}</td>
               {# <td><span class="tag {{ item.team }}">{{ item.team }}</span></td> #}
               <td>{{ item.condition | truncate(60) }}</td>
@@ -51,7 +53,7 @@
 <script type="text/javascript">
   $(document).on('ready',function()
   {
-    $('.customer_row').on('click',function(e)
+    $('.click_row').on('click',function(e)
     {
       e.preventDefault();
       var id = $(this).data('id');
