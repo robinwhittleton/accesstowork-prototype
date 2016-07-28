@@ -227,4 +227,17 @@ table.customers {
 .container {
   margin:0 auto;
   max-width:1280px;
+  @media screen and ( max-width: 1280px ){
+     margin:0 45px;
+  }
+}
+
+.loggedin:visited,
+.loggedin:link {
+  color:white;
+  text-decoration:none;
+}
+.loggedin:hover,
+.loggedin:active {
+  text-decoration:underline;
 }

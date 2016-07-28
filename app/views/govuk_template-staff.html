@@ -78,6 +78,7 @@
     </div>
     <!--end global-cookie-message-->
 
+    {% block full_header %}
     <header role="banner" id="global-header" class="{% block header_class %}{% endblock %}">
       <div class="header-wrapper">
         <div class="header-global">
@@ -90,6 +91,7 @@
       </div>
     </header>
     <!--end header-->
+    {% endblock %}
 
 
     {% block after_header %}{% endblock %}

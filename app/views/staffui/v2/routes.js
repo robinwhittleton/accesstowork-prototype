@@ -22,6 +22,7 @@ router.all('*',function(req,res,next)
 {
   req.data = req.data || {};
   req.data.TEMPLATE_FOLDER = 'staffui/v2'
+  req.data.loggedin = req.session.user;
   next();
 });
 
@@ -222,6 +223,17 @@ router.get('/customer/:id/:what?', function(req,res,next)
     req.url = '/customer'+what+'/';
     next();
   });
+});
+
+router.post('/login/update',function(req,res,next)
+{
+  var aid = parseInt(req.body.adviser);  
+  var advisers = loadAdvisers();
+  var newad = _.findWhere(advisers,{"id":aid});
+  
+  req.session.user = newad;
+  
+  res.send(newad);
 });
 
 router.get('/edit',function(req,res,next)

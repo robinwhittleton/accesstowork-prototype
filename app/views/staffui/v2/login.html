@@ -3,20 +3,33 @@
 {% block staff_content %}
 
   {{ advisers | log }}
-  <h1 class="heading-xlarge">Log in</h1>
   
-  <p>Who are you?</p>
-  <div class="form-group">
-    <select class="dropdown" id="login">
-      {% for item in advisers %}
-        <option value="{{item.id}}">{{item.name}} {{item.surname}}</option>
-      {% endfor %}
-    </select>
+  <div class="staff__heading">
+    <div class="staff__centred">
+      <h1 class="heading-xlarge">Log in</h1>
+    </div>
   </div>
   
-  <div class="form-group">
-    <button class="button" id="submit">Log in</button>
-  </div>
+  <div class="container">
+    <div class="grid-row">
+      <div class="column-full">
+  
+          <p>Who are you?</p>
+          <div class="form-group">
+            <select class="dropdown" id="login">
+              {% for item in advisers %}
+                <option value="{{item.id}}">{{item.name}} {{item.surname}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <button class="button" id="submit">Log in</button>
+          </div>
+        
+      </div><!-- column-ful -->
+    </div><!-- grid-row -->
+  </div><!-- container -->
+      
 
 {% endblock %}
 
@@ -28,7 +41,20 @@
     {
       e.preventDefault();
       var v = $('#login').val();
-      window.location.href = "/{{TEMPLATE_FOLDER}}/adviser/"+v;
+      var formdata = {
+        "adviser":v,
+      }
+      $.ajax({
+        url: '/{{TEMPLATE_FOLDER}}/login/update',
+        method: "POST",
+        contentType: 'application/json',
+        data: JSON.stringify(formdata),
+        dataType: 'json',
+        complete:  function(data,status,xhr) {          
+          window.location.href = "/{{TEMPLATE_FOLDER}}/adviser/"+v;
+          console.log(data);
+        }});
+      
     });
   });
 </script>
