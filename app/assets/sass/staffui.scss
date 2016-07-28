@@ -178,21 +178,14 @@ table.customers {
 .box {
   box-sizing:border-box;
   background-color:white;
-  // box-shadow:0px 1px 2px 1px rgba(black,0.1);
-  border:1px solid #bfc1c3;
   padding:30px;
   margin-bottom:30px;
-  border-radius:3px;
-  &.tabs {
-    border-width:0 1px 1px 1px;
-    border-radius:0 0 3px 3px;
-  }
 }
 
 .timeline__item {
   background-color:white;
   border-bottom:1px solid rgba(black,0.2);
-  padding:10px;
+  padding:15px;
   margin-bottom:15px;
 
   h4 {
@@ -241,3 +234,5 @@ table.customers {
 .loggedin:active {
   text-decoration:underline;
 }
+.section-tabs,
+.section-tabs ul a {border:none}
