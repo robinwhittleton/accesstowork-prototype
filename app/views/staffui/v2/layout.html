@@ -18,7 +18,12 @@
         </div>
       </div><!-- column -->
       <div class="column-half" style="text-align:right;color:white;padding-top:10px;">
-        Logged in as <a href="/{{ TEMPLATE_FOLDER }}/adviser/{{ loggedin.id }}" class="loggedin heading-small">{{ loggedin.name }} {{ loggedin.surname }}</a>
+        
+        {% if  loggedin %}
+          Logged in as <a href="/{{ TEMPLATE_FOLDER }}/adviser/{{ loggedin.id }}" class="loggedin heading-small">{{ loggedin.name }} {{ loggedin.surname }}</a>
+        {% else %}
+          <a href="/{{TEMPLATE_FOLDER}}/login" style="color:white">Log in</a>
+        {% endif %}
       </div><!-- column -->
     </div><!-- row -->
   </div>

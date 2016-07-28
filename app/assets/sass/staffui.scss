@@ -236,3 +236,11 @@ table.customers {
 }
 .section-tabs,
 .section-tabs ul a {border:none}
+
+#__bs_notify__ {
+ /* Move notification to bottom */
+ top: auto !important;
+ bottom: 0 !important;
+ border-top-left-radius: 5px !important; 
+ border-bottom-left-radius: 0 !important;
+}

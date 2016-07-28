@@ -28,6 +28,7 @@ router.all('*',function(req,res,next)
 
 router.get('/login', function(req,res,next)
 {
+  delete(req.session.user);
   req.data.advisers = loadAdvisers();
   next();
   // store.find({}).then(function(cases)
