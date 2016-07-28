@@ -79,6 +79,7 @@ router.get('/groupby/:by', function(req,res,next)
 router.get('/advisers/:team?', function(req,res,next)
 {
   var team = req.params.team
+  if (team == "all") res.redirect('/'+req.data.TEMPLATE_FOLDER+'/advisers/');
   
   if (team) {
     var advisers = _.groupBy(loadAdvisers(),"team")[team]
