@@ -53,8 +53,8 @@
           $('#ad_show').toggleClass('editting');
           if (ad_id >= 0)
           {
-            $('#ad_show .show').html('<a href="/staffui/mvp/adviser/'+d.id+'">'+d.name+' '+d.surname+'</a>');
-            $('#ad_show .show').append('<a href="#" class="editter">edit</a>');
+            $('#ad_show .show').html('<a href="#" class="editter">edit</a>');
+            $('#ad_show .show').append('<p><span class="font-xsmall">Adviser</span><br /><span class="bold-medium"><a href="/{{TEMPLATE_FOLDER}}/adviser/'+d.id+'/">'+d.name+' '+d.surname+'</a></span></p>');
           } else {
             $('#ad_show .show').html('<a href=""></a>');
             $('#ad_show .show').append('<a href="#" class="editter">edit</a>');
@@ -74,7 +74,7 @@
         data: JSON.stringify({"category":new_cat,"case_id":CASE_ID}),
         dataType: 'json',
         complete:  function(data,status,xhr) {
-          $('#cat_show .show span').text(new_cat).removeClass().addClass('tag '+new_cat);
+          $('#team').text(new_cat);
           $('#cat_show').toggleClass('editting');
         }});
     });
@@ -99,9 +99,6 @@
       var status = $('#status_status').val();
       var notes = $('#status_notes').val();
       var formdata = JSON.stringify({"status":status,"notes":notes,"case_id":CASE_ID});
-      
-      console.log(formdata)
-      
       $.ajax({
         url: '/{{TEMPLATE_FOLDER}}/timeline/update',
         method: "POST",
@@ -111,6 +108,7 @@
         complete:  function(data,status,xhr) {
           $('#status_form').hide();
           $('#status_button').show();
+          document.location.reload(true);
         }});
     });
 

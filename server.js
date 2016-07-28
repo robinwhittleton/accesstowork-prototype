@@ -83,7 +83,10 @@ nunjucks.setup({
       return low + Math.floor(Math.random()*(1+high-low));
   });
   env.addFilter('revCron', function(array) {
-      return _.sortBy(array,"date").reverse();
+      return _.sortBy(array,function(el)
+      {
+        return new Date(el.date);
+      }).reverse();
   });
 });
 

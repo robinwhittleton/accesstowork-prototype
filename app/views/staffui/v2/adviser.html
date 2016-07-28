@@ -2,14 +2,14 @@
 
 {% block staff_content %}
 
-  {{ cases | log }}
+  {# {{ cases | log }} #}
 
   <div class="staff__heading">
     <div class="staff__centred">
       <h2 class="font-xlarge" style="margin:0 0 15px">Adviser: <span class="bold-xlarge">{{ cases[0].adviser.name }} {{ cases[0].adviser.surname }}</span></h2>
     </div>
   </div>
-  
+
   <div class="container">
     <div class="grid-row">
       <div class="column-full">
@@ -33,7 +33,7 @@
               <td style="padding-left:15px;" class="nobr">{{ item.name }} {{ item.surname }}</td>
               {# <td><span class="tag {{ item.team }}">{{ item.team }}</span></td> #}
               <td>{{ item.condition | truncate(60) }}</td>
-              {% set status = item.timeline | default([]) | last %}              
+              {% set status = item.timeline | default([]) | last %}
               <td>{{ status.status }}</td>
               <td class="nobr numeric">{{ status.date | default(" ") | formatDate('HH:mma - Do MMM YYYY') }}</td>
             </tr>

@@ -4,9 +4,7 @@
   <li>
     <div class="show">
       <a href="#" class="editter">edit</a>
-      <p><span class="font-xsmall">Team</span><br />
-        <span class="bold-medium">{{ case.team | capitalize }}</span></p>
-      {# <span class="tag {{ case.team }}">{{ case.team }}</span> #}
+      <p><span class="font-xsmall">Team</span><br /><span class="bold-medium" id="team">{{ case.team | capitalize }}</span></p>
     </div>
     <div class="edit">
       <select class="dropdown" id="edit_category">

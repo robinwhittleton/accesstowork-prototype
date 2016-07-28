@@ -2,6 +2,7 @@
 <h3 class="heading-small" style="margin-top:0; border-bottom: 1px solid #bfc1c3;">Status</h3>
 <div class="timeline__item">
   {% set latest = case.timeline | revCron %}
+  {{ latest | log }}
   <h4>{{ latest[0].status }}</h4>
   <p class="timeline__notes">{{ latest[0].notes }}</p>
   <p class="timeline__date">{{ latest[0].date | formatDate("HH:mma - Do MMM YYYY") }}</p>

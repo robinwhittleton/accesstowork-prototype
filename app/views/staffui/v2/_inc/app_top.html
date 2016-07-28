@@ -7,7 +7,7 @@
         <p><span class="font-xsmall">Condition</span><br /><span class="bold-medium">{{ case.condition }}</spanc></p>
       </div>
       <div class="column-quarter">
-        <p><span class="font-xsmall">{{ case.job_status }}</span><br /><span class="bold-medium">{{ case.job_title }}</spanc></p>
+        <p><span class="font-xsmall">{{ case.job_status | default('Job') }}</span><br /><span class="bold-medium">{{ case.job_title }}</spanc></p>
       </div>
       <div class="column-quarter">
         {% include TEMPLATE_FOLDER + "/_inc/app_adviser.html" %}
