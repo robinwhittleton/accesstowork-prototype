@@ -123,7 +123,7 @@ table.customers {
     // margin-right:30px;
     // border-top:1px solid $grey-2;
     a {
-      display:block;
+      // display:block;
       color:white;
       // padding:15px 30px;
       text-decoration:none;
@@ -143,14 +143,22 @@ table.customers {
     display:inline-block;
     margin:15px 30px;
   }
+  .edit:hover,
+  .show:hover {
+    .editter {
+      opacity:1;
+    }
+  }
   &.editting {
     .show {display:none}
     .edit {display:block}
   }
   .editter {
+    transition: opacity 0.2s ease;
     float:right;
     @include core-16;
     padding:15px 0;
+    opacity:0;
   }
   .edit {
     display:none;
