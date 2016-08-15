@@ -23,6 +23,7 @@
 			<div class="circle {{ item.RATING | classify }}"></div>
 			<p class="rating">{{ item.RATING }}</p>
 			<p class="date">{{ item.DATE }}</p>
+			{% if item["FEEDBACK"] %}<p>&ldquo;{{ item["FEEDBACK"] | truncate(300) }}&rdquo;</p>{% endif %}
 			{% if item["FEEDBACK - POSTIVE"] %}<p>&ldquo;{{ item["FEEDBACK - POSTIVE"] | truncate(300) }}&rdquo;</p>{% endif %}
 			{% if item["FEEDBACK - IMPROVEMENT"] %}<p>&ldquo;{{ item["FEEDBACK - IMPROVEMENT"] | truncate(300) }}&rdquo;</p>{% endif %}
 			{% if item["FEEDBACK - NE"] %}<p>&ldquo;{{ item["FEEDBACK - NEUTRAL"] | truncate(300) }}&rdquo;</p>{% endif %}

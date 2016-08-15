@@ -22,7 +22,7 @@ router.get('/feedback/', function(req,res,next)
 router.get('/feedback/:number?', function(req,res,next)
 {
   var number = req.params.number;
-  if (!number) number = 0;  
+  if (!number) number = 0;
 
   /*  If number has gone too high reset it
       and start the loop again. */
@@ -31,7 +31,7 @@ router.get('/feedback/:number?', function(req,res,next)
   /* Group by rating to get totals. */
   var totals = _.groupBy(data,function(el)
   {
-    return el.RATING.toLowerCase().trim();
+    return el.RATING.toLowerCase().trim().split(' ')[0];
   });
 
   /* Pass all this data to the template. */
@@ -40,7 +40,7 @@ router.get('/feedback/:number?', function(req,res,next)
   req.data.totals = {
     total: data.length,
     satisfied: Math.round(100 * totals['satisfied'].length / data.length),
-    neither: Math.round(100 * totals['neither satisfied nor dissatisfied'].length / data.length),
+    neither: Math.round(100 * totals['neither'].length / data.length),
     dissatisfied: Math.round(100 * totals['dissatisfied'].length / data.length)
   };
   req.data.number = number;
