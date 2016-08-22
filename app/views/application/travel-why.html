@@ -16,9 +16,9 @@
   <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
 
 	<!-- HEADING -->
-  <h1 class="form-title heading-large">&nbsp;</h1>
+  {# <h1 class="form-title heading-large">&nbsp;</h1> #}
 
-  <form action="travel-why" method="post" class="form" id="theForm">
+  <form action="travel-why" method="post" class="form" id="theForm" style="margin-top:30px">
 
     <input type="hidden" name="page_name" value="travel_why"/>
     <input type="hidden" name="multiple" value="0" id="multiple"/>
@@ -28,10 +28,10 @@
 
       <!-- WHY DO YOU NEED -->
       <div class="form-group">
-        <label class="form-label-bold" for="reasons" id="">
+        <label class="heading-large" for="reasons" id="">
           Why can't you carry on <span class="need" style="color:#005ea5"></span>?
         </label>
-        <textarea class="form-control" id="reasons" name="reasons"></textarea>
+        <textarea class="form-control" id="reasons" name="reasons" style="margin-top:10px;"></textarea>
       </div>
 
       <!-- HOW MANY HOURS -->

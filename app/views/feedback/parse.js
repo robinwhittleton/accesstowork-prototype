@@ -4,17 +4,25 @@ var csv = require('csv')
 
 var existing = JSON.parse(fs.readFileSync('feedback.json'));
 
-var sorted = _.countBy(existing,function(el)
-{
-  return el.RATING.toLowerCase().trim().split(' ')[0];
-});
+// var sorted = _.countBy(existing,function(el)
+// {
+//   return el.RATING.toLowerCase().trim().split(' ')[0];
+// });
 
-console.log(sorted)
-
-// for (var i = 0; i < existing.length; i++) {
-//   var e = existing[i];
-//   console.log(i,e.DATE);
-// }
+var feedbacks = '';
+for (var i = 0; i < existing.length; i++) {
+  var e = existing[i];
+  for (var property in e) {
+    if (e.hasOwnProperty(property)) {
+        if (property.indexOf('FEEDBACK') == 0)
+        {
+          
+          feedbacks += e[property]+' ';
+        }
+    }
+  }
+}
+console.log(feedbacks)
 
 // if (typeof process.argv[2] != 'undefined') // make sure they've passed a file.
 // {
