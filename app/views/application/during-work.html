@@ -29,14 +29,20 @@
     <fieldset id="havejob">
       <div class="form-group ">
         <!-- Yes, whole job -->
-        <input id="during-work-whole" type="radio" name="help-during-work" value="whole" />
-        <label id="screen1" class="form-label form-control-radio" data-target="work-whole" for="during-work-whole">Your whole working day is affected</label>
+        <label id="screen1" class="block-label" data-target="work-whole" for="during-work-whole">
+          <input id="during-work-whole" type="radio" name="help-during-work" value="whole" />
+          Your whole working day is affected
+        </label>
         <!-- Yes, only part of my job -->
-        <input id="during-work-part" type="radio" name="help-during-work" value="part" />
-        <label class="form-label form-control-radio" data-target="work-tasks" for="during-work-part">Your condition affects only certain tasks</label>
+        <label class="block-label" data-target="work-tasks" for="during-work-part">
+          <input id="during-work-part" type="radio" name="help-during-work" value="part" />
+          Your condition affects only certain tasks
+        </label>
         <!-- No, none of my job is affected -->
-        <input id="during-work-no" type="radio" name="help-during-work" value="none" />
-        <label class="form-label form-control-radio" data-target="" for="during-work-no">Your condition doesn't affect you at work at all</label>
+        <label class="block-label" data-target="" for="during-work-no">
+          <input id="during-work-no" type="radio" name="help-during-work" value="none" />
+          Your condition doesn't affect you at work at all
+        </label>
       </div>
     </fieldset>
 
@@ -65,8 +71,10 @@
               "Going to meetings"
             ] %}
           {% for item in tasks %}
-            <input id="{{ item | slugify }}" type="checkbox" name="work-now" value="{{ item | lower }}" />
-            <label class="form-label form-control-checkbox" for="{{ item | slugify }}">{{ item }}</label>
+            <label class="block-label" for="{{ item | slugify }}">
+              <input id="{{ item | slugify }}" type="checkbox" name="work-now" value="{{ item | lower }}" />
+              {{ item }}
+            </label>
             {% if loop.index == 3 %}
           </div>
           <div class="column-half">
@@ -81,12 +89,16 @@
         <!-- <p class="form-hint">This includes getting to or from work, or anything you have to do as part of your job role.</p> -->
         <fieldset class="inline">
           <div class="form-group" style="margin-bottom:10px">
-            <input id="work-more-yes" type="radio" name="work-more" value="Yes" />
-            <label id="screen2" class="form-label form-control-radio" data-target="extra-tasks" for="work-more-yes">Yes</label>
+            <label id="screen2" class="block-label" data-target="extra-tasks" for="work-more-yes">
+              <input id="work-more-yes" type="radio" name="work-more" value="Yes" />
+              Yes
+            </label>
           </div>
           <div class="form-group form-group-compound">
-            <input id="work-more-no" type="radio" name="work-more" value="No" />
-            <label class="form-label form-control-radio" data-target="" for="work-more-no">No</label>
+            <label class="block-label" data-target="" for="work-more-no">
+              <input id="work-more-no" type="radio" name="work-more" value="No" />
+              No
+            </label>
           </div>
         </fieldset>
         <div class="form-group js-hidden panel-indent" id="extra-tasks">

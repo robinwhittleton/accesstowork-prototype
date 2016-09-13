@@ -32,15 +32,19 @@
       <fieldset class="form-group" id="options">
 
         {% for item in travel_options %}
-          <input id="{{ item.value | slugify }}" type="checkbox" name="travel-not" value="{{ item.value }}" />
-          <label class="form-label form-control-checkbox" for="{{ item.value | slugify }}">{{ item.label }}</label>
+          <label class="block-label" for="{{ item.value | slugify }}">
+            <input id="{{ item.value | slugify }}" type="checkbox" name="travel-not" value="{{ item.value }}" />
+            {{ item.label }}
+          </label>
         {% endfor %}
 
       </fieldset>
       <fieldset class="form-group">
 
-        <input id="travel-not-none" type="checkbox" name="none" value="none" />
-        <label class="form-label form-control-checkbox" for="travel-not-none">No, you could use all of these but don't want to</label>
+        <label class="block-label" for="travel-not-none">
+          <input id="travel-not-none" type="checkbox" name="none" value="none" />
+          No, you could use all of these but don't want to
+        </label>
 
       </fieldset>
 

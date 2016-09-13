@@ -29,12 +29,16 @@
     <!-- Do you need - Yes No -->
     <fieldset class="inline">
       <div class="form-group">
-        <input id="help-travelling-no" type="radio" name="help-travelling" value="No"/>
-        <label class="form-label form-control-radio" data-target="" for="help-travelling-no">Yes</label>
+        <label class="block-label" data-target="" for="help-travelling-no">
+          <input id="help-travelling-no" type="radio" name="help-travelling" value="No"/>
+          Yes
+        </label>
       </div>
       <div class="form-group ">
-        <input id="help-travelling-yes" type="radio" name="help-travelling" value="Yes" />
-        <label id="screen1" class="form-label form-control-radio" data-target="travel-options" for="help-travelling-yes">No</label>
+        <label id="screen1" class="block-label" data-target="travel-options" for="help-travelling-yes">
+          <input id="help-travelling-yes" type="radio" name="help-travelling" value="Yes" />
+          No
+        </label>
       </div>
     </fieldset>
 
@@ -47,12 +51,16 @@
         <p>Tick all that apply</p>
 
         {% for item in travel_options %}
-          <input id="{{ item.value | slugify }}" type="checkbox" name="travel-now" value="{{ item.value }}" />
-          <label class="form-label form-control-checkbox" for="{{ item.value | slugify }}">{{ item.label }}</label>
+          <label class="block-label" for="{{ item.value | slugify }}">
+            <input id="{{ item.value | slugify }}" type="checkbox" name="travel-now" value="{{ item.value }}" />
+            {{ item.label }}
+          </label>
         {% endfor %}
 
-        <input id="travel-now-se" type="checkbox" name="travel-now" value="" />
-        <label class="form-label form-control-checkbox" for="travel-now-se" data-target="se-ask">Something else</label>
+        <label class="block-label" for="travel-now-se" data-target="se-ask">
+          <input id="travel-now-se" type="checkbox" name="travel-now" value="" />
+          Something else
+        </label>
         <fieldset class="mid-form js-hidden" id="se-ask">
           <div class="form-group panel-indent mid-form">
             <label class="form-label" for="travel-now-se-ask">What?</label>

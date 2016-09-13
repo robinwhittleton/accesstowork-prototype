@@ -34,12 +34,18 @@
         <fieldset>
             <!-- <legend class="heading-small" id="howEmployed">Your employment status</legend> -->
             <div class="form-group" aria-labelledby="howEmployed">
-                <input id="employed" type="radio" name="emp-status" value="Employed" data-dest="employed">
-                <label class="form-label form-control-radio" for="employed" data-target="what-you-need"> Employed </label>
-                <input id="self-employed" type="radio" name="emp-status" value="Self" data-dest="self-employed">
-                <label class="form-label form-control-radio" for="self-employed" data-target="what-you-need"> Self-employed </label>
-                <input id="ltd" type="radio" name="emp-status" value="Director" data-dest="limited-company">
-                <label class="form-label form-control-radio" for="ltd" data-target="what-you-need"> Director of a limited company </label>
+                <label class="block-label" for="employed" data-target="what-you-need">
+                  <input id="employed" type="radio" name="emp-status" value="Employed" data-dest="employed">
+                  Employed
+                </label>
+                <label class="block-label" for="self-employed" data-target="what-you-need">
+                  <input id="self-employed" type="radio" name="emp-status" value="Self" data-dest="self-employed">
+                  Self-employed
+                </label>
+                <label class="block-label" for="ltd" data-target="what-you-need">
+                  <input id="ltd" type="radio" name="emp-status" value="Director" data-dest="limited-company">
+                  Director of a limited company
+                </label>
             </div>
         </fieldset>
       </div>
