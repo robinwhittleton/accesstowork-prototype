@@ -17,7 +17,7 @@ $(document).ready(function() {
   // toggleContent.showHideRadioToggledContent();
   // toggleContent.showHideCheckboxToggledContent();
 
-  $('.form-control-radio').on('click',function(e)
+  $('.selection-button-radio').on('click',function(e)
   {
     // save the clicked label
     var self = this;
@@ -39,7 +39,7 @@ $(document).ready(function() {
     });
   });
 
-  $('.form-control-checkbox').on('click',function(e)
+  $('.selection-button-checkbox').on('click',function(e)
   {
     var target = $(this).data('target');
     $('#'+target).toggle();
